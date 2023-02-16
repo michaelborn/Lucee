@@ -56,6 +56,10 @@
       <delete dir="${outputDir}"/>
   </target>
 
+  <!-- Output the project version for use in versioning S3 artifact uploads -->
+  <target name="version">
+    <echo>${version}</echo>
+  </target>
 
   <target name="quick" depends="setEnv" description="build only Lucee itself, only the .lco file">
       <echots message="Quick Build, only build .lco"/>
