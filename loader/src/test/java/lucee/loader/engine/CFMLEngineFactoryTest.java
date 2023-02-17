@@ -7,6 +7,8 @@ import javax.servlet.ServletConfig;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import lucee.loader.engine.CFMLEngineFactory;
+
 public class CFMLEngineFactoryTest {
     
     @Test
