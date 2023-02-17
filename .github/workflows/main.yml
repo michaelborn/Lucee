@@ -21,6 +21,36 @@ on:
 #  cancel-in-progress: true
 
 jobs:
+  junit:
+    runs-on: ubuntu-latest
+    env:
+      LUCEE_TEST_JAVA_VERSION: 8
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - name: Set up Test Java Version ${{ env.LUCEE_TEST_JAVA_VERSION }}
+        uses: actions/setup-java@v3
+        if: ${{ env.LUCEE_TEST_JAVA_VERSION != '' }}
+        with:
+          java-version: ${{ env.LUCEE_TEST_JAVA_VERSION }}
+          distribution: 'temurin'
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.m2/repository/*
+          !~/.m2/repository/org/lucee/lucee/
+        key: ${{ runner.os }}-maven-${{ hashFiles('loader/pom.xml','core/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+      - name: Run Junit Tests on Core
+        working-directory: ./core
+        run: mvn --batch-mode -f pom.xml test
+
+      - name: Run Junit Tests on Loader
+        working-directory: ./loader
+        run: mvn --batch-mode -f pom.xml compiler:testCompile surefire:test
+
   build:
 
     runs-on: ubuntu-latest
