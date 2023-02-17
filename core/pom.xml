@@ -8,7 +8,7 @@
   <version>5.0.0.141</version>
   <packaging>jar</packaging>
 
-  <name>Lucee Core Build</name>
+  <name>Lucee Core</name>
   <description>Building the Lucee Core File</description>
   <url>https://maven.lucee.org/core/</url>
 
@@ -88,6 +88,23 @@
                     <statelessTestsetInfoReporter
                             implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporterUnicode">
                     </statelessTestsetInfoReporter>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                  <execution>
+                      <id>attach-javadocs</id>
+                      <goals>
+                        <goal>jar</goal>
+                      </goals>
+                  </execution>
+                </executions>
+                <configuration>
+                  <additionalparam>-Xdoclint:none</additionalparam>
+                  <failOnError>false</failOnError>
                 </configuration>
             </plugin>
         </plugins>
@@ -316,7 +333,6 @@
       <type>pom</type>
       <scope>test</scope>
     </dependency>
-
     <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-inline</artifactId>
