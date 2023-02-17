@@ -33,15 +33,15 @@ jobs:
         with:
           java-version: ${{ env.LUCEE_TEST_JAVA_VERSION }}
           distribution: 'temurin'
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.m2/repository/*
-          !~/.m2/repository/org/lucee/lucee/
-        key: ${{ runner.os }}-maven-${{ hashFiles('loader/pom.xml','core/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.m2/repository/*
+            !~/.m2/repository/org/lucee/lucee/
+          key: ${{ runner.os }}-maven-${{ hashFiles('loader/pom.xml','core/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
       - name: Run Junit Tests on Core
         working-directory: ./core
