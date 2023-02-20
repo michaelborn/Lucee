@@ -3,7 +3,7 @@
 
   <groupId>org.lucee</groupId>
   <artifactId>lucee</artifactId>
-  <version>6.0.0.346-SNAPSHOT</version>
+  <version>6.0.0.346-BETA</version>
   <packaging>jar</packaging>
 
   <name>Lucee Loader</name>
@@ -309,23 +309,10 @@
   <dependencies>
 
   <dependency>
-    <groupId>org.junit</groupId>
-    <artifactId>junit-bom</artifactId>
-    <version>5.9.2</version>
-    <type>pom</type>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
     <scope>test</scope>
-  </dependency>
-  <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-inline</artifactId>
-      <version>4.0.0</version>
-      <scope>test</scope>
-  </dependency>
-  <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <version>4.0.0</version>
-      <scope>test</scope>
   </dependency>
   <dependency>
     <groupId>org.apache.felix</groupId>
