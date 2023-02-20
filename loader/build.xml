@@ -20,7 +20,7 @@
       <artifact:pom id="pom" file="pom.xml" />
 
       <!-- dependecies -->
-      <artifact:dependencies filesetId="mydeps" pomRefId="pom" />
+      <artifact:dependencies filesetId="mydeps" pomRefId="pom" useScope="compile" />
       <pathconvert property="dependencies" refid="mydeps"/>
 
       <property name="runtime_classpath" value="${java.class.path}:${dependencies}"/>
