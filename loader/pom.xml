@@ -164,6 +164,7 @@
                <!-- add this to disable checking
                 <additionalparam>-Xdoclint:none</additionalparam>
                -->
+                <failOnError>false</failOnError>
             </configuration> 
             </execution>
           </executions>
@@ -261,23 +262,6 @@
                   <statelessTestsetInfoReporter
                           implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporterUnicode">
                   </statelessTestsetInfoReporter>
-              </configuration>
-          </plugin>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <version>3.4.1</version>
-              <executions>
-                <execution>
-                    <id>attach-javadocs</id>
-                    <goals>
-                      <goal>jar</goal>
-                    </goals>
-                </execution>
-              </executions>
-              <configuration>
-                <additionalparam>-Xdoclint:none</additionalparam>
-                <failOnError>false</failOnError>
               </configuration>
           </plugin>
 
