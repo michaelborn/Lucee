@@ -45,6 +45,10 @@ Lucee uses [TestBox](https://testbox.ortusbooks.com/) as our test framework, we 
 
 The test suites use a range of Test Services, like s3, database, ftp, etc. You can see how they are configured in [_setupTestServices.cfc](https://github.com/lucee/Lucee/blob/6.0/test/_setupTestServices.cfc) via the source code.
 
+## Running Tests
+
+See `tests/README.md` for instructions on running the test suite locally.
+
 ## Getting Help
 
 - [Lucee Documentation Project](https://docs.lucee.org/)
