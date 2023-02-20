@@ -17,7 +17,7 @@ component extends = "org.lucee.cfml.test.LuceeTestCase" labels="h2" skip="false"
 					names=listAppend(names, name);
 					thread name=name {
 						query {
-							echo("show tables");
+							echo("CREATE TABLE IF NOT EXISTS pages(id VARCHAR(35), name VARCHAR(255))");
 						}
 					}
 				}
