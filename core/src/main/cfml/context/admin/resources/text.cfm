@@ -2,6 +2,7 @@
 <!--- language files are deployed to {lucee-web}/context/admin/resources/language by ConfigWebFactory.java and are read from there !--->
 
 <cfscript>
+	if(isNull(request.singlemode))request.singlemode=false;
 	sHelpURL = "https://www.lucee.org/help/stHelp.json";
 	param name="request.stLocalHelp" default="#structNew()#";
 	param name="request.stWebMediaHelp" default="#structNew()#";
@@ -10,14 +11,13 @@
 
 	//structDelete(application, "stText");
 	//structDelete(application, "stWebHelp");
-
 	if ( structKeyExists( form, "lang" )
 			|| !structKeyExists( application, "languages" )
-			|| !structKeyExists( application.stText, session.lucee_admin_lang )
-			|| structKeyExists( url, "reinit" ) ){
+			|| !structKeyExists( application.stText, session.lucee_admin_lang ) 
+			|| isNull( application.stText[session.lucee_admin_lang].setting.externalizeStringGTE ) 
+			|| structKeyExists( url, "reinit" )){
 
 		cfinclude( template="menu.cfm" );
-
 		langData  = getAvailableLanguages();
 
 		languages = {};
@@ -54,8 +54,9 @@
 				request.hasRemoteClientUsage=true;
 		}
 
-		stText.menuStruct.web = createMenu( stText.menu, "web",request.singlemode);
-		stText.menuStruct.server = createMenu( stText.menu, "server",request.singlemode);
+		
+		stText.menuStruct.web = createMenu( stText.menu, "web",request.singlemode?:false);
+		stText.menuStruct.server = createMenu( stText.menu, "server",request.singlemode?:false);
 
 	} else{
 		languages=application.languages;
