@@ -45,6 +45,15 @@ Lucee uses [TestBox](https://testbox.ortusbooks.com/) as our test framework, we 
 
 The test suites use a range of Test Services, like s3, database, ftp, etc. You can see how they are configured in [_setupTestServices.cfc](https://github.com/lucee/Lucee/blob/6.0/test/_setupTestServices.cfc) via the source code.
 
+### Helpful Build Commands
+
+* `mvn -f core/pom.xml javadoc:javadoc` - Generate the Lucee core javadocs
+* `mvn -f loader/pom.xml javadoc:javadoc` - Generate the Lucee loader javadocs
+* `cd test && ./test.sh` - Run all tests
+* `cd test && ./test.sh -DtestFilter="orm"` - Run all tests with "orm" in the file path
+* `cd test && ./test.sh -DtestLabels="orm"` - Run all tests labelled as "orm"
+* `cd test && ./test.sh -DtestSkip="false" ` - Run all tests *including* tests marked as `skip=true`
+
 ## Running Tests
 
 See `tests/README.md` for instructions on running the test suite locally.
