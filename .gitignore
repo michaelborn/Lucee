@@ -19,6 +19,7 @@ target/*
 *.cfc.hbm.xml
 /cache
 WEB-INF
+loader/lucee-server/
 
 .classpath
 *.eml
