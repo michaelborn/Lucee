@@ -274,7 +274,6 @@ public final class DateFormat extends BaseFormat implements Format {
 		if (count == 1) return res.substring(0, 3);
 		if (count == 2) return res;
 
-		// String h=(res.charAt(1)=='0')? h=res.substring(2, 3):res.substring(1, 3);
 		return res.substring(0, 1) + res.substring(1, 3) + ":" + res.substring(3);
 	}
 

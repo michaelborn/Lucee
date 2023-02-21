@@ -41,7 +41,6 @@ public final class Switch extends StatementBaseNoFinal implements FlowControlBre
 
 	public static final Method INIT = new Method("<init>", Types.VOID, new Type[] {});
 
-	// int find(Array array, Object object)
 	private static final Method FIND = new Method("find", Types.INT_VALUE, new Type[] { Types.ARRAY, Types.OBJECT });
 
 	private List<Case> cases = new ArrayList<Case>();
@@ -108,7 +107,6 @@ public final class Switch extends StatementBaseNoFinal implements FlowControlBre
 			adapter.pop();
 		}
 
-		// int result=ArrayUtil.find(array,expression);
 		int result = adapter.newLocal(Types.INT_VALUE);
 		adapter.loadLocal(array);
 		expr.writeOut(bc, Expression.MODE_REF);

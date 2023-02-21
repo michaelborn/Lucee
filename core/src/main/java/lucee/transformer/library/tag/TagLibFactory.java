@@ -169,14 +169,10 @@ public final class TagLibFactory extends DefaultHandler {
 		}
 		catch (IOException e) {
 
-			// String fileName=is.getSystemId();
-			// String message="IOException: ";
 			// if(fileName!=null) message+="In File ["+fileName+"], ";
 			throw new TagLibException(e);
 		}
 		catch (SAXException e) {
-			// String fileName=is.getSystemId();
-			// String message="SAXException: ";
 			// if(fileName!=null) message+="In File ["+fileName+"], ";
 			throw new TagLibException(e);
 		}

@@ -102,7 +102,6 @@ public final class CastOther extends ExpressionBase implements Cast {
 	// Array toArray(Object)
 	final public static Method TO_ARRAY = new Method("toArray", Types.ARRAY, new Type[] { Types.OBJECT });
 
-	// String toBase64 (Object);
 	final public static Method TO_BASE64 = new Method("toBase64", Types.STRING, new Type[] { Types.OBJECT });
 
 	// byte[] toBinary (Object)
@@ -114,7 +113,6 @@ public final class CastOther extends ExpressionBase implements Cast {
 	// lucee.runtime.Component toComponent (Object)
 	final public static Method TO_COMPONENT = new Method("toComponent", Types.COMPONENT, new Type[] { Types.OBJECT });
 
-	// String toDecimal (Object)
 	final public static Method TO_DECIMAL = new Method("toDecimal", Types.STRING, new Type[] { Types.OBJECT });
 
 	// lucee.runtime.config.Config getConfig ()

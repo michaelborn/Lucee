@@ -327,7 +327,6 @@ public final class ScriptConverter extends ConverterSupport {
 			while (it.hasNext()) {
 				e = it.next();
 				k = e.getKey();
-				// String key=Caster.toString(it.next(),"");
 				if (KeyConstants._THIS.equalsIgnoreCase(k)) continue;
 				if (!ignoreRemotingFetch) {
 					p = (Property) props.get(k, null);
@@ -544,7 +543,6 @@ public final class ScriptConverter extends ConverterSupport {
 				deep--;
 				return;
 			}
-			// String Converter
 			if (object instanceof ScriptConvertable) {
 				sb.append(((ScriptConvertable) object).serialize());
 				deep--;

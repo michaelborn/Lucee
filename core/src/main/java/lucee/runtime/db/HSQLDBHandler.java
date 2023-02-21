@@ -352,7 +352,6 @@ public final class HSQLDBHandler {
 				// sql.setSQLString(HSQLUtil.sqlToZQL(sql.getSQLString(),false));
 				try {
 					Iterator<String> it = tables.iterator();
-					// int len=tables.size();
 					while (it.hasNext()) {
 						String tableName = it.next().toString();// tables.get(i).toString();
 

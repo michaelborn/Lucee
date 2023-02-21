@@ -78,7 +78,6 @@ public final class UUCoder {
 		byte out[] = new byte[str.length()];
 		int len = 0;
 		int offset = 0;
-		// int current = 0;
 		byte b = 0;
 		boolean stop = false;
 		StringCharacterIterator it = new StringCharacterIterator(str);

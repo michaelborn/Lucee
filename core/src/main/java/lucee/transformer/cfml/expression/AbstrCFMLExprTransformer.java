@@ -1861,7 +1861,6 @@ public abstract class AbstrCFMLExprTransformer {
 	private int getFunctionMemberAttrs(Data data, ExprString name, boolean checkLibrary, Func fm, FunctionLibFunction flf) throws TemplateException {
 		// Function Attributes
 		ArrayList<FunctionLibFunctionArg> arrFuncLibAtt = null;
-		// int libLen = 0;
 		if (checkLibrary) {
 			arrFuncLibAtt = flf.getArg();
 			// libLen = arrFuncLibAtt.size();

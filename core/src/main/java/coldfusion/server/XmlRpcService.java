@@ -38,8 +38,6 @@ public interface XmlRpcService extends Service {
 
 	// arg3);
 
-	// String arg4, String arg5, String arg6,String arg7, String arg8);
-
 	public abstract String getClassPath();
 
 	public abstract void setClassPath(String arg0);

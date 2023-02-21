@@ -985,8 +985,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 				filter = new ExtensionResourceFilter(new String[] { "class", "MF" }, true, true);
 			}
 			String id = HashUtil.create64BitHashAsString(mapping.getStrPhysical(), Character.MAX_RADIX);
-			// String id = MD5.getDigestAsString(mapping.getStrPhysical());
-
 			String type;
 			if (mappingType == MAPPING_CFC) type = "cfc";
 			else if (mappingType == MAPPING_CT) type = "ct";

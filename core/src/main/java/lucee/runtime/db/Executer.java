@@ -140,7 +140,6 @@ public final class Executer {
 		Vector orders = query.getOrderBy();
 		ZExp where = query.getWhere();
 		// print.out(headers);
-		// int newRecCount=0;
 		boolean hasMaxrow = maxrows > -1 && (orders == null || orders.size() == 0);
 		for (int row = 1; row <= recCount; row++) {
 			sql.setPosition(0);

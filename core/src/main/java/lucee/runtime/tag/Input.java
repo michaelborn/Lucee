@@ -255,7 +255,6 @@ public class Input extends TagImpl {
 
 	public void setDir(String dir) {
 		// dir=dir.trim();
-		// String lcDir=dir.toLowerCase();
 		// if( "ltr".equals(lcDir) || "rtl".equals(lcDir))
 		attributes.setEL(KeyConstants._dir, dir);
 
@@ -265,7 +264,6 @@ public class Input extends TagImpl {
 
 	public void setDataformatas(String dataformatas) {
 		dataformatas = dataformatas.trim();
-		// String lcDataformatas=dataformatas.toLowerCase();
 		// if( "plaintext".equals(lcDataformatas) || "html".equals(lcDataformatas))
 		attributes.setEL("dataformatas", dataformatas);
 

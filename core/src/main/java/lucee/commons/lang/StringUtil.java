@@ -713,8 +713,6 @@ public final class StringUtil {
 
 		if (findLen == 0) return input;
 
-		// String scan = input;
-
 		/*
 		 * if ( ignoreCase ) { scan = scan.toLowerCase(); find = find.toLowerCase(); } else
 		 */ if (!ignoreCase && findLen == repl.length()) {
@@ -1198,7 +1196,6 @@ public final class StringUtil {
 		if (isEmpty(str)) return str;
 
 		StringBuilder sb = new StringBuilder();
-		// int len=str.length();
 		char c;
 
 		sb.append(Character.toLowerCase(str.charAt(0)));

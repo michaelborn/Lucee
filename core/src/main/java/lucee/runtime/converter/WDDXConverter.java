@@ -720,7 +720,6 @@ public final class WDDXConverter extends ConverterSupport {
 	 * @throws ConverterException
 	 */
 	private Object _deserializeComponent(Element elComp) throws ConverterException {
-		// String type=elStruct.getAttribute("type");
 		String name = elComp.getAttribute("name");
 		String md5 = elComp.getAttribute("md5");
 

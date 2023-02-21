@@ -166,7 +166,6 @@ public final class FTPResource extends ResourceSupport {
 				return !file.isUnknown();
 			}
 
-			// String pathname = getInnerPath();
 			String p = getInnerPath();
 			if (!StringUtil.endsWith(p, '/')) p += "/";
 			if (client.listNames(p) != null) return true;
@@ -278,7 +277,6 @@ public final class FTPResource extends ResourceSupport {
 				return file.isFile();
 			}
 			return false;
-			// String pathname = getInnerPath();
 			// return (is=client.retrieveFileStream(pathname))!=null;
 		}
 

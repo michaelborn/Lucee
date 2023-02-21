@@ -509,7 +509,6 @@ public final class CFMLTransformer {
 					break;
 				}
 				else if (codeIsland && data.srcCode.isCurrent(AbstrCFMLScriptTransformer.TAG_ISLAND_INDICATOR) && count > 1) {
-					// int start = data.srcCode.getPos();
 					if (data.srcCode.forwardIfCurrent(AbstrCFMLScriptTransformer.TAG_ISLAND_INDICATOR + AbstrCFMLScriptTransformer.TAG_ISLAND_INDICATOR)) {
 						text.append(AbstrCFMLScriptTransformer.TAG_ISLAND_INDICATOR);
 						// parent.addPrintOut(data.factory,AbstrCFMLScriptTransformer.TAG_ISLAND_INDICATOR,
@@ -613,7 +612,6 @@ public final class CFMLTransformer {
 			boolean hasBody = false;
 
 			Position line = data.srcCode.getPosition();
-			// int column=data.cfml.getColumn();
 			int start = data.srcCode.getPos();
 			data.srcCode.next();
 

@@ -827,7 +827,6 @@ public class ConcurrentHashMapNullSupport<K, V> extends AbstractMap<K, V> implem
 	@Override
 	public V getOrDefault(Object key, V defaultValue) {
 		int hash = hash(key);
-		// int hash = hash(key.hashCode());
 		return segmentFor(hash).get(key, hash, defaultValue);
 	}
 

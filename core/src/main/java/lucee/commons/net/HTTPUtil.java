@@ -138,7 +138,6 @@ public final class HTTPUtil {
 
 		// file
 		String path = url.getPath();
-		// String file=url.getFile();
 		String query = url.getQuery();
 		String ref = url.getRef();
 		String user = url.getUserInfo();

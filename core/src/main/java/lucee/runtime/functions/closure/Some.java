@@ -124,7 +124,6 @@ public class Some extends BIF implements ClosureFunc {
 		else if (obj instanceof Enumeration) {
 			res = invoke(pc, (Enumeration) obj, udf, execute, futures);
 		}
-		// String List
 		else if (obj instanceof StringListData) {
 			res = invoke(pc, (StringListData) obj, udf, execute, futures);
 		}

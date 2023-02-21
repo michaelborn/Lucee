@@ -3069,8 +3069,6 @@ public final class ConfigWebFactory extends ConfigFactory {
 
 			String strAllowRealPath = null;
 			String strDeployDirectory = null;
-			// String strTempDirectory=null;
-
 			// system.property or env var
 			String strDefaultFLDDirectory = null;
 			String strDefaultTLDDirectory = null;

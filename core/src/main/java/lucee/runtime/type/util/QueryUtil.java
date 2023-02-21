@@ -225,7 +225,6 @@ public class QueryUtil {
 		maxlevel--;
 		Collection.Key[] keys = CollectionUtil.keys(query);
 		DumpData[] heads = new DumpData[keys.length + 1];
-		// int tmp=1;
 		heads[0] = new SimpleDumpData("");
 		for (int i = 0; i < keys.length; i++) {
 			heads[i + 1] = new SimpleDumpData(keys[i].getString());

@@ -2910,7 +2910,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 
 	@Override
 	public ORMEngine resetORMEngine(PageContext pc, boolean force) throws PageException {
-		// String name = pc.getApplicationContext().getName();
 		// ormengines.remove(name);
 		ORMEngine e = getORMEngine(pc);
 		e.reload(pc, force);

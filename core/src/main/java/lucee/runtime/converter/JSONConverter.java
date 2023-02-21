@@ -705,7 +705,6 @@ public final class JSONConverter extends ConverterSupport {
 			_serialize(pc, test, ((File) object).getAbsolutePath(), sb, queryFormat, done);
 			return;
 		}
-		// String Converter
 		if (object instanceof ScriptConvertable) {
 			sb.append(((ScriptConvertable) object).serialize());
 			return;

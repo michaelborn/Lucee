@@ -34,7 +34,6 @@ public final class OpString extends ExpressionBase implements ExprString {
 	private ExprString right;
 	private ExprString left;
 
-	// String concat (String)
 	private final static Method METHOD_CONCAT = new Method("concat", Types.STRING, new Type[] { Types.STRING });
 	private static final int MAX_SIZE = 65535;
 

@@ -38,8 +38,6 @@ public class SessionEndCacheEvent implements CacheEventListener {
 
 		// type
 		int index = key.indexOf(':'), last;
-		// String type=key.substring(0,index);
-
 		// cfid
 		last = index + 1;
 		index = key.indexOf(':', last);

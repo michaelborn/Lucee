@@ -99,7 +99,6 @@ public final class JavaProxy implements Function {
 			}
 		}
 
-		// String input
 		if (str != null) {
 
 			// Bundle Name?

@@ -35,7 +35,6 @@ public final class Methods_Caster {
 	 * ext.img final public static Method TO_IMAGE = new Method("toImage", ImageUtil.getImageType(), new
 	 * Type[]{Types.OBJECT,Types.PAGE_CONTEXT});
 	 */
-	// String toBase64 (Object)
 	final public static Method TO_BASE64 = new Method("toBase64", Types.STRING, new Type[] { Types.OBJECT });
 	// byte[] toBinary(Object)
 	final public static Method TO_BINARY = new Method("toBinary", Types.BYTE_VALUE_ARRAY, new Type[] { Types.OBJECT });

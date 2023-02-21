@@ -1132,7 +1132,6 @@ public final class Http extends BodyTagImpl {
 			/////////////////////////////////////////// /////////////////////////////////////////////////
 			int statCode = 0;
 			// Write Response Scope
-			// String rawHeader=httpMethod.getStatusLine().toString();
 			String mimetype = null;
 			String contentEncoding = null;
 			String rspCharset = null;

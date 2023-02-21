@@ -193,7 +193,6 @@ public class SimpleQuery implements Query, ResultSet, Objects, QueryResult {
 		int columncount = meta.getColumnCount();
 		List<Key> tmpKeys = new ArrayList<Key>();
 		// List<Integer> tmpTypes=new ArrayList<Integer>();
-		// int count=0;
 		Collection.Key key;
 		String columnName;
 		int type;

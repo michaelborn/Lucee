@@ -833,8 +833,6 @@ public final class SMTPClient implements Serializable {
 
 				Server server = servers[i];
 				String _username = null, _password = "";
-				// int _port;
-
 				// username/password
 
 				if (server.hasAuthentication()) {

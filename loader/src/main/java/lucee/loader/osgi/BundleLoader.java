@@ -62,11 +62,8 @@ public class BundleLoader {
 			// Get data from Manifest and default.properties
 
 			// Lucee Core Version
-			// String rcv = unwrap(defProp.getProperty("lucee.core.version"));
 			// if(Util.isEmpty(rcv)) throw new IOException("lucee core ["+rc+"] is invalid, no core version is
 			// defined in the {Lucee-Core}/default.properties File");
-			// int version = CFMLEngineFactory.toInVersion(rcv);
-
 			// read the config from default.properties
 			final Map<String, Object> config = new HashMap<String, Object>();
 			{

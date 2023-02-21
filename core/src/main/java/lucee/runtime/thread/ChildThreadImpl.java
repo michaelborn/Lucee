@@ -189,8 +189,6 @@ public class ChildThreadImpl extends ChildThread implements Serializable {
 			pc.setCurrentThreadScope(new ThreadsImpl(this));
 			pc.setThread(Thread.currentThread());
 
-			// String encodings = pc.getHttpServletRequest().getHeader("Accept-Encoding");
-
 			Undefined undefined = pc.us();
 
 			Argument newArgs = new ArgumentThreadImpl((Struct) Duplicator.duplicate(attrs, false));

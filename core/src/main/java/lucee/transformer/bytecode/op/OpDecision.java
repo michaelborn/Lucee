@@ -46,7 +46,6 @@ public final class OpDecision extends ExpressionBase implements ExprBoolean {
 	private final Expression right;
 	private final int op;
 
-	// int compare (Object, Object)
 	final public static Method METHOD_COMPARE = new Method("compare", Types.INT_VALUE, new Type[] { Types.OBJECT, Types.OBJECT });
 
 	private OpDecision(Expression left, Expression right, int operation) {

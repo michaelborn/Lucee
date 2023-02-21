@@ -275,7 +275,6 @@ public final class ValidateCreditCard {
 	 */
 	private static String toPrettyString(long creditCardNumber) {
 		String plain = Long.toString(creditCardNumber);
-		// int i = findMatchingRange(creditCardNumber);
 		int length = plain.length();
 
 		switch (length) {

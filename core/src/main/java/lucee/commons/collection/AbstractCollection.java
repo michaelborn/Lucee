@@ -348,8 +348,6 @@ public abstract class AbstractCollection<E> implements Collection<E> {
 		}
 	}
 
-	// String conversion
-
 	/**
 	 * Returns a string representation of this collection. The string representation consists of a list
 	 * of the collection's elements in the order they are returned by its iterator, enclosed in square

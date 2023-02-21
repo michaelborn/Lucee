@@ -390,7 +390,6 @@ public final class SQLCaster {
 		else if (type == Types.BIGINT) {
 			return Caster.toString(Caster.toLongValue(item.getValue()));
 		}
-		// int types
 		else if (type == Types.INTEGER || type == Types.SMALLINT || type == Types.TINYINT) {
 			return Caster.toString(Caster.toIntValue(item.getValue()));
 		}
@@ -464,7 +463,6 @@ public final class SQLCaster {
 		else if (type == Types.BIGINT) {
 			return Caster.toLong(item.getValue());
 		}
-		// int types
 		else if (type == Types.INTEGER || type == Types.SMALLINT || type == Types.TINYINT) {
 			return Caster.toInteger(item.getValue());
 		}
@@ -546,7 +544,6 @@ public final class SQLCaster {
 		else if (type == Types.BIGINT) {
 			return Caster.toLong(value);
 		}
-		// int types
 		else if (type == Types.INTEGER || type == Types.SMALLINT || type == Types.TINYINT) {
 			return Caster.toInteger(value);
 		}

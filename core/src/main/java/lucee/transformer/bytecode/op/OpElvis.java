@@ -118,7 +118,6 @@ public final class OpElvis extends ExpressionBase {
 
 		ArrayVisitor av = new ArrayVisitor();
 		if (!allLiteral) {
-			// String Array
 			av.visitBegin(adapter, Types.STRING, arr.length);
 			for (int i = 0; i < arr.length; i++) {
 				av.visitBeginItem(adapter, i);

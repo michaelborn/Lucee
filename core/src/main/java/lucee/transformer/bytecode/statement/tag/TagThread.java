@@ -74,7 +74,6 @@ public final class TagThread extends TagBaseNoFinal implements ATagThread {
 		GeneratorAdapter adapter = bc.getAdapter();
 		// Page page = ASMUtil.getAncestorPage(this);
 
-		// int index=page.addThread(this);
 		super._writeOut(bc, false);
 
 		adapter.loadLocal(bc.getCurrentTag());

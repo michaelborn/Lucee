@@ -1234,7 +1234,6 @@ public final class ListUtil {
 		if (list.length() == 0) return "";
 		int from = 0;
 		int to = list.length();
-		// int len=delimiter.length();
 		char[] del = delimiter.toCharArray();
 		char c;
 
@@ -1252,7 +1251,6 @@ public final class ListUtil {
 			break;
 		}
 
-		// int len;
 		outer: while (to > from) {
 			c = list.charAt(to - 1);
 			for (int i = 0; i < del.length; i++) {

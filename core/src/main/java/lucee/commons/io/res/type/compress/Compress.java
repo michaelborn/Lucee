@@ -118,7 +118,6 @@ public final class Compress {
 
 			ResourceUtil.removeChildrenEL(temp);
 			// if(root!=null)ResourceUtil.removeChildrenEL(root);
-			// String name=CreateUUID.invoke();
 			// root=temp.getRealResource(name);
 			root.mkdirs();
 		}

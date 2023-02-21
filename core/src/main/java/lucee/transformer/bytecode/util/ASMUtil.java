@@ -586,8 +586,6 @@ public final class ASMUtil {
 		cw.visitField(Opcodes.ACC_PRIVATE, name, type.toString(), null, null).visitEnd();
 
 		int load = loadFor(type);
-		// int sizeOf=sizeOf(type);
-
 		// get<PropertyName>():<type>
 		Type[] types = new Type[0];
 		Method method = new Method((clazz == boolean.class ? "get" : "get") + StringUtil.ucFirst(name), type, types);

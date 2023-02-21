@@ -131,7 +131,6 @@ public final class Page extends BodyBase implements Root {
 	 * / void _try () private final static Method TRY = new Method( "_try", Types.VOID, new Type[]{} );
 	 */
 
-	// int getVersion()
 	private final static Method VERSION = new Method("getVersion", Types.LONG_VALUE, new Type[] {});
 	// void _init()
 	private final static Method INIT_KEYS = new Method("initKeys", Types.VOID, new Type[] {});
@@ -998,7 +997,6 @@ public final class Page extends BodyBase implements Root {
 		adapter.invokeVirtual(Types.PAGE_CONTEXT, PUSH_BODY);
 		adapter.storeLocal(localBC);
 
-		// int oldCheckArgs= pc.undefinedScope().setMode(Undefined.MODE_NO_LOCAL_AND_ARGUMENTS);
 		final int oldCheckArgs = adapter.newLocal(Types.INT_VALUE);
 		adapter.loadArg(0);
 		adapter.invokeVirtual(Types.PAGE_CONTEXT, UNDEFINED_SCOPE);
@@ -1129,7 +1127,6 @@ public final class Page extends BodyBase implements Root {
 		adapter.visitInsn(Opcodes.RETURN);
 		adapter.visitLabel(afterIf);
 
-		// int oldCheckArgs= pc.undefinedScope().setMode(Undefined.MODE_NO_LOCAL_AND_ARGUMENTS);
 		final int oldCheckArgs = adapter.newLocal(Types.INT_VALUE);
 		adapter.loadArg(0);
 		adapter.invokeVirtual(Types.PAGE_CONTEXT, UNDEFINED_SCOPE);

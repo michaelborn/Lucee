@@ -38,7 +38,6 @@ import lucee.transformer.expression.Expression;
 
 public final class TagSwitch extends TagBaseNoFinal {
 
-	// int listFindNoCase(String list, String value, String delimiter)
 	private static final Method LIST_FIND_NO_CASE = new Method("listFindForSwitch", Types.INT_VALUE, new Type[] { Types.STRING, Types.STRING, Types.STRING });
 
 	/**

@@ -24,16 +24,12 @@ import org.objectweb.asm.commons.Method;
 public final class Methods {
 
 	// Caster String
-	// String toString (Object)
 	final public static Method METHOD_TO_STRING = new Method("toString", Types.STRING, new Type[] { Types.OBJECT });
-	// String toString (String)
 	// final public static Method METHOD_TO_STRING_FROM_STRING = new Method("toString",Types.STRING,new
 	// Type[]{Types.STRING});
 
-	// String toString (double)
 	final public static Method METHOD_TO_STRING_FROM_DOUBLE_VALUE = new Method("toString", Types.STRING, new Type[] { Types.DOUBLE_VALUE });
 	final public static Method METHOD_TO_STRING_FROM_NUMBER = new Method("toString", Types.STRING, new Type[] { Types.NUMBER });
-	// String toString (boolean)
 	final public static Method METHOD_TO_STRING_FROM_BOOLEAN = new Method("toString", Types.STRING, new Type[] { Types.BOOLEAN_VALUE });
 
 	// Caster Boolean

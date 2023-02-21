@@ -2313,7 +2313,6 @@ public final class PageContextImpl extends PageContext {
 			MimeType contentType = ReqRspUtil.getContentType(this);
 
 			// check for format extension
-			// int format = getApplicationContext().getRestSettings().getReturnFormat();
 			int format;
 			boolean hasFormatExtension = false;
 			if (StringUtil.endsWithIgnoreCase(pathInfo, ".json")) {
@@ -2371,7 +2370,6 @@ public final class PageContextImpl extends PageContext {
 			RestRequestListener rl = null;
 			lucee.runtime.rest.Mapping[] restMappings = config.getRestMappings();
 			lucee.runtime.rest.Mapping m, mapping = null, defaultMapping = null;
-			// String callerPath=null;
 			if (restMappings != null) for (int i = 0; i < restMappings.length; i++) {
 				m = restMappings[i];
 				if (m.isDefault()) defaultMapping = m;

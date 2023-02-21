@@ -131,7 +131,6 @@ public class Filter extends BIF implements ClosureFunc {
 		else if (obj instanceof Enumeration) {
 			coll = invoke(pc, (Enumeration) obj, udf, execute, futures);
 		}
-		// String List
 		else if (obj instanceof StringListData) {
 			coll = invoke(pc, (StringListData) obj, udf, execute, futures);
 		}

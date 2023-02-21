@@ -155,7 +155,6 @@ public class BodyBase extends StatementBaseNoFinal implements Body {
 		Iterator<Statement> it = statements.iterator();
 		boolean split = bc.getPage().getSplitIfNecessary();
 
-		// int lastLine=-1;
 		while (it.hasNext()) {
 			isOutsideMethod = bc.getMethod().getReturnType().equals(Types.VOID);
 			Statement s = it.next();

@@ -108,8 +108,6 @@ public class ScriptEngineFactoryImpl implements ScriptEngineFactory {
 
 	@Override
 	public String getProgram(String... statements) {
-		// String name=getScriptTagName();
-
 		StringBuilder sb = new StringBuilder()
 		/*
 		 * .append("<") .append(name) .append(">\n")

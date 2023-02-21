@@ -215,7 +215,6 @@ public final class Import extends EvaluatorSupport {
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();
 					while ((bytes_read = zis.read(buffer)) != -1)
 						baos.write(buffer, 0, bytes_read);
-					// String name = ze.getName().replace('\\', '/');
 					barr = baos.toByteArray();
 					zis.closeEntry();
 					baos.close();

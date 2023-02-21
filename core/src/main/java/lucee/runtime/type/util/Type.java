@@ -59,7 +59,6 @@ public final class Type {
 
 	public static String getName(Class clazz) {
 		if (clazz == null) return "null";
-		// String name=clazz.getName();
 		// if(Reflector.isInstaneOf(clazz,String.class)) return "String";
 		if (Reflector.isInstaneOf(clazz, UDF.class, false)) return "user defined function";
 		// else if(Reflector.isInstaneOf(clazz,Boolean.class)) return "Boolean";

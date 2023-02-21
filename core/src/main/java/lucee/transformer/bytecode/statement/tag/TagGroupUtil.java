@@ -51,7 +51,6 @@ public class TagGroupUtil {
 	// void removeQuery()
 	public static final Method REMOVE_QUERY = new Method("removeQuery", Types.VOID, new Type[] {});
 
-	// int getRecordcount()
 	public static final Method GET_RECORDCOUNT = new Method("getRecordcount", Types.INT_VALUE, new Type[] {});
 
 	public static final Method RANGE = new Method("range", Types.INT_VALUE, new Type[] { Types.INT_VALUE, Types.INT_VALUE });
@@ -77,7 +76,6 @@ public class TagGroupUtil {
 
 	public static final Method IS_VALID_1 = new Method("isValid", Types.BOOLEAN_VALUE, new Type[] { Types.INT_VALUE });
 
-	// int current()
 	public static final Method CURRENT = new Method("current", Types.INT_VALUE, new Type[] {});
 
 	// void release(NumberIterator ni)
@@ -89,7 +87,6 @@ public class TagGroupUtil {
 	// void reset()
 	public static final Method RESET = new Method("reset", Types.VOID, new Type[] { Types.INT_VALUE });
 
-	// int first()
 	public static final Method FIRST = new Method("first", Types.INT_VALUE, new Type[] {});
 	public static final Method GET_ID = new Method("getId", Types.INT_VALUE, new Type[] {});
 
@@ -116,7 +113,6 @@ public class TagGroupUtil {
 		adapter.invokeVirtual(Types.PAGE_CONTEXT, TagLoop.GET_ID);
 		adapter.storeLocal(tag.getPID());
 
-		// int startAt=query.getCurrentrow();
 		final int startAt = adapter.newLocal(Types.INT_VALUE);
 		adapter.loadLocal(tag.getQuery());
 
@@ -515,7 +511,6 @@ public class TagGroupUtil {
 		tag.setPID(parent.getPID());
 		// queryImpl = parent.getQueryImpl();
 
-		// int currentOuter=ni.current();
 		int current = adapter.newLocal(Types.INT_VALUE);
 		adapter.loadLocal(tag.getNumberIterator());
 		adapter.invokeVirtual(NUMBER_ITERATOR, CURRENT);

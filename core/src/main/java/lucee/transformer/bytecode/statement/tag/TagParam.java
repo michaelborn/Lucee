@@ -75,7 +75,6 @@ public final class TagParam extends TagBaseNoFinal {
 
 		// if(StringUtil.isEmpty(name)) throw new ExpressionException("The attribute name is required");
 
-		// String name="kkk";
 		// Object value=VariableInterpreter.getVariableEL(pc,name,NullSupportHelper.NULL(pc));
 
 		/*

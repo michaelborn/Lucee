@@ -87,7 +87,6 @@ public class SimpleHTMLDumpWriter implements DumpWriter {
 		for (int i = 0; i < rows.length; i++) {
 			writer.write("<tr>");
 			DumpData[] items = rows[i].getItems();
-			// int comperator=1;
 			for (int y = 0; y < cols; y++) {
 				if (y <= items.length - 1) value = items[y];
 				else value = new SimpleDumpData("&nbsp;");

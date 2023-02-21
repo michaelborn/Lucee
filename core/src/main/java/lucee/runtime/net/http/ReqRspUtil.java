@@ -194,7 +194,6 @@ public final class ReqRspUtil {
 	}
 
 	public static String getQueryString(HttpServletRequest req) {
-		// String qs = req.getAttribute("javax.servlet.include.query_string");
 		return req.getQueryString();
 	}
 

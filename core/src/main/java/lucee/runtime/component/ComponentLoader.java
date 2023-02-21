@@ -484,7 +484,6 @@ public class ComponentLoader {
 	private static CIObject load(PageContext pc, Page page, String callPath, String sub, boolean isRealPath, short returnType, final boolean isExtendedComponent,
 			boolean executeConstr, boolean validate) throws PageException {
 		CIPage cip = toCIPage(page, callPath);
-		// String subName = null;
 		if (sub != null) {
 			cip = loadSub(cip, sub);
 		}

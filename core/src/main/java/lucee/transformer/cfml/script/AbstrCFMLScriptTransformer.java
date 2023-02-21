@@ -509,7 +509,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 	private final boolean caseStatement(Data data, Switch swit) throws TemplateException {
 		if (!data.srcCode.forwardIfCurrentAndNoWordAfter("case")) return false;
 
-		// int line=data.srcCode.getLine();
 		comments(data);
 		Expression expr = super.expression(data);
 		comments(data);
@@ -530,8 +529,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 	 */
 	private final boolean defaultStatement(Data data, Switch swit) throws TemplateException {
 		if (!data.srcCode.forwardIfCurrent("default", ':')) return false;
-
-		// int line=data.srcCode.getLine();
 
 		Body body = new BodyBase(data.factory);
 		swit.setDefaultCase(body);
@@ -932,7 +929,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 			// attribute
 
 			// name
-			// String idName=identifier(data,false,true);
 			boolean required = false;
 
 			String idName = variableDec(data, false);

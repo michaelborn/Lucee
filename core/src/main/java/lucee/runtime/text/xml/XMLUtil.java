@@ -709,7 +709,6 @@ public final class XMLUtil {
 	 * @throws SAXException
 	 */
 	public static Object getProperty(Node node, Collection.Key k, boolean caseSensitive) throws SAXException {
-		// String lcKey=StringUtil.toLowerCase(key);
 		if (k.getLowerString().startsWith("xml")) {
 			// Comment
 			if (k.equals(XMLCOMMENT)) {
@@ -919,7 +918,6 @@ public final class XMLUtil {
 	 */
 	public static Object removeProperty(Node node, Collection.Key k, boolean caseSensitive) {
 		boolean isXMLChildren;
-		// String lcKeyx=k.getLowerString();
 		if (k.getLowerString().startsWith("xml")) {
 			// Comment
 			if (k.equals(XMLCOMMENT)) {

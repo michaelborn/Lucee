@@ -208,7 +208,6 @@ public class Component extends EvaluatorSupport {
 		PageSource psc = ((PageSourceCode) sc).getPageSource();
 		String src = psc.getDisplayPath();
 		return Constants.isComponentExtension(ResourceUtil.getExtension(src, ""));
-		// int pos=src.lastIndexOf(".");
 		// return pos!=-1 && pos<src.length() && src.substring(pos+1).equals(Constants.COMPONENT_EXTENSION);
 	}
 }

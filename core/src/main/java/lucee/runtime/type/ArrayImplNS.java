@@ -647,7 +647,6 @@ public final class ArrayImplNS extends ArraySupport implements Array {
 	@Override
 	public Iterator iterator() {
 		ArrayList lst = new ArrayList();
-		// int count=0;
 		for (int i = offset; i < offset + size; i++) {
 			Object o = arr[i];
 			// count++;

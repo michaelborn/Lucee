@@ -108,7 +108,6 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 	// void closeEL(Reader r)
 	private static final Method CLOSE_EL = new Method("closeEL", Types.VOID, new Type[] { Types.READER });
 
-	// String readLine()
 	private static final Method READ_LINE = new Method("readLine", Types.STRING, new Type[] {});
 
 	// Array listToArrayRemoveEmpty(String list, String delimiter)
@@ -126,7 +125,6 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 	public static final Method GET_QUERY_OBJ = new Method("getQuery", Types.QUERY, new Type[] { Types.OBJECT });
 	public static final Method GET_QUERY_STRING = new Method("getQuery", Types.QUERY, new Type[] { Types.STRING });
 
-	// int getCurrentrow()
 	static final Method GET_CURRENTROW_1 = new Method("getCurrentrow", Types.INT_VALUE, new Type[] { Types.INT_VALUE });
 
 	static final Method GO = new Method("go", Types.BOOLEAN_VALUE, new Type[] { Types.INT_VALUE, Types.INT_VALUE });
@@ -460,10 +458,8 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 		adapter.invokeStatic(IO_UTIL, GET_BUFFERED_READER);
 		adapter.storeLocal(br);
 
-		// String line;
 		int line = adapter.newLocal(Types.STRING);
 
-		// int count=0;
 		int count = adapter.newLocal(Types.INT_VALUE);
 		adapter.push(0);
 		adapter.storeLocal(count);
@@ -599,17 +595,14 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 		loopVisitor = forDoubleVisitor;
 		GeneratorAdapter adapter = bc.getAdapter();
 
-		// int from=(int)@from;
 		int from = adapter.newLocal(Types.DOUBLE_VALUE);
 		ExpressionUtil.writeOutSilent(getAttribute("from").getValue(), bc, Expression.MODE_VALUE);
 		adapter.storeLocal(from);
 
-		// int to=(int)@to;
 		int to = adapter.newLocal(Types.DOUBLE_VALUE);
 		ExpressionUtil.writeOutSilent(getAttribute("to").getValue(), bc, Expression.MODE_VALUE);
 		adapter.storeLocal(to);
 
-		// int step=(int)@step;
 		int step = adapter.newLocal(Types.DOUBLE_VALUE);
 		Attribute attrStep = getAttribute("step");
 		if (attrStep != null) {
@@ -655,8 +648,6 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 		adapter.invokeVirtual(Types.VARIABLE_REFERENCE, SET_DOUBLE);
 
 		// for
-
-		// int i=forConditionVisitor.visitBeforeExpression(adapter,from,step,true);
 
 		// init
 		adapter.visitLabel(forDoubleVisitor.beforeInit);
@@ -754,7 +745,6 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 		}
 		adapter.storeLocal(array);
 
-		// int len=array.size();
 		adapter.loadLocal(array);
 		adapter.invokeInterface(Types.ARRAY, SIZE);
 		adapter.storeLocal(len);

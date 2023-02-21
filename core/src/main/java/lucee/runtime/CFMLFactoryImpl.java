@@ -324,7 +324,6 @@ public final class CFMLFactoryImpl extends CFMLFactory {
 		// print.e(MonitorState.checkForBlockedThreads(runningChildPcs.values()));
 
 		// synchronized (runningPcs) {
-		// int len=runningPcs.size();
 		// we only terminate child threads
 
 		Map<Integer, PageContextImpl> map = engine.exeRequestAsync() ? runningChildPcs : runningPcs;
@@ -517,7 +516,6 @@ public final class CFMLFactoryImpl extends CFMLFactory {
 		Array info = new ArrayImpl();
 
 		// synchronized (runningPcs) {
-		// int len=runningPcs.size();
 		Iterator<PageContextImpl> it = runningPcs.values().iterator();
 		PageContextImpl pc;
 		Struct data, sctThread, scopes;

@@ -95,10 +95,8 @@ public final class TagHelper {
 	// void hasBody(boolean hasBody)
 	private static final Method HAS_BODY2 = new Method("hasBody", Type.VOID_TYPE, new Type[] { Types.TAG, Types.BOOLEAN_VALUE });
 
-	// int doStartTag()
 	private static final Method DO_START_TAG = new Method("doStartTag", Types.INT_VALUE, new Type[] {});
 
-	// int doEndTag()
 	private static final Method DO_END_TAG = new Method("doEndTag", Types.INT_VALUE, new Type[] {});
 
 	private static final Type ABORT = Type.getType(Abort.class);
@@ -111,7 +109,6 @@ public final class TagHelper {
 	// void initBody(BodyTag bodyTag, int state)
 	private static final Method INIT_BODY = new Method("initBody", Types.VOID, new Type[] { BODY_TAG, Types.INT_VALUE });
 
-	// int doAfterBody()
 	private static final Method DO_AFTER_BODY = new Method("doAfterBody", Types.INT_VALUE, new Type[] {});
 
 	// void doCatch(Throwable t)
@@ -296,7 +293,6 @@ public final class TagHelper {
 		if (hasBody) {
 			final int state = adapter.newLocal(Types.INT_VALUE);
 
-			// int state=tag.doStartTag();
 			adapter.loadLocal(currLocal);
 			ASMUtil.invoke(fromBundle ? ASMUtil.INTERFACE : ASMUtil.VIRTUAL, adapter, currType, DO_START_TAG);
 			// adapter.invokeVirtual(currType, DO_START_TAG);
