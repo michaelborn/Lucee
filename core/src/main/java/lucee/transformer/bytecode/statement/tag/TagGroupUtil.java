@@ -289,12 +289,6 @@ public class TagGroupUtil {
 			tag.getBody().writeOut(bc);
 		}
 
-		// ni.setCurrent(current+1);
-		/*
-		 * adapter.loadLocal(tag.getNumberIterator()); adapter.loadLocal(current); adapter.push(1);
-		 * adapter.visitInsn(Opcodes.IADD); adapter.invokeVirtual(NUMBER_ITERATOR, SET_CURRENT);
-		 */
-
 		wv.visitAfterBody(bc, tag.getEnd());
 
 		tfv.visitTryEnd(bc);
@@ -402,11 +396,6 @@ public class TagGroupUtil {
 		adapter.loadLocal(oldNi);
 		adapter.storeLocal(tag.getNumberIterator());
 
-		// ni.setCurrent(current+1);
-		/*
-		 * adapter.loadLocal(tag.getNumberIterator()); adapter.loadLocal(icurrent); adapter.push(1);
-		 * adapter.visitInsn(Opcodes.IADD); adapter.invokeVirtual(NUMBER_ITERATOR, SET_CURRENT);
-		 */
 		wv.visitAfterBody(bc, tag.getEnd());
 
 		// query.go(ni.current(),pc.getId())
@@ -479,12 +468,6 @@ public class TagGroupUtil {
 		adapter.storeLocal(icurrent);
 
 		tag.getBody().writeOut(bc);
-
-		// ni.setCurrent(current+1);
-		/*
-		 * adapter.loadLocal(tag.getNumberIterator()); adapter.loadLocal(icurrent); adapter.push(1);
-		 * adapter.visitInsn(Opcodes.IADD); adapter.invokeVirtual(NUMBER_ITERATOR, SET_CURRENT);
-		 */
 
 		wv.visitAfterBody(bc, tag.getEnd());
 
@@ -593,9 +576,6 @@ public class TagGroupUtil {
 		adapter.invokeVirtual(Types.PAGE_CONTEXT, GET_ID);
 		adapter.invokeInterface(Types.QUERY, TagLoop.GO);
 
-		/*
-		 * OLD adapter.invokeInterface(Types.QUERY, TagLoop.GO_1);
-		 */
 		adapter.pop();
 
 	}

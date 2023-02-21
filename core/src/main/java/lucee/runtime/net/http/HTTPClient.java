@@ -283,11 +283,6 @@ public class HTTPClient implements Objects, Iteratorable {
 
 		// add aparams to request
 		formfields.put("argumentCollection", str);
-		/*
-		 * Iterator<Entry<Key, Object>> it = args.entryIterator(); Entry<Key, Object> e;
-		 * while(it.hasNext()){ e = it.next(); formfields.put(e.getKey().getString(),
-		 * Caster.toString(e.getValue())); }
-		 */
 
 		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("accept", "application/cfml,application/json"); // application/java disabled for the moment, it is not working when we have different lucee versions

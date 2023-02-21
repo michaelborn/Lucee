@@ -561,13 +561,6 @@ public final class WDDXConverter extends ConverterSupport {
 		// String
 		else if (nodeName.equals("string")) {
 			return _deserializeString(element);
-			/*
-			 * Node data=element.getFirstChild(); if(data==null) return "";
-			 * 
-			 * String value=data.getNodeValue();
-			 * 
-			 * if(value==null) return ""; return XMLUtil.unescapeXMLString(value);
-			 */
 		}
 		// Number
 		else if (nodeName.equals("number")) {

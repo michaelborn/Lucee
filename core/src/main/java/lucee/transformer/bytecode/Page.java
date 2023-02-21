@@ -1226,9 +1226,6 @@ public final class Page extends BodyBase implements Root {
 			cv.visitWhenAfterExprBeforeBody(bc);
 			Expression defaultValue = arg.getDefaultValue();
 			if (defaultValue != null) {
-				/*
-				 * if(defaultValue instanceof Null) { adapter.invokeStatic(NULL, GET_INSTANCE); } else
-				 */
 				defaultValue.writeOut(bc, Expression.MODE_REF);
 			}
 			else adapter.loadArg(DEFAULT_VALUE);
@@ -1669,11 +1666,6 @@ public final class Page extends BodyBase implements Root {
 	 */
 	public boolean isComponent() {
 		return isComponent(null);
-		/*
-		 * TagCFObject comp = getTagCFObject(null); if(comp!=null &&
-		 * comp.getTagLibTag().getTagClassName().equals("lucee.runtime.tag.Component")) return true; return
-		 * false;
-		 */
 	}
 
 	/**
@@ -1681,11 +1673,6 @@ public final class Page extends BodyBase implements Root {
 	 */
 	public boolean isInterface() {
 		return isInterface(null);
-		/*
-		 * TagCFObject comp = getTagCFObject(null); if(comp!=null &&
-		 * comp.getTagLibTag().getTagClassName().equals("lucee.runtime.tag.Interface")) return true; return
-		 * false;
-		 */
 	}
 
 	public boolean isComponent(TagCIObject cio) {

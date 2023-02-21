@@ -44,17 +44,6 @@ public class NativeException extends PageExceptionImpl {
 	protected NativeException(Throwable t) {
 		super(t, t.getClass().getName());
 		this.t = t;
-		// set stacktrace
-
-		/*
-		 * StackTraceElement[] st = getRootCause(t).getStackTrace();
-		 * if(hasLuceeRuntime(st))setStackTrace(st); else { StackTraceElement[] cst = new
-		 * Exception().getStackTrace(); if(hasLuceeRuntime(cst)){ StackTraceElement[] mst=new
-		 * StackTraceElement[st.length+cst.length-1]; System.arraycopy(st, 0, mst, 0, st.length);
-		 * System.arraycopy(cst, 1, mst, st.length, cst.length-1);
-		 * 
-		 * setStackTrace(mst); } else setStackTrace(st); }
-		 */
 	}
 
 	public static NativeException newInstance(Throwable t) {

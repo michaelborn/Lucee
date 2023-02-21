@@ -151,11 +151,7 @@ public final class Content extends BodyTagImpl {
 
 	@Override
 	public int doStartTag() throws PageException {
-		// try {
 		return _doStartTag();
-		/*
-		 * } catch (IOException e) { throw Caster.toPageException(e); }
-		 */
 	}
 
 	private int _doStartTag() throws PageException {

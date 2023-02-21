@@ -33,12 +33,6 @@ public class ExtendedStandardJavaFileManager extends ForwardingJavaFileManager<J
 
 	@Override
 	public Iterable<JavaFileObject> list(Location location, String packageName, Set<Kind> kinds, boolean recurse) throws IOException {
-		// print.e("listt:" + location);
-		// print.e(packageName);
-		/*
-		 * Iterable<JavaFileObject> it = super.list(location, packageName, kinds, recurse); for
-		 * (JavaFileObject jfo: it) { print.e("- " + jfo); }
-		 */
 		return super.list(location, packageName, kinds, recurse);
 	}
 

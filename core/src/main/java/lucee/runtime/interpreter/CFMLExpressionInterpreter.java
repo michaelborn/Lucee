@@ -1007,16 +1007,6 @@ public class CFMLExpressionInterpreter {
 
 	protected Ref json(FunctionLibFunction flf, char start, char end) throws PageException {
 		if (!cfml.isCurrent(start)) return null;
-		/*
-		 * String[] str = cfml.toString().split(","); if(cfml.getCurrent() == '{' && cfml.getNext() != '}'
-		 * && str.length >1) { outer:for(int i=0; i<str.length; i++) { String strr = str[i].toString();
-		 * if(str[i].charAt(0) == '{') strr = new StringBuilder(strr).deleteCharAt(0).toString(); String[]
-		 * strsplit = strr.split("[:]"); if((strsplit[1].charAt(0) == '{' || strsplit[1].charAt(0) == '[')
-		 * && strsplit[0].charAt(0) == '"') { str = strsplit[1].toString().split(","); continue outer; }
-		 * else if(strsplit[0].charAt(0) != '"' || (strsplit[1].charAt(0) != '"' &&
-		 * !Character.isDigit(strsplit[1].charAt(0)) && strsplit[1].charAt(0) != '[')) { throw new
-		 * TemplateException("Invalid json value" +cfml); } } }
-		 */
 
 		if (cfml.forwardIfCurrent('[', ':', ']') || cfml.forwardIfCurrent('[', '=', ']')) {
 			return new BIFCall(LITERAL_ORDERED_STRUCT, new Ref[0]);

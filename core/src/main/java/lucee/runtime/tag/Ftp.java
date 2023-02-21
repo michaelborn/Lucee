@@ -264,32 +264,6 @@ public final class Ftp extends TagImpl {
 		return client;
 	}
 
-	/*
-	 * * check if file or directory exists if it exists return FTPFile otherwise null
-	 * 
-	 * @param client
-	 * 
-	 * @param strPath
-	 * 
-	 * @return FTPFile or null
-	 * 
-	 * @throws IOException
-	 * 
-	 * @throws PageException / private FTPFile exists(FTPClient client, String strPath) throws
-	 * PageException, IOException { strPath=strPath.trim();
-	 * 
-	 * // get parent path FTPPath path=new FTPPath(client.printWorkingDirectory(),strPath); String
-	 * name=path.getName(); print.out("path:"+name);
-	 * 
-	 * // when directory FTPFile[] files=null; try { files = client.listFiles(path.getPath()); } catch
-	 * (IOException e) {}
-	 * 
-	 * if(files!=null) { for(int i=0;i<files.length;i++) { if(files[i].getName().equalsIgnoreCase(name))
-	 * { return files[i]; } }
-	 * 
-	 * } return null; }
-	 */
-
 	private FTPFile existsFile(AFTPClient client, String strPath, boolean isFile) throws PageException, IOException {
 		strPath = strPath.trim();
 		if (strPath.equals("/")) {

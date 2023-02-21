@@ -221,11 +221,6 @@ public abstract class Function extends StatementBaseNoFinal implements Opcodes, 
 		// store to construction method
 
 		constr.addUDFProperty(this, index, index, type);
-		/*
-		 * cga.visitVarInsn(ALOAD, 0); cga.visitFieldInsn(GETFIELD, bc.getClassName(), "udfs",
-		 * Types.UDF_PROPERTIES_ARRAY.toString()); cga.push(arrayIndex);
-		 * createUDFProperties(constr,valueIndex,type); cga.visitInsn(AASTORE);
-		 */
 
 		// load in execution method
 		ga.visitVarInsn(ALOAD, 0);

@@ -49,16 +49,6 @@ public final class ArrayEach extends BIF {
 	private static String _call(PageContext pc, Array array, UDF udf, boolean parallel, int maxThreads) throws PageException {
 
 		return Each.call(pc, array, udf, parallel, maxThreads);
-
-		/*
-		 * ExecutorService execute=null; List<Future<Data<Object>>> futures=null; if(parallel) { execute =
-		 * Executors.newFixedThreadPool(maxThreads); futures=new ArrayList<Future<Data<Object>>>(); }
-		 * Each.invoke(pc, array, udf,execute,futures);
-		 * 
-		 * if(parallel) Each.afterCall(pc,futures);
-		 * 
-		 * return null;
-		 */
 	}
 
 	@Override

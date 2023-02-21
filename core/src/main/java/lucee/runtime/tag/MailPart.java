@@ -91,17 +91,6 @@ public final class MailPart extends BodyTagImpl {
 	public int doEndTag() throws PageException {
 
 		getMail().addPart(part);
-		/*
-		 * String type = part.getType(); if(StringUtil.isEmpty(part.getCharset()))
-		 * part.setCharset(mail.getCharset()); if(type!=null && (type.equals("text/plain") ||
-		 * type.equals("plain") || type.equals("text"))){ part.isPlain(true); mail.setBodyPart(part); } else
-		 * if(type!=null && (type.equals("text/html") || type.equals("html") || type.equals("htm"))){
-		 * part.isHTML(true); mail.setBodyPart(part); } else {
-		 * 
-		 * getMail().setParam(type, null, "susi", part.getBody(), "inline", null); }
-		 */
-		// throw new ApplicationException("attribute type of tag mailpart has an invalid values","valid
-		// values are [plain,text,html] but value is now ["+type+"]");
 
 		return EVAL_PAGE;
 	}

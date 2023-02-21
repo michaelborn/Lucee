@@ -252,12 +252,6 @@ public class DumpUtil {
 			if (bytes.length < max) {
 				// base64
 				table.appendRow(1, new SimpleDumpData("Base64 Encoded"), new SimpleDumpData(Base64Coder.encode(bytes)));
-				/*
-				 * try { table.appendRow(1,new SimpleDumpData("CFML expression"),new
-				 * SimpleDumpData("evaluateJava('"+JavaConverter.serialize(bytes)+"')"));
-				 * 
-				 * } catch (IOException e) {}
-				 */
 			}
 
 			return table;
@@ -483,13 +477,6 @@ public class DumpUtil {
 
 				table.setComment("JavaBeans are reusable software components for Java." + "\nThey are classes that encapsulate many objects into a single object (the bean)."
 						+ "\nThey allow access to properties using getter and setter methods or directly.");
-
-				/*
-				 * "\n\nExample:\n" + "   x=myBean.get"+exName+"(); // read a property with a getter method\n" +
-				 * "   x=myBean."+exName+"; // read a property directly\n" +
-				 * "   myBean.set"+exName+"(\""+exValue+"\"); // write a property with a setter method\n" +
-				 * "   myBean."+exName+"=\""+exValue+"\"; // write a property directly");
-				 */
 
 				return setId(id, table);
 

@@ -181,11 +181,7 @@ public class MSSQL extends CoreSupport {
 		stat.setInt(8, DEFAULT_ATTRS);
 		stat.setInt(9, 0);
 		stat.setInt(10, 0);
-		// try{
 		stat.executeUpdate();
-		/*
-		 * } finally { //DBUtil.closeEL(stat); }
-		 */
 	}
 
 	@Override
@@ -208,11 +204,7 @@ public class MSSQL extends CoreSupport {
 				log(sql, attr.getData() + "");
 				stat = prepareStatement(dc, sql);// dc.getConnection().prepareStatement(sql);
 				stat.setInt(1, attr.getData());
-				// try{
 				stat.executeUpdate();
-				/*
-				 * } finally { //DBUtil.closeEL(stat); }
-				 */
 			}
 		}
 		return rst;
@@ -343,14 +335,10 @@ public class MSSQL extends CoreSupport {
 		String sql = "update " + prefix + "attrs set rdr_last_modified=? where rdr_id=?";
 		log(sql);
 		PreparedStatement stat = null;
-		// try{
 		stat = prepareStatement(dc, sql);// dc.getConnection().prepareStatement(sql);
 		stat.setTimestamp(1, new Timestamp(time), getCalendar());
 		stat.setInt(2, attr.getId());
 		stat.executeUpdate();
-		/*
-		 * } finally { //DBUtil.closeEL(stat); }
-		 */
 	}
 
 	@Override
@@ -358,14 +346,10 @@ public class MSSQL extends CoreSupport {
 		String sql = "update " + prefix + "attrs set rdr_mode=? where rdr_id=?";
 		log(sql);
 		PreparedStatement stat = null;
-		// try{
 		stat = prepareStatement(dc, sql);// dc.getConnection().prepareStatement(sql);
 		stat.setInt(1, mode);
 		stat.setInt(2, attr.getId());
 		stat.executeUpdate();
-		/*
-		 * } finally { //DBUtil.closeEL(stat); }
-		 */
 	}
 
 	@Override

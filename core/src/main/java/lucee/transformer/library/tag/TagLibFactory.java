@@ -207,12 +207,6 @@ public final class TagLibFactory extends DefaultHandler {
 		setContent(content.toString().trim());
 		content = new StringBuffer();
 		inside = "";
-		/*
-		 * if(tag!=null && tag.getName().equalsIgnoreCase("input")) {
-		 * print.ln(tag.getName()+"-"+att.getName()+":"+inside+"-"+insideTag+"-"+insideAtt);
-		 * 
-		 * }
-		 */
 		if (qName.equals("tag")) endTag();
 		else if (qName.equals("attribute")) endAtt();
 		else if (qName.equals("script")) endScript();

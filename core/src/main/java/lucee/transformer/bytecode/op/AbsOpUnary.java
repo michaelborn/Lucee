@@ -151,10 +151,6 @@ public abstract class AbsOpUnary extends ExpressionBase {
 			return Types.NUMBER;
 		}
 
-		/*
-		 * undefined scope only with one key (susi++;)
-		 */
-
 		// PageContext instance
 		adapter.loadArg(0);
 

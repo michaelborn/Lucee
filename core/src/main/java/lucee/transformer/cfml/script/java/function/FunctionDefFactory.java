@@ -161,13 +161,6 @@ public class FunctionDefFactory {
 				return jc;
 			}
 
-			// create exception
-			/*
-			 * StringBuilder sb = new StringBuilder(); for (JavaFunctionDef jc: jcs) { if (sb.length() > 0)
-			 * sb.append(','); sb.append(jc.toStringShort()); } throw new JavaSourceException(
-			 * "found no matching function interface with return type [" + strRtnType +
-			 * "], for the arguments defined, valid argument combinations are [" + sb + "]");
-			 */
 		}
 		return new JavaFunctionDef(null, "invoke", argTypes, rtnType, true);
 
@@ -276,13 +269,6 @@ public class FunctionDefFactory {
 				break;
 			}
 		}
-
-		// array
-		/*
-		 * if (type.endsWith("[]")) { Class clazz = toClass(type.substring(0, type.length() - 2)); clazz =
-		 * ClassUtil.toArrayClass(clazz); return clazz; }
-		 */
-
 		return ClassUtil.loadClass(CFMLEngineFactory.class.getClassLoader(), type);
 	}
 

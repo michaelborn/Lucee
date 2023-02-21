@@ -1058,17 +1058,7 @@ public final class QoQ {
 		return Caster.castTo(pc, CFTypes.toShort(type, true, CFTypes.TYPE_UNKNOW), type, value);
 	}
 
-
-	/*
-	 * *
-	 *
-	 * @param expression / private void print(ZExpression expression) {
-	 * print.ln("Operator:"+expression.getOperator().toLowerCase()); int len=expression.nbOperands();
-	 * for(int i=0;i<len;i++) { print.ln("	["+i+"]=	" +expression.getOperand(i)); } }/*
-	 *
-	 *
-	 *
-	 * /**
+	/**
 	 *
 	 * execute an and operation
 	 *

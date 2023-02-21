@@ -215,11 +215,6 @@ public final class FileResource extends File implements Resource {
 					throw new IOException("Can't move file [" + this.getAbsolutePath() + "] cannot remove existing file [" + dest.getAbsolutePath() + "]");
 
 				done = super.renameTo((File) dest);
-				/*
-				 * if(!super.renameTo((File)dest)) { throw new
-				 * IOException("can't move file "+this.getAbsolutePath()+" to destination resource "+dest.
-				 * getAbsolutePath()); }
-				 */
 			}
 			finally {
 				provider.unlock(this);

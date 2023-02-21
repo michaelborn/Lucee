@@ -323,11 +323,6 @@ public final class ConfigAdmin {
 			ConfigServerImpl cs = sccw.getConfigServerImpl();
 			ConfigServerFactory.reloadInstance(engine, cs);
 			sccw.reload();
-			/*
-			 * ConfigWeb[] webs = cs.getConfigWebs(); for (int i = 0; i < webs.length; i++) { if (webs[i]
-			 * instanceof ConfigWebImpl) ConfigWebFactory.reloadInstance(engine, (ConfigServerImpl) config,
-			 * (ConfigWebImpl) webs[i], true); }
-			 */
 		}
 	}
 
@@ -4706,11 +4701,6 @@ public final class ConfigAdmin {
 					boolean readOnly = Caster.toBooleanValue(map.get("readOnly"), false);
 					// custom
 					Struct custom = Caster.toStruct(map.get("custom"), null);
-					/*
-					 * print.e("::::::::::::::::::::::::::::::::::::::::::"); print.e("id:"+id); print.e("cd:"+cd);
-					 * print.e("cfc:"+cfcPath); print.e("listener:"+listenerCfcPath);
-					 * print.e("startupMode:"+startupMode); print.e(custom);
-					 */
 
 					if (!StringUtil.isEmpty(id) && (!StringUtil.isEmpty(cfcPath) || (cd != null && cd.hasClass()))) {
 						_updateGatewayEntry(id, cd, cfcPath, listenerCfcPath, startupMode, custom, readOnly);

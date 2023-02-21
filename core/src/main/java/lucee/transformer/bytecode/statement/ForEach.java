@@ -93,14 +93,8 @@ public final class ForEach extends StatementBase implements FlowControlBreak, Fl
 			@Override
 			public void _writeOut(BytecodeContext bc) throws TransformerException {
 				GeneratorAdapter a = bc.getAdapter();
-				// if(fcf!=null &&
-				// fcf.getAfterFinalGOTOLabel()!=null)ASMUtil.visitLabel(a,fcf.getFinalEntryLabel());
 				a.loadLocal(it);
 				a.invokeStatic(FOR_EACH_UTIL, RESET);
-				/*
-				 * if(fcf!=null){ Label l=fcf.getAfterFinalGOTOLabel(); if(l!=null)a.visitJumpInsn(Opcodes.GOTO, l);
-				 * }
-				 */
 			}
 		}, getFlowControlFinal());
 		tfv.visitTryBegin(bc);

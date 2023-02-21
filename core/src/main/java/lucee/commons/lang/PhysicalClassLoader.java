@@ -181,12 +181,6 @@ public final class PhysicalClassLoader extends ExtendableClassLoader {
 			}
 			if (clazz == null) return _loadClass(name, barr, false);
 
-			// first we try to update the class what needs instrumentation object
-			/*
-			 * try { InstrumentationFactory.getInstrumentation(config).redefineClasses(new
-			 * ClassDefinition(clazz, barr)); return clazz; } catch (Exception e) { LogUtil.log(null,
-			 * "compilation", e); }
-			 */
 			// in case instrumentation fails, we rename it
 			return rename(clazz, barr);
 		}

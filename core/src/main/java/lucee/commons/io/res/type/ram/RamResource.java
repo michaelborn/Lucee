@@ -197,13 +197,6 @@ public final class RamResource extends ResourceSupport {
 		if (core.getType() != RamResourceCore.TYPE_DIRECTORY) return null;
 
 		return core.getChildNames();
-		/*
-		 * List list = core.getChildren(); if(list==null && list.size()==0) return new String[0];
-		 * 
-		 * Iterator it = list.iterator(); String[] children=new String[list.size()]; RamResourceCore cc; int
-		 * count=0; while(it.hasNext()) { cc=(RamResourceCore) it.next(); children[count++]=cc.getName(); }
-		 * return children;
-		 */
 	}
 
 	@Override

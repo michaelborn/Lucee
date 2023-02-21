@@ -160,12 +160,6 @@ public final class PCLBlock extends ExtendableClassLoader {
 
 	@Override
 	public URL getResource(String name) {
-		/*
-		 * URL url=super.getResource(name); if(url!=null) return url;
-		 * 
-		 * Resource f =_getResource(name); if(f!=null) { try { return f.toURL(); } catch
-		 * (MalformedURLException e) {} }
-		 */
 		return null;
 	}
 

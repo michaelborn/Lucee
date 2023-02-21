@@ -187,15 +187,6 @@ public final class XMLConfigReader extends DefaultHandler implements LexicalHand
 		src = ResourcesImpl.getFileResourceProvider().getResource("/Users/mic/Test/test/lucee-server/context/.CFConfig.json");
 		src.delete();
 
-		/*
-		 * XMLConfigReader reader = new XMLConfigReader(res, true, new ReadRule(), new NameRule()); String
-		 * str = ser(reader.getData().get("cfLuceeConfiguration")); IOUtil.write(trg, str, CharsetUtil.UTF8,
-		 * false); print.e(str);
-		 */
-
-		// Object result = new JSONExpressionInterpreter().interpret(null, str);
-		// print.e(result);
-
 	}
 
 	private static String ser(Object var) throws PageException {

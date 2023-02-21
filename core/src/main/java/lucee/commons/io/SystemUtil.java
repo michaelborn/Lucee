@@ -369,16 +369,6 @@ public final class SystemUtil {
 	 */
 	public static Resource getTempDirectory() {
 		return ResourcesImpl.getFileResourceProvider().getResource(CFMLEngineFactory.getTempDirectory().getAbsolutePath());
-
-		/*
-		 * if(tempFile!=null) return tempFile; ResourceProvider fr =
-		 * ResourcesImpl.getFileResourceProvider(); String tmpStr = System.getProperty("java.io.tmpdir");
-		 * if(tmpStr!=null) { tempFile=fr.getResource(tmpStr); if(tempFile.exists()) {
-		 * tempFile=ResourceUtil.getCanonicalResourceEL(tempFile); return tempFile; } } File tmp =null; try
-		 * { tmp = File.createTempFile("a","a"); tempFile=fr.getResource(tmp.getParent());
-		 * tempFile=ResourceUtil.getCanonicalResourceEL(tempFile); } catch(IOException ioe) {} finally {
-		 * if(tmp!=null)tmp.delete(); } return tempFile;
-		 */
 	}
 
 	/**
@@ -404,31 +394,6 @@ public final class SystemUtil {
 	 */
 	public static Resource getSystemDirectory() {
 		return ResourcesImpl.getFileResourceProvider().getResource(CFMLEngineFactory.getSystemDirectory().getAbsolutePath());
-
-		/*
-		 * String pathes=System.getProperty("java.library.path"); ResourceProvider fr =
-		 * ResourcesImpl.getFileResourceProvider(); if(pathes!=null) { String[]
-		 * arr=ListUtil.toStringArrayEL(ListUtil.listToArray(pathes,File.pathSeparatorChar)); for(int
-		 * i=0;i<arr.length;i++) { if(arr[i].toLowerCase().indexOf("windows\\system")!=-1) { Resource file =
-		 * fr.getResource(arr[i]); if(file.exists() && file.isDirectory() && file.isWriteable()) return
-		 * ResourceUtil.getCanonicalResourceEL(file);
-		 * 
-		 * } } for(int i=0;i<arr.length;i++) { if(arr[i].toLowerCase().indexOf("windows")!=-1) { Resource
-		 * file = fr.getResource(arr[i]); if(file.exists() && file.isDirectory() && file.isWriteable())
-		 * return ResourceUtil.getCanonicalResourceEL(file);
-		 * 
-		 * } } for(int i=0;i<arr.length;i++) { if(arr[i].toLowerCase().indexOf("winnt")!=-1) { Resource file
-		 * = fr.getResource(arr[i]); if(file.exists() && file.isDirectory() && file.isWriteable()) return
-		 * ResourceUtil.getCanonicalResourceEL(file);
-		 * 
-		 * } } for(int i=0;i<arr.length;i++) { if(arr[i].toLowerCase().indexOf("win")!=-1) { Resource file =
-		 * fr.getResource(arr[i]); if(file.exists() && file.isDirectory() && file.isWriteable()) return
-		 * ResourceUtil.getCanonicalResourceEL(file);
-		 * 
-		 * } } for(int i=0;i<arr.length;i++) { Resource file = fr.getResource(arr[i]); if(file.exists() &&
-		 * file.isDirectory() && file.isWriteable()) return ResourceUtil.getCanonicalResourceEL(file); } }
-		 * return null;
-		 */
 	}
 
 	/**

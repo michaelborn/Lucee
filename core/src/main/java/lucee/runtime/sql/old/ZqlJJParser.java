@@ -671,12 +671,7 @@ public final class ZqlJJParser implements ZqlJJParserConstants {
 		String s = OracleObjectName();
 
 		stringbuffer.append(s);
-		/*
-		 * changed by mic switch(jj_ntk != -1 ? jj_ntk : jj_ntk()) { case 93: // ']' jj_consume_token(93);
-		 * String s1 = OracleObjectName(); stringbuffer.append("." + s1); break;
-		 * 
-		 * default: jj_la1[30] = jj_gen; break; }
-		 */
+
 		while (true) {
 			if ((jj_ntk != -1 ? jj_ntk : jj_ntk()) == 93) {
 				jj_consume_token(93);

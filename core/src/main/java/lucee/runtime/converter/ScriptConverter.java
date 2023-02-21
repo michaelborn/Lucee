@@ -558,10 +558,6 @@ public final class ScriptConverter extends ConverterSupport {
 			done.remove(raw);
 		}
 		throw new ConverterException("can't serialize Object of type [ " + Caster.toClassName(object) + " ]");
-		// deep--;
-		/*
-		 * } catch(StackOverflowError soe){ throw soe; }
-		 */
 	}
 
 	private void _serializeXML(Node node, StringBuilder sb) {
@@ -614,10 +610,6 @@ public final class ScriptConverter extends ConverterSupport {
 	 * @return return current blockquote
 	 */
 	private String goIn() {
-		/*
-		 * StringBuilder rtn=new StringBuilder('\n'); for(int i=0;i<deep;i++) rtn.append('\t'); return
-		 * rtn.toString(); /
-		 */
 
 		return "";
 	}

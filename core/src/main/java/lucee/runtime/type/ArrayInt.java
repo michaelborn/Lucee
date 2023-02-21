@@ -114,12 +114,6 @@ public final class ArrayInt implements Serializable {
 		}
 	}
 
-	/*
-	 * * !!! all methods that use this method must be sync enlarge the offset if 0 / private void
-	 * enlargeOffset() { if(offset==0) { offCount=offCount==0?1:offCount*2; offset=offCount; int[]
-	 * narr=new int[arr.length+offset]; for(int i=0;i<size;i++) { narr[offset+i]=arr[i]; } arr=narr; } }
-	 */
-
 	public int size() {
 		return size;
 	}

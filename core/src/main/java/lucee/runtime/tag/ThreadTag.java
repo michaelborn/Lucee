@@ -170,12 +170,6 @@ public final class ThreadTag extends BodyTagImpl implements DynamicAttributes {
 
 		if ("task".equals(strType)) {
 			// SNSN
-			/*
-			 * SerialNumber sn = pageContext.getConfig().getSerialNumber();
-			 * if(sn.getVersion()==SerialNumber.VERSION_COMMUNITY) throw new
-			 * SecurityException("no access to this functionality with the "+sn.getStringVersion()
-			 * +" version of Lucee");
-			 */
 
 			// throw new ApplicationException("invalid value ["+strType+"] for attribute type","task is not
 			// supported at the moment");

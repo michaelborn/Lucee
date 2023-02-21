@@ -165,12 +165,6 @@ public class MimeType {
 		else if ("zz-application".equals(type)) {
 			if ("zz-winassoc-psd".equals(subtype)) return new MimeType("image", "psd", properties);
 		}
-		/*
-		 * 
-		 * if("image/x-p".equals(mt)) return "ppm"; if("image/x-ppm".equals(mt)) return "ppm";
-		 * if("image/ppm".equals(mt)) return "ppm";
-		 * 
-		 */
 		return new MimeType(type, subtype, properties);
 	}
 

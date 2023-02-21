@@ -206,12 +206,6 @@ public final class TryCatchFinally extends StatementBase implements Opcodes, Has
 		adapter.throwException();
 		adapter.visitLabel(abortEnd);
 
-		/*
-		 * // PageExceptionImpl old=pc.getCatch(); int old=adapter.newLocal(Types.PAGE_EXCEPTION);
-		 * adapter.loadArg(0); adapter.invokeVirtual(Types.PAGE_CONTEXT, TagTry.GET_CATCH);
-		 * adapter.storeLocal(old);
-		 */
-
 		// cast to PageException Caster.toPagException(t);
 		adapter.loadLocal(lThrow);
 		adapter.invokeStatic(Types.CASTER, TO_PAGE_EXCEPTION);
@@ -268,11 +262,6 @@ public final class TryCatchFinally extends StatementBase implements Opcodes, Has
 			adapter.throwException();
 		}
 		adapter.visitLabel(endAllIf);
-
-		/*
-		 * adapter.loadArg(0); adapter.loadLocal(old); adapter.invokeVirtual(Types.PAGE_CONTEXT,
-		 * TagTry.SET_CATCH_PE);
-		 */
 
 	}
 

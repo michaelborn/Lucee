@@ -314,10 +314,6 @@ public final class TagHelper {
 				@Override
 				public void _writeOut(BytecodeContext bc) {
 					Label endIf = new Label();
-					/*
-					 * if(tlt.handleException() && fcf!=null && fcf.getAfterFinalGOTOLabel()!=null){
-					 * ASMUtil.visitLabel(adapter, fcf.getFinalEntryLabel()); }
-					 */
 					adapter.loadLocal(state);
 					adapter.push(javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE);
 					adapter.visitJumpInsn(Opcodes.IF_ICMPEQ, endIf);
@@ -333,11 +329,6 @@ public final class TagHelper {
 						ASMUtil.invoke(fromBundle ? ASMUtil.INTERFACE : ASMUtil.VIRTUAL, adapter, currDoFinallyType, DO_FINALLY);
 						// adapter.invokeVirtual(currType, DO_FINALLY);
 					}
-					// GOTO after execution body, used when a continue/break was called before
-					/*
-					 * if(fcf!=null) { Label l = fcf.getAfterFinalGOTOLabel();
-					 * if(l!=null)adapter.visitJumpInsn(Opcodes.GOTO, l); }
-					 */
 
 				}
 			};

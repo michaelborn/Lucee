@@ -182,11 +182,6 @@ public final class Execute extends BodyTagImpl {
 			else if (!this.outputfile.isFile()) this.outputfile = null;
 			else if (!this.outputfile.exists()) {
 				ResourceUtil.createFileEL(this.outputfile, false);
-				// try {
-				// this.outputfile.createNewFile();
-				/*
-				 * } catch (IOException e1) { this.outputfile=null; }
-				 */
 			}
 		}
 	}

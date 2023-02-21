@@ -104,13 +104,6 @@ public final class ArgumentImpl extends ScopeSupport implements Argument, ArrayP
 
 	@Override
 	public Object get(Collection.Key key, Object defaultValue) {
-		/*
-		 * if(NullSupportHelper.full()) { Object o=super.get(key,NullSupportHelper.NULL());
-		 * if(o!=NullSupportHelper.NULL())return o;
-		 * 
-		 * o=get(Caster.toIntValue(key.getString(),-1),NullSupportHelper.NULL());
-		 * if(o!=NullSupportHelper.NULL())return o; return defaultValue; }
-		 */
 
 		Object o = super.g(key, Null.NULL);
 		if (o != Null.NULL) return o;

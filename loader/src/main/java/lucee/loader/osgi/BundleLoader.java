@@ -117,11 +117,6 @@ public class BundleLoader {
 				f = availableBundles.get(id);
 				// StringBuilder sb=new StringBuilder();
 				if (f == null) {
-					/*
-					 * sb.append(id+"\n"); Iterator<String> _it = availableBundles.keySet().iterator();
-					 * while(_it.hasNext()){ sb.append("- "+_it.next()+"\n"); } throw new
-					 * RuntimeException(sb.toString());
-					 */
 				}
 				if (f == null) f = engFac.downloadBundle(e.getKey(), e.getValue(), null);
 				bundles.add(BundleUtil.addBundle(engFac, bc, f, null));

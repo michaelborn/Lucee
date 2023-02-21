@@ -183,10 +183,6 @@ public class TOUDF extends TOObjects implements UDF {
 		return udf.getHint();
 	}
 
-	/*
-	 * @Override public PageSource getPageSource() { log(null); return udf.getPageSource(); }
-	 */
-
 	@Override
 	public boolean equals(Object other) {
 		return udf.equals(other);

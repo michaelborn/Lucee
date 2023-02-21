@@ -34,17 +34,6 @@ public class _OracleOpaqueCast {
 		Object o = rst.getObject(columnIndex);
 		if (o == null) return null;
 
-		// we do not have oracle.sql.OPAQUE in the core, so we need reflection for this
-		/*
-		 * try{ String typeName=Caster.toString(Reflector.callMethod(o, "getSQLTypeName", ZERO_ARGS),null);
-		 * 
-		 * //OPAQUE opaque = ((oracle.sql.OPAQUE)o); if("SYS.XMLTYPE".equals(typeName)) {
-		 * 
-		 * // first we need to load the class in question Class
-		 * clazz=ClassUtil.loadClass(o.getClass().getClassLoader(),"oracle.xdb.XMLType"); return
-		 * Reflector.callStaticMethod(clazz, "createXML", new Object[]{o}); } } catch(PageException pe){
-		 * throw ExceptionUtil.toIOException(pe); }
-		 */
 		return o;
 	}
 

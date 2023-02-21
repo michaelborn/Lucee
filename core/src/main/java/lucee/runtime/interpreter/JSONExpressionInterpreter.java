@@ -122,10 +122,7 @@ public class JSONExpressionInterpreter extends CFMLExpressionInterpreter {
 
 		cfml.removeSpace();
 		mode = STATIC;
-		/*
-		 * Ref value=null; if(value!=null) { if(str.isEmpty()) return value; return new
-		 * Concat(pc,value,str); }
-		 */
+
 		return str;
 	}
 

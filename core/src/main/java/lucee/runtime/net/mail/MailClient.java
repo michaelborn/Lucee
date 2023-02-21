@@ -631,30 +631,6 @@ public abstract class MailClient implements PoolItem {
 		}
 	}
 
-	/*
-	 * * writes BodyTag data to query, if there is a problem with encoding, encoding will removed a do
-	 * it again
-	 * 
-	 * @param qry
-	 * 
-	 * @param columnName
-	 * 
-	 * @param row
-	 * 
-	 * @param bp
-	 * 
-	 * @param body
-	 * 
-	 * @throws IOException
-	 * 
-	 * @throws MessagingException / private void setBody(Query qry, String columnName, int row, BodyPart
-	 * bp, StringBuffer body) throws IOException, MessagingException { String content = getConent(bp);
-	 * 
-	 * qry.setAtEL(columnName,row,content); if(body.length()==0)body.append(content);
-	 * 
-	 * }
-	 */
-
 	private String getConent(Part bp) throws MessagingException {
 		InputStream is = null;
 

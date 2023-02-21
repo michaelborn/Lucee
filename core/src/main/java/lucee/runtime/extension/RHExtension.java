@@ -617,22 +617,11 @@ public class RHExtension implements Serializable {
 
 	private void readLoaderVersion(String label, String str) throws ApplicationException {
 		minLoaderVersion = Caster.toDoubleValue(str, 0);
-		/*
-		 * if (minLoaderVersion > SystemUtil.getLoaderVersion()) { throw new InvalidVersion(
-		 * "The Extension [" + label + "] cannot be loaded, " + Constants.NAME +
-		 * " Loader Version must be at least [" + str + "], update the Lucee.jar first."); }
-		 */
 	}
 
 	private void readCoreVersion(String label, String str, Info info) throws ApplicationException {
 
 		minCoreVersion = StringUtil.isEmpty(str, true) ? null : new VersionRange(str);
-		/*
-		 * if (minCoreVersion != null && Util.isNewerThan(minCoreVersion, info.getVersion())) { throw new
-		 * InvalidVersion("The Extension [" + label + "] cannot be loaded, " + Constants.NAME +
-		 * " Version must be at least [" + minCoreVersion.toString() + "], version is [" +
-		 * info.getVersion().toString() + "]."); }
-		 */
 	}
 
 	public void validate() throws ApplicationException {

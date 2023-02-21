@@ -65,12 +65,6 @@ public class ClientScopeConverter {
 		}
 		return sct;
 
-		/*
-		 * int index=0,last=0; while((index=str.indexOf('#',last))!=-1) { outer:while(str.length()+1>index)
-		 * { c=str.charAt(index+1); if(c=='#' || c=='=') { last=index+1; continue; } }
-		 * _unserialize(str.substring(last,index)); last=index+1; } _unserialize(str.substring(last));
-		 */
-
 	}
 
 	public static String serialize(Struct sct) throws ConverterException {

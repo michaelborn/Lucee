@@ -326,15 +326,6 @@ public final class ComponentUtil {
 	public static String getClassname(Component component, ASMProperty[] props) {
 
 		String prefix = "";
-		/*
-		 * if(props!=null) { StringBuilder sb=new StringBuilder();
-		 * 
-		 * for(int i=0;i<props.length;i++){ sb.append(props[i].toString()).append(';'); }
-		 * 
-		 * 
-		 * prefix = Long.toString(HashUtil.create64BitHash(sb),Character.MAX_RADIX); char
-		 * c=prefix.charAt(0); if(c>='0' && c<='9') prefix="a"+prefix; prefix=prefix+"."; }
-		 */
 
 		PageSource ps = component.getPageSource();
 		return prefix + ps.getComponentName();

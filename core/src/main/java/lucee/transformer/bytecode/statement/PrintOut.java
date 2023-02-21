@@ -71,12 +71,6 @@ public final class PrintOut extends StatementBaseNoFinal {
 
 		if (!usedExternalizer) es.writeOut(bc, Expression.MODE_REF);
 		if (doEncode) {
-			/*
-			 * if(encodeForIsInt) { encodeFor.writeOut(bc, Expression.MODE_VALUE);
-			 * adapter.visitInsn(Opcodes.I2S);
-			 * adapter.invokeVirtual(Types.PAGE_CONTEXT_IMPL,METHOD_WRITE_ENCODE_SHORT); // FUTURE
-			 * keyword:encodefore remove _IMPL } else {
-			 */
 			encodeFor.writeOut(bc, Expression.MODE_REF);
 			adapter.invokeVirtual(Types.PAGE_CONTEXT_IMPL, METHOD_WRITE_ENCODE_STRING); // FUTURE keyword:encodefore remove _IMPL
 			// }

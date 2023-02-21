@@ -364,34 +364,6 @@ public final class Executer {
 
 		if (op.equals("in")) return executeIn(pc, sql, qr, expression, row);
 
-		/*
-		 * 
-		 * addCustomFunction("cot",1); addCustomFunction("degrees",1); addCustomFunction("log",1);
-		 * addCustomFunction("log10",1);
-		 * 
-		 * addCustomFunction("pi",0); addCustomFunction("power",2); addCustomFunction("radians",1);
-		 * addCustomFunction("rand",0); addCustomFunction("round",2); addCustomFunction("roundmagic",1);
-		 * addCustomFunction("truncate",2); addCustomFunction("ascii",1); addCustomFunction("bit_length",1);
-		 * addCustomFunction("char",1); addCustomFunction("char_length",1);
-		 * addCustomFunction("difference",2); addCustomFunction("hextoraw",1);
-		 * addCustomFunction("insert",4); addCustomFunction("left",2); addCustomFunction("locate",3);
-		 * addCustomFunction("octet_length",1); addCustomFunction("rawtohex",1);
-		 * addCustomFunction("repeat",2); addCustomFunction("replace",3); addCustomFunction("right",2);
-		 * addCustomFunction("space",1); addCustomFunction("substr",3); addCustomFunction("substring",3);
-		 * addCustomFunction("curdate",0); addCustomFunction("curtime",0); addCustomFunction("datediff",3);
-		 * addCustomFunction("dayname",1); addCustomFunction("dayofmonth",1);
-		 * addCustomFunction("dayofweek",1); addCustomFunction("dayofyear",1); addCustomFunction("hour",1);
-		 * addCustomFunction("minute",1); addCustomFunction("month",1); addCustomFunction("monthname",1);
-		 * addCustomFunction("now",0); addCustomFunction("quarter",1); addCustomFunction("second",1);
-		 * addCustomFunction("week",1); addCustomFunction("year",1); addCustomFunction("current_date",1);
-		 * addCustomFunction("current_time",1); addCustomFunction("current_timestamp",1);
-		 * addCustomFunction("database",0); addCustomFunction("user",0);
-		 * addCustomFunction("current_user",0); addCustomFunction("identity",0);
-		 * addCustomFunction("ifnull",2); addCustomFunction("casewhen",3); addCustomFunction("convert",2);
-		 * //addCustomFunction("cast",1); addCustomFunction("coalesce",1000); addCustomFunction("nullif",2);
-		 * addCustomFunction("extract",1); addCustomFunction("position",1);
-		 */
-
 		// print(expression);
 		throw new DatabaseException("unsopprted sql statement (op-count:" + expression.nbOperands() + ";operator:" + op + ") ", null, sql, null);
 

@@ -209,12 +209,6 @@ public final class JSONConverter extends ConverterSupport {
 	private void _serializeDateTime(DateTime dateTime, StringBuilder sb) {
 
 		sb.append(StringUtil.escapeJS(JSONDateFormat.format(dateTime, null, pattern), '"', charsetEncoder));
-
-		/*
-		 * try { sb.append("createDateTime("); sb.append(DateFormat.call(null,dateTime,"yyyy,m,d"));
-		 * sb.append(' '); sb.append(TimeFormat.call(null,dateTime,"HH:mm:ss")); sb.append(')'); } catch
-		 * (PageException e) { throw new ConverterException(e); }
-		 */
 		// Januar, 01 2000 01:01:01
 	}
 

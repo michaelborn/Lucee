@@ -190,9 +190,6 @@ public final class Function extends EvaluatorSupport {
 				if (!tlt.getTagClassDefinition().isClassNameEqualTo("lucee.runtime.tag.Argument"))
 					throw new EvaluatorException("tag [" + tlt.getFullName() + "] is not allowed inside a function declaration");
 			}
-			/*
-			 * else if(stat instanceof PrintOut) { //body.remove(stat); }
-			 */
 		}
 	}
 

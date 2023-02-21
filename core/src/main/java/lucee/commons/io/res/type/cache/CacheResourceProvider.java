@@ -133,12 +133,6 @@ public final class CacheResourceProvider implements ResourceProviderPro {
 		// TODO remove none CacheResourceCore elements
 		return arr;
 	}
-	/*
-	 * CacheResourceCore[] getChildren(String path) { List list = getCache().values(new
-	 * ChildrenFilter(path)); CacheResourceCore[] arr = new CacheResourceCore[list.size()]; Iterator it
-	 * = list.iterator(); int index=0; while(it.hasNext()){ arr[index++]=(CacheResourceCore) it.next();
-	 * } // TODO remove none CacheResourceCore elements return arr; }
-	 */
 
 	/**
 	 * create a new core

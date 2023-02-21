@@ -528,13 +528,6 @@ public abstract class PageExceptionImpl extends PageException {
 
 	public void printStackTrace(PrintStream s, PageContext pc) {
 		super.printStackTrace(s);
-
-		/*
-		 * StackTraceElement[] traces = getStackTraceElements(this); StackTraceElement trace;
-		 * 
-		 * s.println(getMessage()); for(int i=0;i<traces.length;i++){ trace=traces[i];
-		 * s.println("\tat "+toString(pc,trace)+":"+trace.getLineNumber()); }
-		 */
 	}
 
 	@Override
@@ -544,12 +537,6 @@ public abstract class PageExceptionImpl extends PageException {
 
 	public void printStackTrace(PrintWriter s, PageContext pc) {
 		super.printStackTrace(s);
-		/*
-		 * StackTraceElement[] traces = getStackTraceElements(this); StackTraceElement trace;
-		 * 
-		 * s.println(getMessage()); for(int i=0;i<traces.length;i++){ trace=traces[i];
-		 * s.println("\tat "+toString(pc,trace)+":"+trace.getLineNumber()); }
-		 */
 	}
 
 	public static String toString(PageContext pc, StackTraceElement trace) {

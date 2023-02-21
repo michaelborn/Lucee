@@ -45,12 +45,6 @@ public class ConstrBytecodeContext extends BytecodeContext {
 		return properties;
 	}
 
-	/*
-	 * cga.visitVarInsn(ALOAD, 0); cga.visitFieldInsn(GETFIELD, bc.getClassName(), "udfs",
-	 * Types.UDF_PROPERTIES_ARRAY.toString()); cga.push(arrayIndex);
-	 * createUDFProperties(constr,valueIndex,type); cga.visitInsn(AASTORE);
-	 */
-
 	public static class Data {
 
 		public final Function function;

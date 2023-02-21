@@ -218,13 +218,6 @@ public final class TimeFormat extends BaseFormat implements Format {
 						formated.append(isAm ? "A" : "P");
 					}
 					break;
-				/*
-				 * case 'z': case 'Z': // count next z and jump to last z (max 6) int start=pos; while((pos+1)<len
-				 * && Character.toLowerCase(mask.charAt(pos+1))=='z'){ pos++; if(pos-start>4)break; }
-				 * if(pos-start>2)formated.append(tz.getDisplayName(getLocale())); else formated.append(tz.getID());
-				 * 
-				 * break;
-				 */
 
 				// Otherwise
 				default:

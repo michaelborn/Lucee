@@ -658,11 +658,6 @@ public final class Query extends BodyTagTryCatchFinallyImpl {
 							QueryResultCacheItem queryCachedItem = (QueryResultCacheItem) cacheItem;
 
 							Date cacheLimit = data.cachedAfter;
-							/*
-							 * if(cacheLimit == null && cacheHandler in) { TimeSpan ts = Caster.toTimespan(cachedWithin,null);
-							 * cacheLimit = new Date(System.currentTimeMillis() - Caster.toTimeSpan(cachedWithin).getMillis());
-							 * }
-							 */
 
 							if (cacheLimit == null || queryCachedItem.isCachedAfter(cacheLimit)) queryResult = queryCachedItem.getQueryResult();
 						}
@@ -891,11 +886,6 @@ public final class Query extends BodyTagTryCatchFinallyImpl {
 		Struct args = new StructImpl(Struct.TYPE_LINKED);
 
 		// TODO add missing attrs
-		/*
-		 * TagLibTag tlt = TagUtil.getTagLibTag(pageContext, CFMLEngine.DIALECT_CFML, "cf", "query");
-		 * Iterator<Entry<String, TagLibTagAttr>> it = tlt.getAttributes().entrySet().iterator();
-		 * Entry<String, TagLibTagAttr> e; while(it.hasNext()) { e=it.next(); e.getValue().get(this); }
-		 */
 		set(args, "cachedAfter", data.cachedAfter);
 		set(args, "cachedWithin", data.cachedWithin);
 		if (data.columnName != null) set(args, "columnName", data.columnName.getString());

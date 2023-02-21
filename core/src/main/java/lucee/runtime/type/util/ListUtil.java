@@ -1484,14 +1484,6 @@ public final class ListUtil {
 		return count;
 	}
 
-	/*
-	 * * cast an int into a char
-	 * 
-	 * @param i int to cast
-	 * 
-	 * @return int as char / private char c(int i) { return (char)i; }
-	 */
-
 	/**
 	 * gets a value from list
 	 * 

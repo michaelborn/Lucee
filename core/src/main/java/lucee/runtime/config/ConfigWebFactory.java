@@ -3264,13 +3264,6 @@ public final class ConfigWebFactory extends ConfigFactory {
 			// Dump
 			create("/resource/library/tag/", new String[] { "Dump." + COMPONENT_EXTENSION }, dir, doNew);
 
-			/*
-			 * Resource sub = dir.getRealResource("lucee/dump/skins/");
-			 * create("/resource/library/tag/lucee/dump/skins/",new String[]{
-			 * "text."+CFML_TEMPLATE_MAIN_EXTENSION ,"simple."+CFML_TEMPLATE_MAIN_EXTENSION
-			 * ,"modern."+CFML_TEMPLATE_MAIN_EXTENSION ,"classic."+CFML_TEMPLATE_MAIN_EXTENSION
-			 * ,"pastel."+CFML_TEMPLATE_MAIN_EXTENSION },sub,doNew);
-			 */
 			Resource f;
 			Resource build = dir.getRealResource("build");
 			// /resource/library/tag/build/jquery
@@ -3851,10 +3844,6 @@ public final class ConfigWebFactory extends ConfigFactory {
 			}
 
 			// load class (removed because this unnecessary loads the orm engine)
-			/*
-			 * try { cd.getClazz(); // TODO check interface as well } catch (Exception e) { log.error("ORM", e);
-			 * cd=cdDefault; }
-			 */
 
 			config.setORMEngineClass(cd);
 

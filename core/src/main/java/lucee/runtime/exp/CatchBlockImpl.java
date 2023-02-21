@@ -431,11 +431,6 @@ public class CatchBlockImpl extends StructImpl implements CatchBlock, Castable, 
 		}
 
 		return MemberUtil.call(pc, this, KeyImpl.init(methodName), arguments, new short[] { CFTypes.TYPE_STRUCT }, new String[] { "struct" });
-
-		/*
-		 * try{ return Reflector.callMethod(obj, methodName, arguments); } catch(PageException e){ return
-		 * Reflector.callMethod(exception, methodName, arguments); }
-		 */
 	}
 
 	public Object callWithNamedValues(PageContext pc, String methodName, Struct args) throws PageException {

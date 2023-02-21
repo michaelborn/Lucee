@@ -804,12 +804,6 @@ public class SingleContextConfigWeb extends ConfigBase implements ConfigWebPro {
 	@Override
 	public SpoolerEngine getSpoolerEngine() {
 		return cs.getSpoolerEngine();
-		/*
-		 * if (spoolerEngine == null) { Resource dir = getRemoteClientDirectory(); if (dir != null &&
-		 * !dir.exists()) dir.mkdirs(); SpoolerEngineImpl se = (SpoolerEngineImpl) cs.getSpoolerEngine();
-		 * spoolerEngine = new SpoolerEngineImpl(this, dir, "Remote Client Spooler", getLog("remoteclient"),
-		 * se.getMaxThreads()); } return spoolerEngine;
-		 */
 	}
 
 	@Override

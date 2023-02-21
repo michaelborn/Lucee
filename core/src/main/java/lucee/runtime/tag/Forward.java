@@ -48,11 +48,6 @@ public final class Forward extends TagImpl {
 			throw Caster.toPageException(e);
 		}
 
-		/*
-		 * RequestDispatcher disp = pageContext. getHttpServletRequest().getRequestDispatcher(template); try
-		 * { disp.forward(pageContext. getHttpServletRequest(),pageContext. getHttpServletResponse()); }
-		 * catch (Exception e) { throw Caster.toPageException(e); }
-		 */
 		return SKIP_BODY;
 	}
 

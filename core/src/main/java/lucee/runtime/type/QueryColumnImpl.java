@@ -738,18 +738,11 @@ public class QueryColumnImpl implements QueryColumnPro, Objects {
 	public boolean addAll(java.util.Collection<? extends Object> c) {
 		throwNotAllowedToAlter();
 		return false;
-		/*
-		 * Iterator<? extends Object> it = c.iterator(); while(it.hasNext()){ add(it.next()); } return true;
-		 */
 	}
 
 	public boolean addAll(int index, java.util.Collection<? extends Object> c) {
 		throwNotAllowedToAlter();
 		return false;
-		/*
-		 * Iterator<? extends Object> it = c.iterator(); while(it.hasNext()){ setEL(++index,it.next()); }
-		 * return true;
-		 */
 	}
 
 	public boolean contains(Object o) {

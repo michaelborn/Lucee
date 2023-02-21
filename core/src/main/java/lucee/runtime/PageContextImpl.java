@@ -2960,10 +2960,6 @@ public final class PageContextImpl extends PageContext {
 				(u.getCheckArguments() ? u.localScope() : u).setEL(KeyConstants._cfcatch, pe.getCatchBlock(config));
 				if (name != null && !StringUtil.isEmpty(name, true)) (u.getCheckArguments() ? u.localScope() : u).setEL(KeyImpl.getInstance(name.trim()), pe.getCatchBlock(config));
 				if (!gatewayContext && config.debug() && config.hasDebugOptions(ConfigPro.DEBUG_EXCEPTION)) {
-					/*
-					 * print.e("-----------------------"); print.e("msg:" + pe.getMessage()); print.e("caught:" +
-					 * caught); print.e("store:" + store); print.e("signal:" + signal); print.e("outer:" + outer);
-					 */
 					debugger.addException(config, exception);
 				}
 			}

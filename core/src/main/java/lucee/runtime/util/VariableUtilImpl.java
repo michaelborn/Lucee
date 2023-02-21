@@ -431,10 +431,6 @@ public final class VariableUtilImpl implements VariableUtil {
 		}
 		// Map
 		else if (coll instanceof Map) {
-			/*
-			 * no idea why this is here try { Reflector.setProperty(coll,key.getString(),value); return value; }
-			 * catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t);}
-			 */
 			((Map) coll).put(key.getString(), value);
 			return value;
 		}
@@ -721,12 +717,6 @@ public final class VariableUtilImpl implements VariableUtil {
 			if (obj == null) throw new ExpressionException("Can't remove index [" + key + "] from list");
 			return obj;
 		}
-		/*
-		 * / Native Array TODO this below else if(Decision.isNativeArray(o)) { try { return
-		 * ArrayUtil.set(o,Caster.toIntValue(key)-1,value); } catch (Exception e) { return
-		 * getDirectProperty(o, key, new ExpressionException("Key doesn't exist in Native Array"),false); }
-		 * }
-		 */
 		// TODO Support for Node
 		throw new ExpressionException("Can't remove key [" + key + "] from Object of type [" + Caster.toTypeName(coll) + "]");
 	}
@@ -751,12 +741,6 @@ public final class VariableUtilImpl implements VariableUtil {
 			if (obj == null) throw new ExpressionException("can't remove index [" + key + "] from list");
 			return obj;
 		}
-		/*
-		 * / Native Array TODO this below else if(Decision.isNativeArray(o)) { try { return
-		 * ArrayUtil.set(o,Caster.toIntValue(key)-1,value); } catch (Exception e) { return
-		 * getDirectProperty(o, key, new ExpressionException("Key doesn't exist in Native Array"),false); }
-		 * }
-		 */
 		// TODO Support for Node
 		throw new ExpressionException("Can't remove key [" + key + "] from Object of type [" + Caster.toTypeName(coll) + "]");
 	}

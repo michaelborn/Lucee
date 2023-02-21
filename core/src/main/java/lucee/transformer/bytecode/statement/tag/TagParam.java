@@ -73,17 +73,6 @@ public final class TagParam extends TagBaseNoFinal {
 
 	private double t(PageContext pc) throws ExpressionException {
 
-		// if(StringUtil.isEmpty(name)) throw new ExpressionException("The attribute name is required");
-
-		// Object value=VariableInterpreter.getVariableEL(pc,name,NullSupportHelper.NULL(pc));
-
-		/*
-		 * Object value=null; Object defaultValue=null; boolean isNew=false;
-		 * 
-		 * if(NullSupportHelper.NULL(pc)==value) { if(defaultValue==null) throw new
-		 * ExpressionException("The required parameter ["+name+"] was not provided."); value=defaultValue;
-		 * isNew=true; }
-		 */
 
 		return Double.NaN;
 	}
@@ -101,15 +90,6 @@ public final class TagParam extends TagBaseNoFinal {
 		// else adapter.visitInsn(Opcodes.ACONST_NULL);
 
 		// check attributes name
-		// if(StringUtil.isEmpty(name)) throw new ExpressionException("The attribute name is required");
-		/*
-		 * name.writeOut(bc, Expression.MODE_REF); adapter.invokeStatic(Types.STRING_UTIL, IS_EMPTY); Label
-		 * end = new Label(); adapter.visitJumpInsn(Opcodes.IFEQ, end); //adapter.visitLabel(new Label());
-		 * adapter.newInstance(Types.EXPRESSION_EXCEPTION); adapter.dup();
-		 * adapter.push("for param a name is required");
-		 * adapter.invokeConstructor(Types.EXPRESSION_EXCEPTION, CONSTR_STRING); adapter.throwException();
-		 * adapter.visitLabel(end);
-		 */
 
 		// value
 		// Object value=VariableInterpreter.getVariableEL(this,name,NullSupportHelper.NULL(this));

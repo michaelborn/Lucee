@@ -35,15 +35,6 @@ public class NullSupportHelper {
 	}
 
 	public static boolean full() {
-		/*
-		 * String str = ExceptionUtil.getStacktrace(new Throwable(), false); if
-		 * (str.indexOf("lucee.runtime.reflection.storage.SoftMethodStorage.storeArgs") == -1 &&
-		 * str.indexOf("lucee.runtime.type.scope.CGIImplReadOnly.get") == -1 &&
-		 * str.indexOf("lucee.runtime.type.scope.RequestImpl.get") == -1 &&
-		 * str.indexOf("lucee.runtime.type.QueryImpl.getAt") == -1
-		 * 
-		 * ) print.e(str);
-		 */
 
 		return full(ThreadLocalPageContext.get());
 	}

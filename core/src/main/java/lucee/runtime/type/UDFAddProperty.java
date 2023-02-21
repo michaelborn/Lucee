@@ -140,11 +140,6 @@ public final class UDFAddProperty extends UDFGSProperty {
 		else {
 			value = cast(pageContext, arguments[0], value, 1);
 			if (propValue == null) {
-				/*
-				 * jira2049 PageContext pc = ThreadLocalPageContext.get(); ORMSession sess = ORMUtil.getSession(pc);
-				 * SessionImpl s=(SessionImpl) sess.getRawSession(); propValue=new PersistentList(s);
-				 * component.getComponentScope().setEL(propName,propValue);
-				 */
 				Array arr = new ArrayImpl();
 				c.getComponentScope().setEL(propName, arr);
 				propValue = arr;

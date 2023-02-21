@@ -116,11 +116,6 @@ public abstract class StorageScopeFile extends StorageScopeImpl {
 					// check is for backward compatibility, old files have no expires date inside. they do ot expire
 					if (expires != -1) {
 						str = str.substring(index + 1);
-						/*
-						 * if(checkExpires && expires<System.currentTimeMillis()){ print.o("expired("+new
-						 * Date(expires)+"):"+res); return null; } else { str=str.substring(index+1);
-						 * print.o("not expired("+new Date(expires)+"):"+res); print.o(str); }
-						 */
 					}
 				}
 				Struct s = (Struct) evaluator.interpret(pc, str);

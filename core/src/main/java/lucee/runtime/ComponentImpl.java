@@ -253,14 +253,6 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 				}
 			}
 
-			// at the moment this makes no sense, because this map is no more used after constructor has runned
-			// and for a clone the constructor is not executed,
-			// but perhaps this is used in future
-			/*
-			 * if(constructorUDFs!=null){ trg.constructorUDFs=new HashMap<Collection.Key, UDF>(); addUDFS(trg,
-			 * constructorUDFs, trg.constructorUDFs); }
-			 */
-
 			if (isTop) {
 				setTop(trg, trg);
 
@@ -449,15 +441,6 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 	}
 
 	public void checkInterface(PageContext pc, ComponentPageImpl componentPage) throws PageException {
-		/*
-		 * print.e("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx "+ComponentUtil.toModifier(getModifier(),
-		 * "none")+" xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-		 * print.e(componentPage.getPageSource().getDisplayPath());
-		 * print.e(getModifier()==MODIFIER_ABSTRACT); if(_abstract!=null){
-		 * //print.e(_abstract.lastUpdate()); //print.e(componentPage.lastCheck());
-		 * //print.e(_abstract.lastUpdate()<=componentPage.lastCheck()); print.e(_abstract.getInterfaces());
-		 * print.e("has-udfs:"+_abstract.hasAbstractUDFs()); }
-		 */
 
 		// no records == nothing to do
 		if (absFin == null || !absFin.hasUDFs()) return;
@@ -2168,10 +2151,6 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 
 	public void addConstructorUDF(Key key, UDF udf) throws ApplicationException {
 		registerUDF(key, udf, false, true);
-		/*
-		 * if(constructorUDFs==null) constructorUDFs=new HashMap<Key,UDF>(); constructorUDFs.put(key,
-		 * value);
-		 */
 	}
 
 	// MUST more native impl

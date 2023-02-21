@@ -106,17 +106,6 @@ public class SQLPrettyfier {
 					}
 
 				}
-				/*
-				 * for(int i=0;i<reseved_words.length;i++) { if(ps.isCurrent(reseved_words[i])) { int
-				 * pos=ps.getPos(); ps.setPos(pos+4); if(ps.isCurrentWhiteSpace()) {
-				 * sb.append(" placeholder_"+reseved_words[i]+" "); continue; } if(ps.isCurrent(',')) {
-				 * sb.append(" placeholder_"+reseved_words[i]+","); continue; } ps.setPos(pos); } }
-				 */
-				/*
-				 * if(ps.isCurrent("char")) { int pos=ps.getPos(); ps.setPos(pos+4); if(ps.isCurrentWhiteSpace()) {
-				 * sb.append(" "+PLACEHOLDER_CHAR+" "); continue; } if(ps.isCurrent(',')) {
-				 * sb.append(" "+PLACEHOLDER_CHAR+","); continue; } ps.setPos(pos); }
-				 */
 			}
 			sb.append(ps.getCurrent());
 			ps.next();

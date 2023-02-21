@@ -286,10 +286,6 @@ public final class DateTimeFormat extends BIF {
 				inside = !inside;
 				sb.append(carr[i]);
 				break;
-			/*
-			 * case '\'': if(carr.length-1>i) { if(carr[i+1]=='\'') { i++; sb.append("''"); break; } }
-			 * sb.append("''"); break;
-			 */
 			default:
 				char c = carr[i];
 				if (!inside && ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))) sb.append('\'').append(c).append('\'');

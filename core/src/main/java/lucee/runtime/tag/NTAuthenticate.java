@@ -98,25 +98,7 @@ public class NTAuthenticate extends TagImpl {
 		pageContext.setVariable(result, resultSt);
 
 		if (SystemUtil.isWindows()) {
-			/*
-			 * 
-			 * NTAuthentication ntauth = new NTAuthentication(domain); if(username != null)
-			 * resultSt.set("username", username); try { boolean isAuth = false;
-			 * 
-			 * if(ntauth.IsUserInDirectory(username) && password != null && !StringUtil.isEmpty(domain)) isAuth
-			 * = ntauth.AuthenticateUser(username, password);
-			 * 
-			 * resultSt.set(AUTH, Caster.toBoolean(isAuth)); resultSt.set(STATUS,
-			 * isAuth?"success":"AuthenticationFailure");
-			 * 
-			 * if(listGroups && isAuth) { String groups =
-			 * lucee.runtime.type.List.arrayToList(ntauth.GetUserGroups(username), ","); resultSt.set(GROUPS,
-			 * groups); } } catch(Exception e) { resultSt.set(AUTH, Boolean.FALSE); if(e instanceof
-			 * UserNotInDirException) resultSt.set(STATUS, "UserNotInDirFailure"); else if(e instanceof
-			 * AuthenticationFailureException) resultSt.set(STATUS, "AuthenticationFailure");
-			 * 
-			 * if(throwOnError) throw new JspException(e); }
-			 */
+
 		}
 
 		return 0;

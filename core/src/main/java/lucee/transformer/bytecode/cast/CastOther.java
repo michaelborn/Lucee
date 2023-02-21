@@ -120,12 +120,6 @@ public final class CastOther extends ExpressionBase implements Cast {
 	// java.util.TimeZone getTimeZone ()
 	final public static Method GET_TIMEZONE = new Method("getTimeZone", Types.TIMEZONE, new Type[] {});
 
-	// Excel toExcel (Object)
-	/*
-	 * final public static Method TO_EXCEL = new Method("toExcel", Types.EXCEL, new
-	 * Type[]{Types.OBJECT});
-	 */
-
 	@Override
 	public Type _writeOut(BytecodeContext bc, int mode) throws TransformerException {
 		// Caster.toDecimal(null);
@@ -247,11 +241,6 @@ public final class CastOther extends ExpressionBase implements Cast {
 				if (!rtn.equals(Types.INTEGER)) adapter.invokeStatic(Types.CASTER, Methods_Caster.TO_INTEGER[Methods_Operator.getType(rtn)]);
 				return Types.INTEGER;
 			}
-			/*
-			 * ext.img if("image".equals(lcType)) { rtn=expr.writeOut(bc,MODE_REF); Type it =
-			 * ImageUtil.getImageType(); if(!rtn.equals(it)) { adapter.loadArg(0);
-			 * adapter.invokeStatic(it,Methods_Caster.TO_IMAGE); } return it; }
-			 */
 			break;
 		case 'j':
 

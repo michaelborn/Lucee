@@ -302,12 +302,6 @@ public final class FeedHandler extends DefaultHandler {
 			sct.setEL(key, ca);
 		}
 		else sct.setEL(key, Caster.toString(value));
-
-		/*
-		 * if(existing instanceof Struct)sct.setEL(key,value); else if(existing instanceof
-		 * Array)((Array)existing).appendEL(value); else if(existing!=null){ CastableArray ca=new
-		 * CastableArray(existing); ca.appendEL(existing); ca.appendEL(value); sct.setEL(key,ca); } else
-		 */
 	}
 
 	private Map<String, String> getAttributes(Attributes attrs, String path) {

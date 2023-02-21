@@ -1489,11 +1489,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 		String appendix = null;
 		TagLibTag tlt = tagLib.getTag(id);
 
-		/*
-		 * Iterator<TagLibTag> it = tagLib.getTags().values().iterator(); while(it.hasNext()) { TagLibTag
-		 * tmp = it.next(); if(tmp.getScript()==null) print.e(tmp.getFullName()); }
-		 */
-
 		// get taglib
 		if (tlt == null) {
 			tlt = tagLib.getAppendixTag(id);
@@ -1712,11 +1707,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 		}
 		if (!hasName) throw new TemplateException(data.srcCode, "missing name declaration for property");
 
-		/*
-		 * Tag property=new TagBase(line); property.setTagLibTag(tlt); property.addAttribute(new
-		 * Attribute(false,"name",data.factory.createLitString(name),"string")); property.addAttribute(new
-		 * Attribute(false,"type",data.factory.createLitString(type),"string"));
-		 */
 		property.setEnd(data.srcCode.getPosition());
 
 		return property;

@@ -153,10 +153,6 @@ public final class CallStackGet implements Function {
 			item = new StructImpl();
 			line = trace.getLineNumber();
 			item.setEL(KeyConstants._function, functionName);
-			/*
-			 * template is now an absolute path try { template=ExpandPath.call(pc, template); } catch
-			 * (PageException e) {}
-			 */
 			item.setEL(KeyConstants._template, abs((PageContextImpl) pc, template));
 			item.setEL(lineNumberName, Double.valueOf(line));
 			tagContext.appendEL(item);

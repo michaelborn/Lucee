@@ -299,67 +299,26 @@ public class ConnectionProxy implements Connection {
 	@Override
 	public void setSchema(String schema) throws SQLException {
 		conn.setSchema(schema);
-		/*
-		 * / used reflection to make sure this work with Java 5 and 6 try {
-		 * conn.getClass().getMethod("setSchema", new Class[]{String.class}).invoke(conn, new
-		 * Object[]{schema}); } catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t); if(t instanceof
-		 * InvocationTargetException && ((InvocationTargetException)t).getTargetException() instanceof
-		 * SQLException) throw (SQLException)((InvocationTargetException)t).getTargetException(); throw new
-		 * PageRuntimeException(Caster.toPageException(t)); }
-		 */
 	}
 
 	@Override
 	public String getSchema() throws SQLException {
 		return conn.getSchema();
-		/*
-		 * / used reflection to make sure this work with Java 5 and 6 try { return
-		 * Caster.toString(conn.getClass().getMethod("getSchema", new Class[]{}).invoke(conn, new
-		 * Object[]{})); } catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t); if(t instanceof
-		 * InvocationTargetException && ((InvocationTargetException)t).getTargetException() instanceof
-		 * SQLException) throw (SQLException)((InvocationTargetException)t).getTargetException(); throw new
-		 * PageRuntimeException(Caster.toPageException(t)); }
-		 */
 	}
 
 	// used only with java 7, do not set @Override
 	public void abort(Executor executor) throws SQLException {
 		conn.abort(executor);
-		/*
-		 * // used reflection to make sure this work with Java 5 and 6 try {
-		 * conn.getClass().getMethod("abort", new Class[]{Executor.class}).invoke(conn, new
-		 * Object[]{executor}); } catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t); if(t instanceof
-		 * InvocationTargetException && ((InvocationTargetException)t).getTargetException() instanceof
-		 * SQLException) throw (SQLException)((InvocationTargetException)t).getTargetException(); throw new
-		 * PageRuntimeException(Caster.toPageException(t)); }
-		 */
 	}
 
 	@Override
 	public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
 		conn.setNetworkTimeout(executor, milliseconds);
-		/*
-		 * / used reflection to make sure this work with Java 5 and 6 try {
-		 * conn.getClass().getMethod("setNetworkTimeout", new
-		 * Class[]{Executor.class,int.class}).invoke(conn, new Object[]{executor,milliseconds}); }
-		 * catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t); if(t instanceof
-		 * InvocationTargetException && ((InvocationTargetException)t).getTargetException() instanceof
-		 * SQLException) throw (SQLException)((InvocationTargetException)t).getTargetException(); throw new
-		 * PageRuntimeException(Caster.toPageException(t)); }
-		 */
 	}
 
 	@Override
 	public int getNetworkTimeout() throws SQLException {
 		return conn.getNetworkTimeout();
-		/*
-		 * / used reflection to make sure this work with Java 5 and 6 try { return
-		 * Caster.toIntValue(conn.getClass().getMethod("getNetworkTimeout", new Class[]{}).invoke(conn, new
-		 * Object[]{})); } catch(Throwable t) {ExceptionUtil.rethrowIfNecessary(t); if(t instanceof
-		 * InvocationTargetException && ((InvocationTargetException)t).getTargetException() instanceof
-		 * SQLException) throw (SQLException)((InvocationTargetException)t).getTargetException(); throw new
-		 * PageRuntimeException(Caster.toPageException(t)); }
-		 */
 
 	}
 }

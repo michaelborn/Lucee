@@ -536,23 +536,6 @@ public abstract class ComponentPageImpl extends ComponentPage implements PagePro
 	private void writeOut(PageContext pc, Props props, Object obj, MimeType mt) throws PageException, IOException, ConverterException {
 		// TODO miemtype mapping with converter defintion from external file
 		// Images
-		/*
-		 * if (mt.same(MimeType.IMAGE_GIF)) writeOut(pc, obj, mt, new ImageConverter("gif")); else if
-		 * (mt.same(MimeType.IMAGE_JPG)) writeOut(pc, obj, mt, new ImageConverter("jpeg")); else if
-		 * (mt.same(MimeType.IMAGE_PNG)) writeOut(pc, obj, mt, new ImageConverter("png")); else if
-		 * (mt.same(MimeType.IMAGE_TIFF)) writeOut(pc, obj, mt, new ImageConverter("tiff")); else if
-		 * (mt.same(MimeType.IMAGE_BMP)) writeOut(pc, obj, mt, new ImageConverter("bmp")); else if
-		 * (mt.same(MimeType.IMAGE_WBMP)) writeOut(pc, obj, mt, new ImageConverter("wbmp")); else if
-		 * (mt.same(MimeType.IMAGE_FBX)) writeOut(pc, obj, mt, new ImageConverter("fbx")); else if
-		 * (mt.same(MimeType.IMAGE_FBX)) writeOut(pc, obj, mt, new ImageConverter("fbx")); else if
-		 * (mt.same(MimeType.IMAGE_PNM)) writeOut(pc, obj, mt, new ImageConverter("pnm")); else if
-		 * (mt.same(MimeType.IMAGE_PGM)) writeOut(pc, obj, mt, new ImageConverter("pgm")); else if
-		 * (mt.same(MimeType.IMAGE_PBM)) writeOut(pc, obj, mt, new ImageConverter("pbm")); else if
-		 * (mt.same(MimeType.IMAGE_ICO)) writeOut(pc, obj, mt, new ImageConverter("ico")); else if
-		 * (mt.same(MimeType.IMAGE_PSD)) writeOut(pc, obj, mt, new ImageConverter("psd")); else if
-		 * (mt.same(MimeType.IMAGE_ASTERIX)) writeOut(pc, obj, MimeType.IMAGE_PNG, new
-		 * ImageConverter("png"));
-		 */
 		// Application
 		if (mt.same(MimeType.APPLICATION_JAVA)) writeOut(pc, obj, mt, new JavaConverter());
 		// if("application".equalsIgnoreCase(mt.getType()))

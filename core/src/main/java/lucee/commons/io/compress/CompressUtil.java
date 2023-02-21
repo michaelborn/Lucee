@@ -240,16 +240,6 @@ public final class CompressUtil {
 
 		// read the zip file and build a query from its contents
 		unzip(zipFile, targetDir);
-		/*
-		 * ZipInputStream zis=null; try { zis = new ZipInputStream(
-		 * IOUtil.toBufferedInputStream(zipFile.getInputStream()) ) ; ZipEntry entry; while ( ( entry =
-		 * zis.getNextEntry()) != null ) { Resource target=targetDir.getRealResource(entry.getName());
-		 * if(entry.isDirectory()) { target.mkdirs(); } else { Resource parent=target.getParentResource();
-		 * if(!parent.exists())parent.mkdirs();
-		 * 
-		 * IOUtil.copy(zis,target,false); } target.setLastModified(entry.getTime()); zis.closeEntry() ; } }
-		 * finally { IOUtil.closeEL(zis); }
-		 */
 	}
 
 	private static void unzip(Resource zipFile, Resource targetDir) throws IOException {
@@ -633,24 +623,6 @@ public final class CompressUtil {
 				frp.getResource("/Users/mic/Downloads/aws-java-sdk-kms-1.12.153.jar"), frp.getResource("/Users/mic/Downloads/aws-java-sdk-s3-1.12.153.jar"),
 				frp.getResource("/Users/mic/Downloads/jmespath-java-1.12.153.jar") };
 		merge(sources, frp.getResource("/Users/mic/Downloads/aws-java-sdk-s3-all-1.12.153.jar"));
-
-		/*
-		 * 
-		 * Resource src = frp.getResource("/Users/mic/temp/a");
-		 * 
-		 * Resource tgz = frp.getResource("/Users/mic/temp/b/a.tgz"); tgz.getParentResource().mkdirs();
-		 * Resource tar = frp.getResource("/Users/mic/temp/b/a.tar"); tar.getParentResource().mkdirs();
-		 * Resource zip = frp.getResource("/Users/mic/temp/b/a.zip"); zip.getParentResource().mkdirs();
-		 * 
-		 * Resource tgz1 = frp.getResource("/Users/mic/temp/b/tgz"); tgz1.mkdirs(); Resource tar1 =
-		 * frp.getResource("/Users/mic/temp/b/tar"); tar1.mkdirs(); Resource zip1 =
-		 * frp.getResource("/Users/mic/temp/b/zip"); zip1.mkdirs();
-		 * 
-		 * compressTGZ(new Resource[] { src }, tgz, -1); compressTar(new Resource[] { src }, tar, -1);
-		 * compressZip(new Resource[] { src }, zip, null);
-		 * 
-		 * extractTGZ(tgz, tgz1); extractTar(tar, tar1); extractZip(src, zip1);
-		 */
 
 	}
 }

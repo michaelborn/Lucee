@@ -872,10 +872,7 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 	private boolean check2(short accessRW) throws SecurityException {
 		if (accessRW == ACCESS_READ) ConfigWebUtil.checkGeneralReadAccess(config, password);
 		else if (accessRW == ACCESS_WRITE) ConfigWebUtil.checkGeneralWriteAccess(config, password);
-		/*
-		 * else if(accessRW==CHECK_PW) { ConfigWebUtil.checkGeneralReadAccess(config,password);
-		 * ConfigWebUtil.checkPassword(config,null,password); }
-		 */
+
 		return true;
 	}
 
@@ -2224,11 +2221,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 
 		admin.setMailSpoolEnable(getBoolObject("admin", action, "spoolenable"));
 
-		/*
-		 * / spool interval String str=getString("admin",action,"maxThreads"); Integer i=null;
-		 * if(!StringUtil.isEmpty(str))i=Caster.toInteger(maxThreads);
-		 */
-
 		// timeout
 		String str = getString("admin", action, "timeout");
 		Integer i = null;
@@ -2710,15 +2702,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 			}
 		}
 		// listenerCfcPath validation
-		/*
-		 * String path = getString("admin", action, "listenerCfcPath"); if(!StringUtil.isEmpty(path,true)) {
-		 * path=path.trim().replace('\\','/'); if(path.indexOf("./")==-1)path=path.replace('.','/'); String
-		 * ext = "."+Constants.getCFMLComponentExtension(); if(!path.endsWith(ext)) path+=ext;
-		 * 
-		 * Resource listnerCFC = ResourceUtil.toResourceNotExisting(pageContext, path);
-		 * if(!listnerCFC.exists()) throw new ApplicationException("invalid [" + listnerCFC
-		 * +" ] listener CFC"); }
-		 */
 
 		ClassDefinition cd = new ClassDefinitionImpl(getString("admin", action, "class"), getString("bundleName", null), getString("bundleVersion", null),
 				config.getIdentification());
@@ -4833,16 +4816,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		String dynamicImportPackage = getString("dynamicimportpackage", null);
 		if (!StringUtil.isEmpty(dynamicImportPackage, true)) factory.addDynamicImportPackage(dynamicImportPackage = dynamicImportPackage.trim());
 		Set<String> dynamicImportPackageSet = ListUtil.listToSet(dynamicImportPackage, ",", true);
-		/*
-		 * String dynamicImportPackage=getString("dynamicimportpackage",null); if(doDyn) {
-		 * if(relatedPackages.size()>0) { // add importPackage to set
-		 * if(!StringUtil.isEmpty(dynamicImportPackage)) { String[] arr =
-		 * ListUtil.trimItems(ListUtil.listToStringArray(dynamicImportPackage, ',')); for(int
-		 * i=0;i<arr.length;i++){ relatedPackages.add(arr[i]); } }
-		 * dynamicImportPackage=ListUtil.toList(relatedPackages, ","); } relatedPackages.clear(); }
-		 * if(!StringUtil.isEmpty(dynamicImportPackage,true))factory.addDynamicImportPackage(
-		 * dynamicImportPackage.trim());
-		 */
 
 		// Import Package
 		// we remove all imports that are defined as dyn import

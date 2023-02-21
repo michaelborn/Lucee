@@ -2553,15 +2553,6 @@ public final class Caster {
 			}
 
 			return StructAsArray.toArray((Struct) o);
-			/*
-			 * Struct sct=(Struct) o; Array arr=new ArrayImpl();
-			 * 
-			 * Iterator<Entry<Key, Object>> it = sct.entryIterator(); Entry<Key, Object> e=null; try {
-			 * while(it.hasNext()) { e = it.next(); arr.setE(toIntValue(e.getKey().getString()),e.getValue()); }
-			 * } catch (ExpressionException ee) { throw new
-			 * ExpressionException("can't cast struct to an array, key ["+e.getKey().getString()
-			 * +"] is not a number"); } return arr;
-			 */
 		}
 		else if (o instanceof boolean[]) return new ArrayImpl(ArrayUtil.toReferenceType((boolean[]) o));
 		else if (o instanceof byte[]) return new ArrayImpl(ArrayUtil.toReferenceType((byte[]) o));
@@ -2713,13 +2704,6 @@ public final class Caster {
 		else if (o instanceof Struct) {
 			return StructAsArray.toArray((Struct) o, defaultValue);
 
-			/*
-			 * Struct sct=(Struct) o; Array arr=new ArrayImpl();
-			 * 
-			 * Iterator<Entry<Key, Object>> it = sct.entryIterator(); Entry<Key, Object> e=null; try {
-			 * while(it.hasNext()) { e=it.next(); arr.setEL(toIntValue(e.getKey().getString()),e.getValue()); }
-			 * } catch (ExpressionException ee) { return defaultValue; } return arr;
-			 */
 		}
 		else if (o instanceof boolean[]) return new ArrayImpl(ArrayUtil.toReferenceType((boolean[]) o));
 		else if (o instanceof byte[]) return new ArrayImpl(ArrayUtil.toReferenceType((byte[]) o));
@@ -4612,13 +4596,6 @@ public final class Caster {
 	 */
 	public static Node toNode(Object o) throws PageException {
 		return toXML(o);
-		/*
-		 * if(o instanceof Node)return (Node)o; else if(o instanceof String) { try { return
-		 * XMLCaster.toXMLStruct(XMLUtil.parse(o.toString(),false),false);
-		 * 
-		 * } catch (Exception e) { throw Caster.toPageException(e); } } else if(o instanceof ObjectWrap) {
-		 * return toNode(((ObjectWrap)o).getEmbededObject()); } throw new CasterException(o,"Node");
-		 */
 	}
 
 	/**
@@ -4630,13 +4607,6 @@ public final class Caster {
 	 */
 	public static Node toNode(Object o, Node defaultValue) {
 		return toXML(o, defaultValue);
-		/*
-		 * if(o instanceof Node)return (Node)o; else if(o instanceof String) { try { return
-		 * XMLCaster.toXMLStruct(XMLUtil.parse(o.toString(),false),false);
-		 * 
-		 * } catch (Exception e) { return defaultValue; } } else if(o instanceof ObjectWrap) { return
-		 * toNode(((ObjectWrap)o).getEmbededObject(defaultValue),defaultValue); } return defaultValue;
-		 */
 	}
 
 	/**

@@ -1307,12 +1307,6 @@ public abstract class AbstrCFMLExprTransformer {
 			return null;
 		}
 
-		// exclude "new Component("
-		/*
-		 * data.srcCode.removeSpace(); if (data.srcCode.isCurrent('(')) { data.srcCode.setPos(start); return
-		 * null; } data.srcCode.revertRemoveSpace();
-		 */
-
 		data.srcCode.setPos(data.srcCode.getPos() - 9); // go before "component"
 		TagComponent tc = componentStatement(data, data.getParent());
 		tc.setParent(data.getParent());
@@ -1547,10 +1541,6 @@ public abstract class AbstrCFMLExprTransformer {
 			}
 
 			// sub component
-			/*
-			 * if (data.srcCode.forwardIfCurrent(':')) { fullName.append(':'); name = identifier(data,true);
-			 * if(name==null) return null; fullName.append(name); }
-			 */
 
 			return data.factory.createLitString(fullName.toString());
 		}

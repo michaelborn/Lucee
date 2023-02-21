@@ -1592,10 +1592,7 @@ public final class Http extends BodyTagImpl {
 		value = value.trim();
 		value = value.replace('\n', ' ');
 		value = value.replace('\r', ' ');
-		/*
-		 * int len=value.length(); char c; for(int i=0;i<len;i++){ c=value.charAt(i); if(c=='\n' || c=='\r')
-		 * return value.substring(0,i); }
-		 */
+
 		return value;
 	}
 

@@ -539,38 +539,6 @@ public final class DateCaster {
 			return defaultValue;
 		}
 		// Time start with int
-		/*
-		 * else if(ds.isDigit()) { char sec=ds.charAt(1); char third=ds.charAt(2); // 16.10.2004 (02:15)?
-		 * if(sec==':' || third==':') { // hour int hour=ds.readDigits(); if(hour==-1) return defaultValue;
-		 * 
-		 * if(!ds.fwIfCurrent(':'))return defaultValue;
-		 * 
-		 * // minutes int minutes=ds.readDigits(); if(minutes==-1) return defaultValue;
-		 * 
-		 * if(ds.isAfterLast()) { long time=util.toTime(timeZone,1899,12,30,hour,minutes,0,0,DEFAULT_VALUE);
-		 * if(time==DEFAULT_VALUE) return defaultValue;
-		 * 
-		 * return new TimeImpl(time,false); } //else if(!ds.fwIfCurrent(':'))return null; else
-		 * if(!ds.fwIfCurrent(':')) { if(!ds.fwIfCurrent(' '))return defaultValue;
-		 * 
-		 * if(ds.fwIfCurrent('a') || ds.fwIfCurrent('A')) { if(ds.fwIfCurrent('m') || ds.fwIfCurrent('M')) {
-		 * if(ds.isAfterLast()) { long time=util.toTime(timeZone,1899,12,30,hour,minutes,0,0,DEFAULT_VALUE);
-		 * if(time==DEFAULT_VALUE) return defaultValue; return new TimeImpl(time,false); } } return
-		 * defaultValue; } else if(ds.fwIfCurrent('p') || ds.fwIfCurrent('P')) { if(ds.fwIfCurrent('m') ||
-		 * ds.fwIfCurrent('M')) { if(ds.isAfterLast()) { long
-		 * time=util.toTime(timeZone,1899,12,30,hour<13?hour+12:hour,minutes,0,0,DEFAULT_VALUE);
-		 * if(time==DEFAULT_VALUE) return defaultValue; return new TimeImpl(time,false); } } return
-		 * defaultValue; } return defaultValue; }
-		 * 
-		 * 
-		 * // seconds int seconds=ds.readDigits(); if(seconds==-1) return defaultValue;
-		 * 
-		 * if(ds.isAfterLast()) { long
-		 * time=util.toTime(timeZone,1899,12,30,hour,minutes,seconds,0,DEFAULT_VALUE);
-		 * if(time==DEFAULT_VALUE) return defaultValue; return new TimeImpl(time,false); }
-		 * 
-		 * } }
-		 */
 
 		// TODO bessere impl
 		ds.reset();

@@ -197,10 +197,6 @@ public final class XMLUtilImpl implements XMLUtil {
 				throw new SAXException(e);
 			}
 
-			/*
-			 * DOMParser parser = new DOMParser(); print.out("parse"); parser.setEntityResolver(new
-			 * XMLEntityResolverDefaultHandler(validator)); parser.parse(xml); return parser.getDocument();
-			 */
 		}
 
 		XMLReader reader = new Parser();

@@ -82,12 +82,6 @@ public final class GetUsageData implements Function {
 		Struct sct = new StructImpl();
 
 		// Locks
-		/*
-		 * LockManager manager = pc.getConfig().getLockManager(); String[] locks =
-		 * manager.getOpenLockNames(); for(int i=0;i<locks.length;i++){ locks[i]. }
-		 * if(!ArrayUtil.isEmpty(locks)) strLocks=" open locks at this time ("+List.arrayToList(locks,
-		 * ", ")+").";
-		 */
 
 		// Requests
 		Query req = new QueryImpl(new Collection.Key[] { KeyConstants._web, KeyConstants._uri, START_TIME, KeyConstants._timeout }, 0, "requests");

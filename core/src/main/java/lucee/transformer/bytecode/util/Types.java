@@ -460,12 +460,7 @@ public final class Types {
 		if (Types.TIMEZONE.equals(type)) return TimeZone.class;
 		if (Types.LOCALE.equals(type)) return Locale.class;
 		if (Types.UDF.equals(type)) return UDF.class;
-		/*
-		 * if(Types.IMAGE.equals(type)) { Class clazz = ImageUtil.getImageClass(); if(clazz!=null) return
-		 * clazz; throw new
-		 * PageRuntimeException("Cannot provide Image class, you neeed to install the Image Extension to do so."
-		 * ); }
-		 */
+
 		if (Types.BYTE_VALUE_ARRAY.equals(type)) return byte[].class;
 		return ClassUtil.toClass(type.getClassName());
 	}

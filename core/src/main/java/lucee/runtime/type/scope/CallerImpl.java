@@ -102,13 +102,6 @@ public final class CallerImpl extends StructSupport implements Caller {
 		o = ((UndefinedImpl) pc.undefinedScope()).getCascading(key, _null);
 		if (o != _null) return o;
 
-		/*
-		 * // get scopes if(key.equalsIgnoreCase(VARIABLES)) { return variablesScope;//new
-		 * StructImpl(getMap()); }
-		 * 
-		 * scope=VariableInterpreter.scopeKey2Int(key); if(scope!=Scope.SCOPE_UNDEFINED) return
-		 * pc.scope(scope);
-		 */
 		throw new ExpressionException("[" + key.getString() + "] not found in caller scope");
 	}
 

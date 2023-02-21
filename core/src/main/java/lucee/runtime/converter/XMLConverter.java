@@ -114,12 +114,6 @@ public final class XMLConverter extends ConverterSupport {
 	 * @throws ConverterException
 	 */
 	private String _serializeDateTime(DateTime dateTime) {
-		/*
-		 * ACF FORMAT String strDate = new
-		 * lucee.runtime.format.DateFormat(Locale.US).format(dateTime,"mmmm, dd yyyy"); String strTime = new
-		 * lucee.runtime.format.TimeFormat(Locale.US).format(dateTime,"HH:mm:ss"); return
-		 * goIn()+strDate+" "+strTime;
-		 */
 		return goIn() + JSONDateFormat.format(dateTime, null, JSONDateFormat.PATTERN_CF);
 	}
 

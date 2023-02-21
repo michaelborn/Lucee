@@ -781,9 +781,6 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		copy((InputStream) conn.getContent(), new FileOutputStream(jar));
 		conn.disconnect();
 		return jar;
-		/*
-		 * } else { throw new IOException("File ["+jar.getName()+"] already exists, won't copy new one"); }
-		 */
 	}
 
 	private File deployBundledBundle(File bundleDirectory, String symbolicName, String symbolicVersion) {
@@ -866,11 +863,6 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 						try {
 							temp = File.createTempFile("bundle", ".tmp");
 							Util.copy(zis, new FileOutputStream(temp), false, true);
-
-							/*
-							 * if(isPack200) { File temp2 = File.createTempFile("bundle", ".tmp2"); Pack200Util.pack2Jar(temp,
-							 * temp2); temp.delete(); temp=temp2; name=name.substring(0,name.length()-".pack.gz".length()); }
-							 */
 
 							bundleInfo = BundleLoader.loadBundleInfo(temp);
 							if (bundleInfo != null && nameAndVersion.equals(bundleInfo)) {

@@ -146,18 +146,6 @@ public final class RSSHandler extends DefaultHandler {
 			if (!StringUtil.isEmpty(version)) properties.setEL("version", "rss_" + version);
 		}
 
-		/*
-		 * / cloud else if(!insideItem && lcInside.equals("cloud")) {
-		 * 
-		 * 
-		 * 
-		 * String url = atts.getValue("url"); if(!StringUtil.isEmpty(url))items.setAtEL("LINKHREF",
-		 * items.getRowCount(), url); String length = atts.getValue("length");
-		 * if(!StringUtil.isEmpty(length))items.setAtEL("LINKLENGTH", items.getRowCount(), length); String
-		 * type = atts.getValue("type"); if(!StringUtil.isEmpty(type))items.setAtEL("LINKTYPE",
-		 * items.getRowCount(), type); }
-		 */
-
 		// enclosure
 		else if (insideItem && lcInside.equals("enclosure")) {
 			String url = atts.getValue("url");

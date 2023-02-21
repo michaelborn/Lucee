@@ -1240,11 +1240,6 @@ public class ModernApplicationContext extends ApplicationContextSupport {
 	public DataSource[] getDataSources() {
 		if (!initDataSources) {
 			Object o = get(component, KeyConstants._datasources, null);
-			// if "this.datasources" does not exists, check if "this.datasource" exists and contains a struct
-			/*
-			 * if(o==null){ o = get(component,KeyConstants._datasource,null); if(!Decision.isStruct(o)) o=null;
-			 * }
-			 */
 
 			if (o != null) dataSources = AppListenerUtil.toDataSources(config, o, dataSources, ThreadLocalPageContext.getLog(config, "application"));
 

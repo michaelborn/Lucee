@@ -84,13 +84,6 @@ public class ExpressionPath extends Path {
 	private static void delimiter(List<String> variables, StringBuilder regex, String delimiter) {
 		variables.add(null);
 		regex.append('(');
-		/*
-		 * print.e(delimiter+":"+Pattern.quote(delimiter)); StringBuilder sb=new StringBuilder(); int
-		 * len=delimiter.length(); char c; for (int i=0; i<len; i++) { c=delimiter.charAt(i); switch(c){
-		 * case '.': sb.append("\\.");break; case '?': sb.append("\\?");break; case '\\':
-		 * sb.append("\\\\");break; case '^': sb.append("\\^");break; case '$': sb.append("\\$");break; case
-		 * '+': sb.append("\\+");break; default: sb.append(c); break; } }
-		 */
 
 		regex.append(Pattern.quote(delimiter));
 		regex.append(')');
