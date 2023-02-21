@@ -136,8 +136,6 @@ public interface Array extends Collection, Cloneable, Objects {
 	/**
 	 * @return return array as ArrayList
 	 */
-	// public ArrayList toArrayList();
-
 	@SuppressWarnings("rawtypes")
 	public List toList();
 

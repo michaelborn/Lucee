@@ -82,8 +82,6 @@ public interface SearchEngine {
 	 * 
 	 * @return XML Element
 	 */
-	// public abstract Element getIndexElement(Element collElement, String id);
-
 	/**
 	 * @return returns the Name of the search engine to display in admin
 	 */

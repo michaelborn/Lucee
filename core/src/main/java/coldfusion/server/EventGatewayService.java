@@ -23,14 +23,6 @@ import java.util.Vector;
 
 public interface EventGatewayService extends Service {
 
-	// public abstract EventRequestDispatcher getEventRequestDispatcher();
-
-	// public abstract EventRequestHandler getEventRequestHandler();
-
-	// public abstract Logger getLogger();
-
-	// public abstract Logger getLogger(String arg0);
-
 	public abstract void startEventGateway(String arg0);
 
 	public abstract void stopEventGateway(String arg0);
@@ -59,8 +51,6 @@ public interface EventGatewayService extends Service {
 
 	public abstract String[] getGatewayCFCListeners(String arg0);
 
-	// public abstract Gateway getGateway(String arg0);
-
 	public abstract void incrementEventsIn(String arg0);
 
 	public abstract long getEventsIn(String arg0);
@@ -72,7 +62,5 @@ public interface EventGatewayService extends Service {
 	public abstract long getEventsOut(String arg0);
 
 	public abstract void resetEventsOut(String arg0);
-
-	// public abstract GatewayInfo getGatewayStats(String arg0);
 
 }

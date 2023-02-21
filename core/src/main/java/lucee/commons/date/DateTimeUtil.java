@@ -36,8 +36,6 @@ public abstract class DateTimeUtil {
 	private final static SimpleDateFormat HTTP_TIME_STRING_FORMAT_OLD;
 	private final static SimpleDateFormat HTTP_TIME_STRING_FORMAT;
 
-	// public final static SimpleDateFormat DATETIME_FORMAT_LOCAL;
-
 	static {
 		// DATETIME_FORMAT_LOCAL = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
 

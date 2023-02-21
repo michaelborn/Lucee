@@ -50,8 +50,6 @@ public class QueryBean implements Serializable {
 	public boolean debug = true;
 
 	/* This is specific to JTags, and allows you to give the cache a specific name */
-	// public String cachename;
-
 	/** Specifies the maximum number of rows to return in the record set. */
 	public int maxrows = -1;
 
@@ -71,8 +69,6 @@ public class QueryBean implements Serializable {
 	public String result = null;
 
 	public Collection.Key indexName = null;
-
-	// public static HSQLDBHandler hsql=new HSQLDBHandler();
 
 	public ArrayList<SQLItem> items = new ArrayList<SQLItem>();
 

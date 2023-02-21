@@ -36,8 +36,6 @@ public interface ORMEngine {
 
 	public ORMSession createSession(PageContext pc) throws PageException;
 
-	// public Object getSessionFactory(PageContext pc) throws PageException;
-
 	public void init(PageContext pc) throws PageException;
 
 	public ORMConfiguration getConfiguration(PageContext pc);

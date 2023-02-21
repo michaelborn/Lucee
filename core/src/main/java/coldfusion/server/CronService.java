@@ -30,8 +30,6 @@ public interface CronService extends Service {
 
 	public abstract String list();
 
-	// public abstract CronTabEntry findTask(String arg0);
-
 	public abstract void deleteTask(String arg0) throws ServiceException;
 
 	public abstract void runCall(String arg0) throws ServiceException;
@@ -39,8 +37,6 @@ public interface CronService extends Service {
 	public abstract void setLogFlag(boolean arg0) throws ServiceException;
 
 	public abstract boolean getLogFlag();
-
-	// public abstract void updateTasks(ConfigMap arg0) throws ServiceException;
 
 	public abstract void saveCronEntries();
 

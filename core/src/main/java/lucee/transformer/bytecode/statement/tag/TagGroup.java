@@ -38,10 +38,6 @@ public abstract class TagGroup extends TagBase {
 
 	public abstract short getType();
 
-	// public abstract boolean hasQuery();
-
-	// public abstract boolean hasGroup();
-
 	public final int getNumberIterator() {
 		return numberIterator;
 	}

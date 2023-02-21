@@ -47,8 +47,6 @@ public interface GatewayEntry {
 	 */
 	public abstract String getId();
 
-	// public abstract Class getClazz();
-
 	/**
 	 * @return the custom
 	 */

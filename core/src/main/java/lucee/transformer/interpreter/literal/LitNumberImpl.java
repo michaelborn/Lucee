@@ -13,8 +13,6 @@ import lucee.transformer.interpreter.expression.ExpressionBase;
  */
 public final class LitNumberImpl extends ExpressionBase implements LitNumber, ExprNumber {
 
-	// public static final LitDouble ZERO=new LitDouble(0,null,null);
-
 	private Number n;
 
 	/**

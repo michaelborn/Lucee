@@ -22,8 +22,6 @@ import java.util.Map;
 
 public interface DebuggingService extends Service {
 
-	// public abstract Debugger getDebugger();
-
 	public abstract void reset(int arg0);
 
 	public abstract void reset();

@@ -115,8 +115,6 @@ public final class Types {
 	private static final int _BYTE = _NUMBER;
 	private static final int _DOUBLE = _NUMBER;
 
-	// public static final int SIZE_INT_TYPES=10;
-
 	public static final Type ABORT = Type.getType(Abort.class);
 	public static final Type ARRAY = Type.getType(lucee.runtime.type.Array.class);
 	public static final Type ARRAY_IMPL = Type.getType(lucee.runtime.type.ArrayImpl.class);
@@ -138,7 +136,6 @@ public final class Types {
 	public static final Type FLOAT = Type.getType(Float.class);
 	public static final Type FLOAT_VALUE = Type.getType(float.class);
 
-	// public static final Type IMAGE = Type.getType(Image.class);
 	public static final Type INTEGER = Type.getType(Integer.class);
 	public static final Type INT_VALUE = Type.getType(int.class);
 
@@ -166,9 +163,6 @@ public final class Types {
 	public static final Type DATE = Type.getType(java.util.Date.class);
 
 	public static final Type FILE = Type.getType(java.io.File.class);
-	// public static final Type EXCEL=Type.getType(Excel.class);
-	// public static final Type EXCEL_UTIL=Type.getType(ExcelUtil.class);
-
 	public static final Type RESOURCE = Type.getType(Resource.class);
 
 	public static final Type FUNCTION_VALUE = Type.getType(FunctionValue.class);
@@ -231,7 +225,6 @@ public final class Types {
 	public static final Type BUFFERED_READER = Type.getType(BufferedReader.class);
 	public static final Type ARRAY_UTIL = Type.getType(ArrayUtil.class);
 	public static final Type EXCEPTION_HANDLER = Type.getType(ExceptionHandler.class);
-	// public static final Type RETURN_ EXCEPTION = Type.getType(ReturnException.class);
 	public static final Type TIMEZONE = Type.getType(java.util.TimeZone.class);
 	public static final Type STRING_BUFFER = Type.getType(StringBuffer.class);
 	public static final Type STRING_BUILDER = Type.getType(StringBuilder.class);
@@ -243,7 +236,6 @@ public final class Types {
 	public static final Type CLOSURE = Type.getType(Closure.class);
 	public static final Type LAMBDA = Type.getType(Lambda.class);
 	public static final Type UDF_PROPERTIES_ARRAY = Type.getType(UDFProperties[].class);
-	// public static final Type UDF_IMPL_ARRAY = Type.getType(UDFImpl[].class);
 	public static final Type KEY_CONSTANTS = Type.getType(KeyConstants.class);
 	public static final Type COLLECTION_KEY = Type.getType(Collection.Key.class);
 	public static final Type COLLECTION_KEY_ARRAY = Type.getType(Collection.Key[].class);

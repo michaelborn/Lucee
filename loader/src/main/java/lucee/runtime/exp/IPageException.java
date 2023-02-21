@@ -56,8 +56,6 @@ public interface IPageException extends Dumpable {
 	 * 
 	 * @return returns the line where the failure occurred
 	 */
-	// public String getLine();
-
 	/**
 	 * @return Returns the tracePointer.
 	 */

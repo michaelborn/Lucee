@@ -110,12 +110,9 @@ public final class Page extends BodyBase implements Root {
 
 	public static final Method KEY_INTERN = new Method("intern", Types.COLLECTION_KEY, new Type[] { Types.STRING });
 
-	// public static ImportDefintion getInstance(String fullname,ImportDefintion defaultValue)
 	private static final Method ID_GET_INSTANCE = new Method("getInstance", Types.IMPORT_DEFINITIONS, new Type[] { Types.STRING, Types.IMPORT_DEFINITIONS });
 
 	public final static Method STATIC_CONSTRUCTOR = Method.getMethod("void <clinit> ()V");
-	// public final static Method CONSTRUCTOR = Method.getMethod("void <init> ()V");
-
 	private static final Method CONSTRUCTOR = new Method("<init>", Types.VOID, new Type[] {});
 
 	/*
@@ -125,7 +122,6 @@ public final class Page extends BodyBase implements Root {
 
 	private static final Method CONSTRUCTOR_PS = new Method("<init>", Types.VOID, new Type[] { Types.PAGE_SOURCE });
 
-	// public static final Type STRUCT_IMPL = Type.getType(StructImpl.class);
 	public static final Method INIT_STRUCT_IMPL = new Method("<init>", Types.VOID, new Type[] {});
 
 	// void call (lucee.runtime.PageContext)
@@ -142,7 +138,6 @@ public final class Page extends BodyBase implements Root {
 
 	private final static Method SET_PAGE_SOURCE = new Method("setPageSource", Types.VOID, new Type[] { Types.PAGE_SOURCE });
 
-	// public ImportDefintion[] getImportDefintions()
 	private final static Method GET_IMPORT_DEFINITIONS = new Method("getImportDefintions", Types.IMPORT_DEFINITIONS_ARRAY, new Type[] {});
 
 	private final static Method GET_SUB_PAGES = new Method("getSubPages", Types.CI_PAGE_ARRAY, new Type[] {});
@@ -174,14 +169,12 @@ public final class Page extends BodyBase implements Root {
 	// MethodVisitor mv = cw.visitMethod(Opcodes.ACC_STATIC, "<clinit>", "()V", null, null);
 	private static final Method CINIT = new Method("<clinit>", Types.VOID, new Type[] {});
 
-	// public StaticStruct getStaticStruct()
 	private static final Method GET_STATIC_STRUCT = new Method("getStaticStruct", Types.STATIC_STRUCT, new Type[] {});
 
 	// void init(PageContext pc,Component Impl c) throws PageException
 	private static final Method INIT_COMPONENT3 = new Method("initComponent", Types.VOID, new Type[] { Types.PAGE_CONTEXT, Types.COMPONENT_IMPL, Types.BOOLEAN_VALUE });
 	private static final Method INIT_INTERFACE = new Method("initInterface", Types.VOID, new Type[] { Types.INTERFACE_IMPL });
 
-	// public boolean setMode(int mode) {
 	private static final Method SET_MODE = new Method("setMode", Types.INT_VALUE, new Type[] { Types.INT_VALUE });
 
 	private static final Method CONSTR_INTERFACE_IMPL8 = new Method("<init>", Types.VOID, new Type[] { Types.PAGE_CONTEXT, Types.INTERFACE_PAGE_IMPL, Types.STRING, // extends
@@ -418,8 +411,7 @@ public final class Page extends BodyBase implements Root {
 		adapter.returnValue();
 		adapter.endMethod();
 
-		// public ImportDefintion[] getImportDefintions()
-		if (imports.size() > 0) {
+			if (imports.size() > 0) {
 			adapter = new GeneratorAdapter(Opcodes.ACC_PUBLIC + Opcodes.ACC_FINAL, GET_IMPORT_DEFINITIONS, null, null, cw);
 			adapter.visitVarInsn(Opcodes.ALOAD, 0);
 			adapter.visitFieldInsn(Opcodes.GETFIELD, className, "imports", "[Llucee/runtime/component/ImportDefintion;");
@@ -974,8 +966,7 @@ public final class Page extends BodyBase implements Root {
 	}
 
 	private void writeOutGetStaticStruct(ConstrBytecodeContext constr, List<LitString> keys, ClassWriter cw, TagCIObject component, String name) throws TransformerException {
-		// public final static StaticStruct _static = new StaticStruct();
-		FieldVisitor fv = cw.visitField(Opcodes.ACC_PRIVATE + Opcodes.ACC_STATIC + Opcodes.ACC_FINAL, "staticStruct", "Llucee/runtime/component/StaticStruct;", null, null);
+			FieldVisitor fv = cw.visitField(Opcodes.ACC_PRIVATE + Opcodes.ACC_STATIC + Opcodes.ACC_FINAL, "staticStruct", "Llucee/runtime/component/StaticStruct;", null, null);
 		fv.visitEnd();
 
 		{
@@ -988,8 +979,7 @@ public final class Page extends BodyBase implements Root {
 			ga.endMethod();
 		}
 
-		// public StaticStruct getStaticStruct() {return _static;}
-		{
+			{
 			final GeneratorAdapter ga = new GeneratorAdapter(Opcodes.ACC_PUBLIC + Opcodes.ACC_FINAL, GET_STATIC_STRUCT, null, null, cw);
 			ga.getStatic(Type.getType(name), "staticStruct", Types.STATIC_STRUCT);
 			ga.returnValue();

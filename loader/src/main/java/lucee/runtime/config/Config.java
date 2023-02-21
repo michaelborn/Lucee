@@ -157,16 +157,6 @@ public interface Config {
 	 */
 	public abstract short getScopeCascadingType();
 
-	// public abstract String[] getCFMLExtensions();
-
-	// public abstract String getCFCExtension();
-
-	// public abstract String getComponentExtension();
-
-	// public abstract String[] getTemplateExtensions();
-
-	// public abstract String[] getAllExtensions();
-
 	/**
 	 * return the mapping to custom tag directory
 	 * 
@@ -580,7 +570,6 @@ public interface Config {
 	 * 
 	 * @throws PageException
 	 */
-	// public DatasourceConnection getConnection(String datasource, String user, String pass) throws
 	// PageException;
 
 	/*
@@ -630,9 +619,6 @@ public interface Config {
 	 * @return classloader of ths context
 	 */
 	public ClassLoader getClassLoader(); // FUTURE deprecated, use instead getClassLoaderCore
-	// public ClassLoader getClassLoaderCore();
-	// public ClassLoader getClassLoaderLoader();
-
 	public Resource getExtensionDirectory();
 
 	public ExtensionProvider[] getExtensionProviders();
@@ -772,13 +758,9 @@ public interface Config {
 
 	public Resource getVideoDirectory();
 
-	// public String getVideoProviderLocation();
-
 	public boolean isShowVersion();
 
 	public boolean isSuppressWhitespace();
-
-	// public boolean isVideoAgreementAccepted();
 
 	public Struct getRemoteClientUsage();
 

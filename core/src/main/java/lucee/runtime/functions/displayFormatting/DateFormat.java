@@ -64,7 +64,6 @@ public final class DateFormat extends BIF {
 		}
 		return new lucee.runtime.format.DateFormat(locale).format(datetime, mask, tz);
 	}
-	// public static String call(PageContext pc , Object object, String mask,TimeZone tz) throws
 	// PageException {
 
 	@Override

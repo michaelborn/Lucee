@@ -120,7 +120,6 @@ public final class XMLUtil {
 	public static final Collection.Key KEY_FEATURE_DISALLOW_DOCTYPE_DECL = KeyImpl.getInstance("disallowDoctypeDecl");
 	public static final Collection.Key KEY_FEATURE_EXTERNAL_GENERAL_ENTITIES = KeyImpl.getInstance("externalGeneralEntities");
 
-	// public final static String
 	// DEFAULT_SAX_PARSER="org.apache.xerces.parsers.SAXParser";
 
 	/*

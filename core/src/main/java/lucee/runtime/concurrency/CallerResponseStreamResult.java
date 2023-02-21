@@ -73,5 +73,4 @@ public abstract class CallerResponseStreamResult implements Callable<String> {
 	}
 
 	public abstract void _call(PageContext parent, PageContext pc) throws PageException;
-	// public abstract void afterCleanup(PageContext parent, ByteArrayOutputStream baos);
 }

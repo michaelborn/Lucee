@@ -159,5 +159,4 @@ public interface Mapping extends Serializable {
 	 */
 	public int getListenerType();
 
-	// public void flush(); FUTURE
 }

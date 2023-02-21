@@ -114,7 +114,6 @@ public final class CacheDelete extends BIF {
 	}
 
 	private static boolean remove(Cache cache, String[] keys) throws PageException, IOException {
-		// // public boolean remove(String[] keys) throws IOException { FUTURE add to interface
 		try {
 			return Caster.toBooleanValue(getMethod(cache).invoke(cache, new Object[] { keys }));
 		}

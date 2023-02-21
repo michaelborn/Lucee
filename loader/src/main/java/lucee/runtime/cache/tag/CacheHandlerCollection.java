@@ -24,10 +24,6 @@ import lucee.runtime.exp.PageException;
 
 public interface CacheHandlerCollection {
 
-	// public static final int TYPE_TIMESPAN=1;
-	// public static final int TYPE_REQUEST=2;
-	// public static final int TYPE_SMART=4;
-
 	/**
 	 * based on the cachedWithin Object we choose the right Cachehandler and return it
 	 * 
@@ -44,8 +40,6 @@ public interface CacheHandlerCollection {
 	 * @return Returns the instance.
 	 */
 	public CacheHandler getInstance(String cacheHandlerId, CacheHandler defaultValue);
-
-	// public SmartCacheHandler getSmartCacheHandler();
 
 	public int size(PageContext pc) throws PageException;
 

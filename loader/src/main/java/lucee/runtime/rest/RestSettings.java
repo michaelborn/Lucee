@@ -21,8 +21,6 @@ package lucee.runtime.rest;
 public interface RestSettings {
 	public boolean getSkipCFCWithError();
 
-	// public Resource[] getCfcLocations();
-
 	/**
 	 * return format of the request, ignored when format is defined as part of the call
 	 * 

@@ -45,13 +45,9 @@ public interface Info {
 	/**
 	 * @return returns the state
 	 */
-	// public int getStateAsInt();
-
 	/**
 	 * @return returns the state
 	 */
-	// public String getStateAsString();
-
 	public long getFullVersionInfo();
 
 	public String getVersionName();

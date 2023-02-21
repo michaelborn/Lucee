@@ -25,8 +25,6 @@ public class Stopwatch {
 
 	public static final int UNIT_MILLI = 1;
 	public static final int UNIT_NANO = 2;
-	// public static final int UNIT_MICRO=4;
-
 	private long start;
 	private int count = 0;
 	private long total = 0;

@@ -34,7 +34,6 @@ public class Hash {
 
 	public static final char[] ENCODING_HEX = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	public static final char[] ENCODING_HEXUC = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-	// public static final char[] ENCODING_ASCII = "0123456789abcdefghijklmnopqrstuvwxyz".toCharArray();
 	private static final byte[] DEL = new byte[] { 58 };
 
 	public static final String ALGORITHM_MD5 = "MD5";

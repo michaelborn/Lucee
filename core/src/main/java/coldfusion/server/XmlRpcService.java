@@ -36,10 +36,8 @@ public interface XmlRpcService extends Service {
 
 	public abstract Object getWebService(String arg0, String arg1, String arg2, int arg3, String arg4, String arg5, String arg6, String arg7, String arg8);
 
-	// public abstract ServiceProxy getWebServiceProxy(String arg0, String arg1,String arg2, String
 	// arg3);
 
-	// public abstract ServiceProxy getWebServiceProxy(String arg0, String arg1,String arg2, int arg3,
 	// String arg4, String arg5, String arg6,String arg7, String arg8);
 
 	public abstract String getClassPath();

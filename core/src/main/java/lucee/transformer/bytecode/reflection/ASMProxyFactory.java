@@ -61,16 +61,12 @@ public class ASMProxyFactory {
 
 	private static final org.objectweb.asm.commons.Method LOAD_CLASS = new org.objectweb.asm.commons.Method("loadClass", Types.CLASS, new Type[] { Types.STRING });
 
-	// public static Class loadClass(String className, Class defaultValue) {
 	private static final org.objectweb.asm.commons.Method LOAD_CLASS_EL = new org.objectweb.asm.commons.Method("loadClass", Types.CLASS, new Type[] { Types.STRING, Types.CLASS });
 
-	// public String getName();
 	private static final org.objectweb.asm.commons.Method GET_NAME = new org.objectweb.asm.commons.Method("getName", Types.STRING, new Type[] {});
 
-	// public int getModifiers();
 	private static final org.objectweb.asm.commons.Method GET_MODIFIERS = new org.objectweb.asm.commons.Method("getModifiers", Types.INT_VALUE, new Type[] {});
 
-	// public Class getReturnType();
 	private static final org.objectweb.asm.commons.Method GET_RETURN_TYPE_AS_STRING = new org.objectweb.asm.commons.Method("getReturnTypeAsString", Types.STRING, new Type[] {});
 
 	private static final org.objectweb.asm.commons.Method INVOKE = new org.objectweb.asm.commons.Method("invoke", Types.OBJECT, new Type[] { Types.OBJECT, Types.OBJECT_ARRAY });

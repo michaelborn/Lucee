@@ -65,7 +65,6 @@ public class VariableImpl extends ExpressionBase implements Variable {
 	// Object getCollection(Key)
 	final static Method METHOD_SCOPE_GET_COLLECTION_KEY = new Method("getCollection", Types.OBJECT, new Type[] { Types.COLLECTION_KEY });
 
-	// public Object get(PageContext pc,Object coll, Key[] keys, Object defaultValue) {
 	/* ??? */private final static Method CALLER_UTIL_GET = new Method("get", Types.OBJECT,
 			new Type[] { Types.PAGE_CONTEXT, Types.OBJECT, Types.COLLECTION_KEY_ARRAY, Types.OBJECT });
 

@@ -378,7 +378,6 @@ public class ScheduledTaskThread extends ParentThreasRefThread {
 		return next;
 	}
 
-	// public static void main(String[] args) {
 	// long start = 1604217661000L; // Sunday, November 1, 2020 9:01:01 AM CET
 	// long now = 1610704861000L; // Friday, January 1, 2021 11:01:01 AM CET
 	// long end = 4759891261000L; // Friday, January 1, 2021 11:01:01 AM CET

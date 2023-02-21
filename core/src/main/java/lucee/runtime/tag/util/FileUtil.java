@@ -37,8 +37,6 @@ public class FileUtil {
 	public static final int NAMECONFLICT_OVERWRITE = 8; // same as MERGE
 	public static final int NAMECONFLICT_MAKEUNIQUE = 16;
 	public static final int NAMECONFLICT_FORCEUNIQUE = 32;
-	// public static final int NAMECONFLICT_CLOSURE = 32; // FUTURE
-
 	public static int toNameConflict(String nameConflict) throws ApplicationException {
 
 		if (StringUtil.isEmpty(nameConflict, true)) return NAMECONFLICT_UNDEFINED;

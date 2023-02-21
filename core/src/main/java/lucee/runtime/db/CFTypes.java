@@ -21,7 +21,6 @@ package lucee.runtime.db;
 import java.sql.Types;
 
 public interface CFTypes {
-	// public static final int BFILE=-13;//OracleTypes.BFILE;
 	public static final int CURSOR = -10;// OracleTypes.CURSOR;
 	public static final int BFILE = -13;
 	public static final int BINARY_DOUBLE = 101;

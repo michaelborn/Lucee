@@ -955,8 +955,6 @@ public abstract class PageContext extends javax.servlet.jsp.PageContext {
 	 * 
 	 * @throws ServletException
 	 */
-	// public abstract void includeOnRequestEnd(PageSource applicationFile) throws ServletException;
-
 	/**
 	 * ends a cfoutput block
 	 */
@@ -1096,10 +1094,6 @@ public abstract class PageContext extends javax.servlet.jsp.PageContext {
 	 */
 	public abstract void param(String type, String name, Object defaultValue, double min, double max) throws PageException;
 
-	// public abstract PageContext clonePageContext();
-
-	// public abstract boolean isCFCRequest();
-
 	public abstract DataSourceManager getDataSourceManager();
 
 	public abstract CFMLFactory getCFMLFactory();
@@ -1136,8 +1130,6 @@ public abstract class PageContext extends javax.servlet.jsp.PageContext {
 	public abstract boolean hasFamily();
 
 	public abstract Component loadComponent(String compPath) throws PageException;
-
-	// public abstract void setActiveComponent(Component component);
 
 	/**
 	 * @return Returns the active Component.

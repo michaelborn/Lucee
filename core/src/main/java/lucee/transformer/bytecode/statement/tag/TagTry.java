@@ -58,11 +58,9 @@ public final class TagTry extends TagBase implements FlowControlRetry {
 	public static final Method SET_CATCH_PE = new Method("setCatch", Types.VOID, new Type[] { Types.PAGE_EXCEPTION });
 	public static final Method SET_CATCH3 = new Method("setCatch", Types.VOID, new Type[] { Types.PAGE_EXCEPTION, Types.BOOLEAN_VALUE, Types.BOOLEAN_VALUE });
 	public static final Method SET_CATCH4 = new Method("setCatch", Types.VOID, new Type[] { Types.PAGE_EXCEPTION, Types.STRING, Types.BOOLEAN_VALUE, Types.BOOLEAN_VALUE });
-	// public static final Method SET_CATCH3x = new Method("setCatch", Types.VOID, new Type[] {
 	// Types.PAGE_EXCEPTION, Types.BOOLEAN_VALUE, Types.BOOLEAN_VALUE });
 	public static final Method GET_CATCH = new Method("getCatch", Types.PAGE_EXCEPTION, new Type[] {});
 
-	// public boolean typeEqual(String type);
 	private static final Method TYPE_EQUAL = new Method("typeEqual", Types.BOOLEAN_VALUE, new Type[] { Types.STRING });
 
 	private FlowControlFinal fcf;

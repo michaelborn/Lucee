@@ -468,10 +468,8 @@ public interface Resource extends Serializable {
 	@Deprecated
 	public boolean setReadOnly();
 
-	// public void setWritable(boolean value) throws IOException;
 	public boolean setWritable(boolean writable);
 
-	// public void setReadable(boolean value) throws IOException;
 	public boolean setReadable(boolean readable);
 
 	/**

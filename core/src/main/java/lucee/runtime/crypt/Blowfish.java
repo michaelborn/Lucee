@@ -206,9 +206,7 @@ public final class Blowfish {
 
 	private static class BlowfishECB {
 
-		// public static final int MAXKEYLENGTH = 56;
-		// public static final int BLOCKSIZE = 8;
-		// static final int PBOX_ENTRIES = 18;
+				// static final int PBOX_ENTRIES = 18;
 		// static final int SBOX_ENTRIES = 256;
 		int m_pbox[];
 		int m_sbox1[];

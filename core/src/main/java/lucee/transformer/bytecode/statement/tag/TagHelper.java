@@ -81,7 +81,6 @@ public final class TagHelper {
 
 	// void setDynamicAttribute(String uri, String name, Object value)
 	private static final Method SET_DYNAMIC_ATTRIBUTE = new Method("setDynamicAttribute", Type.VOID_TYPE, new Type[] { Types.STRING, Types.COLLECTION_KEY, Types.OBJECT });
-	// public static void setAttribute(PageContext pc,boolean doDynamic,boolean silently,Tag tag, String
 	// name,Object value) throws PageException {
 
 	private static final Method SET_ATTRIBUTE4 = new Method("setAttribute", Type.VOID_TYPE, new Type[] { Types.PAGE_CONTEXT, TAG, Types.STRING, Types.OBJECT });

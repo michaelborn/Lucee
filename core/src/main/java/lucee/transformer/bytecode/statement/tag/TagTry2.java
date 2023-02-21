@@ -66,7 +66,6 @@ public final class TagTry2 extends TagBase implements FlowControlRetry {
 
 	public static final Method GET_CATCH_NAME = new Method("getCatchName", Types.STRING, new Type[] {});
 
-	// public boolean typeEqual(String type);
 	private static final Method TYPE_EQUAL = new Method("typeEqual", Types.BOOLEAN_VALUE, new Type[] { Types.STRING });
 
 	private FlowControlFinal fcf;

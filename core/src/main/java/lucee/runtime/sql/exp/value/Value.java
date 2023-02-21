@@ -25,5 +25,4 @@ public interface Value extends Expression {
 	public String getString();
 
 	public Object getValue();
-	// public void setValue(String value);
 }

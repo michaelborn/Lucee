@@ -69,7 +69,6 @@ public final class TagLibTag {
 	/**
 	 * Definition des Attribut Type
 	 */
-	// public final static int ATTRIBUTE_TYPE_FULLDYNAMIC=2; deprecated
 	/**
 	 * Definition des Attribut Type
 	 */

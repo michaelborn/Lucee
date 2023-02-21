@@ -64,7 +64,6 @@ import lucee.transformer.util.PageSourceCode;
 public final class PageSourceImpl implements PageSource {
 
 	private static final long serialVersionUID = -7661676586215092539L;
-	// public static final byte LOAD_NONE=1;
 	public static final byte LOAD_ARCHIVE = 2;
 	public static final byte LOAD_PHYSICAL = 3;
 	private static final long MAX = 1024 * 1024 * 100;

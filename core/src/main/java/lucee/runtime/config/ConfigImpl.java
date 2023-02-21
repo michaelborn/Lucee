@@ -3766,8 +3766,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 		wsHandler = null;
 	}
 
-	// public abstract WSHandler getWSHandler() throws PageException;
-
 	protected ClassDefinition getWSHandlerClassDefinition() {
 		return wsHandlerCD;
 	}

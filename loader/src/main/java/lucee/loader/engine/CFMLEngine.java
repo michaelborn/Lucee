@@ -212,8 +212,6 @@ public interface CFMLEngine {
 	 * removed to avoid library conflicts, the blazeDS implementation is no longer under development an
 	 * in a separate jar
 	 */
-	// public Object getBlazeDSUtil();
-
 	/**
 	 * returns the Resource Util
 	 * 
@@ -227,8 +225,6 @@ public interface CFMLEngine {
 	 * @return the HTTP Util
 	 */
 	public HTTPUtil getHTTPUtil();
-
-	// public XMLUtil getXMLUtil();
 
 	public ListUtil getListUtil();
 

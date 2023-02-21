@@ -28,6 +28,4 @@ public interface CacheEntry {
 
 	public void writeEntry(String entry, boolean append) throws IOException;
 
-	// public String getName();
-	// public String getRaw();
 }

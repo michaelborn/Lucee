@@ -40,9 +40,6 @@ public final class OpNegateNumber extends ExpressionBase implements ExprNumber {
 
 	private ExprNumber expr;
 
-	// public static final int PLUS = 0;
-	// public static final int MINUS = 1;
-
 	private OpNegateNumber(Expression expr, Position start, Position end) {
 		super(expr.getFactory(), start, end);
 		this.expr = expr.getFactory().toExprNumber(expr);

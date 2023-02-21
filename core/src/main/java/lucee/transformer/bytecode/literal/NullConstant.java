@@ -48,8 +48,7 @@ public class NullConstant extends ExpressionBase {
 	public Type _writeOut(BytecodeContext bc, int mode) throws TransformerException {
 		GeneratorAdapter a = bc.getAdapter();
 
-		// public static boolean full(PageContext pc)
-		a.loadArg(0);
+			a.loadArg(0);
 		bc.getAdapter().invokeStatic(Types.NULL_SUPPORT_HELPER, FULL);
 
 		Label beforeNull = new Label();

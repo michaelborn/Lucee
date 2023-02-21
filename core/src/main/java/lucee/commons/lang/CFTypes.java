@@ -94,8 +94,6 @@ public final class CFTypes {
 	 */
 	public static final short TYPE_XML = 16;
 
-	// public static final short TYPE_SIZE = 21;
-
 	public static final short TYPE_GUID = 22;
 
 	public static final short TYPE_FUNCTION = 23;

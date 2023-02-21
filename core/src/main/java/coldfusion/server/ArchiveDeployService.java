@@ -34,5 +34,4 @@ public interface ArchiveDeployService extends Service {
 
 	public abstract void archive(String arg0, String arg1) throws ServiceException;
 
-	// public abstract void deploy(Archive arg0) throws ServiceException;
 }

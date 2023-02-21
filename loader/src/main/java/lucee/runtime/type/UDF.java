@@ -150,8 +150,6 @@ public interface UDF extends Function, Dumpable, Member, Cloneable {
 	 */
 	public abstract String getHint();
 
-	// public abstract PageSource getPageSource();
-
 	public abstract String getSource();
 
 	public abstract Struct getMetaData(PageContext pc) throws PageException;
@@ -200,5 +198,4 @@ public interface UDF extends Function, Dumpable, Member, Cloneable {
 
 	public PageSource getPageSource();
 
-	// public abstract Page getPage(PageContext pc);
 }

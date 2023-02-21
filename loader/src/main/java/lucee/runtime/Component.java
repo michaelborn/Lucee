@@ -233,8 +233,6 @@ public interface Component extends Struct, Objects, CIObject {
 
 	public PageSource getPageSource();
 
-	// public Member getMember(int access,Collection.Key key, boolean dataMember,boolean superAccess);
-
 	public String getBaseAbsName();
 
 	public boolean isBasePeristent();

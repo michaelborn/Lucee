@@ -97,7 +97,4 @@ public interface Iterator {
 	 */
 	public boolean isEmpty();
 
-	// public ArrayList column(String strColumn)throws PageException;
-
-	// public String[] row(int number);
 }

@@ -104,8 +104,7 @@ public final class OpElvis extends ExpressionBase {
 
 		ExpressionUtil.visitLine(bc, left.getStart());
 
-		// public static boolean call(PageContext pc , double scope,String[] varNames)
-		// pc
+			// pc
 		adapter.loadArg(0);
 		// scope
 		adapter.push((double) left.getScope());

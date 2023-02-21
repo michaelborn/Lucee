@@ -55,7 +55,6 @@ public final class TryCatchFinally extends StatementBase implements Opcodes, Has
 
 	private static final Method TO_PAGE_EXCEPTION = new Method("toPageException", Types.PAGE_EXCEPTION, new Type[] { Types.THROWABLE });
 
-	// public boolean typeEqual(String type);
 	private static final Method TYPE_EQUAL = new Method("typeEqual", Types.BOOLEAN_VALUE, new Type[] { Types.STRING });
 
 	// Struct getCatchBlock(PageContext pc);

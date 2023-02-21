@@ -489,8 +489,6 @@ public class UDFImpl extends MemberSupport implements UDFPlus, Externalizable {
 		return properties.getPage(pc).udfDefaultValue(pc, properties.getIndex(), index, defaultValue);
 	}
 
-	// public abstract Object getDefaultValue(PageContext pc,int index) throws PageException;
-
 	@Override
 	public String getFunctionName() {
 		return properties.getFunctionName();

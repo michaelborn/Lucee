@@ -215,8 +215,6 @@ public interface SystemUtil {
 	public void stop(Thread thread);
 
 	public void stop(PageContext pc, Throwable t, Log log); // FUTURE deprecated
-	// public void stop(PageContext pc, Log log); // FUTURE add
-
 	public String getMacAddress();
 
 	public URL getResource(Bundle bundle, String path);

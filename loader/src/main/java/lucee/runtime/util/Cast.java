@@ -1465,8 +1465,6 @@ public interface Cast {
 	 * 
 	 * @throws PageException Page Exception
 	 */
-	// public NodeList toNodeList(Object o) throws PageException;
-
 	/*
 	 * * casts an Object to a Node List
 	 * 
@@ -1476,8 +1474,6 @@ public interface Cast {
 	 * 
 	 * @return NodeList from Object
 	 */
-	// public NodeList toNodeList(Object o, NodeList defaultValue);
-
 	/*
 	 * * casts an Object to a XML Node
 	 * 
@@ -1487,8 +1483,6 @@ public interface Cast {
 	 * 
 	 * @throws PageException Page Exception
 	 */
-	// public Node toNode(Object o) throws PageException;
-
 	/*
 	 * * casts an Object to a XML Node
 	 * 
@@ -1498,8 +1492,6 @@ public interface Cast {
 	 * 
 	 * @return Node from Object
 	 */
-	// public Node toNode(Object o, Node defaultValue);
-
 	/**
 	 * casts a boolean to an Integer
 	 * 
@@ -1577,8 +1569,6 @@ public interface Cast {
 	 * 
 	 * @throws PageException Page Exception
 	 */
-	// public Node toXML(Object value) throws PageException;
-
 	/*
 	 * * cast Object to a XML Node
 	 * 
@@ -1588,8 +1578,6 @@ public interface Cast {
 	 * 
 	 * @return XML Node
 	 */
-	// public Node toXML(Object value, Node defaultValue);
-
 	/**
 	 * cast to given type
 	 * 
@@ -1640,6 +1628,4 @@ public interface Cast {
 	public DumpData toDumpTable(Struct sct, String title, PageContext pageContext, int maxlevel, DumpProperties dp);
 
 	// FUTURE
-	// public Credentials toCredentials(String username, String password);
-
 }

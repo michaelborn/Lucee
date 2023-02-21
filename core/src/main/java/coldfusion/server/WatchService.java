@@ -26,10 +26,6 @@ public interface WatchService extends Service {
 
 	public abstract void setSettings(Map arg0);
 
-	// public abstract void addListener(Listener arg0);
-
-	// public abstract void removeListener(Listener arg0);
-
 	public abstract void registerServices();
 
 }

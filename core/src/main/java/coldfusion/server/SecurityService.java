@@ -28,8 +28,6 @@ public interface SecurityService extends Service {
 
 	public abstract Map getContexts();
 
-	// public abstract BasicPolicy getBasicPolicy();
-
 	public abstract HashMap getCompiledCrossSiteScriptPatterns();
 
 	public abstract String crossSiteProtectString(String arg0);

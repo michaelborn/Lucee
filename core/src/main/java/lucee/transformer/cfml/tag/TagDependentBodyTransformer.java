@@ -35,7 +35,6 @@ public interface TagDependentBodyTransformer {
 	 * @param cfml
 	 * @throws TemplateException
 	 */
-	// public Body transform(Factory factory,Root root,EvaluatorPool ep,TagLib[][] tlibs, FunctionLib[]
 	// flibs, String surroundingTagName,
 	// TagLibTag[] scriptTags, SourceCode cfml,TransfomerSettings setting)
 	// throws TemplateException;

@@ -22,10 +22,6 @@ import java.util.Map;
 
 public interface MailSpoolService extends Service {
 
-	// public abstract void storeMail(MailImpl arg0) throws MailSessionException,MailDeliveryException;
-
-	// public abstract void validate(MailImpl arg0) throws ServiceException;
-
 	public abstract Map getSettings();
 
 	public abstract void setSettings(Map arg0);

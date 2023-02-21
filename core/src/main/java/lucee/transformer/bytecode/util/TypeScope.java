@@ -90,10 +90,7 @@ public final class TypeScope {
 	public final static Method METHOD_LOCAL_BIND = new Method("localGet", Types.OBJECT, new Type[] { Types.BOOLEAN_VALUE });
 	public final static Method METHOD_LOCAL_TOUCH = new Method("localTouch", Types.OBJECT, new Type[] {});
 
-	// public final static Method METHOD_THIS_BINDX=new Method("thisGet",Types.OBJECT,new
 	// Type[]{Types.BOOLEAN_VALUE});
-	// public final static Method METHOD_THIS_TOUCHX=new Method("thisTouch", Types.OBJECT,new Type[]{});
-
 	public final static Type SCOPE_ARGUMENT = Type.getType(Argument.class);
 
 	public static Type invokeScope(GeneratorAdapter adapter, int scope) {

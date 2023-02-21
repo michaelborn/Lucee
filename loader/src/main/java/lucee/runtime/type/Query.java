@@ -374,8 +374,6 @@ public interface Query extends Collection, Iterator, com.allaire.cfx.Query {
 	/**
 	 * @return returns struct with meta data to the query
 	 */
-	// public Struct getMetaData();
-
 	/**
 	 * @return returns array with meta data to the query (only column names and type)
 	 */

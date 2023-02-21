@@ -77,8 +77,4 @@ public interface SpoolerEngine {
 
 	public int getClosedTaskCount();
 
-	// public void setLabel(String label);
-	// public void setPersisDirectory(Resource persisDirectory);
-	// public void setLog(Log log);
-	// public void setConfig(Config config);
 }
