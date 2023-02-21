@@ -579,7 +579,7 @@
     <outputTrimmedString str="${exc2}"/>
 </target>
 
-<target name="upload_to_s3">
+<!-- <target name="upload_to_s3">
     <jar 
       basedir="${outputDir}/" 
       jarfile="${trgLoader}/lucee-${version}.jar" 
@@ -590,7 +590,6 @@
     <echots message="upload to S3"/>
     <echots message="${test_jars}"/>
 
-    <!-- Upload to S3 -->
     <java classname="org.apache.tools.ant.launch.Launcher" dir="${ant}" fork="true" failonerror="true" errorproperty="exc3">
       <classpath path="${java.class.path}">
           <pathelement location="${trgLoader}/lucee-${version}.jar"/>
@@ -605,7 +604,6 @@
       <jvmarg value="-Dbasedir=${baseDir}"/>
       <jvmarg value="-Dlucee.base.dir=${temp}/archive/base"/>
       <jvmarg value="-Dlucee.web.dir=${temp}/archive/webroot"/>
-      <!-- <jvmarg value="-Dlucee-extensions=${extS3}"/> -->
       <jvmarg value="-Dlucee.extensions.install=true"/>
       <jvmarg value="-Dlucee.full.null.support=false"/>
       <jvmarg value="-Dluceejar=${trgLoader}/lucee-${version}.jar"/>
@@ -616,7 +614,7 @@
     </java>
     <outputTrimmedString str="${exc3}"/>
 
-</target>
+</target> -->
 
 <target name="test_warmup" if="testcases">
     <echots message="Testing LUCEE_ENABLE_WARMUP"/>
@@ -750,7 +748,7 @@
 
   <target 
     name="buildLoaderMaven" 
-    depends="_buildLoaderMaven,upload_to_s3" 
+    depends="_buildLoaderMaven" 
     description="generate the loader jar" >
 
   </target>
