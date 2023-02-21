@@ -67,8 +67,6 @@ public class ChildThreadImpl extends ChildThread implements Serializable {
 
 	private static final Collection.Key KEY_ATTRIBUTES = KeyConstants._attributes;
 
-	// private static final Set EMPTY = new HashSet();
-
 	private int threadIndex;
 	private PageContextImpl pc = null;
 	// PageContextImpl pc =null;

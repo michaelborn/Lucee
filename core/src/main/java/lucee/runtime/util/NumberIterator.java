@@ -34,8 +34,6 @@ public final class NumberIterator {
 	private int _current;
 	private int recordcount;
 
-	// private static int count=0;
-
 	/**
 	 * constructor of the number iterator
 	 * 

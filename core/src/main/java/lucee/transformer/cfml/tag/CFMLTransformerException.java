@@ -30,8 +30,6 @@ import lucee.transformer.util.SourceCode;
  */
 public final class CFMLTransformerException extends Exception {
 	private SourceCode sc;
-	// private String htmlMessage;
-
 	/**
 	 * Konstruktor mit einem CFMLString und einer anderen Exception.
 	 * 

@@ -69,8 +69,6 @@ public final class PageSourceImpl implements PageSource {
 	private static final long MAX = 1024 * 1024 * 100;
 	public static File logAccessDirectory;
 
-	// private byte load=LOAD_NONE;
-
 	private final MappingImpl mapping;
 
 	private boolean isOutSide;

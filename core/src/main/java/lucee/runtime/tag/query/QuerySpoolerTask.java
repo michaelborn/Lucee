@@ -58,8 +58,6 @@ public class QuerySpoolerTask extends SpoolerTaskSupport {
 	private String relPathwV;
 
 	private SerMapping mapping;
-	// private String absPath;
-
 	public QuerySpoolerTask(PageContext parent, QueryBean data, String sql, TemplateLine tl, PageSource ps) {
 		super(EXECUTION_PLANS);
 		this.data = data;

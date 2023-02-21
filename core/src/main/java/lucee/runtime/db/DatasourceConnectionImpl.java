@@ -51,7 +51,6 @@ import lucee.runtime.spooler.Task;
  */
 public final class DatasourceConnectionImpl implements DatasourceConnectionPro, Task {
 
-	// private static final int MAX_PS = 100;
 	private static final int VALIDATION_TIMEOUT = 60000;
 	private Connection connection;
 	private DataSourcePro datasource;
@@ -195,7 +194,6 @@ public final class DatasourceConnectionImpl implements DatasourceConnectionPro, 
 		return supportsGetGeneratedKeys.booleanValue();
 	}
 
-	// private Map<String,PreparedStatement> preparedStatements=new HashMap<String,
 	// PreparedStatement>();
 
 	@Override

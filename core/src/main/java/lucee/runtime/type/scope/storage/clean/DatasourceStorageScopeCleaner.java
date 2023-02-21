@@ -37,8 +37,6 @@ import lucee.runtime.type.scope.storage.db.SQLExecutor;
 
 public class DatasourceStorageScopeCleaner extends StorageScopeCleanerSupport {
 
-	// private String strType;
-
 	public DatasourceStorageScopeCleaner(int type, StorageScopeListener listener) {
 		super(type, listener, INTERVALL_HOUR);
 		// this.strType=VariableInterpreter.scopeInt2String(type);

@@ -51,8 +51,6 @@ import lucee.transformer.expression.var.Variable;
  */
 public final class TryCatchFinally extends StatementBase implements Opcodes, HasBodies, FlowControlRetry {
 
-	// private static LitString ANY=LitString.toExprString("any", -1);
-
 	private static final Method TO_PAGE_EXCEPTION = new Method("toPageException", Types.PAGE_EXCEPTION, new Type[] { Types.THROWABLE });
 
 	private static final Method TYPE_EQUAL = new Method("typeEqual", Types.BOOLEAN_VALUE, new Type[] { Types.STRING });

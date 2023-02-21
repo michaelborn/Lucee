@@ -26,7 +26,6 @@ import lucee.commons.lang.lock.KeyLockListener;
 
 public final class Proxy {
 
-	// private static Map map=new HashTable();
 	private static KeyLock kl = new KeyLock();
 
 	public static void start(ProxyData proxyData) {

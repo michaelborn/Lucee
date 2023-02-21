@@ -1754,8 +1754,6 @@ class Ref {
 class StopThread extends Thread {
 
 	private final PageContext pc;
-	// private final Log log;
-
 	public StopThread(PageContext pc) {
 		this.pc = pc;
 	}

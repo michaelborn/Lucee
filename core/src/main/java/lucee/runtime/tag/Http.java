@@ -290,8 +290,6 @@ public final class Http extends BodyTagImpl {
 	 */
 	private short method = METHOD_GET;
 
-	// private boolean hasBody=false;
-
 	private boolean firstrowasheaders = true;
 
 	private String proxyuser = null;

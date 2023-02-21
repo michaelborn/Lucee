@@ -62,7 +62,6 @@ public final class ServerImpl extends ScopeSupport implements Server, SharedScop
 	private static final Key ARCH = KeyImpl.getInstance("arch");
 	private static final Key MAC_ADDRESS = KeyImpl.getInstance("macAddress");
 	private static final Key ARCH_MODEL = KeyImpl.getInstance("archModel");
-	// private static final Key JAVA_AGENT_PATH = KeyImpl.getInstance("javaAgentPath");
 	private static final Key JAVA_EXECUTION_PATH = KeyImpl.getInstance("executionPath");
 	private static final Key JAVA_AGENT_SUPPORTED = KeyImpl.getInstance("javaAgentSupported");
 	private static final Key LOADER_VERSION = KeyImpl.getInstance("loaderVersion");

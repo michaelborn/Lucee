@@ -38,10 +38,8 @@ public final class _Execute extends PageContextThread {
 	private String errorVariable;
 	private boolean aborted;
 	private String[] commands;
-	// private static final int BLOCK_SIZE=4096;
 	private Object monitor;
 	private Exception exception;
-	// private String body;
 	private boolean finished;
 	private Process process;
 

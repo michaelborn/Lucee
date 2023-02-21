@@ -27,14 +27,12 @@ public class VideoProfileImpl implements VideoProfile {
 	private long videoBitrateMin = 0;
 	private long videoBitrateMax = 0;
 	private long videoBitrateTolerance = 0;
-	// private boolean sameQualityAsSource =false;
 	private double framerate = 0;
 	private double audioSamplerate = 0;
 	private int aspectRatio = 0;
 	private int scanMode = 0;
 	private String videoCodec;
 	private String audioCodec;
-	// private long bufferSize;
 	private long bufferSize;
 	private int pass = 0;
 

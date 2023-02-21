@@ -64,7 +64,6 @@ public final class CredentialImpl implements Credential {
 		if (itmp < 1) itmp = 10;
 		staticIter = itmp;
 
-		// private key
 		tmp = SystemUtil.getSystemPropOrEnvVar("lucee.loginstorage.privatekey", null);
 		if (!StringUtil.isEmpty(tmp, true)) {
 			staticPrivateKey = tmp.trim();

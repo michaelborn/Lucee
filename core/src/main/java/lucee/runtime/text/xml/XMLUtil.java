@@ -131,10 +131,7 @@ public final class XMLUtil {
 
 	// static DOMParser parser = new DOMParser();
 	private static DocumentBuilder docBuilder;
-	// private static DocumentBuilderFactory factory;
 	private static TransformerFactory transformerFactory;
-	// private static DocumentBuilderFactory documentBuilderFactory;
-
 	private static SAXParserFactory saxParserFactory;
 
 	private static URL transformerFactoryResource;

@@ -88,8 +88,6 @@ public final class WDDXConverter extends ConverterSupport {
 	private char del;
 	private TimeZone timeZone;
 	private boolean ignoreRemotingFetch = true;
-	// private PageContext pcx;
-
 	/**
 	 * constructor of the class
 	 * 

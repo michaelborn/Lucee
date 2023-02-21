@@ -29,9 +29,6 @@ public class FileCacheEntry implements CacheEntry {
 
 	private static final String ENC = "utf-8";
 	private Resource res;
-	// private Resource directory;
-	// private String name,raw;
-
 	private boolean isOK(TimeSpan timeSpan) {
 		return res.exists() && (res.lastModified() + timeSpan.getMillis() >= System.currentTimeMillis());
 	}

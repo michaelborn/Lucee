@@ -71,12 +71,9 @@ public class SpoolerEngineImpl implements SpoolerEngine {
 
 	private String label;
 
-	// private LinkedList<SpoolerTask> openTaskss=new LinkedList<SpoolerTask>();
-	// private LinkedList<SpoolerTask> closedTasks=new LinkedList<SpoolerTask>();
 	private SimpleThread simpleThread;
 	private final SerializableObject token = new SerializableObject();
 	private SpoolerThread thread;
-	// private ExecutionPlan[] plans;
 	private Resource _persisDirectory;
 	private long count = 0;
 	private Log log;

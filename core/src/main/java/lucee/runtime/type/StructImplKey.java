@@ -51,9 +51,6 @@ public final class StructImplKey extends StructSupport implements Struct {
 	public static final int TYPE_REGULAR = 3;
 
 	private Map<Collection.Key, Object> _map;
-	// private static int scount=0;
-	// private static int kcount=0;
-
 	/**
 	 * default constructor
 	 */

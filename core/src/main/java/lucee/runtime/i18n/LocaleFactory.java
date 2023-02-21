@@ -35,7 +35,6 @@ import lucee.runtime.type.util.ListUtil;
  * Factory to create Locales by CFML rules
  */
 public final class LocaleFactory {
-	// private static Pattern localePattern =
 	// Pattern.compile("^\\s*([^\\s\\(]+)\\s*(\\(\\s*([^\\s\\)]+)\\s*\\))?\\s*$");
 	private static Pattern localePattern = Pattern.compile("^\\s*([^\\(]+)\\s*(\\(\\s*([^\\)]+)\\s*\\))?\\s*$");
 	private static Pattern localePattern2 = Pattern.compile("^([a-z]{2})_([a-z]{2,3})$");

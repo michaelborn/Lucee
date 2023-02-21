@@ -104,13 +104,10 @@ public final class FileTag extends BodyTagImpl {
 	private static final int ACTION_TOUCH = 9;
 	private static final int ACTION_DELETE = 10;
 	private static final int ACTION_READ_BINARY = 11;
-	// private static final Key SET_ACL = KeyImpl.intern("setACL");
 	private static final String DETAIL = "You can set a [allowedExtension] and a [blockedExtension] list as an argument/attribute with the tag [cffile] and the functions [fileUpload] and [fileUploadAll]. "
 			+ "In addition you can configure this via the Application.cfc, [this.blockedExtForFileUpload] property, the [" + SystemUtil.SETTING_UPLOAD_EXT_BLOCKLIST
 			+ "] System property or the [" + SystemUtil.convertSystemPropToEnvVar(SystemUtil.SETTING_UPLOAD_EXT_BLOCKLIST)
 			+ "] Environment variable to allow this type of file to be uploaded.";
-
-	// private static final String DEFAULT_ENCODING=Charset.getDefault();
 
 	/** Type of file manipulation that the tag performs. */
 	private int action;

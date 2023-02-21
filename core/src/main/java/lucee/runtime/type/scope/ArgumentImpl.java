@@ -63,8 +63,6 @@ public final class ArgumentImpl extends ScopeSupport implements Argument, ArrayP
 
 	private boolean bind;
 	private Set functionArgumentNames;
-	// private boolean supportFunctionArguments;
-
 	/**
 	 * constructor of the class
 	 */

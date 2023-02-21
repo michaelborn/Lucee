@@ -27,7 +27,6 @@ public final class BIF extends FunctionMember {
 
 	private static String ANY = "any";
 
-	// private ExprString nameq;
 	private int argType;
 	private ClassDefinition cd;
 	private String returnType = ANY;

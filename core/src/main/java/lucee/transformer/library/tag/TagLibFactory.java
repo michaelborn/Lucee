@@ -65,8 +65,6 @@ public final class TagLibFactory extends DefaultHandler {
 	 */
 	public final static short TYPE_JSP = 1;
 
-	// private short type=TYPE_CFML;
-
 	private XMLReader xmlReader;
 
 	private static Map<String, TagLib> hashLib = MapFactory.<String, TagLib>getConcurrentMap();
@@ -76,8 +74,6 @@ public final class TagLibFactory extends DefaultHandler {
 	private TagLibTag tag;
 	private boolean insideTag = false;
 	private boolean insideScript = false;
-	// private boolean insideBundle=false;
-
 	private TagLibTagAttr att;
 	private boolean insideAtt = false;
 
@@ -87,8 +83,6 @@ public final class TagLibFactory extends DefaultHandler {
 	private Map<String, String> attributes;
 	private final Identification id;
 	// System default tld
-	// private final static String TLD_1_0= "/resource/tld/web-cfmtaglibrary_1_0";
-
 	private final static String TLD_BASE = "/resource/tld/core-base.tld";
 	private final static String TLD_CFML = "/resource/tld/core-cfml.tld";
 	private final static String TLD_LUCEE = "/resource/tld/core-lucee.tld";

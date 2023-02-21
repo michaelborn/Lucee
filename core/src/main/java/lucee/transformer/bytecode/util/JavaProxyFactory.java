@@ -71,8 +71,6 @@ public class JavaProxyFactory {
 	private static final String COMPONENT_NAME = "L" + Types.COMPONENT.getInternalName() + ";";
 	private static final String CONFIG_WEB_NAME = "L" + Types.CONFIG_WEB.getInternalName() + ";";
 
-	// private static final Type JAVA_PROXY = Type.getType(JavaProxy.class);
-
 	private static final Type CFML_ENGINE_FACTORY = Type.getType(CFMLEngineFactory.class);
 	private static final Type CFML_ENGINE = Type.getType(CFMLEngine.class);
 	private static final Type JAVA_PROXY_UTIL = Type.getType(JavaProxyUtil.class);

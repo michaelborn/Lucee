@@ -40,8 +40,6 @@ public final class DateImpl extends Date implements SimpleValue {
 
 	private static SimpleDateFormat luceeFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
-	// private TimeZone timezone;
-
 	public DateImpl() {
 		this(null, System.currentTimeMillis());
 	}

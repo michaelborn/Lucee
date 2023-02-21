@@ -53,7 +53,6 @@ public final class Form extends BodyTagImpl {
 	private static final int WMODE_TRANSPARENT = 1;
 	private static final int WMODE_OPAQUE = 2;
 
-	// private static int _count=0;
 	private int count = 0;
 	private String name;
 	private String action;

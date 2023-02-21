@@ -59,8 +59,6 @@ public final class CacheResourceProvider implements ResourceProviderPro {
 
 	private Set<Integer> inits = new HashSet<Integer>();
 
-	// private Config config;
-
 	/**
 	 * initialize ram resource
 	 * 

@@ -70,8 +70,6 @@ public final class XMLConverter extends ConverterSupport {
 	private char del = '"';
 	private TimeZone timeZone;
 	private boolean ignoreRemotingFetch = true;
-	// private PageContext pcx;
-
 	private String type;
 
 	private int id = 0;

@@ -156,8 +156,6 @@ public final class FunctionArgumentImpl implements FunctionArgument, Externaliza
 		this.passByReference = passByReference;
 	}
 
-	// private static StructImpl sct=new StructImpl();
-
 	/**
 	 * @return the defaultType
 	 */

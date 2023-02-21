@@ -51,10 +51,7 @@ public abstract class StorageScopeCookie extends StorageScopeImpl {
 
 	private static ScriptConverter serializer = new ScriptConverter();
 	protected static CFMLExpressionInterpreter evaluator = new CFMLExpressionInterpreter(false);
-	// private Cookie cookie;
 	private String cookieName;
-
-	// private TimeSpan timeout;
 
 	static {
 		ignoreSet.add(KeyConstants._cfid);

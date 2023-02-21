@@ -31,7 +31,6 @@ public class WSClientReflector implements WSClient {
 	private Method getSOAPRequest;
 	private Method getSOAPResponse;
 	private Method getSOAPResponseHeader;
-	// private Method getLastCall;
 	private Method callWithNamedValues;
 	private Method addHeader;
 	private Method getWSHandler;

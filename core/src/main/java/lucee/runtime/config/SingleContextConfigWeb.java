@@ -113,9 +113,6 @@ public class SingleContextConfigWeb extends ConfigBase implements ConfigWebPro {
 	private SCCWIdentificationWeb id;
 	private Resource rootDir;
 	private Mapping[] mappings;
-	// private Resource remoteClientDirectory;
-	// private SpoolerEngineImpl spoolerEngine;
-
 	public SingleContextConfigWeb(CFMLFactoryImpl factory, ConfigServerImpl cs, ServletConfig config) {
 		factory.setConfig(this);
 		this.factory = factory;

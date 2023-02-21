@@ -49,8 +49,6 @@ public final class Collection extends TagImpl {
 	/** language of the collection (operators,stopwords) */
 	private String language = "english";
 
-	// private boolean categories=false;
-
 	@Override
 	public void release() {
 		super.release();

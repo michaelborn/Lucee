@@ -47,7 +47,6 @@ public abstract class ASMMethod {
 	private Class[] exceptionTypes;
 	private Class returnType;
 	private Class[] parameterTypes;
-	// private int modifiers;
 	private Class clazz;
 
 	/**

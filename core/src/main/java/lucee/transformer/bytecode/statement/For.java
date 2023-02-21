@@ -38,8 +38,6 @@ public final class For extends StatementBaseNoFinal implements FlowControlBreak,
 	private Expression update;
 	private Body body;
 
-	// private static final int I=1;
-
 	Label beforeUpdate = new Label();
 	Label end = new Label();
 	private String label;

@@ -42,7 +42,6 @@ public final class XMLConfigReader extends DefaultHandler implements LexicalHand
 
 	private Struct root = new StructImpl();
 	private Struct current;
-	// private Struct parent;
 	private Stack<Struct> ancestor = new Stack<>();
 	private boolean trimBody;
 

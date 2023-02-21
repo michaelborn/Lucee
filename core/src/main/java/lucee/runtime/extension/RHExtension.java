@@ -173,8 +173,6 @@ public class RHExtension implements Serializable {
 	private String amfsJson;
 
 	private String resourcesJson;
-	// private Config config;
-
 	private String searchsJson;
 
 	private String ormsJson;

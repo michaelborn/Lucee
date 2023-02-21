@@ -25,8 +25,6 @@ public class OracleCaster {
 
 	private static final Object[] ZERO_ARGS = new Object[0];
 
-	// private static final Class OPAQUE=ClassUtil.loadClass("oracle.sql.OPAQUE", null);
-
 	public static Object OPAQUE(Object o) {
 		if (o == null) return null;
 

@@ -32,9 +32,6 @@ public class XMLLayout extends AbstractStringLayout { // TODO <Serializable>
 	private static final String XML_NAMESPACE = "http://logging.apache.org/log4j/2.0/events";
 	private boolean doLocationInfo;
 
-	// private static final DateFormat dateFormat = new DateFormat(Locale.US);
-	// private static final TimeFormat timeFormat = new TimeFormat(Locale.US);
-
 	public XMLLayout(Charset cs, boolean complete, boolean doLocationInfo) {
 		super(cs, createHeader(cs, complete), createFooter(cs, complete));
 		this.doLocationInfo = doLocationInfo;

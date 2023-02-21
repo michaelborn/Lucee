@@ -104,7 +104,6 @@ public final class TagLibTag {
 	private ClassDefinition<? extends AttributeEvaluator> cdAttributeEvaluator;
 	private boolean handleException;
 	private boolean hasDefaultValue = false;
-	// private Type tagType;
 	private Constructor tttConstructor;
 	private boolean allowRemovingLiteral;
 	private TagLibTagAttr defaultAttribute;

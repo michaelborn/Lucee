@@ -48,8 +48,6 @@ public class ORMConnection implements Connection {
 	private int isolation;
 	private ORMTransaction trans;
 	private DataSource ds;
-	// private boolean hasBegun;
-
 	/**
 	 * Constructor of the class
 	 * 

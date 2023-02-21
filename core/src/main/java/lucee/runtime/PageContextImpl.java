@@ -253,9 +253,6 @@ public final class PageContextImpl extends PageContext {
 	private DevNullBodyContent devNull;
 
 	private ConfigWebPro config;
-	// private DataSourceManager manager;
-	// private CFMLCompilerImpl compiler;
-
 	// Scopes
 	private ScopeContext scopeContext;
 	private Variables variablesRoot = new VariablesImpl();// ScopeSupport(false,"variables",Scope.SCOPE_VARIABLES);
@@ -304,8 +301,6 @@ public final class PageContextImpl extends PageContext {
 	private Component activeComponent;
 	private UDF activeUDF;
 	private Collection.Key activeUDFCalledName;
-	// private ComponentScope componentScope=new ComponentScope(this);
-
 	private Credential remoteUser;
 
 	protected VariableUtilImpl variableUtil = new VariableUtilImpl();
@@ -348,8 +343,6 @@ public final class PageContextImpl extends PageContext {
 	private Password serverPassword;
 
 	private PageException pe;
-	// private Throwable requestTimeoutException;
-
 	private int currentTemplateDialect = CFMLEngine.DIALECT_CFML;
 	private int requestDialect = CFMLEngine.DIALECT_CFML;
 	private boolean ignoreScopes = false;

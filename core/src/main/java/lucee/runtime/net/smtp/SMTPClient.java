@@ -117,11 +117,7 @@ public final class SMTPClient implements Serializable {
 	private static final String TEXT_HTML = "text/html";
 	private static final String TEXT_PLAIN = "text/plain";
 	private static final String MESSAGE_ID = "Message-ID";
-	// private static final SerializableObject LOCK = new SerializableObject();
-
 	private static Map<TimeZone, SoftReference<SimpleDateFormat>> formatters = new ConcurrentHashMap<TimeZone, SoftReference<SimpleDateFormat>>();
-	// private static final int PORT = 25;
-
 	private int spool = SPOOL_UNDEFINED;
 
 	private int timeout = -1;

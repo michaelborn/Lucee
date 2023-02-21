@@ -163,10 +163,6 @@ public class CFMLExpressionInterpreter {
 	private static FunctionLibFunction JSON_STRUCT = null;
 	private static FunctionLibFunction LITERAL_ORDERED_STRUCT = null;
 
-	// private static final int CASE_TYPE_UPPER = 0;
-	// private static final int CASE_TYPE_LOWER = 1;
-	// private static final int CASE_TYPE_ORIGINAL = 2;
-
 	protected short mode = 0;
 
 	protected ParserString cfml;

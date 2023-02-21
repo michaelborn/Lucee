@@ -77,7 +77,6 @@ public final class Mail extends BodyTagImpl {
 	/** Specifies the row in the query to start from. */
 	private double startrow;
 
-	// private lucee.runtime.mail.Mail mail=new lucee.runtime.mail.Mail();
 	private SMTPClient smtp = new SMTPClient();
 	private lucee.runtime.net.mail.MailPart part = null;// new lucee.runtime.mail.MailPart("UTF-8");
 
@@ -90,8 +89,6 @@ public final class Mail extends BodyTagImpl {
 	private DateTime sendTime;
 
 	private Object listener;
-	// private String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-
 	@Override
 	public void release() {
 		super.release();

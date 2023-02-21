@@ -48,8 +48,6 @@ import lucee.runtime.exp.PageException;
 public class Util {
 
 	private static File tempFile;
-	// private static File homeFile;
-
 	private static final int QUALIFIER_APPENDIX_SNAPSHOT = 1;
 	private static final int QUALIFIER_APPENDIX_BETA = 2;
 	private static final int QUALIFIER_APPENDIX_RC = 3;

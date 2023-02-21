@@ -23,10 +23,6 @@ import lucee.runtime.exp.TagNotSupported;
 import lucee.runtime.ext.tag.TagImpl;
 
 public class AjaxImport extends TagImpl {
-	// private String csssrc;
-	// private String scriptsrc;
-	// private String tags;
-
 	@Override
 	public void release() {
 		super.release();

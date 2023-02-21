@@ -7,9 +7,6 @@ public class JavaFunction {
 	public final byte[] byteCode;
 	public final SourceCode sourceCode;
 	private PageSource parent;
-	// private String templateName;
-	// private String functionName;
-
 	public JavaFunction(PageSource parent, SourceCode sourceCode, byte[] byteCode) {
 		this.parent = parent;
 		this.sourceCode = sourceCode;

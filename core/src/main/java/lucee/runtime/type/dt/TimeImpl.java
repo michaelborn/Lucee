@@ -41,7 +41,6 @@ public final class TimeImpl extends Time implements SimpleValue {
 
 	private static SimpleDateFormat luceeFormatter = new SimpleDateFormat("HH:mm:ss", Locale.US);
 
-	// private TimeZone timezone;
 	public TimeImpl(long utcTime) {
 		this(null, utcTime, false);
 	}

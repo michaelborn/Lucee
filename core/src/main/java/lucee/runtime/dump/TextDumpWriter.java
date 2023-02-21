@@ -28,8 +28,6 @@ import lucee.runtime.engine.ThreadLocalPageContext;
 
 public class TextDumpWriter implements DumpWriter {
 
-	// private static int count=0;
-
 	@Override
 	public void writeOut(PageContext pc, DumpData data, Writer writer, boolean expand) throws IOException {
 		writeOut(pc, data, writer, expand, 0);

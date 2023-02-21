@@ -50,8 +50,6 @@ public abstract class TagBase extends StatementBase implements Tag {
 	private boolean scriptBase = false;
 
 	private Map<String, Attribute> metadata;
-	// private Label finallyLabel;
-
 	public TagBase(Factory factory, Position start, Position end) {
 		super(factory, start, end);
 	}

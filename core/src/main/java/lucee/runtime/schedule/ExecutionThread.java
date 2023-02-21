@@ -49,7 +49,6 @@ import lucee.runtime.util.URLResolver;
 class ExecutionThread extends ParentThreasRefThread {
 
 	private Config config;
-	// private Log log;
 	private ScheduleTask task;
 	private String charset;
 

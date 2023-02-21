@@ -43,9 +43,6 @@ public class TreeItemBean {
 	private String imgOpenCustom;
 	private String href;
 	private String target;
-	// private String query;
-	// private int queryAsRoot=QUERY_AS_ROOT_YES;
-	// private String queryAsRootCustom;
 	boolean expand = true;
 
 	/**

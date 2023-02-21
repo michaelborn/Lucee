@@ -367,7 +367,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 
 	protected MappingImpl scriptMapping;
 
-	// private Resource tagDirectory;
 	protected Mapping defaultFunctionMapping;
 	protected Map<String, Mapping> functionMappings = new ConcurrentHashMap<String, Mapping>();
 

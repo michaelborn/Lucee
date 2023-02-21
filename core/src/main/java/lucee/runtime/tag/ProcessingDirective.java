@@ -42,8 +42,6 @@ public final class ProcessingDirective extends BodyTagTryCatchFinallyImpl {
 	 * A string literal; the character encoding to use to read the page. The value may be enclosed in
 	 * single or double quotation marks, or none.
 	 */
-	// private String pageencoding=null;
-
 	private Boolean suppresswhitespace;
 	private boolean hasBody;
 

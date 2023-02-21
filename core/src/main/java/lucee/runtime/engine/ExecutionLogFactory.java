@@ -31,8 +31,6 @@ public class ExecutionLogFactory {
 
 	private Class clazz;
 	private Map<String, String> arguments;
-	// private ExecutionLog executionLog;
-
 	public ExecutionLogFactory(Class clazz, Map<String, String> arguments) {
 		this.clazz = clazz;
 		this.arguments = arguments;

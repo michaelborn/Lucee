@@ -95,7 +95,6 @@ public class ModernAppListener extends AppListenerSupport {
 	private static final Collection.Key ON_ERROR = KeyConstants._onError;
 	private static final Collection.Key ON_MISSING_TEMPLATE = KeyImpl.getInstance("onMissingTemplate");
 
-	// private Map<String,Component> apps=new HashMap<String,Component>();// TODO no longer use this,
 	// find a better way to store components for end methods
 	protected int mode = MODE_CURRENT2ROOT;
 

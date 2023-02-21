@@ -45,7 +45,6 @@ public final class Transaction extends BodyTagTryCatchFinallyImpl {
 
 	private static final int ACTION_SET_SAVEPOINT = 8;
 
-	// private boolean hasBody;
 	private int isolation = Connection.TRANSACTION_NONE;
 	private int action = ACTION_NONE;
 	private boolean innerTag = false;

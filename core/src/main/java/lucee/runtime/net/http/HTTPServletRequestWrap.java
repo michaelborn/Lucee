@@ -110,7 +110,6 @@ public final class HTTPServletRequestWrap implements HttpServletRequest, Seriali
 		private String remoteUser;
 		private String requestedSessionId;
 		private boolean requestedSessionIdFromCookie;
-		// private Request _request;
 		private boolean requestedSessionIdFromURL;
 		private boolean secure;
 		private boolean requestedSessionIdValid;

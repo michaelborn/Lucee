@@ -45,7 +45,6 @@ public class BytecodeContext implements Context {
 	private int count = 0;
 	private Method method;
 	private boolean doSubFunctions = true;
-	// private StaticConstrBytecodeContext staticConstr;
 	private ConstrBytecodeContext constr;
 	private final boolean suppressWSbeforeArg;
 	private final boolean output;
@@ -194,8 +193,6 @@ public class BytecodeContext implements Context {
 	public List<LitString> getKeys() {
 		return keys;
 	}
-
-	// private static BytecodeContext staticConstr;
 
 	public void pushOnFinally(OnFinally onFinally) {
 		tcf.push(onFinally);

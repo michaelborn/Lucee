@@ -176,8 +176,6 @@ public final class ResourceUtil {
 			EXT_MT.put(te[i], "text/html");
 		}
 	}
-	// private static Magic mimeTypeParser;
-
 	/**
 	 * cast a String (argument destination) to a File Object, if destination is not an absolute, file
 	 * object will be relative to current position (get from PageContext) file must exist otherwise
@@ -489,13 +487,11 @@ public final class ResourceUtil {
 		// }
 	}
 
-	// private static final int NORMAL=0;
 	private static final int READ_ONLY = 0;
 	private static final int HIDDEN = 1;
 	private static final int ARCHIVE = 2;
 	private static final int SYSTEM = 3;
 
-	// private static final int IGNORE=0;
 	private static final int NO = 1;
 	private static final int YES = 2;
 

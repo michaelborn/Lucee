@@ -102,7 +102,6 @@ public final class XMLUtilImpl implements XMLUtil {
 
 	// static DOMParser parser = new DOMParser();
 	private static DocumentBuilder docBuilder;
-	// private static DocumentBuilderFactory factory;
 	private static TransformerFactory transformerFactory;
 
 	@Override

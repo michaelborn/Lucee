@@ -31,7 +31,6 @@ public class NTAuthenticate extends TagImpl {
 	private String password;
 	private String domain;
 	private String result = "cfntauthenticate";
-	// private String _action="auth";
 	private boolean listGroups;
 	private boolean throwOnError;
 

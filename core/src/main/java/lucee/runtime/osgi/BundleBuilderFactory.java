@@ -78,8 +78,6 @@ public class BundleBuilderFactory {
 
 	private String activator;
 
-	// private List<Resource> jars=new ArrayList<Resource>();
-
 	private List<String> exportPackage;
 	private List<String> fragmentHost;
 	private List<String> importPackage;
@@ -87,8 +85,6 @@ public class BundleBuilderFactory {
 	private List<String> requireBundleFragment;
 	private List<String> dynImportPackage;
 	private List<String> classPath;
-
-	// private BundleFile bf;
 
 	private Resource jar;
 

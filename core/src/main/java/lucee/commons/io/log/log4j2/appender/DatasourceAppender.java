@@ -30,7 +30,6 @@ import lucee.runtime.type.dt.DateTimeImpl;
 
 public class DatasourceAppender extends AbstractAppender {
 
-	// private DatasourceManagerImpl manager;
 	private DataSource datasource;
 	private final String datasourceName;
 	private final String username;

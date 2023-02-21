@@ -3768,7 +3768,6 @@ public final class ZqlJJParser implements ZqlJJParserConstants {
 	private Token jj_lastpos;
 	private int jj_la;
 	public boolean lookingAhead;
-	// private boolean jj_semLA;
 	private int jj_gen;
 	private final int jj_la1[];
 	private final int jj_la1_0[] = { 0x8008000, 0, 0, 0x810b000, 0x4220000, 0x4000000, 0x4220000, 0, 0x10000, 0, 0, 0, 0x10000, 0, 0x1000000, 0, 0, 0x1000000, 0, 0, 0x2080400, 0,

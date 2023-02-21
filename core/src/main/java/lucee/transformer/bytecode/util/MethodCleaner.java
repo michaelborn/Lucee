@@ -36,7 +36,6 @@ import lucee.runtime.exp.ExpressionException;
 public class MethodCleaner extends ClassVisitor implements Opcodes {
 
 	private final String methodName;
-	// private Class[] arguments;
 	private String strArgs;
 	private Class rtn;
 	private String msg;

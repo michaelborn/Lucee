@@ -29,8 +29,6 @@ import lucee.runtime.op.Caster;
 
 public final class DateTimeFormat extends BaseFormat implements Format {
 
-	// private final Calendar calendar;
-
 	/**
 	 * constructor of the class
 	 * 

@@ -220,8 +220,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 	private String envExt;
 	private boolean quick;
 
-	// private static CFMLEngineImpl engine=new CFMLEngineImpl();
-
 	private CFMLEngineImpl(CFMLEngineFactory factory, BundleCollection bc) {
 		this.factory = factory;
 		this.bundleCollection = bc;

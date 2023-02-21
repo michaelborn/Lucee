@@ -47,10 +47,7 @@ public final class Compress {
 	public static final int FORMAT_TGZ = CompressUtil.FORMAT_TGZ;
 	public static final int FORMAT_TBZ2 = CompressUtil.FORMAT_TBZ2;
 
-	// private final static Map files=new WeakHashMap();
-
 	private final Resource ffile;
-	// private ResourceProvider ramProvider;
 	private long syn = -1;
 	private Resource root;
 	private Synchronizer synchronizer;

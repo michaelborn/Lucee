@@ -44,7 +44,6 @@ public class KeyImpl implements Collection.Key, Castable, Comparable, Externaliz
 	private static final long HSTART = 0xBB40E64DA205B064L;
 	private static final long HMULT = 7664345821815920749L;
 
-	// private boolean intern;
 	private String key;
 	private transient String lcKey;
 	private transient String ucKey;

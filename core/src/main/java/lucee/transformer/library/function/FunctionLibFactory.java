@@ -58,7 +58,6 @@ import lucee.transformer.library.tag.TagLibFactory;
  */
 public final class FunctionLibFactory extends DefaultHandler {
 	private XMLReader xmlReader;
-	// private File file;
 	private boolean insideFunction = false, insideAttribute = false, insideReturn = false, insideBundle = false;
 	private String inside;
 	private StringBuilder content = new StringBuilder();
@@ -73,7 +72,6 @@ public final class FunctionLibFactory extends DefaultHandler {
 	private final Identification id;
 	private final boolean core;
 
-	// private final static String FLD_1_0= "/resource/fld/web-cfmfunctionlibrary_1_0";
 	private final static String FLD_BASE = "/resource/fld/core-base.fld";
 	private final static String FLD_CFML = "/resource/fld/core-cfml.fld";
 	private final static String FLD_LUCEE = "/resource/fld/core-lucee.fld";

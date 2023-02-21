@@ -81,11 +81,7 @@ public final class Cache extends BodyTagImpl {
 	private int action = CACHE;
 
 	/** When required for basic authentication, a valid username. */
-	// private String username;
-
 	/** When required for basic authentication, a valid password. */
-	// private String password;
-
 	private TimeSpan timespan = TIMESPAN_FAR_AWAY;
 	private TimeSpan idletime = TIMESPAN_0;
 

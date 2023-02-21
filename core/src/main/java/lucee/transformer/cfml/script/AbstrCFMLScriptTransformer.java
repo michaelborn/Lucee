@@ -171,8 +171,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 		}
 	}
 
-	// private static final Expression NULL = data.factory.createLitString("NULL");
-	// private static final Attribute ANY = new
 	// Attribute(false,"type",data.factory.createLitString("any"),"string");
 	private static final char NO_ATTR_SEP = 0;
 	public static final String TAG_ISLAND_INDICATOR = "```";

@@ -31,7 +31,6 @@ public final class UDFGetterProperty extends UDFGSProperty {
 	private static final FunctionArgument[] EMPTY = new FunctionArgument[0];
 
 	private final Property prop;
-	// private ComponentScope scope;
 	private final Key propName;
 
 	public UDFGetterProperty(Component component, Property prop) {

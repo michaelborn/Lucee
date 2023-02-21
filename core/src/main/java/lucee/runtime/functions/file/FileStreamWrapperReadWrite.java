@@ -30,7 +30,6 @@ import lucee.runtime.op.Decision;
 
 public class FileStreamWrapperReadWrite extends FileStreamWrapper {
 
-	// private BufferedOutputStream bos;
 	private String charset;
 	private boolean seekable;
 	private RandomAccessFile raf;

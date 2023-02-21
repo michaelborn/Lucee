@@ -102,8 +102,6 @@ public final class TagHelper {
 	private static final Method DO_END_TAG = new Method("doEndTag", Types.INT_VALUE, new Type[] {});
 
 	private static final Type ABORT = Type.getType(Abort.class);
-	// private static final Type EXPRESSION_EXCEPTION = Type.getType(ExpressionException.class);
-
 	// ExpressionException newInstance(int)
 	private static final Method NEW_INSTANCE = new Method("newInstance", ABORT, new Type[] { Types.INT_VALUE });
 	private static final Method NEW_INSTANCE_MAX2 = new Method("newInstance", MISSING_ATTRIBUTE, new Type[] { Types.COLLECTION_KEY, Types.STRING });

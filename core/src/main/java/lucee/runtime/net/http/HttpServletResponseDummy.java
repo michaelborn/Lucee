@@ -52,7 +52,6 @@ public final class HttpServletResponseDummy implements HttpServletResponse, Seri
 	private Locale locale = Locale.getDefault();
 	private int bufferSize = -1;
 	private boolean commited;
-	// private byte[] outputDatad;
 	private OutputStream out;// =new DevNullOutputStream();
 	private boolean outInit = false;
 

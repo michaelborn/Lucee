@@ -46,8 +46,6 @@ public class CacheConnectionImpl implements CacheConnectionPlus {
 	private Cache cache;
 	private boolean readOnly;
 	private boolean storage;
-	// private Class<Cache> clazz;
-
 	public CacheConnectionImpl(Config config, String name, ClassDefinition<Cache> cd, Struct custom, boolean readOnly, boolean storage) {
 		this.name = name;
 		this.classDefinition = cd;

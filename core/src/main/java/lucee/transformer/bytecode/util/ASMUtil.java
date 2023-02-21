@@ -104,7 +104,6 @@ public final class ASMUtil {
 
 	private final static Method CONSTRUCTOR_OBJECT = Method.getMethod("void <init> ()");
 	private static final Method _SRC_NAME = new Method("_srcName", Types.STRING, new Type[] {});
-	// private static final String VERSION_MESSAGE = "you use an invalid version of the ASM Jar, please
 	// update your jar files";
 	private static long id = 0;
 

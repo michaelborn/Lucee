@@ -86,8 +86,6 @@ public class ConfigWebImpl extends ConfigImpl implements ServletConfig, ConfigWe
 	private final ConfigWebHelper helper;
 	private short passwordSource;
 
-	// private File deployDirectory;
-
 	/**
 	 * constructor of the class
 	 * 

@@ -82,8 +82,6 @@ public abstract class Function extends StatementBaseNoFinal implements Opcodes, 
 	static final Method REG_UDF_KEY = new Method("registerUDF", Types.VOID, new Type[] { Types.COLLECTION_KEY, Types.UDF_PROPERTIES });
 	static final Method REG_STATIC_UDF_KEY = new Method("registerStaticUDF", Types.VOID, new Type[] { Types.COLLECTION_KEY, Types.UDF_PROPERTIES });
 
-	// private static final ExprString ANY = LitString.toExprString("any");
-
 	// <init>(Page,FunctionArgument[],int String,String,boolean);
 	private static final Type FUNCTION_ARGUMENT = Type.getType(FunctionArgument.class);
 	private static final Type FUNCTION_ARGUMENT_IMPL = Type.getType(FunctionArgumentImpl.class);
@@ -145,7 +143,6 @@ public abstract class Function extends StatementBaseNoFinal implements Opcodes, 
 	private Literal cachedWithin;
 	private int modifier;
 	protected JavaFunction jf;
-	// private final Root root;
 	protected int index = -1;
 
 	public Function(String name, int access, int modifier, String returnType, Body body, Position start, Position end) {

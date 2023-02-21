@@ -97,21 +97,16 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	private static final int MAX_REDIRECTS = 5;
 
 	private static CFMLEngineFactory factory;
-	// private static CFMLEngineWrapper engineListener;
 	private static CFMLEngineWrapper singelton;
 
 	private static File luceeServerRoot;
 
 	private Felix felix;
 	private BundleCollection bundleCollection;
-	// private CFMLEngineWrapper engine;
-
 	private final ClassLoader mainClassLoader = new TP().getClass().getClassLoader();
 	private Version version;
 	private final List<EngineChangeListener> listeners = new ArrayList<EngineChangeListener>();
 	private File resourceRoot;
-
-	// private PrintWriter out;
 
 	private final LoggerImpl logger;
 

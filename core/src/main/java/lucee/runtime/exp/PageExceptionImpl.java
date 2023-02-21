@@ -73,7 +73,6 @@ public abstract class PageExceptionImpl extends PageException {
 	 * Field <code>detail</code>
 	 */
 	protected String detail = "";
-	// private Throwable rootCause;
 	private int tracePointer;
 	private String errorCode = "0";
 	private String extendedInfo = null;

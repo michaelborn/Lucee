@@ -66,9 +66,6 @@ public class MimeType {
 
 	private String type;
 	private String subtype;
-	// private double quality;
-	// private int mxb;
-	// private double mxt;
 	private Map<String, String> properties;
 	private double q = -1;
 	private CharSet cs;

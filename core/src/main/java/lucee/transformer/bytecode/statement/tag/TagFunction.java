@@ -86,8 +86,6 @@ public final class TagFunction extends TagBase implements IFunction {
 
 	private Function createFunction(BytecodeContext bc, Factory f, Page page) throws TransformerException {
 
-		// private static final Expression EMPTY = LitString.toExprString("");
-
 		Body functionBody = new BodyBase(f);
 		RefBoolean isStatic = new RefBooleanImpl();
 		Function func = _createFunction(bc, page, functionBody, isStatic, page.getOutput());

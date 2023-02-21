@@ -109,8 +109,6 @@ public final class Ftp extends TagImpl {
 	private String key;
 	private String passphrase = "";
 
-	// private Struct cfftp=new StructImpl();
-
 	@Override
 	public void release() {
 		super.release();

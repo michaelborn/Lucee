@@ -141,17 +141,12 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 
 	// for all the same
 	private int dataMemberDefaultAccess;
-	// private final Boolean _triggerDataMember=null;
-
 	// state control of component
 	boolean isInit = false;
-
-	// private AbstractCollection abstrCollection;
 
 	private boolean useShadow;
 	private boolean entity;
 	boolean afterConstructor;
-	// private Map<Key,UDF> constructorUDFs;
 	private boolean loaded;
 	private boolean hasInjectedFunctions;
 	private boolean isExtended; // is this component extended by another component?

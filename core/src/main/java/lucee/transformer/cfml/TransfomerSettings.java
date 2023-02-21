@@ -19,9 +19,7 @@
 package lucee.transformer.cfml;
 
 public class TransfomerSettings {
-	// private static final TransfomerSettings TRANS_SETTING_DOT_NOT_UPPER = new
 	// TransfomerSettings(true);
-	// private static final TransfomerSettings TRANS_SETTING_DOT_NOT_ORIGINAL = new
 	// TransfomerSettings(false);
 	public final boolean dotNotationUpper;
 	public final boolean handleUnQuotedAttrValueAsString;

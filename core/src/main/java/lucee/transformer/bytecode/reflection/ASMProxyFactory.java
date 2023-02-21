@@ -54,7 +54,6 @@ public class ASMProxyFactory {
 	public static final Type ASM_METHOD = Type.getType(ASMMethod.class);
 	public static final Type CLASS404 = Type.getType(ClassNotFoundException.class);
 
-	// private static final org.objectweb.asm.commons.Method CONSTRUCTOR =
 	// new org.objectweb.asm.commons.Method("<init>",Types.VOID,new
 	// Type[]{Types.CLASS_LOADER,Types.CLASS});
 	private static final org.objectweb.asm.commons.Method CONSTRUCTOR = new org.objectweb.asm.commons.Method("<init>", Types.VOID, new Type[] { Types.CLASS, Types.CLASS_ARRAY });

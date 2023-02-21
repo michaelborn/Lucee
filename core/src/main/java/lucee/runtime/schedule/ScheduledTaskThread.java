@@ -40,8 +40,6 @@ import lucee.runtime.op.Caster;
 public class ScheduledTaskThread extends ParentThreasRefThread {
 
 	private static final long DAY = 24 * 3600000;
-	// private Calendar calendar;
-
 	private final long start;
 	private long startDate;
 	private long startTime;
@@ -52,8 +50,6 @@ public class ScheduledTaskThread extends ParentThreasRefThread {
 	private boolean stop;
 
 	private DateTimeUtil util;
-
-	// private int cIntervall;
 
 	private ScheduleTask task;
 	private final CFMLEngineImpl engine;

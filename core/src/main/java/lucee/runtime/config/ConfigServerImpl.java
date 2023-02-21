@@ -95,7 +95,6 @@ public final class ConfigServerImpl extends ConfigImpl implements ConfigServer {
 
 	private final CFMLEngineImpl engine;
 	private Map<String, CFMLFactory> initContextes;
-	// private Map contextes;
 	private SecurityManager defaultSecurityManager;
 	private Map<String, SecurityManager> managers = MapFactory.<String, SecurityManager>getConcurrentMap();
 	Password defaultPassword;
@@ -112,8 +111,6 @@ public final class ConfigServerImpl extends ConfigImpl implements ConfigServer {
 	private int delay = 1;
 	private boolean captcha = false;
 	private boolean rememberMe = true;
-	// private static ConfigServerImpl instance;
-
 	private String[] authKeys;
 	private String idPro;
 

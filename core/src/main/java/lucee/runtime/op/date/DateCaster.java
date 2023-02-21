@@ -56,9 +56,6 @@ public final class DateCaster {
 	public static final short CONVERTING_TYPE_YEAR = 1;
 	public static final short CONVERTING_TYPE_OFFSET = 2;
 
-	// private static short MODE_DAY_STR=1;
-	// private static short MODE_MONTH_STR=2;
-	// private static short MODE_NONE=4;
 	private static long DEFAULT_VALUE = Long.MIN_VALUE;
 
 	private static DateTimeUtil util = DateTimeUtil.getInstance();

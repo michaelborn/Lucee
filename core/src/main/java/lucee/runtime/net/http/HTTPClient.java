@@ -84,8 +84,6 @@ public class HTTPClient implements Objects, Iteratorable {
 
 	private static final long serialVersionUID = -7920478535030737537L;
 
-	// private static final String USER_AGENT = ;
-
 	private URL metaURL;
 	private String username;
 	private String password;

@@ -75,7 +75,6 @@ public final class FormImpl extends ScopeSupport implements Form, ScriptProtecte
 	private String encoding = null;
 	private int scriptProtected = ScriptProtected.UNDEFINED;
 	private static final URLItem[] empty = new URLItem[0];
-	// private static final ResourceFilter FILTER = new ExtensionResourceFilter(".upload",false);
 	private URLItem[] raw = empty;
 	private static long count = 1;
 

@@ -30,7 +30,6 @@ public class DocComment {
 
 	private StringBuilder tmpHint = new StringBuilder();
 	private String hint;
-	// private List<DocCommentParam> params=new ArrayList<DocComment.DocCommentParam>();
 	Map<String, Attribute> params = new HashMap<String, Attribute>();
 
 	public void addHint(char c) {

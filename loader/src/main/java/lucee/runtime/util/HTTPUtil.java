@@ -45,8 +45,6 @@ public interface HTTPUtil {
 	 */
 	public static final int STATUS_OK = 200;
 
-	// private static final String NO_MIMETYPE="Unable to determine MIME type of file.";
-
 	/**
 	 * make a http request to given url
 	 * 

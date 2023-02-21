@@ -104,7 +104,6 @@ public final class HttpServletRequestDummy implements HttpServletRequest, Serial
 		catch (UnknownHostException e) {
 		}
 	}
-	// private InetAddress remoteq=DEFAULT_REMOTE;
 	private String remoteAddr = DEFAULT_REMOTE_ADDR;
 	private String remoteHost = DEFAULT_REMOTE_HOST;
 

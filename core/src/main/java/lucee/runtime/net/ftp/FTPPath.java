@@ -38,8 +38,6 @@ public final class FTPPath implements Dumpable {
 
 	private String path;
 	private String name;
-	// private Array arrPath;
-
 	/**
 	 * @param current
 	 * @param relpath

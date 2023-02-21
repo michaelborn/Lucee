@@ -43,8 +43,6 @@ import lucee.runtime.type.util.KeyConstants;
 public class CFFunction {
 
 	private static final Variables VAR = new VariablesImpl();
-	// private static Map udfs=new ReferenceMap();
-
 	public static Object call(PageContext pc, Object[] objArr) throws PageException {
 		if (objArr.length < 3) throw new ExpressionException("invalid call of a CFML Based built in function");
 

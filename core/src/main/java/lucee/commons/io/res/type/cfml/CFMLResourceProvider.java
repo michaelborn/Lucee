@@ -57,7 +57,6 @@ public class CFMLResourceProvider implements ResourceProviderPro {
 	private final ResourceLockImpl lock = new ResourceLockImpl(lockTimeout, false);
 	private String scheme;
 	private Map args;
-	// private ResourceProvider provider;
 	private Resources resources;
 
 	private String componentPath;

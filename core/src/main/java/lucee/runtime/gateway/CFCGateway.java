@@ -29,14 +29,9 @@ import lucee.runtime.type.util.KeyConstants;
 
 public class CFCGateway implements GatewaySupport {
 
-	// private static final Object OBJ = new Object();
-	// private Component _cfc;
 	private String id;
 	private int state = Gateway.STOPPED;
 	private String cfcPath;
-	// private Config config;
-	// private String requestURI;
-	// private Resource cfcDirectory;
 	private GatewayEngineImpl engine;
 	private Thread thread;
 

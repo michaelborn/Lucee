@@ -41,7 +41,6 @@ import lucee.transformer.util.SourceCode;
 
 public final class Sprite extends EvaluatorSupport {
 
-	// private static final Expression DELIMITER = LitString.toExprString(",");
 	private static Map<String, Previous> sprites = new HashMap<String, Previous>();
 
 	@Override

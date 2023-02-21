@@ -43,8 +43,6 @@ public final class Dump extends TagImpl {
 	private String label;
 	private String format;
 	private String output;
-	// private double maxlevel=Integer.MAX_VALUE;
-
 	private boolean expand = true;
 
 	private int top = 9999;

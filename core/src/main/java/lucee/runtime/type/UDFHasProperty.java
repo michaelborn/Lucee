@@ -38,11 +38,7 @@ import lucee.runtime.type.util.UDFUtil;
 public final class UDFHasProperty extends UDFGSProperty {
 
 	private final Property prop;
-	// private ComponentScope scope;
-
 	private final Key propName;
-
-	// private static final String NULL="sdsdsdfsfsfjkln fsdfsa";
 
 	public UDFHasProperty(Component component, Property prop) {
 		super(component, "has" + StringUtil.ucFirst(PropertyFactory.getSingularName(prop)), getFunctionArgument(prop), CFTypes.TYPE_BOOLEAN);

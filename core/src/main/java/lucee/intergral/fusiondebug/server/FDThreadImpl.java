@@ -41,8 +41,6 @@ public class FDThreadImpl implements IFDThread {
 	private PageContextImpl pc;
 	private String name;
 	private FDControllerImpl engine;
-	// private CFMLFactoryImpl factory;
-
 	public FDThreadImpl(FDControllerImpl engine, CFMLFactoryImpl factory, String name, PageContextImpl pc) {
 		this.engine = engine;
 		// this.factory=factory;

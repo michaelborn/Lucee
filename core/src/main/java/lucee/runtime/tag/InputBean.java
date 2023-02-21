@@ -32,7 +32,6 @@ public final class InputBean {
 	private String onValidate;
 	private String onError;
 	private String pattern;
-	// private String passThrough;
 	private double range_min = Double.NaN;
 	private double range_max = Double.NaN;
 	private String message;

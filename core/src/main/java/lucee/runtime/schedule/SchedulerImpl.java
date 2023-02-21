@@ -50,8 +50,6 @@ public final class SchedulerImpl implements Scheduler {
 	private String charset;
 	private final Config config;
 	private final Object sync = new SerializableObject();
-	// private String md5;
-
 	private CFMLEngineImpl engine;
 
 	/**

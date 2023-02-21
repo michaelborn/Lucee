@@ -83,9 +83,6 @@ public final class Search extends TagImpl {
 	private String contextHighlightEnd = "</b>";
 	private String previousCriteria;
 
-	// private int spellCheckMaxLevel=10;
-	// private String result=null;
-
 	@Override
 	public void release() {
 		super.release();

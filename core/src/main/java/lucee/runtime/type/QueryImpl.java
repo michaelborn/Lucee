@@ -1069,7 +1069,6 @@ public class QueryImpl implements Query, Objects, QueryResult {
 		return getAt(key, currRow.getOrDefault(getPid(), 1), defaultValue);
 	}
 
-	// private static int pidc=0;
 	private int getPid() {
 
 		PageContext pc = ThreadLocalPageContext.get();

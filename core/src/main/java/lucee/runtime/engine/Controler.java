@@ -70,9 +70,7 @@ public final class Controler extends ParentThreasRefThread {
 	private long lastHourInterval = System.currentTimeMillis();
 
 	private final Map contextes;
-	// private ScheduleThread scheduleThread;
 	private final ConfigServer configServer;
-	// private final ShutdownHook shutdownHook;
 	private ControllerState state;
 
 	private boolean poolValidate;

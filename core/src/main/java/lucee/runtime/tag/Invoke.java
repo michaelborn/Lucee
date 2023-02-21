@@ -50,9 +50,6 @@ import lucee.runtime.type.UDF;
 public final class Invoke extends BodyTagImpl implements DynamicAttributes {
 
 	private Struct data = new StructImpl(StructImpl.TYPE_LINKED);
-	// private Map attributes = new HashTable();
-	// private HashSet keys = new HashSet();
-
 	private boolean hasBody;
 
 	private Object component;

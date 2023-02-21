@@ -95,8 +95,6 @@ public final class Directory extends TagImpl {
 	 * Optional for action = "list". Ignored by all other actions. File extension filter applied to
 	 ** returned names. For example: *m. Only one mask filter can be applied at a time.
 	 */
-	// private final ResourceFilter filter=null;
-	// private ResourceAndResourceNameFilter nameFilter=null;
 	private ResourceFilter filter = null;
 
 	private String pattern;
@@ -140,9 +138,7 @@ public final class Directory extends TagImpl {
 	private String serverPassword;
 
 	private int type = TYPE_ALL;
-	// private boolean listOnlyNames;
 	private int listInfo = LIST_INFO_QUERY_ALL;
-	// private int acl=S3Constants.ACL_UNKNOW;
 	private Object acl = null;
 	private String storage = null;
 	private String destination;

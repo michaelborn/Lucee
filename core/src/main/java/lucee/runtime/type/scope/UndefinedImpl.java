@@ -68,7 +68,6 @@ public final class UndefinedImpl extends StructSupport implements Undefined, Obj
 	private Scope[] scopes;
 	private QueryStackImpl qryStack = new QueryStackImpl();
 	private Variables variable;
-	// private boolean allowImplicidQueryCall;
 	private boolean checkArguments;
 
 	private boolean localAlways;

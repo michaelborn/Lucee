@@ -30,7 +30,6 @@ import lucee.runtime.type.dt.DateTime;
 public class TODateTime extends DateTime implements TraceObject {
 
 	private DateTime dt;
-	// private Debugger debugger;
 	private Query qry = new QueryImpl(new String[] { "label", "action", "params", "template", "line", "time" }, 0, "traceObjects");
 	private int type;
 	private String category;

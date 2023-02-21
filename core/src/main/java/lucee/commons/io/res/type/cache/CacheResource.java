@@ -44,8 +44,6 @@ public final class CacheResource extends ResourceSupport implements ResourceMeta
 
 	private final String parent;
 	private final String name;
-	// private CacheResourceCore _core;
-
 	CacheResource(CacheResourceProvider provider, String path) {
 		this.provider = provider;
 		if (path.equals("/")) {

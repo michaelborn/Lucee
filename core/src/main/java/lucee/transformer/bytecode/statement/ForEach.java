@@ -52,8 +52,6 @@ public final class ForEach extends StatementBase implements FlowControlBreak, Fl
 	public static final Type FOR_EACH_UTIL = Type.getType(ForEachUtil.class);
 	public static final Method RESET = new Method("reset", Types.VOID, new Type[] { Types.ITERATOR });
 
-	// private static final Type COLLECTION_UTIL = Type.getType(CollectionUtil.class);
-
 	private Label begin = new Label();
 	private Label end = new Label();
 	private FlowControlFinal fcf;

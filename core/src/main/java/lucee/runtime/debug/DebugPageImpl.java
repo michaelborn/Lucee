@@ -42,8 +42,6 @@ public final class DebugPageImpl implements Dumpable, DebugPage {
 	private int all;
 	private long time;
 
-	// private long time;
-
 	/**
 	 * @param file
 	 */

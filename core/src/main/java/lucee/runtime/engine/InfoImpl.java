@@ -64,9 +64,6 @@ public final class InfoImpl implements Info {
 	private String level;
 	private List<ExtensionDefintion> requiredExtensions;
 
-	// private int state;
-	// private final String strState;
-
 	public InfoImpl() {
 		this(null);
 	}

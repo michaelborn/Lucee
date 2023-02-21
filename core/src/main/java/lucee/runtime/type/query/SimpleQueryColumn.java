@@ -52,8 +52,6 @@ public class SimpleQueryColumn implements QueryColumn {
 	private ResultSet res;
 	private Cast cast;
 	private int index;
-	// private Object[] data;
-
 	public SimpleQueryColumn(SimpleQuery qry, ResultSet res, Collection.Key key, int type, int index) {
 		this.qry = qry;
 		this.res = res;

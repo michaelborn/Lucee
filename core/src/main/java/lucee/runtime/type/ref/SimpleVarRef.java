@@ -25,8 +25,6 @@ import lucee.runtime.type.Collection;
 
 public class SimpleVarRef implements Reference {
 
-	// private PageContextImpl pc;
-
 	public SimpleVarRef(PageContextImpl pc, String key) {
 		// this.pc=pc;
 	}

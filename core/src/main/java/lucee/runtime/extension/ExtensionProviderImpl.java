@@ -23,7 +23,6 @@ import java.net.URL;
 
 public class ExtensionProviderImpl implements ExtensionProvider {
 
-	// private String name;
 	private URL url;
 	private String strUrl;
 	private boolean readOnly;

@@ -81,10 +81,6 @@ import lucee.runtime.type.dt.DateTime;
 import lucee.runtime.type.util.KeyConstants;
 
 public class StoredProc extends BodyTagTryCatchFinallySupport {
-	// private static final int PROCEDURE_CAT=1;
-	// private static final int PROCEDURE_SCHEM=2;
-	// private static final int PROCEDURE_NAME=3;
-	// private static final int COLUMN_NAME=4;
 	private static final int COLUMN_TYPE = 5;
 	private static final int DATA_TYPE = 6;
 	private static final int TYPE_NAME = 7;
@@ -120,8 +116,6 @@ public class StoredProc extends BodyTagTryCatchFinallySupport {
 	private DateTime cachedafter;
 	private ProcParamBean returnValue = null;
 	private Object cachedWithin;
-	// private Map<String,ProcMetaCollection> procedureColumnCache;
-
 	@Override
 	public void release() {
 		params.clear();

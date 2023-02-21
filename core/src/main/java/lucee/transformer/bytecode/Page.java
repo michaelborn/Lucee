@@ -223,8 +223,6 @@ public final class Page extends BodyBase implements Root {
 	private static final Method CLEAR_AND_POP = new Method("clearAndPop", Types.VOID, new Type[] { Types.PAGE_CONTEXT, Types.BODY_CONTENT });
 	public static final byte CF = (byte) 207;
 	public static final byte _33 = (byte) 51;
-	// private static final boolean ADD_C33 = false;
-	// private static final String SUB_CALL_UDF = "udfCall";
 	private static final String SUB_CALL_UDF = "_";
 	private static final int DEFAULT_VALUE = 3;
 
@@ -236,17 +234,11 @@ public final class Page extends BodyBase implements Root {
 	private final boolean output;
 	private final boolean returnValue;
 	public final boolean ignoreScopes;
-	// private final PageSource pageSource;
-
-	// private boolean isComponent;
-	// private boolean isInterface;
-
 	private ArrayList<IFunction> functions = new ArrayList<IFunction>();
 	private ArrayList<ATagThread> threads = new ArrayList<ATagThread>();
 	private Resource staticTextLocation;
 	private int off;
 	private int methodCount = 0;
-	// private final Config config;
 	private boolean splitIfNecessary;
 	private TagCIObject _comp;
 	private String className; // following the pattern "or/susi/Sorglos"
@@ -383,7 +375,6 @@ public final class Page extends BodyBase implements Root {
 		constrAdapter.visitVarInsn(Opcodes.ALOAD, 0);
 		constrAdapter.visitMethodInsn(Opcodes.INVOKEVIRTUAL, constr.getClassName(), "initKeys", "()V");
 
-		// private static ImportDefintion[] test=new ImportDefintion[]{...};
 		{
 			FieldVisitor fv = cw.visitField(Opcodes.ACC_PRIVATE + Opcodes.ACC_FINAL, "imports", "[Llucee/runtime/component/ImportDefintion;", null, null);
 			fv.visitEnd();

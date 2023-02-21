@@ -40,7 +40,6 @@ public final class RamResourceProviderOld implements ResourceProviderPro {
 	private RamResourceCore root;
 
 	boolean caseSensitive = true;
-	// private Resources resources;
 	private long lockTimeout = 1000;
 	private ResourceLockImpl lock = new ResourceLockImpl(lockTimeout, caseSensitive);
 	private Map arguments;

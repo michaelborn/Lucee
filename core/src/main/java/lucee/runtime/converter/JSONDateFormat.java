@@ -36,7 +36,6 @@ public class JSONDateFormat {
 	public static final String PATTERN_ISO8601 = "yyyy-MM-dd'T'HH:mm:ssZ"; // preferred pattern for json
 
 	private static Map<String, SoftReference<DateFormat>> map = new ConcurrentHashMap<String, SoftReference<DateFormat>>();
-	// private static DateFormat format=null;
 	private static Locale locale = Locale.ENGLISH;
 	private final static Object sync = new SerializableObject();
 

@@ -33,10 +33,7 @@ import lucee.runtime.type.Struct;
 
 public class DebuggerPool {
 
-	// private Resource storage;
 	private LinkedList<Struct> queue = new LinkedList<Struct>();
-	// private List<Debugger> list=new ArrayList<Debugger>();
-
 	public DebuggerPool(Resource storage) {
 		// this.storage=storage;
 	}

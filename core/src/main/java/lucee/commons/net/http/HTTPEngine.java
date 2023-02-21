@@ -36,8 +36,6 @@ import lucee.runtime.type.util.CollectionUtil;
 
 public class HTTPEngine {
 
-	// private static final boolean use4=true;
-
 	/**
 	 * Field <code>ACTION_POST</code>
 	 */
@@ -52,8 +50,6 @@ public class HTTPEngine {
 	 * Field <code>STATUS_OK</code>
 	 */
 	public static final int STATUS_OK = 200;
-	// private static final String NO_MIMETYPE="Unable to determine MIME type of file.";
-
 	public static final int MAX_REDIRECT = 15;
 
 	/**

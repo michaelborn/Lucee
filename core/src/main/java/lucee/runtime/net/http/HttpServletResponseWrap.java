@@ -50,7 +50,6 @@ public final class HttpServletResponseWrap extends HttpServletResponseWrapper im
 	private Locale locale = Locale.getDefault();
 	private int bufferSize = -1;
 	private boolean commited;
-	// private byte[] outputDatad;
 	private OutputStream out;// =new DevNullOutputStream();
 	private boolean outInit = false;
 	private PrintWriter writer;

@@ -48,8 +48,6 @@ import lucee.transformer.expression.literal.LitString;
 
 public final class TagTry2 extends TagBase implements FlowControlRetry {
 
-	// private static final ExprString ANY=LitString.toExprString("any");
-
 	private static final Method GET_VARIABLE = new Method("getVariable", Types.OBJECT, new Type[] { Types.STRING });
 
 	private static final Method TO_PAGE_EXCEPTION = new Method("toPageException", Types.PAGE_EXCEPTION, new Type[] { Types.THROWABLE });

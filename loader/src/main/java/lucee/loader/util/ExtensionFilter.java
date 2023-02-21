@@ -31,8 +31,6 @@ public final class ExtensionFilter implements FileFilter {
 	private final boolean allowDir;
 	private final boolean ignoreCase;
 
-	// private int extLen;
-
 	/**
 	 * Konstruktor des Filters
 	 * 

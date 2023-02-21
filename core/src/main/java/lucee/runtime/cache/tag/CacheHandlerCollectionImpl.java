@@ -60,10 +60,6 @@ public class CacheHandlerCollectionImpl implements CacheHandlerCollection {
 
 	private ConfigWeb cw;
 	Map<String, CacheHandler> handlers = new HashMap<String, CacheHandler>();
-	// private final CacheHandler rch;
-	// private final CacheHandler sch;
-	// private final CacheHandler tch;
-
 	/**
 	 * 
 	 * @param cw config object this Factory is related

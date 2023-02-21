@@ -74,8 +74,6 @@ public class InterfaceImpl implements Interface {
 	private List<InterfaceImpl> extend;
 
 	private final Map<Collection.Key, UDF> udfs = new HashMap<Collection.Key, UDF>();
-	// private Map<Collection.Key,UDF> interfacesUDFs=null;
-
 	public InterfaceImpl(PageContext pc, InterfacePageImpl page, String strExtend, String hint, String dspName, String callPath, boolean realPath, Map meta) throws PageException {
 		// print.ds("Interface::Constructor:"+page.getPageSource().getDisplayPath());
 
