@@ -393,8 +393,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 	protected int writerType = CFML_WRITER_REFULAR;
 	private long configFileLastModified;
 	private boolean checkForChangesInConfigFile;
-	// protected String apiKey=null;
-
 	private List consoleLayouts = new ArrayList();
 	private List resourceLayouts = new ArrayList();
 

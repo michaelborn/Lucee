@@ -1504,8 +1504,6 @@ public class QueryImpl implements Query, Objects, QueryResult {
 	 * * if this query is still connected with cache (same query also in cache) it will disconnetd from
 	 * cache (clone object and add clone to cache)
 	 */
-	// protected void disconnectCache() {}
-
 	@Override
 	public Object clone() {
 		return cloneQuery(this, true);

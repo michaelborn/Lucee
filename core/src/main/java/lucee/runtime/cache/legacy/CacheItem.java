@@ -71,9 +71,6 @@ public abstract class CacheItem {
 
 	public abstract void store(byte[] barr, boolean append) throws IOException;
 
-	// protected abstract void _flushAll(PageContext pc, Resource dir) throws IOException;
-
-	// protected abstract void _flush(PageContext pc, Resource dir, String expireurl) throws
 	// IOException;
 
 	public static void flushAll(PageContext pc, Resource dir, String cacheName) throws IOException {

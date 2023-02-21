@@ -57,5 +57,4 @@ public abstract class FDNodeValueSupport extends FDValueSupport {
 	}
 
 	protected abstract Object getRawValue();
-	// protected abstract FDNodeValueSupport getFDNodeVariableSupport();
 }

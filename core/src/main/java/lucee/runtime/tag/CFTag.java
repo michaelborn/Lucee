@@ -108,8 +108,6 @@ public class CFTag extends BodyTagTryCatchFinallyImpl implements DynamicAttribut
 	/**
 	 * Field <code>filename</code>
 	 */
-	// protected String filename;
-
 	/**
 	 * Field <code>source</code>
 	 */

@@ -139,7 +139,6 @@ public abstract class Function extends StatementBaseNoFinal implements Opcodes, 
 	ExprBoolean secureJson;
 	ExprBoolean verifyClient;
 	ExprInt localMode;
-	// protected int localIndex = -1;
 	private Literal cachedWithin;
 	private int modifier;
 	protected JavaFunction jf;

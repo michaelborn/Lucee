@@ -695,7 +695,6 @@ public abstract class IKStorageScopeSupport extends StructSupport implements Sto
 		return CacheUtil.getCache(pc, storage, null) != null;
 	}
 
-	// protected abstract IKStorageValue loadData(PageContext pc, String appName, String name,String
 	// strType,int type, Log log) throws PageException;
 
 }
