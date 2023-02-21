@@ -574,8 +574,6 @@ public abstract class ConfigFactory {
 			add(server, "mailServers", root);
 			rem("mail", root);
 		}
-		// Array _mappings = ConfigWebUtil.getAsArray("mappings", "mapping", root);
-
 		//////////////////// Mappings ////////////////////
 		{
 			Struct mappings = ConfigWebUtil.getAsStruct("mappings", root);

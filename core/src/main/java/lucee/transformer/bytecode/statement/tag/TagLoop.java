@@ -110,10 +110,8 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 
 	private static final Method READ_LINE = new Method("readLine", Types.STRING, new Type[] {});
 
-	// Array listToArrayRemoveEmpty(String list, String delimiter)
 	private static final Method LIST_TO_ARRAY_REMOVE_EMPTY_SS = new Method("listToArrayRemoveEmpty", Types.ARRAY, new Type[] { Types.STRING, Types.STRING });
 
-	// Array listToArrayRemoveEmpty(String list, char delimiter)
 	private static final Method LIST_TO_ARRAY_REMOVE_EMPTY_SC = new Method("listToArrayRemoveEmpty", Types.ARRAY, new Type[] { Types.STRING, Types.CHAR });
 
 	private static final Method SIZE = new Method("size", Types.INT_VALUE, new Type[] {});

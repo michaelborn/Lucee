@@ -5108,7 +5108,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 	 */
 	private void doGetLocales() throws PageException {
 		Struct sct = new StructImpl(StructImpl.TYPE_LINKED);
-		// Array arr=new ArrayImpl();
 		String strLocale = getString("locale", "english (united kingdom)");
 		Locale locale = LocaleFactory.getLocale(strLocale);
 		pageContext.setVariable(getString("admin", action, "returnVariable"), sct);

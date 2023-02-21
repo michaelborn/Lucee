@@ -87,7 +87,6 @@ public final class Switch extends StatementBaseNoFinal implements FlowControlBre
 	public void _writeOut(BytecodeContext bc) throws TransformerException {
 		GeneratorAdapter adapter = bc.getAdapter();
 
-		// Array cases=new ArrayImpl();
 		int array = adapter.newLocal(Types.ARRAY);
 		adapter.newInstance(Types.ARRAY_IMPL);
 		adapter.dup();

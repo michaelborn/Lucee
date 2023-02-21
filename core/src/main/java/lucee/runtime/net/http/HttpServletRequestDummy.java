@@ -162,7 +162,6 @@ public final class HttpServletRequestDummy implements HttpServletRequest, Serial
 		if (qs == null) return new Pair[0];
 		Array arr = lucee.runtime.type.util.ListUtil.listToArrayRemoveEmpty(qs, "&");
 		Pair[] parameters = new Pair[arr.size()];
-		// Array item;
 		int index;
 		String name;
 

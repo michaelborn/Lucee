@@ -120,7 +120,6 @@ public abstract class ScopeSupport extends StructImpl implements Scope {
 		Array arr = ListUtil.listToArrayRemoveEmpty(tp, delimiter);
 		URLItem[] pairs = new URLItem[arr.size()];
 
-		// Array item;
 		int index;
 		String name;
 

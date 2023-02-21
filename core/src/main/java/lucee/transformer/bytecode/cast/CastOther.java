@@ -99,7 +99,6 @@ public final class CastOther extends ExpressionBase implements Cast {
 		return new CastOther(expr, type, lcType);
 	}
 
-	// Array toArray(Object)
 	final public static Method TO_ARRAY = new Method("toArray", Types.ARRAY, new Type[] { Types.OBJECT });
 
 	final public static Method TO_BASE64 = new Method("toBase64", Types.STRING, new Type[] { Types.OBJECT });
