@@ -278,17 +278,6 @@ public class OSGiUtil {
 		return mf;
 	}
 
-	/*
-	 * public static FrameworkFactory getFrameworkFactory() throws Exception { ClassLoader cl =
-	 * OSGiUtil.class.getClassLoader(); java.net.URL url =
-	 * cl.getResource("META-INF/services/org.osgi.framework.launch.FrameworkFactory"); if (url != null)
-	 * { BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream())); try { for
-	 * (String s = br.readLine(); s != null; s = br.readLine()) { s = s.trim(); // Try to load first
-	 * non-empty, non-commented line. if ((s.length() > 0) && (s.charAt(0) != '#')) { return
-	 * (FrameworkFactory) ClassUtil.loadInstance(cl, s); } } } finally { if (br != null) br.close(); } }
-	 * throw new Exception("Could not find framework factory."); }
-	 */
-
 	/**
 	 * tries to load a class with ni bundle definition
 	 *

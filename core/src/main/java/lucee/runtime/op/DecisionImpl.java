@@ -195,11 +195,6 @@ public final class DecisionImpl implements lucee.runtime.util.Decision {
 	public boolean isValid(double dbl) {
 		return Decision.isValid(dbl);
 	}
-	/*
-	 * public boolean isTemplateExtension(String ext) { return Constants.isTemplateExtension(ext); }
-	 * 
-	 * public boolean isComponentExtension(String ext) { return Constants.isComponentExtension(ext); }
-	 */
 
 	@Override
 	public boolean isCastableToBoolean(Object obj) {

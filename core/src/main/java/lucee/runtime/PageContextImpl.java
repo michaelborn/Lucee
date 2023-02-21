@@ -808,12 +808,6 @@ public final class PageContextImpl extends PageContext {
 		write(ESAPIUtil.esapiEncode(this, encodeType, value));
 	}
 
-	/*
-	 * public void writeEncodeFor(String value, short encodeType) throws IOException, PageException { //
-	 * FUTURE keyword:encodefore add to interface write(ESAPIUtil.esapiEncode(this,value, encodeType));
-	 * }
-	 */
-
 	@Override
 	public void flush() {
 		try {
@@ -1514,11 +1508,6 @@ public final class PageContextImpl extends PageContext {
 	public Object set(Object coll, Collection.Key key, Object value) throws PageException {
 		return variableUtil.set(this, coll, key, value);
 	}
-
-	/*
-	 * public Object touch(Object coll, String key) throws PageException { Object
-	 * o=getCollection(coll,key,null); if(o!=null) return o; return set(coll,key,new StructImpl()); }
-	 */
 
 	@Override
 	public Object touch(Object coll, Collection.Key key) throws PageException {

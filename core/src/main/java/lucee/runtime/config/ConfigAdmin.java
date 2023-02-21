@@ -195,22 +195,10 @@ public final class ConfigAdmin {
 		PasswordImpl.writeToStruct(root, password, false);
 	}
 
-	/*
-	 * public void setVersion(double version) { setVersion(doc,version);
-	 * 
-	 * }
-	 */
-
 	public static void setVersion(Struct root, Version version) {
 		root.setEL("version", version.getMajor() + "." + version.getMinor());
 
 	}
-	/*
-	 * public void setId(String id) {
-	 * 
-	 * Element root=doc.getDocumentElement(); if(!StringUtil.isEmpty(root.get("id"))) return;
-	 * root.setEL("id",id); try { store(config); } catch (Exception e) {} }
-	 */
 
 	/**
 	 * @param contextPath
@@ -2698,16 +2686,6 @@ public final class ConfigAdmin {
 		if (!StringUtil.isEmpty(username)) proxy.setEL("username", username);
 		if (!StringUtil.isEmpty(password)) proxy.setEL("password", password);
 	}
-
-	/*
-	 * public void removeProxy() throws SecurityException { boolean
-	 * hasAccess=ConfigWebUtil.hasAccess(config,SecurityManager.TYPE_SETTING); if(!hasAccess) throw new
-	 * SecurityException("no access to remove proxy settings");
-	 * 
-	 * Element proxy=_getRootElement("proxy"); proxy.removeAttribute("server");
-	 * proxy.removeAttribute("port"); proxy.removeAttribute("username");
-	 * proxy.removeAttribute("password"); }
-	 */
 
 	/**
 	 * enable or desable session management

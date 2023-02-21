@@ -298,14 +298,6 @@ public final class HttpServletResponseWrap extends HttpServletResponseWrapper im
 		return headers;
 	}
 
-	/*
-	 * *
-	 * 
-	 * @return the outputData / public byte[] getOutputData() { return outputData; }
-	 * 
-	 * public void setOutputData(byte[] outputData) { this.outputData=outputData; }
-	 */
-
 	/**
 	 * @return the status
 	 */

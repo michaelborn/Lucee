@@ -38,10 +38,6 @@ public final class URLItem {
 		this.urlEncoded = urlEncoded;
 
 	}
-	/*
-	 * public URLItem(String name, byte[] value, boolean urlEncoded) { this.name = name; //this.value =
-	 * value; this.urlEncoded=urlEncoded; }
-	 */
 
 	/**
 	 * @return the urlEncoded

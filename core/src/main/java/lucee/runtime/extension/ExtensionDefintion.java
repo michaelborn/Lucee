@@ -37,22 +37,6 @@ public class ExtensionDefintion {
 		setParam("version", version);
 	}
 
-	/*
-	 * public static ExtensionDefintion getInstanceEL(Config config, Element el) { try { return
-	 * getInstance(config, el); } catch (Exception e) { return null; } }
-	 * 
-	 * 
-	 * public static ExtensionDefintion getInstance(Config config, Element el) throws PageException,
-	 * IOException, BundleException { String id=el.getAttribute("id"); String
-	 * version=el.getAttribute("version"); if(!StringUtil.isEmpty(id) && !StringUtil.isEmpty(version)) {
-	 * Resource res = RHExtension.toResource(config, el); ExtensionDefintion ed = new
-	 * ExtensionDefintion(id, version); ed.setSource(config, res); return ed; }
-	 * 
-	 * RHExtension rhe=new RHExtension(config,el); id=rhe.getId(); version=rhe.getVersion();
-	 * 
-	 * ExtensionDefintion ed=new ExtensionDefintion(id,version); ed.setSource(rhe); return ed; }
-	 */
-
 	public void setId(String id) {
 		this.id = id;
 	}

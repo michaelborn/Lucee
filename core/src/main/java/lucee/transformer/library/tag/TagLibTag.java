@@ -290,11 +290,6 @@ public final class TagLibTag {
 		this.tagCD = cd;
 	}
 
-	/*
-	 * public Type getTagTypeX() throws ClassException, BundleException { if(tagType==null) {
-	 * tagType=Type.getType(getTagClassDefinition().getClazz()); } return tagType; }
-	 */
-
 	/**
 	 * @return the status
 	 *         (TagLib.,TagLib.STATUS_IMPLEMENTED,TagLib.STATUS_DEPRECATED,TagLib.STATUS_UNIMPLEMENTED)

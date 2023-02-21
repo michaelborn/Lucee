@@ -89,10 +89,6 @@ public final class ServerImpl implements Server, Serializable {
 		return new ServerImpl(-1, host, port, user, pass, defaultLifeTimespan, defaultIdleTimespan, defaultTls, defaultSsl, true, TYPE_LOCAL);
 	}
 
-	/*
-	 * public ServerImpl(String server,int port) { this.hostName=server; this.port=port; }
-	 */
-
 	public ServerImpl(int id, String hostName, int port, String username, String password, long lifeTimespan, long idleTimespan, boolean tls, boolean ssl, boolean reuseConnections,
 			int type) {
 		this.id = id;

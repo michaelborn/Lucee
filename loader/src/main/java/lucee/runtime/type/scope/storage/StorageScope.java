@@ -25,14 +25,7 @@ import lucee.runtime.type.scope.SharedScope;
  * scope that can be stored, in a storage
  */
 public interface StorageScope extends SharedScope {
-	/*
-	 * public static Collection.Key CFID=Util.toKey("cfid"); public static Collection.Key
-	 * CFTOKEN=Util.toKey("cftoken"); public static Collection.Key URLTOKEN=Util.toKey("urltoken");
-	 * public static Collection.Key LASTVISIT=Util.toKey("lastvisit"); public static Collection.Key
-	 * HITCOUNT=Util.toKey("hitcount"); public static Collection.Key
-	 * TIMECREATED=Util.toKey("timecreated"); public static Collection.Key
-	 * SESSION_ID=Util.toKey("sessionid");
-	 */
+
 	/**
 	 * @return time when the Scope last time was visited
 	 */

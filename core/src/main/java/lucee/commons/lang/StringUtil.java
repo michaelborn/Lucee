@@ -1386,19 +1386,6 @@ public final class StringUtil {
 		return new String(carr);
 	}
 
-	/*
-	 * public static void main(String[] args) throws PageException { Map<String, String> map = new
-	 * HashMap<>(); map.put("target", "!target!"); map.put("replace", "er"); map.put("susi", "Susanne");
-	 * print.e(
-	 * replaceMap("I want replace replace to add 1 underscore with struct-replace... 'target' replace",
-	 * map, false));
-	 *
-	 * map = new HashMap<>(); map.put("Susi", "Sorglos"); map.put("Sorglos", "Susi");
-	 * print.e(replaceMap("Susi Sorglos foehnte ihr Haar", map, false));
-	 *
-	 * }
-	 */
-
 	public static String unwrap(String str) {
 		if (StringUtil.isEmpty(str)) return "";
 		str = str.trim();
@@ -1428,16 +1415,6 @@ public final class StringUtil {
 		if (isEmpty(str, trim)) return null;
 		return str;
 	}
-
-	/*
-	 * public function cleanSurrogateCharacters(String str) { var SURROGATE_CHARACTERS_RANGE =
-	 * [55296,57343]; var carr = str.toCharArray(); var l=len(carr); for(var i=1;i<=l;i++) { var
-	 * c=carr[i]; var a=asc(c); // detect one if (a >= SURROGATE_CHARACTERS_RANGE[1] && a <=
-	 * SURROGATE_CHARACTERS_RANGE[2]) { if (isNull(sb)) { var
-	 * StringBuilder=createObject('java','java.lang.StringBuilder'); var sb = i == 1 ?
-	 * StringBuilder.init() : StringBuilder.init(mid(str,1,i-1)); } sb&="?"; i++; } else if
-	 * (!isNull(sb)) { sb&=c; } } return isNull(sb) ? str : sb.toString(); }
-	 */
 
 	public static String replaceSurrogateCharacters(String value, int fromIndex, String replacement) {
 		int max = value.length();

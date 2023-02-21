@@ -668,50 +668,6 @@ public final class SQLCaster {
 		throw new DatabaseException("invalid CF SQL Type", null, null, null);
 	}
 
-	/*
-	 * * cast a String SQL Type to int Type
-	 * 
-	 * @param strType
-	 * 
-	 * @return SQL Type as int
-	 * 
-	 * @throws DatabaseException
-	 */
-	/*
-	 * public static int cfSQLTypeToIntType(String strType) throws DatabaseException {
-	 * strType=strType.toUpperCase().trim();
-	 * 
-	 * if(strType.equals("CF_SQL_ARRAY")) return Types.ARRAY; else if(strType.equals("CF_SQL_BIGINT"))
-	 * return Types.BIGINT; else if(strType.equals("CF_SQL_BINARY")) return Types.BINARY; else
-	 * if(strType.equals("CF_SQL_BIT")) return Types.BIT; else if(strType.equals("CF_SQL_BLOB")) return
-	 * Types.BLOB; else if(strType.equals("CF_SQL_BOOLEAN")) return Types.BOOLEAN; else
-	 * if(strType.equals("CF_SQL_CHAR")) return Types.CHAR; else if(strType.equals("CF_SQL_CLOB"))
-	 * return Types.CLOB; else if(strType.equals("CF_SQL_DATALINK")) return Types.DATALINK; else
-	 * if(strType.equals("CF_SQL_DATE")) return Types.DATE; else if(strType.equals("CF_SQL_DISTINCT"))
-	 * return Types.DISTINCT; else if(strType.equals("CF_SQL_DECIMAL")) return Types.DECIMAL; else
-	 * if(strType.equals("CF_SQL_DOUBLE")) return Types.DOUBLE; else if(strType.equals("CF_SQL_FLOAT"))
-	 * return Types.FLOAT; else if(strType.equals("CF_SQL_IDSTAMP")) return CFTypes.IDSTAMP; else
-	 * if(strType.equals("CF_SQL_INTEGER")) return Types.INTEGER; else if(strType.equals("CF_SQL_INT"))
-	 * return Types.INTEGER; else if(strType.equals("CF_SQL_LONGVARBINARY"))return Types.LONGVARBINARY;
-	 * else if(strType.equals("CF_SQL_LONGVARCHAR"))return Types.LONGVARCHAR; else
-	 * if(strType.equals("CF_SQL_MONEY")) return Types.DOUBLE; else if(strType.equals("CF_SQL_MONEY4"))
-	 * return Types.DOUBLE; else if(strType.equals("CF_SQL_NUMERIC")) return Types.NUMERIC; else
-	 * if(strType.equals("CF_SQL_NULL")) return Types.NULL; else if(strType.equals("CF_SQL_REAL"))
-	 * return Types.REAL; else if(strType.equals("CF_SQL_REF")) return Types.REF; else
-	 * if(strType.equals("CF_SQL_REFCURSOR")) return CFTypes.CURSOR; else
-	 * if(strType.equals("CF_SQL_OTHER")) return Types.OTHER; else if(strType.equals("CF_SQL_SMALLINT"))
-	 * return Types.SMALLINT; else if(strType.equals("CF_SQL_STRUCT")) return Types.STRUCT; else
-	 * if(strType.equals("CF_SQL_TIME")) return Types.TIME; else if(strType.equals("CF_SQL_TIMESTAMP"))
-	 * return Types.TIMESTAMP; else if(strType.equals("CF_SQL_TINYINT")) return Types.TINYINT; else
-	 * if(strType.equals("CF_SQL_VARBINARY")) return Types.VARBINARY; else
-	 * if(strType.equals("CF_SQL_VARCHAR")) return Types.VARCHAR; else
-	 * if(strType.equals("CF_SQL_NVARCHAR")) return Types.NVARCHAR; else
-	 * if(strType.equals("CF_SQL_VARCHAR2")) return CFTypes.VARCHAR2;
-	 * 
-	 * 
-	 * else throw new DatabaseException("invalid CF SQL Type ["+strType+"]",null,null,null); }
-	 */
-
 	/**
 	 * cast a String SQL Type, e.g. from cfqueryparam, to int Type
 	 * 

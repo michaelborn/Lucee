@@ -250,14 +250,6 @@ public class ProxyDataImpl implements ProxyData, Serializable {
 		return pd;
 	}
 
-	/*
-	 * public static String[] toStringArray(Object obj) { String[] rtn = null; if
-	 * (Decision.isArray(obj)) { Array arr = Caster.toArray(obj, null); if (arr != null) { rtn =
-	 * ListUtil.trim(ListUtil.trimItems(ListUtil.toStringArray(arr, null))); }
-	 * 
-	 * } else { String list = Caster.toString(obj, null); if (!StringUtil.isEmpty(list, true)) { rtn =
-	 * ListUtil.trim(ListUtil.trimItems(ListUtil.listToStringArray(list, ","))); } } return rtn; }
-	 */
 	public static Set<String> toStringSet(Object obj) {
 		Set<String> rtn = null;
 
@@ -285,21 +277,5 @@ public class ProxyDataImpl implements ProxyData, Serializable {
 
 		return rtn;
 	}
-
-	/*
-	 * public static void main(String[] args) {
-	 * 
-	 * // ProxyDataImpl pd = new ProxyDataImpl(); pd.setServer("213.109.7.135"); pd.setPort(59918); //
-	 * // pd.setIncludes(new String[] { "localhostx" }); pd.setExcludes(new String[] { "localhost" });
-	 * // print.e(isValid(pd, "localhost"));
-	 * 
-	 * Struct sct = new StructImpl(); sct.setEL("server", "213.109.7.135"); sct.setEL("port", "59918");
-	 * // sct.setEL("excludes", "localhostd"); sct.setEL("includes",
-	 * "localhost,snapshot.lucee.org,lucee.org");
-	 * 
-	 * ProxyDataImpl pd = (ProxyDataImpl) ProxyDataImpl.toProxyData(sct);
-	 * 
-	 * print.e(pd.getExcludes()); print.e(pd.getIncludes()); print.e(isValid(pd, "localhost")); }
-	 */
 
 }

@@ -43,19 +43,6 @@ public final class ZqlJJParser implements ZqlJJParserConstants {
 		}
 	}
 
-	/*
-	 * public static void main(String args[]) throws ParseException { ZqlJJParser zqljjparser = null; if
-	 * (args.length < 1) { //System.out.println("Reading from stdin (exit; to finish)"); zqljjparser =
-	 * new ZqlJJParser(System.in); } else { try { zqljjparser = new ZqlJJParser(new DataInputStream(new
-	 * FileInputStream(args[0]))); } catch (FileNotFoundException filenotfoundexception) {
-	 * //System.out.println("File " + args[0] + " not found. Reading from stdin"); zqljjparser = new
-	 * ZqlJJParser(System.in); } } if (args.length > 0) System.out.println(args[0]); for (ZStatement
-	 * zstatement = null; (zstatement = zqljjparser.SQLStatement()) != null;)
-	 * //System.out.println(zstatement.toString());
-	 * 
-	 * System.out.println("Parse Successful"); }
-	 */
-
 	public final void BasicDataTypeDeclaration() throws ParseException {
 		switch (jj_ntk != -1 ? jj_ntk : jj_ntk()) {
 		case 15: // '\017'

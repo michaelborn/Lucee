@@ -50,11 +50,6 @@ public class CollectionUtil {
 		return true;
 	}
 
-	/*
-	 * public static String[] toStringArray(Key[] keys) { if(keys==null) return null; String[] arr=new
-	 * String[keys.length]; for(int i=0;i<keys.length;i++){ arr[i]=keys[i].getString(); } return arr; }
-	 */
-
 	public static String getKeyList(Iterator<Key> it, String delimiter) {
 		StringBuilder sb = new StringBuilder(it.next().getString());
 		if (delimiter.length() == 1) {
@@ -101,17 +96,6 @@ public class CollectionUtil {
 	public static boolean isEmpty(Map<?, ?> map) {
 		return map == null || map.size() == 0;
 	}
-
-	/*
-	 * public static int hashCode(Collection coll) { produce infiniti loop when there is a refrerence to
-	 * itself or an anchestor
-	 * 
-	 * int hashCode = 1; Iterator<Entry<Key, Object>> it = coll.entryIterator(); Entry<Key, Object> e;
-	 * while(it.hasNext()) { e = it.next(); hashCode = 31*hashCode+
-	 * 
-	 * ( (e.getKey()==null?0:e.getKey().hashCode()) ^ (e.getValue()==null ? 0 : e.getValue().hashCode())
-	 * ); } return hashCode; }
-	 */
 
 	public static Collection.Key[] toKeys(String[] strArr, boolean trim) {
 		Collection.Key[] keyArr = new Collection.Key[strArr.length];

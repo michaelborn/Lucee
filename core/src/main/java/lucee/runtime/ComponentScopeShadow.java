@@ -300,11 +300,6 @@ public class ComponentScopeShadow extends StructSupport implements ComponentScop
 		throw new ExpressionException("can't compare Complex Object with a String");
 	}
 
-	/*
-	 * public Object call(PageContext pc, String key, Object[] arguments) throws PageException { return
-	 * call(pc, KeyImpl.init(key), arguments); }
-	 */
-
 	@Override
 	public Object call(PageContext pc, Collection.Key key, Object[] arguments) throws PageException {
 		// first check variables
@@ -322,11 +317,6 @@ public class ComponentScopeShadow extends StructSupport implements ComponentScop
 		return MemberUtil.call(pc, this, key, arguments, new short[] { CFTypes.TYPE_STRUCT }, new String[] { "struct" });
 		// throw ComponentUtil.notFunction(component, key, m!=null?m.getValue():null,access);
 	}
-
-	/*
-	 * public Object callWithNamedValues(PageContext pc, String key,Struct args) throws PageException {
-	 * return callWithNamedValues(pc, KeyImpl.init(key), args); }
-	 */
 
 	@Override
 	public Object callWithNamedValues(PageContext pc, Key key, Struct args) throws PageException {
@@ -356,29 +346,15 @@ public class ComponentScopeShadow extends StructSupport implements ComponentScop
 		// ComponentScopeThis(component.cloneComponentImpl());
 	}
 
-	/*
-	 * public Object get(PageContext pc, String key, Object defaultValue) { return get(key,
-	 * defaultValue); }
-	 */
-
 	@Override
 	public Object set(PageContext pc, Collection.Key propertyName, Object value) throws PageException {
 		return set(propertyName, value);
 	}
 
-	/*
-	 * public Object setEL(PageContext pc, String propertyName, Object value) { return
-	 * setEL(propertyName, value); }
-	 */
-
 	@Override
 	public Object setEL(PageContext pc, Collection.Key propertyName, Object value) {
 		return setEL(propertyName, value);
 	}
-
-	/*
-	 * public Object get(PageContext pc, String key) throws PageException { return get(key); }
-	 */
 
 	@Override
 	public Object get(PageContext pc, Collection.Key key) throws PageException {

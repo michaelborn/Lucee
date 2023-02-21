@@ -107,25 +107,6 @@ public class Log4j2Engine extends LogEngine {
 		return new ClassDefinitionImpl(className);
 	}
 
-	/*
-	 * public ClassDefinition toClassDefinitionAppender(Struct sct, ClassDefinition defaultValue) { if
-	 * (sct == null) return defaultValue;
-	 * 
-	 * // class String className = Caster.toString(sct.get("class", null), null); if
-	 * (StringUtil.isEmpty(className)) return defaultValue;
-	 * 
-	 * if ("console".equalsIgnoreCase(className)) return new ClassDefinitionImpl(ConsoleAppender.class);
-	 * if ("resource".equalsIgnoreCase(className)) return new
-	 * ClassDefinitionImpl(RollingResourceAppender.class); if ("datasource".equalsIgnoreCase(className))
-	 * return new ClassDefinitionImpl(DatasourceAppender.class);
-	 * 
-	 * // name String name = bundleName(sct); Version version = bundleVersion(sct);
-	 * 
-	 * if (StringUtil.isEmpty(name)) return new ClassDefinitionImpl(className);
-	 * 
-	 * return new ClassDefinitionImpl(null, className, name, version); }
-	 */
-
 	@Override
 	public ClassDefinition<?> layoutClassDefintion(String className) {
 		if ("classic".equalsIgnoreCase(className) || "lucee.commons.io.log.log4j.layout.ClassicLayout".equals(className)
@@ -149,27 +130,6 @@ public class Log4j2Engine extends LogEngine {
 
 		return new ClassDefinitionImpl(className);
 	}
-
-	/*
-	 * public ClassDefinition toClassDefinitionLayout(Struct sct, ClassDefinition defaultValue) { if
-	 * (sct == null) return defaultValue;
-	 * 
-	 * // class String className = Caster.toString(sct.get("class", null), null); if
-	 * (StringUtil.isEmpty(className)) return defaultValue;
-	 * 
-	 * if ("classic".equalsIgnoreCase(className)) return new ClassDefinitionImpl(ClassicLayout.class);
-	 * if ("datasource".equalsIgnoreCase(className)) return new
-	 * ClassDefinitionImpl(DatasourceLayout.class); if ("html".equalsIgnoreCase(className)) return new
-	 * ClassDefinitionImpl(HTMLLayout.class); if ("xml".equalsIgnoreCase(className)) return new
-	 * ClassDefinitionImpl(XMLLayout.class); if ("pattern".equalsIgnoreCase(className)) return new
-	 * ClassDefinitionImpl(PatternLayout.class);
-	 * 
-	 * String name = bundleName(sct); Version version = bundleVersion(sct);
-	 * 
-	 * if (StringUtil.isEmpty(name)) return new ClassDefinitionImpl(className);
-	 * 
-	 * return new ClassDefinitionImpl(null, className, name, version); }
-	 */
 
 	@Override
 	public final Object getLayout(ClassDefinition cd, Map<String, String> layoutArgs, ClassDefinition cdAppender, String name) throws PageException {

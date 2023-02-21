@@ -168,100 +168,6 @@ public class VideoOutputImpl implements VideoOutput {
 	public void setMaxFrames(long maxFrames) {
 		this.maxFrames = maxFrames;
 	}
-	/*
-	 * /**
-	 * 
-	 * @return the aspectRatio / public int getAspectRatio() { return aspectRatio; }
-	 * 
-	 * /** sets the aspectRatio (VideoOutput.ASPECT_RATIO_xxx)
-	 * 
-	 * @param aspectRatio the aspectRatio to set / public void setAspectRatio(int aspectRatio) {
-	 * this.aspectRatio = aspectRatio; }
-	 * 
-	 * /**
-	 * 
-	 * @return the bitrateMin / public int getVideoBitrateMin() { return videoBitrateMin; }
-	 * 
-	 * /** set min video bitrate tolerance (in kbit/s)
-	 * 
-	 * @param bitrateMin the bitrateMin to set / public void setVideoBitrateMin(int bitrateMin) {
-	 * this.videoBitrateMin = bitrateMin; }
-	 * 
-	 * /**
-	 * 
-	 * @return the bitrateMax / public int getVideoBitrateMax() { return videoBitrateMax; }
-	 * 
-	 * /** set max video bitrate tolerance (in kbit/s)
-	 * 
-	 * @param bitrateMax the bitrateMax to set / public void setVideoBitrateMax(int bitrateMax) {
-	 * this.videoBitrateMax = bitrateMax; }
-	 * 
-	 * /**
-	 * 
-	 * @return the bitrateTolerance / public int getVideoBitrateTolerance() { return
-	 * videoBitrateTolerance; }
-	 * 
-	 * /** set video bitrate tolerance (in kbit/s)
-	 * 
-	 * @param bitrateTolerance the bitrateTolerance to set / public void setVideoBitrateTolerance(int
-	 * bitrateTolerance) { this.videoBitrateTolerance = bitrateTolerance; }
-	 * 
-	 * /**
-	 * 
-	 * @return the sameQualityAsSource / public boolean doSameQualityAsSource() { return
-	 * sameQualityAsSource; }
-	 * 
-	 * /**
-	 * 
-	 * @param sameQualityAsSource the sameQualityAsSource to set / public void
-	 * setSameQualityAsSource(boolean sameQualityAsSource) { this.sameQualityAsSource =
-	 * sameQualityAsSource; }
-	 * 
-	 * /**
-	 * 
-	 * @return the audioBitrate / public int getAudioBitrate() { return audioBitrate; }
-	 * 
-	 * /**
-	 * 
-	 * @param audioBitrate the audioBitrate to set / public void setAudioBitrate(int audioBitrate) {
-	 * this.audioBitrate = audioBitrate; }
-	 * 
-	 * 
-	 * /** set the type of the output format (see constants "TYPE_xxx" of this class)
-	 * 
-	 * @param type / public void setType(String type){ this.type=type; }
-	 * 
-	 * 
-	 * /**
-	 * 
-	 * @return the type / public String getType() { return type; }
-	 * 
-	 * /**
-	 * 
-	 * @return the dimension / public String getDimension() { return dimension; }
-	 * 
-	 * public void setDimension(int width, int height) throws VideoException {
-	 * checkDimension(width,"width"); checkDimension(height,"height"); this.dimension=width+"X"+height;
-	 * }
-	 * 
-	 * /**
-	 * 
-	 * @return the bitrate / public int getVideoBitrate() { return videoBitrate; }
-	 * 
-	 * /** set video bitrate in kbit/s (default 200)
-	 * 
-	 * @param bitrate the bitrate to set / public void setVideoBitrate(int bitrate) { this.videoBitrate
-	 * = bitrate; }
-	 * 
-	 * /**
-	 * 
-	 * @return the framerate / public int getFramerate() { return framerate; }
-	 * 
-	 * /** sets the framerate (default 25)
-	 * 
-	 * @param framerate the framerate to set / public void setFramerate(int framerate) { this.framerate
-	 * = framerate; }
-	 */
 
 	/**
 	 * @param resource the resource to set
@@ -310,14 +216,4 @@ public class VideoOutputImpl implements VideoOutput {
 	public void setFrameRate(int frameRate) {
 		this.frameRate = frameRate;
 	}
-
-	/*
-	 * public void setVideoCodec(String videoCodec) { this.videoCodec=videoCodec; }
-	 * 
-	 * public String getVideoCodec() { return videoCodec; }
-	 * 
-	 * public String getAudioCodec() { return audioCodec; }
-	 * 
-	 * public void setAudioCodec(String audioCodec) { this.audioCodec = audioCodec; }
-	 */
 }

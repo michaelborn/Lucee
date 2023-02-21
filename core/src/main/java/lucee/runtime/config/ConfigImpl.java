@@ -660,9 +660,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 	public ClassLoader getClassLoaderCore() {
 		return new lucee.commons.lang.ClassLoaderHelper().getClass().getClassLoader();
 	}
-	/*
-	 * public ClassLoader getClassLoaderLoader() { return new TP().getClass().getClassLoader(); }
-	 */
 
 	@Override
 	public ResourceClassLoader getResourceClassLoader() {
@@ -2719,14 +2716,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 		return functionMappings.values();
 	}
 
-	/*
-	 * *
-	 * 
-	 * @return the tagDirectory
-	 * 
-	 * public Resource getTagDirectory() { return tagDirectory; }
-	 */
-
 	/**
 	 * mapping used for script (JSR 223)
 	 * 
@@ -3723,11 +3712,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 	public void setAllowLuceeDialect(boolean allowLuceeDialect) {
 		this.allowLuceeDialect = allowLuceeDialect;
 	}
-
-	/*
-	 * public boolean installExtension(ExtensionDefintion ed) throws PageException { return
-	 * DeployHandler.deployExtension(this, ed, getLog("deploy"),true); }
-	 */
 
 	private Map<String, ClassDefinition> cacheDefinitions;
 

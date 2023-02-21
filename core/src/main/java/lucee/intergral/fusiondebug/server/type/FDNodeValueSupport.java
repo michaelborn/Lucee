@@ -39,11 +39,6 @@ public abstract class FDNodeValueSupport extends FDValueSupport {
 		return getChildren(frame, getName(), getRawValue());
 	}
 
-	/*
-	 * public IFDValue getValue() { Object value = getRawValue(); if(isSimpleValue(value)) return
-	 * getFDNodeVariableSupport(); return FDCaster.toFDVariable(getName(), value).getValue(); }
-	 */
-
 	@Override
 	public String toString() {
 		Object raw = getRawValue();

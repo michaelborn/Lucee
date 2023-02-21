@@ -108,11 +108,6 @@ public final class ObjectCache extends TagImpl {
 		return null;
 	}
 
-	/*
-	 * public static CacheHandlerFilter createFilterx(String sql) { if(!StringUtil.isEmpty(sql,true)) {
-	 * return new QueryCacheHandlerFilter(sql); } return null; }
-	 */
-
 	@Override
 	public int doStartTag() throws PageException {
 		try {

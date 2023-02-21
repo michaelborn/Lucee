@@ -25,42 +25,6 @@ public class InterpreterContext implements Context {
 		return null;
 	}
 
-	/*
-	 * public void stack(boolean b) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(Double d) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(double d) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(Float f) { // TODO Auto-generated method stub
-	 * 
-	 * } public void stack(float f) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(Long l) { // TODO Auto-generated method stub
-	 * 
-	 * } public void stack(long l) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(Integer i) { // TODO Auto-generated method stub
-	 * 
-	 * } public void stack(int i) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * public void stack(String str) { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 */
-
 	public void stack(Object obj) {
 		stack.add(obj);
 	}
@@ -68,26 +32,6 @@ public class InterpreterContext implements Context {
 	public PageContext getPageContext() {
 		return pc;
 	}
-
-	/**
-	 * removes the element from top of the stack
-	 * 
-	 * @return
-	 * 
-	 *         public String stackPopTopAsString() { // TODO Auto-generated method stub return null; }
-	 *         public boolean stackPopTopAsBoolean() { // TODO Auto-generated method stub return false;
-	 *         }
-	 */
-
-	/**
-	 * removes the element from top of the stack
-	 * 
-	 * @return
-	 * 
-	 *         public String stackPopBottomAsString() { // TODO Auto-generated method stub return null;
-	 *         } public boolean stackPopBottomAsBoolean() { // TODO Auto-generated method stub return
-	 *         false; }
-	 */
 
 	public String getValueAsString(Expression expr) throws PageException {
 		expr.writeOut(this, Expression.MODE_REF);

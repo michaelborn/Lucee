@@ -429,10 +429,6 @@ public final class ArgumentImpl extends ScopeSupport implements Argument, ArrayP
 		if (val == null && !NullSupportHelper.full(pc)) return false;
 		return true;
 	}
-	/*
-	 * public boolean containsKey(Collection.Key key) { return get(key,null)!=null &&
-	 * super.containsKey(key); }
-	 */
 
 	@Override
 	public boolean containsKey(int key) {
@@ -458,10 +454,6 @@ public final class ArgumentImpl extends ScopeSupport implements Argument, ArrayP
 	public void setFunctionArgumentNames(Set functionArgumentNames) {// future add to interface
 		this.functionArgumentNames = functionArgumentNames;
 	}
-	/*
-	 * public void setNamedArguments(boolean namedArguments) { this.namedArguments=namedArguments; }
-	 * public boolean isNamedArguments() { return namedArguments; }
-	 */
 
 	/**
 	 * converts an argument scope to a regular struct

@@ -450,20 +450,6 @@ public final class VariableInterpreter {
 		return true;
 	}
 
-	/*
-	 * public static boolean isDefined(PageContext pc,String var) { StringList list = parse(pc,new
-	 * ParserString(var)); if(list==null) return false;
-	 * 
-	 * int scope=scopeString2Int(list.next()); Object coll =NULL; if(scope==Scope.SCOPE_UNDEFINED) {
-	 * coll=pc.undefinedScope().get(list.current(),NULL); if(coll==NULL) return false; } else { try {
-	 * coll=pc.scope(scope); } catch (PageException e) { return false; } }
-	 * 
-	 * while(list.hasNext()) { coll=pc.getVariableUtil().get(pc,coll,list.next(),NULL);
-	 * //print.out(coll); if(coll==NULL) return false; }
-	 * 
-	 * return true; }
-	 */
-
 	/**
 	 * parse a Literal variable String and return result as String List
 	 * 

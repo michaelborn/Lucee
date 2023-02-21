@@ -103,19 +103,6 @@ public final class BlobImpl implements java.sql.Blob, Serializable {
 		return new BlobImpl(Caster.toBinary(value));
 	}
 
-	/*
-	 * public static Blob toBlob(byte[] value) {
-	 * 
-	 * Class blobClass = ClassUtil.loadClass("oracle.sql.BLOB",null); if(blobClass!=null){ try { //BLOB
-	 * blob = BLOB.getEmptyBLOB(); Method getEmptyBLOB = blobClass.getMethod("getEmptyBLOB",new
-	 * Class[]{}); Object blob = getEmptyBLOB.invoke(null, ArrayUtil.OBJECT_EMPTY);
-	 * 
-	 * //blob.setBytes(value); Method setBytes = blobClass.getMethod("setBytes", new
-	 * Class[]{byte[].class}); setBytes.invoke(blob, new Object[]{value});
-	 * 
-	 * return (Blob) blob; } catch (Exception e) {} } return new BlobImpl(value); }
-	 */
-
 	@Override
 	public void free() {
 		binaryData = new byte[0];

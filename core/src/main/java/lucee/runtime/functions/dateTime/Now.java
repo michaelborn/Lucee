@@ -35,7 +35,4 @@ public final class Now implements Function {
 		return new DateTimeImpl(pc);
 	}
 
-	/*
-	 * public static DateTime now() { return new DateTimeImpl(); }
-	 */
 }

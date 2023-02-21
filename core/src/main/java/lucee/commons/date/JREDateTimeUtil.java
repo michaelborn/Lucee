@@ -228,20 +228,6 @@ public class JREDateTimeUtil extends DateTimeUtil {
 		return sb.toString();
 	}
 
-	/*
-	 * public static void main(String[] args) { Calendar c =
-	 * Calendar.getInstance(TimeZone.getTimeZone("Pacific/Marquesas")); //c =
-	 * Calendar.getInstance(TimeZoneConstants.AUSTRALIA_DARWIN);
-	 * 
-	 * c.setTimeInMillis(0); print.e(c.getTimeZone()); print.e(toTimeZoneOffset(c));
-	 * 
-	 * print.e(c.get(Calendar.ZONE_OFFSET)+c.get(Calendar.DST_OFFSET) );
-	 * print.e(c.getTimeZone().getOffset(c.getTimeInMillis()));
-	 * 
-	 * c.set(Calendar.MONTH,7); print.e(c.get(Calendar.ZONE_OFFSET)+c.get(Calendar.DST_OFFSET) );
-	 * print.e(c.getTimeZone().getOffset(c.getTimeInMillis())); }
-	 */
-
 	private void addTimeZoneOffset(Calendar c, StringBuilder sb) {
 		int min = (c.get(Calendar.ZONE_OFFSET) + c.get(Calendar.DST_OFFSET)) / 60000;
 		char op;

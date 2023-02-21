@@ -33,19 +33,4 @@ public class JavaFunction {
 		return parent;
 	}
 
-	/*
-	 * public String getTemplateName() { return templateName; }
-	 */
-
-	/*
-	 * public void setTemplateName(String templateName) { this.templateName = templateName; }
-	 */
-
-	/*
-	 * public String getFunctionName() { return functionName; }
-	 */
-
-	/*
-	 * public void setFunctionName(String functionName) { this.functionName = functionName; }
-	 */
 }

@@ -328,11 +328,6 @@ public final class ThreadTag extends BodyTagImpl implements DynamicAttributes {
 		return (root == null) ? pc : root;
 	}
 
-	/*
-	 * public static java.util.Collection<String> getThreadScopeNames(PageContext pc, boolean recurive)
-	 * { return getThreadScopeNames(pc, recurive ? LEVEL_CURRENT + LEVEL_KIDS : LEVEL_CURRENT); }
-	 */
-
 	public static List<String> getTagNames(java.util.Collection<Threads> threads) {
 		List<String> names = new ArrayList<>();
 		Iterator<Threads> it = threads.iterator();

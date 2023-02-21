@@ -84,23 +84,6 @@ public final class XMLUtilImpl implements XMLUtil {
 
 	public static final short UNDEFINED_NODE = -1;
 
-	/*
-	 * public static final Collection.Key XMLCOMMENT = KeyImpl.intern("xmlcomment"); public static final
-	 * Collection.Key XMLTEXT = KeyImpl.intern("xmltext"); public static final Collection.Key XMLCDATA =
-	 * KeyImpl.intern("xmlcdata"); public static final Collection.Key XMLCHILDREN =
-	 * KeyImpl.intern("xmlchildren"); public static final Collection.Key XMLNODES =
-	 * KeyImpl.intern("xmlnodes"); public static final Collection.Key XMLNSURI =
-	 * KeyImpl.intern("xmlnsuri"); public static final Collection.Key XMLNSPREFIX =
-	 * KeyImpl.intern("xmlnsprefix"); public static final Collection.Key XMLROOT =
-	 * KeyImpl.intern("xmlroot"); public static final Collection.Key XMLPARENT =
-	 * KeyImpl.intern("xmlparent"); public static final Collection.Key XMLNAME =
-	 * KeyImpl.intern("xmlname"); public static final Collection.Key XMLTYPE =
-	 * KeyImpl.intern("xmltype"); public static final Collection.Key XMLVALUE =
-	 * KeyImpl.intern("xmlvalue"); public static final Collection.Key XMLATTRIBUTES =
-	 * KeyImpl.intern("xmlattributes");
-	 */
-
-	// static DOMParser parser = new DOMParser();
 	private static DocumentBuilder docBuilder;
 	private static TransformerFactory transformerFactory;
 
@@ -128,19 +111,6 @@ public final class XMLUtilImpl implements XMLUtil {
 		rtn.append(str.substring(posFinish + 1));
 		return rtn.toString();
 	}
-
-	/*
-	 * public String unescapeXMLString2(String str) {
-	 * 
-	 * StringBuffer sb=new StringBuffer(); int index,last=0,indexSemi;
-	 * while((index=str.indexOf('&',last))!=-1) { sb.append(str.substring(last,index));
-	 * indexSemi=str.indexOf(';',index+1);
-	 * 
-	 * if(indexSemi==-1) { sb.append('&'); last=index+1; } else if(index+1==indexSemi) {
-	 * sb.append("&;"); last=index+2; } else {
-	 * sb.append(unescapeXMLEntity(str.substring(index+1,indexSemi))); last=indexSemi+1; } }
-	 * sb.append(str.substring(last)); return sb.toString(); }
-	 */
 
 	private static String unescapeXMLEntity(String str) {
 		if ("lt".equals(str)) return "<";

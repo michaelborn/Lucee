@@ -162,19 +162,4 @@ public class CertificateInstaller {
 		}
 	}
 
-	/*
-	 * public static void main(String[] args) throws Exception { //String host="jira.jboss.org";
-	 * 
-	 * String host="sso.vogel.de"; int port=443; char[] passphrase="changeit".toCharArray();
-	 * 
-	 * ResourceProvider frp = ResourcesImpl.getFileResourceProvider(); Resource source =
-	 * frp.getResource("/Users/mic/Temp/cacerts");
-	 * 
-	 * 
-	 * CertificateInstaller util = new CertificateInstaller(source,host,port,passphrase);
-	 * util.printCertificates(); util.installAll();
-	 * 
-	 * }
-	 */
-
 }

@@ -92,8 +92,4 @@ public final class OpNegate extends ExpressionBase implements ExprBoolean {
 
 	}
 
-	/*
-	 * public int getType() { return Types._BOOLEAN; }
-	 */
-
 }

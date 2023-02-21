@@ -33,9 +33,6 @@ public final class ArrayVisitor {
 		adapter.dup();
 		adapter.push(index);
 	}
-	/*
-	 * public void visitEndItem(BytecodeContext bc) { bc.getAdapter().visitInsn(Opcodes.AASTORE); }
-	 */
 
 	public void visitEndItem(GeneratorAdapter adapter) {
 		adapter.visitInsn(Opcodes.AASTORE);

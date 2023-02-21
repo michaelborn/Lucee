@@ -68,12 +68,6 @@ public class TagGroupUtil {
 	// NumberIterator load(NumberIterator ni, Query query, String groupName, boolean caseSensitive)
 	public static final Method LOAD_5 = new Method("load", NUMBER_ITERATOR, new Type[] { Types.PAGE_CONTEXT, NUMBER_ITERATOR, Types.QUERY, Types.STRING, Types.BOOLEAN_VALUE });
 
-	// boolean isValid()
-	/*
-	 * public static final Method IS_VALID_0 = new Method( "isValid", Types.BOOLEAN_VALUE, new
-	 * Type[]{});
-	 */
-
 	public static final Method IS_VALID_1 = new Method("isValid", Types.BOOLEAN_VALUE, new Type[] { Types.INT_VALUE });
 
 	public static final Method CURRENT = new Method("current", Types.INT_VALUE, new Type[] {});

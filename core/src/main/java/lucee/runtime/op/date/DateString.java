@@ -191,36 +191,6 @@ public final class DateString {
 		return false;
 	}
 
-	/*
-	 * read in the next four digits from current position
-	 * 
-	 * @return value from the 4 digits
-	 *
-	 * public int read4Digit() { // first char c=str.charAt(pos++); if(!isDigit(c)) return -1; int
-	 * value=ints[3][c-48];
-	 * 
-	 * // second c=str.charAt(pos++); if(!isDigit(c)) return -1; value+=ints[2][c-48];
-	 * 
-	 * // third c=str.charAt(pos++); if(!isDigit(c)) return -1; value+=ints[1][c-48];
-	 * 
-	 * // fourt c=str.charAt(pos++); if(!isDigit(c)) return -1; value+=ints[0][c-48];
-	 * 
-	 * return value; }
-	 */
-
-	/*
-	 * read in the next four digits from current position
-	 * 
-	 * @return value from the 4 digits
-	 *
-	 * public int read2Digit() { // first char c=str.charAt(pos++); if(!isDigit(c)) return -1; int
-	 * value=ints[1][c-48];
-	 * 
-	 * // second c=str.charAt(pos++); if(!isDigit(c)) return -1; value+=ints[0][c-48];
-	 * 
-	 * return value; }
-	 */
-
 	/**
 	 * read in the next digits from current position
 	 * 

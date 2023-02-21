@@ -286,11 +286,6 @@ public final class ComponentScopeThis extends StructSupport implements Component
 		// throw ComponentUtil.notFunction(component, key, null,access);
 	}
 
-	/*
-	 * public Object callWithNamedValues(PageContext pc, String key, Struct args) throws PageException {
-	 * return callWithNamedValues(pc, KeyImpl.init(key), args); }
-	 */
-
 	@Override
 	public Object callWithNamedValues(PageContext pc, Collection.Key key, Struct args) throws PageException {
 		Member m = component.getMember(access, key, false, false);

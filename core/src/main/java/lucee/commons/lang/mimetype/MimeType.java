@@ -280,12 +280,6 @@ public class MimeType {
 		return CharsetUtil.toCharset(cs);
 	}
 
-	/*
-	 * public int getMxb() { return Caster.toIntValue(properties.get("mxb"),DEFAULT_MXB); }
-	 * 
-	 * public double getMxt() { return Caster.toDoubleValue(properties.get("mxt"),DEFAULT_MXT); }
-	 */
-
 	private String getProperty(String name) {
 		if (properties != null) {
 			String value = properties.get(name);

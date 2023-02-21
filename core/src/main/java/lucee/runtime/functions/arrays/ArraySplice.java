@@ -64,10 +64,4 @@ public class ArraySplice extends BIF implements Function {
 		throw new FunctionException(pc, "ArraySplice", 2, 4, args.length);
 	}
 
-	/*
-	 * public static void main(String[] args2) throws PageException { ArrayImpl arr = new ArrayImpl();
-	 * arr.add("a"); arr.add("b"); arr.add("c"); arr.add("d"); ArrayImpl rep = new ArrayImpl();
-	 * rep.add("111"); rep.add("222"); print.e(arr); Object[] args = new Object[] { arr, 2, 1, rep };
-	 * Object res = new ArraySplice().invoke(null, args); print.e(arr); print.e(res); }
-	 */
 }

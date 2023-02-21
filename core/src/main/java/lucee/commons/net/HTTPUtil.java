@@ -377,17 +377,6 @@ public final class HTTPUtil {
 		return removeUnecessaryPort(new URL(url)).toExternalForm();
 	}
 
-	/*
-	 * public static URL toURL(HttpMethod httpMethod) { HostConfiguration config =
-	 * httpMethod.getHostConfiguration();
-	 * 
-	 * try { String qs = httpMethod.getQueryString(); if(StringUtil.isEmpty(qs)) return new
-	 * URL(config.getProtocol().getScheme(),config.getHost(),config.getPort(),httpMethod.getPath());
-	 * return new
-	 * URL(config.getProtocol().getScheme(),config.getHost(),config.getPort(),httpMethod.getPath()+"?"+
-	 * qs); } catch (MalformedURLException e) { return null; } }
-	 */
-
 	public static String optimizeRealPath(PageContext pc, String realPath) {
 		int index;
 		String requestURI = realPath, queryString = null;
@@ -534,15 +523,6 @@ public final class HTTPUtil {
 		HTTPEngine.closeEL(http);
 		return len;
 	}
-
-	/*
-	 * public static ContentType getContentType(HttpMethod http) { Header[] headers =
-	 * http.getResponseHeaders(); for(int i=0;i<headers.length;i++){
-	 * if("Content-Type".equalsIgnoreCase(headers[i].getName())){ String[] mimeCharset =
-	 * splitMimeTypeAndCharset(headers[i].getValue()); String[] typeSub =
-	 * splitTypeAndSubType(mimeCharset[0]); return new
-	 * ContentTypeImpl(typeSub[0],typeSub[1],mimeCharset[1]); } } return null; }
-	 */
 
 	public static Map<String, String> parseParameterList(String _str, boolean decode, String charset) {
 		// return lucee.commons.net.HTTPUtil.toURI(strUrl,port);

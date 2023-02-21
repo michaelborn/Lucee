@@ -51,10 +51,6 @@ public class JavaFunctionDef implements FunctionDef {
 		this.throwException = throwException;
 	}
 
-	/*
-	 * public Class<?> getClazz() { return clazz; }
-	 */
-
 	public final Class<?>[] getArgs() {
 		return args;
 	}

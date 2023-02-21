@@ -34,17 +34,6 @@ public class ThreadLocalDuplication {
 		return isInside();
 	}
 
-	/*
-	 * public static Map<Object, Object> getMap() { return touch(); }
-	 * 
-	 * public static void removex(Object o) { touch().remove(o); }
-	 */
-
-	/*
-	 * private static Object get(Object obj) { Map<Object,Object> list = touch(); return list.get(obj);
-	 * }
-	 */
-
 	public static Object get(Object object, RefBoolean before) {
 		if (!isInside()) {
 			reset();

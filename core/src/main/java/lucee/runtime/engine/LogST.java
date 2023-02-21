@@ -19,13 +19,6 @@ public class LogST extends ParentThreasRefThread {
 	private final String logName;
 	private final int timeRange;
 
-	/*
-	 * public static void main(String[] args) throws InterruptedException {
-	 * 
-	 * print.e("----------- start ------------"); LogST log = new LogST(Thread.currentThread());
-	 * log.start(); log.join(); print.e("----------- stop ------------"); }
-	 */
-
 	public LogST(Thread thread, File logDirectory, String logName, int timeRange) {
 		this.thread = thread;
 		this.logDirectory = logDirectory;

@@ -65,8 +65,4 @@ public class MarkdownToHTML extends BIF implements Function {
 		return Processor.process(markdown, safeMode);
 	}
 
-	/*
-	 * public static void main(String[] args) { print.e(Processor.process("This is ***TXTMARK***",
-	 * false)); }
-	 */
 }

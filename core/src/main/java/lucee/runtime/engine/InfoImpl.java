@@ -307,37 +307,6 @@ public final class InfoImpl implements Info {
 		return requiredExtensions;
 	}
 
-	/**
-	 * @return returns the state
-	 * 
-	 * @Override public int getStateAsInt() { return state; }
-	 */
-
-	/**
-	 * @return returns the state
-	 * 
-	 * @Override public String getStateAsString() { return strState; }
-	 */
-
-	/*
-	 * *
-	 * 
-	 * @return returns the state
-	 * 
-	 * public static String toStringState(int state) { if(state==STATE_FINAL) return "final"; else
-	 * if(state==STATE_BETA) return "beta"; else if(state==STATE_RC) return "rc"; else return "alpha"; }
-	 */
-
-	/*
-	 * *
-	 * 
-	 * @return returns the state
-	 * 
-	 * public int toIntState(String state) { state=state.trim().toLowerCase(); if("final".equals(state))
-	 * return STATE_FINAL; else if("beta".equals(state)) return STATE_BETA; else if("rc".equals(state))
-	 * return STATE_RC; else return STATE_ALPHA; }
-	 */
-
 	@Override
 	public String getVersionName() {
 		return versionName;

@@ -956,25 +956,6 @@ public final class ListUtil {
 		return -1;
 	}
 
-	/*
-	 * * returns if a value of the list contains given value, ignore case, ignore empty values
-	 * 
-	 * @param list list to search in
-	 * 
-	 * @param value value to serach
-	 * 
-	 * @param delimiter delimiter of the list
-	 * 
-	 * @return position in list or 0
-	 * 
-	 * public static int listContainsIgnoreEmptyNoCase(String list, String value, String delimiter) {
-	 * if(StringUtil.isEmpty(value)) return -1; Array arr=listToArrayRemoveEmpty(list,delimiter); int
-	 * count=0; int len=arr.size();
-	 * 
-	 * for(int i=1;i<=len;i++) { String item=arr.get(i,"").toString();
-	 * if(StringUtil.indexOfIgnoreCase(item, value)!=-1) return count; count++; } return -1; }
-	 */
-
 	/**
 	 * returns if a value of the list contains given value, case sensitive
 	 * 

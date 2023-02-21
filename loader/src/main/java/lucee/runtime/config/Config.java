@@ -121,12 +121,6 @@ public interface Config {
 	// Hibernate Extension has hardcoded this 4, do not change!!!!
 	public static final short INSPECT_UNDEFINED = 4;
 
-	/*
-	 * public static final int CUSTOM_TAG_MODE_NONE = 0; public static final int CUSTOM_TAG_MODE_CLASSIC
-	 * = 1; public static final int CUSTOM_TAG_MODE_MODERN = 2; public static final int
-	 * CUSTOM_TAG_MODE_CLASSIC_MODERN = 4; public static final int CUSTOM_TAG_MODE_MODERN_CLASSIC = 8;
-	 */
-
 	public static final int CACHE_TYPE_NONE = 0;
 	public static final int CACHE_TYPE_OBJECT = 1;
 	public static final int CACHE_TYPE_TEMPLATE = 2;

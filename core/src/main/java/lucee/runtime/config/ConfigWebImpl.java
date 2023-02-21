@@ -545,11 +545,6 @@ public class ConfigWebImpl extends ConfigImpl implements ServletConfig, ConfigWe
 		return helper.getAMFEngine();
 	}
 
-	/*
-	 * public boolean installServerExtension(ExtensionDefintion ed) throws PageException { return
-	 * configServer.installExtension(ed); }
-	 */
-
 	@Override
 	public RHExtension[] getServerRHExtensions() {
 		return configServer.getRHExtensions();

@@ -962,16 +962,6 @@ public class QueryImpl implements Query, Objects, QueryResult {
 		return strColumnNames;
 	}
 
-	/*
-	 * public QueryImpl(Collection.Key[] columnNames, QueryColumn[] columns, String name,long exeTime,
-	 * boolean isCached,SQL sql) throws DatabaseException { this.columnNames=columnNames;
-	 * this.columns=columns; this.exeTime=exeTime; this.isCached=isCached; this.name=name;
-	 * this.columncount=columnNames.length; this.recordcount=columns.length==0?0:columns[0].size();
-	 * this.sql=sql;
-	 *
-	 * }
-	 */
-
 	public QueryImpl(Collection.Key[] columnNames, Array[] arrColumns, String name) throws DatabaseException {
 		this.name = name;
 
@@ -1340,9 +1330,6 @@ public class QueryImpl implements Query, Objects, QueryResult {
 		}
 		return (upperCase ? sb.toString().toUpperCase() : sb.toString());
 	}
-	/*
-	 * public String getColumnlist() { return getColumnlist(true); }
-	 */
 
 	public boolean go(int index) {
 		return go(index, getPid());

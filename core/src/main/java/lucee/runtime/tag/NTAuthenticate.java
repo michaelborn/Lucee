@@ -48,11 +48,6 @@ public class NTAuthenticate extends TagImpl {
 
 	}
 
-	/*
-	 * public void setListGroups(boolean b) { if(b) { listGroups = true; _action = "authAndGroups"; }
-	 * else { listGroups = false; _action = "auth"; } }
-	 */
-
 	/**
 	 * @param username the username to set
 	 */

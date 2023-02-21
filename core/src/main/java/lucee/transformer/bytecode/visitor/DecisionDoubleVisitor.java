@@ -25,11 +25,7 @@ import org.objectweb.asm.commons.GeneratorAdapter;
 import lucee.transformer.bytecode.BytecodeContext;
 
 public final class DecisionDoubleVisitor {
-	/*
-	 * public static final int GT=Opcodes.IF_ICMPGT; public static final int GTE=Opcodes.IF_ICMPGE;
-	 * public static final int LT=Opcodes.IF_ICMPLT; public static final int LTE=Opcodes.IF_ICMPLE;
-	 * public static final int EQ=Opcodes.IF_ICMPEQ; public static final int NEQ=Opcodes.IF_ICMPNE;
-	 */
+
 	public static final int GT = Opcodes.IFLE;
 	public static final int GTE = Opcodes.IFLT;
 	public static final int LT = Opcodes.IFGE;

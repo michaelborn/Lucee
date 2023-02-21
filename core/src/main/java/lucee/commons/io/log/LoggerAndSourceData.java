@@ -99,10 +99,6 @@ public final class LoggerAndSourceData {
 		return cdAppender;
 	}
 
-	/*
-	 * public Object getAppender() { getLog();// initialize if necessary return _appender; }
-	 */
-
 	public void close() throws PageException {
 
 		if (_log != null) {
@@ -119,10 +115,6 @@ public final class LoggerAndSourceData {
 		getLog(catchException);// initialize if necessary
 		return appenderArgs;
 	}
-
-	/*
-	 * public Object getLayout() { getLog();// initialize if necessary return layout; }
-	 */
 
 	public ClassDefinition getLayoutClassDefinition() {
 		return cdLayout;
@@ -161,11 +153,6 @@ public final class LoggerAndSourceData {
 	private LogEngine eng() {
 		return ((ConfigPro) config).getLogEngine();
 	}
-
-	/*
-	 * public Logger getLogger() { getLog();// make sure it exists return
-	 * ((LogAdapter)_log).getLogger(); }
-	 */
 
 	public static String id(String name, ClassDefinition appender, Map<String, String> appenderArgs, ClassDefinition layout, Map<String, String> layoutArgs, int level,
 			boolean readOnly) {

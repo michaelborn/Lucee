@@ -263,10 +263,6 @@ public class ChildThreadImpl extends ChildThread implements Serializable {
 		return start;
 	}
 
-	/*
-	 * public Threads getThreadScopeX() { if(scope==null) scope=new ThreadsImpl(this); return scope; }
-	 */
-
 	public long getEndTime() {
 		if (endTime == 0) return System.currentTimeMillis(); // endTime = 0 means the thread is still running
 		return endTime;

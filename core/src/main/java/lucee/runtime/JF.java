@@ -46,12 +46,6 @@ public abstract class JF implements UDF {
 
 	}
 
-	/*
-	 * public FunctionArgument[] getFunctionArguments() { return new FunctionArgument[] {
-	 * 
-	 * }; }
-	 */
-
 	@Override
 	public String getFunctionName() {
 		return props.getFunctionName();

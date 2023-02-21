@@ -515,13 +515,6 @@ public class SimpleQuery implements Query, ResultSet, Objects, QueryResult {
 		return false;
 	}
 
-	/*
-	 * public synchronized boolean go(int index) { if(index==getCurrentrow()) return true; try { return
-	 * res.absolute(index); } catch (SQLException e) { throw toRuntimeExc(e); } }
-	 * 
-	 * public boolean go(int index, int pid) { return go(index); }
-	 */
-
 	@Override
 	public DumpData toDumpData(PageContext pageContext, int maxlevel, DumpProperties dp) {
 		return QueryUtil.toDumpData(this, pageContext, maxlevel, dp);

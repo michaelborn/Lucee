@@ -304,14 +304,6 @@ public final class HttpServletResponseDummy implements HttpServletResponse, Seri
 		return null;
 	}
 
-	/*
-	 * *
-	 * 
-	 * @return the outputData / public byte[] getOutputData() { return outputData; }
-	 * 
-	 * public void setOutputData(byte[] outputData) { this.outputData=outputData; }
-	 */
-
 	/**
 	 * @return the status
 	 */

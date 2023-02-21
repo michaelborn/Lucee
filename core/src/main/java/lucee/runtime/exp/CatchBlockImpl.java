@@ -499,9 +499,6 @@ public class CatchBlockImpl extends StructImpl implements CatchBlock, Castable, 
 		return call(pc, methodName.getString(), arguments);
 	}
 
-	/*
-	 * public Object remove (String key) throws PageException { return remove(KeyImpl.init(key)); }
-	 */
 	@Override
 	public Object removeEL(Key key) {
 		try {

@@ -725,11 +725,4 @@ public class CFTag extends BodyTagTryCatchFinallyImpl implements DynamicAttribut
 		return source;
 	}
 
-	/*
-	 * class InitFile { PageSource ps; String filename; boolean isCFC;
-	 * 
-	 * public InitFile(PageSource ps,String filename,boolean isCFC){ this.ps=ps; this.filename=filename;
-	 * this.isCFC=isCFC; } }
-	 */
-
 }

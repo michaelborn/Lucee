@@ -78,30 +78,15 @@ public final class COMObject implements Objects, Iteratorable {
 		this.dispatch = dispatch;
 	}
 
-	/*
-	 * public Object get(PageContext pc, String propertyName) throws PageException { return
-	 * COMUtil.toObject(this,Dispatch.call(dispatch,propertyName),propertyName); }
-	 */
-
 	@Override
 	public Object get(PageContext pc, Collection.Key key) throws PageException {
 		return COMUtil.toObject(this, Dispatch.call(dispatch, key.getString()), key.getString());
 	}
 
-	/*
-	 * public Object get(PageContext pc, String propertyName, Object defaultValue) { return
-	 * COMUtil.toObject(this,Dispatch.call(dispatch,propertyName),propertyName,defaultValue); }
-	 */
-
 	@Override
 	public Object get(PageContext pc, Collection.Key key, Object defaultValue) {
 		return COMUtil.toObject(this, Dispatch.call(dispatch, key.getString()), key.getString(), defaultValue);
 	}
-
-	/*
-	 * public Object set(PageContext pc, String propertyName, Object value) { return
-	 * setEL(pc,propertyName,value); }
-	 */
 
 	@Override
 	public Object set(PageContext pc, Collection.Key propertyName, Object value) throws PageException {
@@ -109,23 +94,11 @@ public final class COMObject implements Objects, Iteratorable {
 		return value;
 	}
 
-	/*
-	 * public Object setEL(PageContext pc, String propertyName, Object value) {
-	 * Dispatch.put(dispatch,propertyName,value); return value; }
-	 */
-
 	@Override
 	public Object setEL(PageContext pc, Collection.Key propertyName, Object value) {
 		Dispatch.put(dispatch, propertyName.getString(), value);
 		return value;
 	}
-
-	/*
-	 * public Object call(PageContext pc, String methodName, Object[] args) throws PageException {
-	 * Object[] arr=new Object[args.length]; for(int i=0;i<args.length;i++) { if(args[i] instanceof
-	 * COMObject)arr[i]=((COMObject)args[i]).dispatch; else arr[i]=args[i]; } return
-	 * COMUtil.toObject(this,Dispatch.callN(dispatch,methodName,arr),methodName); }
-	 */
 
 	@Override
 	public Object call(PageContext pc, Collection.Key key, Object[] args) throws PageException {
@@ -137,14 +110,6 @@ public final class COMObject implements Objects, Iteratorable {
 		}
 		return COMUtil.toObject(this, Dispatch.callN(dispatch, methodName, arr), methodName);
 	}
-
-	/*
-	 * public Object callWithNamedValues(PageContext pc, String methodName, Struct args) throws
-	 * PageException { // TODO gibt es hier eine bessere moeglichkeit? Iterator<Object> it =
-	 * args.valueIterator(); List<Object> values=new ArrayList<Object>(); while(it.hasNext()) {
-	 * values.add(it.next()); } return call(pc,KeyImpl.init(methodName),values.toArray(new
-	 * Object[values.size()])); }
-	 */
 
 	@Override
 	public Object callWithNamedValues(PageContext pc, Collection.Key key, Struct args) throws PageException {

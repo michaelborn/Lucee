@@ -696,20 +696,6 @@ public final class ComponentUtil {
 		return c.getProperties(onlyPeristent, includeBaseProperties, preferBaseProperties, preferBaseProperties);
 	}
 
-	/*
-	 * public static ComponentAccess toComponentAccess(Component comp) throws ExpressionException {
-	 * ComponentAccess ca = toComponentAccess(comp, null); if(ca!=null) return ca; throw new
-	 * ExpressionException("can't cast class ["+Caster.toClassName(comp)
-	 * +"] to a class of type ComponentAccess"); }
-	 */
-
-	/*
-	 * public static Component toComponentAccess(Component comp, Component defaultValue) { if(comp
-	 * instanceof ComponentAccess) return (ComponentAccess) comp; if(comp instanceof
-	 * ComponentSpecificAccess) return ((ComponentSpecificAccess) comp).getComponentAccess(); return
-	 * defaultValue; }
-	 */
-
 	public static Component toComponent(Object obj) throws ExpressionException {
 		if (obj instanceof Component) return (Component) obj;
 		throw new ExpressionException("Can't cast class [" + Caster.toClassName(obj) + "] to a class of type [Component]");

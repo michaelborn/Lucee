@@ -71,11 +71,6 @@ public final class DateTimeImpl extends DateTime implements SimpleValue, Objects
 		super(doOffset ? addOffset(ThreadLocalPageContext.getConfig(), utcTime) : utcTime);
 	}
 
-	/*
-	 * public DateTimeImpl(Config config, long utcTime) {
-	 * super(addOffset(ThreadLocalPageContext.getConfig(config),utcTime)); }
-	 */
-
 	public DateTimeImpl(Date date) {
 		this(date.getTime(), false);
 	}

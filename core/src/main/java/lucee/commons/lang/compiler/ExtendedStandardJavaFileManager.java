@@ -63,21 +63,6 @@ public class ExtendedStandardJavaFileManager extends ForwardingJavaFileManager<J
 		return super.getFileForInput(location, packageName, relativeName);
 	}
 
-	/*
-	 * @Override public String inferModuleName(Location location) throws IOException { print.e("infer" +
-	 * location); return super.inferModuleName(location); }
-	 */
-
-	/*
-	 * @Override public Iterable<Set<Location>> listLocationsForModules(Location location) throws
-	 * IOException { print.e("listLoc" + location); return super.listLocationsForModules(location); }
-	 */
-
-	/*
-	 * public boolean contains(Location location, FileObject fo) throws IOException { print.e("contains"
-	 * + location); return super.contains(location, fo); }
-	 */
-
 	@Override
 	public JavaFileObject getJavaFileForOutput(JavaFileManager.Location location, String className, JavaFileObject.Kind kind, FileObject sibling) throws IOException {
 		// print.e("getJavaFileForOutput:" + location);

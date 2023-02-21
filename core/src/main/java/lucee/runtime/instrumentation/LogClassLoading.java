@@ -40,11 +40,5 @@ public class LogClassLoading {
 			return null;
 		}
 
-		/*
-		 * public byte[] transform(Module module, ClassLoader loader, String className, Class<?>
-		 * classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws
-		 * IllegalClassFormatException { print.e(loader + ":" + className); return null; }
-		 */
-
 	}
 }

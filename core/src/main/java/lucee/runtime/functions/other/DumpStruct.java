@@ -276,16 +276,6 @@ public final class DumpStruct implements Function {
 		return columns;
 	}
 
-	/*
-	 * public static String getContext() { //Throwable cause = t.getCause(); StackTraceElement[] traces
-	 * = Thread.currentThread().getStackTrace();
-	 * 
-	 * int line=0; String template; StackTraceElement trace=null; for(int i=0;i<traces.length;i++) {
-	 * trace=traces[i]; template=trace.getFileName(); if((line=trace.getLineNumber())<=0 ||
-	 * template==null || ResourceUtil.getExtension(template,"").equals("java")) continue; return
-	 * template+":"+line; } return null; }
-	 */
-
 	private static String toShortColor(String color) {
 		if (color != null && color.length() == 7 && color.startsWith("#")) {
 			if (color.charAt(1) == color.charAt(2) && color.charAt(3) == color.charAt(4) && color.charAt(5) == color.charAt(6))

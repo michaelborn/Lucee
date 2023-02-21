@@ -83,32 +83,4 @@ public class WildCardFilter implements ResourceAndResourceNameFilter {
 		return "Wildcardfilter:" + wildcard;
 	}
 
-	/*
-	 * public static void main(String[] args) { WildCardFilter filter = new WildCardFilter("*.cfc",
-	 * true); assertTrue(filter.accept("susi.cfc")); assertFalse(filter.accept("susi.cf"));
-	 * assertTrue(filter.accept(".cfc")); assertTrue(filter.accept("xx.CFC"));
-	 * 
-	 * filter = new WildCardFilter("*.cfc", false); assertTrue(filter.accept("susi.cfc"));
-	 * assertFalse(filter.accept("susi.cf")); assertTrue(filter.accept(".cfc"));
-	 * assertFalse(filter.accept("xx.CFC"));
-	 * 
-	 * filter = new WildCardFilter("ss?xx.cfc", false); assertFalse(filter.accept("susi.cfc"));
-	 * assertTrue(filter.accept("ss1xx.cfc")); assertFalse(filter.accept("ss12xx.cfc"));
-	 * 
-	 * 
-	 * filter = new WildCardFilter("ss*xx.cfc", false); assertFalse(filter.accept("susi.cfc"));
-	 * assertTrue(filter.accept("ss1xx.cfc")); assertTrue(filter.accept("ss12xx.cfc"));
-	 * 
-	 * filter = new WildCardFilter("ss*xx.cfc", false);
-	 * assertTrue(filter.accept("ss{}[]().+\\^$ss12xx.cfc"));
-	 * 
-	 * print.e("done"); }
-	 * 
-	 * private static void assertTrue(boolean b) { if(!b) throw new
-	 * RuntimeException("value is false, but true is expected"); }
-	 * 
-	 * private static void assertFalse(boolean b) { if(b) throw new
-	 * RuntimeException("value is true, but false is expected"); }
-	 */
-
 }

@@ -200,23 +200,6 @@ public abstract class AbstrCFMLExprTransformer {
 		public boolean isEnd(Data data);
 	}
 
-	/*
-	 * private short mode=0; protected CFMLString cfml; protected FunctionLib[] fld; private boolean
-	 * ignoreScopes=false; private boolean allowLowerThan;
-	 */
-
-	/*
-	 * public class Data extends Data {
-	 * 
-	 * public short mode=0; public boolean insideFunction; public String tagName; public boolean isCFC;
-	 * public boolean isInterface; public short context=CTX_NONE; public DocComment docComment;
-	 * 
-	 * 
-	 * public Data(Data data,boolean allowLowerThan) {
-	 * super(data.factory,data.root,data.srcCode,data.ep,data.settings,data.tlibs,data.flibs,data.
-	 * scriptTags,allowLowerThan); } }
-	 */
-
 	protected Expression transformAsString(Data data, String[] breakConditions) throws TemplateException {
 		Expression el = null;
 

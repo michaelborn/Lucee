@@ -102,10 +102,6 @@ public class ImageUtil {
 		throw new ApplicationException("Cannot convert Object to a BufferedImage, you need to install the Image Extension to do so.");
 	}
 
-	/*
-	 * public static Type getImageType() { return Type.getType("Lorg/lucee/extension/image/Image;"); }
-	 */
-
 	public static boolean isCastableToImage(PageContext pc, Object obj) {
 		try {
 			Class clazz = ImageUtil.getImageClass();

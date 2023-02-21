@@ -1519,10 +1519,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 		return ZipUtilImpl.getInstance();
 	}
 
-	/*
-	 * public String getState() { return info.getStateAsString(); }
-	 */
-
 	public void allowRequestTimeout(boolean allowRequestTimeout) {
 		this.allowRequestTimeout = allowRequestTimeout;
 	}
@@ -1630,10 +1626,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 	public long uptime() {
 		return uptime;
 	}
-
-	/*
-	 * public Bundle getCoreBundle() { return bundle; }
-	 */
 
 	@Override
 	public BundleCollection getBundleCollection() {

@@ -296,20 +296,10 @@ public final class ComponentSpecificAccess extends StructSupport implements Comp
 		return component.compareTo(d);
 	}
 
-	/*
-	 * public Object get(PageContext pc, String key, Object defaultValue) { return
-	 * get(pc,KeyImpl.init(key),defaultValue); }
-	 */
-
 	@Override
 	public Object get(PageContext pc, Collection.Key key, Object defaultValue) {
 		return component.get(access, key, defaultValue);
 	}
-
-	/*
-	 * public Object get(PageContext pc, String key) throws PageException { return
-	 * get(pc,KeyImpl.init(key)); }
-	 */
 
 	@Override
 	public Object get(PageContext pc, Collection.Key key) throws PageException {
@@ -321,20 +311,10 @@ public final class ComponentSpecificAccess extends StructSupport implements Comp
 		return new ComponentSpecificAccess(access, (Component) component.duplicate(deepCopy));
 	}
 
-	/*
-	 * public Object set(PageContext pc, String propertyName, Object value) throws PageException {
-	 * return component.set(propertyName,value); }
-	 */
-
 	@Override
 	public Object set(PageContext pc, Collection.Key propertyName, Object value) throws PageException {
 		return component.set(propertyName, value);
 	}
-
-	/*
-	 * public Object setEL(PageContext pc, String propertyName, Object value) { return
-	 * component.setEL(propertyName,value); }
-	 */
 
 	@Override
 	public Object setEL(PageContext pc, Key propertyName, Object value) {

@@ -87,13 +87,4 @@ public final class DBUtil {
 		}
 	}
 
-	/*
-	 * public static Connection getConnection(String connStr, String user, String pass) throws
-	 * SQLException { try { return new ConnectionProxy(new StateFactory(),
-	 * DriverManager.getConnection(connStr, user, pass)); } catch (SQLException e) {
-	 * 
-	 * if(connStr.indexOf('?')!=-1) { connStr=connStr+"&user="+user+"&password="+pass; return new
-	 * ConnectionProxy(new StateFactory(), DriverManager.getConnection(connStr)); } throw e; } }
-	 */
-
 }

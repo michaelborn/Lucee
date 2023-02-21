@@ -83,13 +83,6 @@ public final class FunctionLibFunction {
 	private Version introduced;
 	private final boolean core;
 
-	/**
-	 * Geschuetzer Konstruktor ohne Argumente.
-	 */
-	/*
-	 * public FunctionLibFunction() { this.core=false; }
-	 */
-
 	public FunctionLibFunction(boolean core) {
 		this.core = core;
 	}

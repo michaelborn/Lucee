@@ -590,14 +590,6 @@ public class ArrayClassic extends ArraySupport {
 		return rtn;
 	}
 
-	/**
-	 * @return return array as ArrayList
-	 */
-	/*
-	 * public synchronized ArrayList toArrayList() { ArrayList al=new ArrayList(); for(int
-	 * i=offset;i<offset+size;i++) { al.add(arr[i]); } return al; }
-	 */
-
 	@Override
 	public DumpData toDumpData(PageContext pageContext, int maxlevel, DumpProperties dp) {
 		DumpTable table = new DumpTable("array", "#99cc33", "#ccff33", "#000000");

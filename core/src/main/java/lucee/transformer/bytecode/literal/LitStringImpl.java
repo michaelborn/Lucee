@@ -51,15 +51,6 @@ public class LitStringImpl extends ExpressionBase implements LitString, ExprStri
 	private String str;
 	private boolean fromBracket;
 
-	/*
-	 * public static ExprString toExprString(String str, Position start,Position end) { return new
-	 * LitStringImpl(str,start,end); }
-	 * 
-	 * public static ExprString toExprString(String str) { return new LitStringImpl(str,null,null); }
-	 * 
-	 * public static LitString toLitString(String str) { return new LitStringImpl(str,null,null); }
-	 */
-
 	/**
 	 * constructor of the class
 	 * 

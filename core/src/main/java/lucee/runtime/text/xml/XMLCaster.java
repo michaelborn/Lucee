@@ -433,32 +433,6 @@ public final class XMLCaster {
 		throw new ExpressionException("invalid node type definition");
 	}
 
-	/*
-	 * * cast a xml node to a String
-	 * 
-	 * @param node
-	 * 
-	 * @return xml node as String
-	 * 
-	 * @throws ExpressionException / public static String toString(Node node) throws ExpressionException
-	 * { //Transformer tf; try { OutputFormat format = new OutputFormat();
-	 * 
-	 * StringWriter writer = new StringWriter(); XMLSerializer serializer = new XMLSerializer(writer,
-	 * format); if(node instanceof Element)serializer.serialize((Element)node); else
-	 * serializer.serialize(XMLUtil.getDocument(node)); return writer.toString();
-	 * 
-	 * } catch (Exception e) { throw ExpressionException.newInstance(e); } }
-	 * 
-	 * public static String toString(Node node,String defaultValue) { //Transformer tf; try {
-	 * OutputFormat format = new OutputFormat();
-	 * 
-	 * StringWriter writer = new StringWriter(); XMLSerializer serializer = new XMLSerializer(writer,
-	 * format); if(node instanceof Element)serializer.serialize((Element)node); else
-	 * serializer.serialize(XMLUtil.getDocument(node)); return writer.toString();
-	 * 
-	 * } catch (Exception e) { return defaultValue; } }
-	 */
-
 	public static String toHTML(Node node) throws ExpressionException {
 		if (Node.DOCUMENT_NODE == node.getNodeType()) return toHTML(XMLUtil.getRootElement(node, true));
 

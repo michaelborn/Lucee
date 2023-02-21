@@ -115,13 +115,6 @@ public final class CompressUtil {
 		else throw new IOException("Can't extract in given format");
 	}
 
-	/*
-	 * public static void listt(int format, Resource source) throws IOException { if (format ==
-	 * FORMAT_ZIP) listZipp(source); // else if(format==FORMAT_TAR) listar(source); // else
-	 * if(format==FORMAT_GZIP)listGZip(source); // else if(format==FORMAT_TGZ) listTGZ(source); else
-	 * throw new IOException("can't list in given format, atm only zip files are supported"); }
-	 */
-
 	private static void extractTGZ(Resource source, Resource target) throws IOException {
 		// File tmpTarget = File.createTempFile("_temp","tmp");
 		Resource tmp = SystemUtil.getTempDirectory().getRealResource(System.currentTimeMillis() + ".tmp");

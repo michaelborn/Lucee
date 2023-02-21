@@ -35,13 +35,7 @@ import lucee.transformer.expression.ExprBoolean;
 import lucee.transformer.expression.Expression;
 
 public final class OpDecision extends ExpressionBase implements ExprBoolean {
-	/*
-	 * public static final int LT=GeneratorAdapter.LT; public static final int LTE=GeneratorAdapter.LE;
-	 * public static final int GTE=GeneratorAdapter.GE; public static final int GT=GeneratorAdapter.GT;
-	 * public static final int EQ=GeneratorAdapter.EQ; public static final int NEQ=GeneratorAdapter.NE;
-	 * public static final int CT = 1000; public static final int NCT = 1001; public static final int
-	 * EEQ = 1002; public static final int NEEQ = 1003;
-	 */
+
 	private final Expression left;
 	private final Expression right;
 	private final int op;

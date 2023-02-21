@@ -358,26 +358,4 @@ public final class JSConverter extends ConverterSupport {
 		this.useWDDX = useWDDX;
 	}
 
-	/*
-	 * @param args
-	 * 
-	 * @throws Exception
-	 * 
-	 * public static void main(String[] args) throws Exception { JSConverter js=new JSConverter(); Query
-	 * query=QueryNew.call(null,"aaa,bbb,ccc"); QueryAddRow.call(null,query);
-	 * QuerySetCell.call(null,query,"aaa","1.1"); QuerySetCell.call(null,query,"bbb","1.2");
-	 * QuerySetCell.call(null,query,"ccc","1.3"); QueryAddRow.call(null,query);
-	 * QuerySetCell.call(null,query,"aaa","2.1"); QuerySetCell.call(null,query,"bbb","2.2");
-	 * QuerySetCell.call(null,query,"ccc","2.3"); QueryAddRow.call(null,query);
-	 * QuerySetCell.call(null,query,"aaa","3.1"); QuerySetCell.call(null,query,"bbb","3.2");
-	 * QuerySetCell.call(null,query,"ccc","3.3<hello>"); Array arr2=List ToArray.call(null,"111,222");
-	 * Array arr=List ToArray.call(null,"aaaa,bbb,ccc,dddd,eee");
-	 * 
-	 * arr.set(10,arr2);
-	 * 
-	 * Struct sct= new Struct(); sct.set("aaa","val1"); sct.set("bbb","val2"); sct.set("ccc","val3");
-	 * sct.set("ddd",arr2);
-	 * 
-	 * /* }
-	 */
 }

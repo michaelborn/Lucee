@@ -156,10 +156,4 @@ public final class EvaluatorPool {
 		functions.clear();
 	}
 
-	/*
-	 * public static void getPool() { // TODO Auto-generated method stub
-	 * 
-	 * }
-	 */
-
 }

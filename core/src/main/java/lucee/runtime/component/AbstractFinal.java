@@ -79,13 +79,6 @@ public class AbstractFinal {
 		absUDFs.put(KeyImpl.init(udf.getFunctionName()), new UDFB(udf));
 	}
 
-	/*
-	 * public long lastUpdate() { if(lastUpdate==0 && !interfaces.isEmpty()){ long temp;
-	 * Iterator<InterfaceImpl> it = interfaces.values().iterator(); while(it.hasNext()){
-	 * temp=ComponentUtil.getCompileTime(null,it.next().getPageSource(),0); if(temp>lastUpdate)
-	 * lastUpdate=temp; } } return lastUpdate; }
-	 */
-
 	public boolean hasAbstractUDFs() {
 		return !absUDFs.isEmpty();
 	}
@@ -105,11 +98,6 @@ public class AbstractFinal {
 	public Interface[] getInterfaces() {
 		return interfaces.values().toArray(new Interface[interfaces.size()]);
 	}
-
-	/*
-	 * public Map<Collection.Key,UDF> getAbstractUDFs() { Map<Key, UDF> tmp = absUDFs; absUDFs=new
-	 * HashMap<Collection.Key,UDF>(); return tmp; }
-	 */
 
 	public Map<Collection.Key, UDFB> getAbstractUDFBs() {
 		return absUDFs;

@@ -1235,28 +1235,6 @@ public final class Reflector {
 		return mi;
 	}
 
-	/*
-	 * to invoke a setter Method of an Object
-	 * 
-	 * @param obj Object to invoke method from
-	 * 
-	 * @param prop Name of the Method without get
-	 * 
-	 * @param value Value to set to the Method
-	 * 
-	 * @return MethodInstance
-	 * 
-	 * @deprecated use instead <code>getSetter(Object obj, String prop,Object value, MethodInstance
-	 * defaultValue)</code>
-	 * 
-	 * public static MethodInstance getSetterEL(Object obj, String prop,Object value) {
-	 * prop="set"+StringUtil.ucFirst(prop); MethodInstance mi =
-	 * getMethodInstanceEL(obj.getClass(),KeyImpl.init(prop),new Object[]{value}); if(mi==null) return
-	 * null; Method m=mi.getMethod();
-	 * 
-	 * if(m.getReturnType()!=void.class) return null; return mi; }
-	 */
-
 	/**
 	 * to invoke a setter Method of an Object
 	 * 
