@@ -74,12 +74,6 @@ public final class BIF extends FunctionMember {
 	}
 
 	/**
-	 * @return the name
-	 * 
-	 *         public ExprString getNameX() { return name; }
-	 */
-
-	/**
 	 * @return the returnType
 	 */
 	public String getReturnType() {

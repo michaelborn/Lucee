@@ -249,11 +249,6 @@ public abstract class StructSupport implements Map, Struct {
 		return new KeyAsStringIterator(keyIterator());
 	}
 
-	/*
-	 * @Override public Object get(PageContext pc, Key key, Object defaultValue) { return get(key,
-	 * defaultValue); }
-	 */
-
 	@Override
 	public Object get(PageContext pc, Key key) throws PageException {
 		return get(key);
@@ -301,7 +296,4 @@ public abstract class StructSupport implements Map, Struct {
 
 	public abstract int getType(); // FUTURE add to loader
 
-	/*
-	 * @Override public int hashCode() { return CollectionUtil.hashCode(this); }
-	 */
 }

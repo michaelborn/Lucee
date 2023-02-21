@@ -32,22 +32,6 @@ import lucee.transformer.library.function.FunctionLibFunctionArg;
  */
 public final class FunctionException extends ExpressionException {
 
-	/*
-	 * * constructor of the class
-	 * 
-	 * @param pc current Page Context
-	 * 
-	 * @param functionName Name of the function that thorw the Exception
-	 * 
-	 * @param badArgumentPosition Position of the bad argument in the Argument List of the function
-	 * 
-	 * @param badArgumentName Name of the bad Argument
-	 * 
-	 * @param message additional Exception message / public FunctionException(PageContext pc,String
-	 * functionName, String badArgumentPosition, String badArgumentName, String message) {
-	 * this((PageContext)pc,functionName,badArgumentPosition,badArgumentName,message); }
-	 */
-
 	/**
 	 * constructor of the class
 	 * 

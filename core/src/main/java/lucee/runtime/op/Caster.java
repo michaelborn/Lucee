@@ -585,15 +585,6 @@ public final class Caster {
 	 * 
 	 * @param o Object to cast
 	 * @param defaultValue if can't cast return this value
-	 * @return casted double value / public static double toDoubleValue(Object o,double defaultValue) {
-	 *         return toDoubleValue(o, true, defaultValue); }
-	 */
-
-	/**
-	 * cast an Object to a double value (primitive value Type)
-	 * 
-	 * @param o Object to cast
-	 * @param defaultValue if can't cast return this value
 	 * @return casted double value
 	 */
 	public static double toDoubleValue(Object o, boolean alsoFromDate, double defaultValue) {

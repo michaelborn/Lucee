@@ -189,22 +189,6 @@ public class IPRangeNode<T> implements Comparable<IPRangeNode>, Comparator<IPRan
 		return findFast(iaddr, null);
 	}
 
-	/*
-	 * / works public IPRangeNode findFast(InetAddress iaddr) {
-	 * 
-	 * IPRangeNode result = null;
-	 * 
-	 * if ( this.isInRange(iaddr) ) {
-	 * 
-	 * result = this;
-	 * 
-	 * if ( this.hasChildren() ) {
-	 * 
-	 * IPRangeNode temp = children.findFast( iaddr ); if ( temp != null ) result = temp; } }
-	 * 
-	 * return result; } //
-	 */
-
 	public IPRangeNode findFast(String addr) {
 
 		try {

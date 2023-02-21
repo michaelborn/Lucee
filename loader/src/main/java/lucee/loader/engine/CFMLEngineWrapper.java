@@ -299,10 +299,6 @@ public class CFMLEngineWrapper implements CFMLEngine {
 		return engine.getClassUtil();
 	}
 
-	/*
-	 * @Override public XMLUtil getXMLUtil() { return engine.getXMLUtil(); }
-	 */
-
 	@Override
 	public ScriptEngineFactory getScriptEngineFactory(final int dialect) {
 		return engine.getScriptEngineFactory(dialect);

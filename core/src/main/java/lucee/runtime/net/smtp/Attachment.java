@@ -80,12 +80,6 @@ public class Attachment implements Serializable {
 		this.fileName = fileName;
 	}
 
-	/*
-	 * *
-	 * 
-	 * @return the resource / public Resource getResourcex() { return resource; }
-	 */
-
 	public String getAbsolutePath() {
 		return absolutePath;
 	}

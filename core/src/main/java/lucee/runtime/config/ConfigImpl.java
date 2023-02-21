@@ -485,17 +485,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 	public short getScopeCascadingType() {
 		return type;
 	}
-	/*
-	 * @Override public String[] getCFMLExtensions() { return getAllExtensions(); }
-	 * 
-	 * @Override public String getCFCExtension() { return getComponentExtension(); }
-	 * 
-	 * @Override public String[] getAllExtensions() { return Constants.ALL_EXTENSION; }
-	 * 
-	 * @Override public String getComponentExtension() { return Constants.COMPONENT_EXTENSION; }
-	 * 
-	 * @Override public String[] getTemplateExtensions() { return Constants.TEMPLATE_EXTENSIONS; }
-	 */
 
 	protected void setFLDs(FunctionLib[] flds, int dialect) {
 		if (dialect == CFMLEngine.DIALECT_CFML) {
@@ -1993,11 +1982,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 		((ResourcesImpl) resources).registerResourceProvider(strProviderScheme, cd, arguments);
 	}
 
-	/*
-	 * protected void addResourceProvider(ResourceProvider provider) {
-	 * ((ResourcesImpl)resources).registerResourceProvider(provider); }
-	 */
-
 	public void clearResourceProviders() {
 		resources.reset();
 	}
@@ -2514,19 +2498,6 @@ public abstract class ConfigImpl extends ConfigBase implements ConfigPro {
 	protected void setSpoolerEngine(SpoolerEngine spoolerEngine) {
 		this.remoteClientSpoolerEngine = spoolerEngine;
 	}
-
-	/*
-	 * *
-	 * 
-	 * @return the structCase / public int getStructCase() { return structCase; }
-	 */
-
-	/*
-	 * *
-	 * 
-	 * @param structCase the structCase to set / protected void setStructCase(int structCase) {
-	 * this.structCase = structCase; }
-	 */
 
 	/**
 	 * @return if error status code will be returned or not

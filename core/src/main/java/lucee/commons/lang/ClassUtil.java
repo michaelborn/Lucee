@@ -927,18 +927,6 @@ public final class ClassUtil {
 			}
 		}
 
-		/*
-		 * @Override public Class<?> loadClass(String className) throws ClassException {
-		 * className=className.trim(); try { return cl.loadClass(className); } catch(Throwable t)
-		 * {ExceptionUtil.rethrowIfNecessary(t); try { return Class.forName(className, false, cl); } catch
-		 * (Throwable t2) {ExceptionUtil.rethrowIfNecessary(t2); String msg=null; if(t2 instanceof
-		 * ClassNotFoundException || t2 instanceof NoClassDefFoundError) {
-		 * msg="["+t2.getClass().getName()+"] "+t2.getMessage(); } if(StringUtil.isEmpty(msg))
-		 * msg="cannot load class through its string name, because no definition for the class with the specified name "
-		 * + "["+className+"] could be found";
-		 * 
-		 * throw new ClassException(msg); } } }
-		 */
 	}
 
 	private static class OSGiBasedClassLoading implements ClassLoading {

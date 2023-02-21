@@ -2086,41 +2086,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 		return c == '=' || c == '+' || c == '-';
 	}
 
-	/*
-	 * protected Statement __singleAttrStatement(Body parent, Data data, String tagName,String
-	 * attrName,int attrType, boolean allowExpression, boolean allowTwiceAttr) throws TemplateException
-	 * {
-	 * 
-	 * if(data.srcCode.forwardIfCurrent(tagName)){ if(!data.srcCode.isCurrent(' ') &&
-	 * !data.srcCode.isCurrent(';')){ data.srcCode.setPos(data.srcCode.getPos()-tagName.length());
-	 * return null; } } else return null;
-	 * 
-	 * 
-	 * int pos=data.srcCode.getPos()-tagName.length(); int line=data.srcCode.getLine(); TagLibTag tlt =
-	 * CFMLTransformer.getTLT(data.srcCode,tagName.equals("pageencoding")?"processingdirective":tagName)
-	 * ;
-	 * 
-	 * Tag tag=getTag(parent,tlt,line); tag.setScriptBase(true); tag.setTagLibTag(tlt);
-	 * 
-	 * comments(data);
-	 * 
-	 * // attribute Expression attrValue=null; if(ATTR_TYPE_REQUIRED==attrType ||
-	 * (!data.srcCode.isCurrent(';') && ATTR_TYPE_OPTIONAL==attrType)) attrValue =attributeValue(data,
-	 * allowExpression); //allowExpression?super.expression(data):string(data);
-	 * 
-	 * if(attrValue!=null){ TagLibTagAttr tlta = tlt.getAttribute(attrName); tag.addAttribute(new
-	 * Attribute(false,attrName,Cast.toExpression(attrValue,tlta.getType()),tlta.getType())); } else
-	 * if(ATTR_TYPE_REQUIRED==attrType){ data.srcCode.setPos(pos); return null; }
-	 * 
-	 * checkSemiColonLineFeed(data,true); if(!StringUtil.isEmpty(tlt.getTteClassName()))data.ep.add(tlt,
-	 * tag, data.fld, data.srcCode);
-	 * 
-	 * if(!StringUtil.isEmpty(attrName))validateAttributeName(attrName, data.srcCode, new
-	 * ArrayList<String>(), tlt, new RefBooleanImpl(false), new StringBuffer(), allowTwiceAttr);
-	 * 
-	 * eval(tlt,data,tag); return tag; }
-	 */
-
 	private final void eval(TagLibTag tlt, Data data, Tag tag) throws TemplateException {
 		if (tlt.hasTTE()) {
 			try {

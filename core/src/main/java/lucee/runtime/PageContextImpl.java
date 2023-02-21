@@ -2845,12 +2845,6 @@ public final class PageContextImpl extends PageContext {
 		if (state != Tag.EVAL_BODY_INCLUDE) popBody();
 	}
 
-	/*
-	 * *
-	 * 
-	 * @return returns the cfml compiler / public CFMLCompiler getCompiler() { return compiler; }
-	 */
-
 	@Override
 	public void setVariablesScope(Variables variables) {
 		this.variables = variables;
@@ -3032,12 +3026,6 @@ public final class PageContextImpl extends PageContext {
 	public FTPPoolImpl getFTPPool() {
 		return ftpPool;
 	}
-
-	/*
-	 * *
-	 * 
-	 * @return Returns the manager. / public DataSourceManager getManager() { return manager; }
-	 */
 
 	@Override
 	public ApplicationContext getApplicationContext() {

@@ -52,11 +52,6 @@ public class DummySearchEngine implements SearchEngine {
 		throw notInstalledEL();
 	}
 
-	/*
-	 * @Override public Element getIndexElement(Element collElement, String id) { throw
-	 * notInstalledEL(); }
-	 */
-
 	@Override
 	public String getDisplayName() {
 		throw notInstalledEL();

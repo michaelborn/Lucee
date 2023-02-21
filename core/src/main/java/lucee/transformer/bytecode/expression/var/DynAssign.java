@@ -65,13 +65,6 @@ public final class DynAssign extends ExpressionBase {
 		return Types.OBJECT;
 	}
 
-	/*
-	 * *
-	 *
-	 * @see lucee.transformer.bytecode.expression.Expression#getType() / public int getType() { return
-	 * Types._OBJECT; }
-	 */
-
 	/**
 	 * @return the name
 	 */

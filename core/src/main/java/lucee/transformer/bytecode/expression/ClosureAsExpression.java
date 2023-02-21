@@ -26,9 +26,4 @@ public class ClosureAsExpression extends FunctionAsExpression {
 		super(closure);
 	}
 
-	/**
-	 * @return the closure
-	 * 
-	 *         public Closure getClosure() { return (Closure)getFunction(); }
-	 */
 }

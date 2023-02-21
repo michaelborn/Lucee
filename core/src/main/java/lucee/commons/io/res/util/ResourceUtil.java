@@ -565,28 +565,6 @@ public final class ResourceUtil {
 		return sb.toString();
 	}
 
-	/*
-	 * * translate a path in a proper form example susi\petere -> /susi/peter
-	 * 
-	 * @param path
-	 * 
-	 * @return path / public static String translatePath(String path) { /*path=prettifyPath(path);
-	 * if(path.indexOf('/')!=0)path='/'+path; int index=path.lastIndexOf('/'); // remove slash at the
-	 * end if(index==path.length()-1) path=path.substring(0,path.length()-1); return path;* / return
-	 * translatePath(path, true, false); }
-	 */
-
-	/*
-	 * * translate a path in a proper form example susi\petere -> susi/peter/
-	 * 
-	 * @param path
-	 * 
-	 * @return path / public static String translatePath2x(String path) { /*path=prettifyPath(path);
-	 * if(path.indexOf('/')==0)path=path.substring(1); int index=path.lastIndexOf('/'); // remove slash
-	 * at the end if(index!=path.length()-1) path=path+'/';* / return translatePath(path, false, true);
-	 * }
-	 */
-
 	public static String translatePath(String path, boolean slashAdBegin, boolean slashAddEnd) {
 		path = prettifyPath(path);
 

@@ -598,28 +598,10 @@ public class ListAsArray extends ArraySupport implements Array, List {
 		return list.listIterator(index);
 	}
 
-	/*
-	 * @Override public boolean remove(Object o) { return list.remove(o); }
-	 * 
-	 * @Override public Object remove(int index) { return list.remove(index); }
-	 * 
-	 * @Override public boolean removeAll(java.util.Collection c) { return list.removeAll(c); }
-	 * 
-	 * @Override public boolean retainAll(java.util.Collection c) { return list.retainAll(c); }
-	 * 
-	 * @Override public Object set(int index, Object element) { return list.set(index, element); }
-	 */
-
 	@Override
 	public List subList(int fromIndex, int toIndex) {
 		return list.subList(fromIndex, toIndex);
 	}
-
-	/*---@Override not sure to remove it
-	public Object[] toArray(Object[] a) {
-		super.toArray(a)
-		return list.toArray(a);
-	}*/
 
 	@Override
 	public List toList() {
@@ -635,40 +617,6 @@ public class ListAsArray extends ArraySupport implements Array, List {
 	@Override
 	public Iterator<Object> getIterator() {
 		return new ListIteratorImpl(list, 0);
-		// return list.iterator();
 	}
 
-	/*---@Override
-	public Object get(PageContext pc, Key key, Object defaultValue) {
-		return get(key, defaultValue);
-	}
-	
-	@Override
-	public Object get(PageContext pc, Key key) throws PageException {
-		return get(key);
-	}
-	
-	@Override
-	public Object set(PageContext pc, Key propertyName, Object value) throws PageException {
-		return set(propertyName, value);
-	}
-	
-	@Override
-	public Object setEL(PageContext pc, Key propertyName, Object value) {
-		return setEL(propertyName, value);
-	}*/
-
-	/*
-	 * @Override public Object call(PageContext pc, Key methodName, Object[] args) throws PageException
-	 * { return MemberUtil.call(pc, this, methodName, args, CFTypes.TYPE_ARRAY, "array"); }
-	 * 
-	 * @Override public Object callWithNamedValues(PageContext pc, Key methodName, Struct args) throws
-	 * PageException { return MemberUtil.callWithNamedValues(pc,this,methodName,args,
-	 * CFTypes.TYPE_ARRAY, "array"); }
-	 */
-
-	/*---@Override
-	public java.util.Iterator<Object> getIterator() {
-		return valueIterator();
-	}*/
 }

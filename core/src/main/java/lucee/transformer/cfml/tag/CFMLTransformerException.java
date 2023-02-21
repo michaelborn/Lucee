@@ -41,15 +41,6 @@ public final class CFMLTransformerException extends Exception {
 	}
 
 	/**
-	 * Konstruktor ohne Message, nur mit CFMLString.
-	 * 
-	 * @param cfml
-	 * 
-	 *            public TemplateException(CFMLString cfml) { this(cfml,"Error while transforming CFML
-	 *            File"); }
-	 */
-
-	/**
 	 * Hauptkonstruktor, mit CFMLString und message.
 	 * 
 	 * @param cfml CFMLString

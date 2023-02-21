@@ -82,10 +82,6 @@ public abstract class UDFGSProperty extends MemberSupport implements UDFPlus {
 		return name;
 	}
 
-	/*
-	 * @Override public PageSource getPageSource() { return component.getPageSource(); }
-	 */
-
 	@Override
 	public boolean equals(Object other) {
 		if (!(other instanceof UDF)) return false;

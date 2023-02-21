@@ -933,7 +933,4 @@ public class QueryColumnImpl implements QueryColumnPro, Objects {
 		return get(key, _null) != _null;
 	}
 
-	/*
-	 * @Override public int hashCode() { return CollectionUtil.hashCode(this); }
-	 */
 }

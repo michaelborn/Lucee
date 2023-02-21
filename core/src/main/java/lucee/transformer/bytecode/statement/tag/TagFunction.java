@@ -300,10 +300,6 @@ public final class TagFunction extends TagBase implements IFunction {
 		return null;
 	}
 
-	/*
-	 * @Override public void setIndex(int index) { this.index = index; }
-	 */
-
 	public void register(Factory factory, Page page) throws TransformerException {
 		function = createFunction(null, factory, page);
 		index = page.addFunction(function);

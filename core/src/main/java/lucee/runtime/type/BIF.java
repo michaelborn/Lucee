@@ -277,10 +277,6 @@ public class BIF extends MemberSupport implements UDFPlus {
 		return null;
 	}
 
-	/*
-	 * @Override public PageSource getPageSource() { return null; }
-	 */
-
 	@Override
 	public boolean equals(Object other) {
 		if (!(other instanceof UDF)) return false;

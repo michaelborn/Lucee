@@ -285,12 +285,6 @@ public interface CFMLEngine {
 
 	public ServletConfig[] getServletConfigs();
 
-	/*
-	 * get the OSGi Bundle of the core
-	 * 
-	 * @return / public abstract Bundle getCoreBundle();
-	 */
-
 	public BundleCollection getBundleCollection();
 
 	public BundleContext getBundleContext();

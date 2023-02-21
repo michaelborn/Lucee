@@ -235,17 +235,6 @@ public abstract class AbstrCFMLExprTransformer {
 		return data;
 	}
 
-	/*
-	 * protected Data init(Factory factory,Root root,EvaluatorPool ep,TagLib[][] tld, FunctionLib[]
-	 * fld,TagLibTag[] scriptTags, SourceCode cfml, TransfomerSettings settings, boolean allowLowerThan,
-	 * int x) { Data data = new Data(factory,root,ep,cfml,tld,fld,settings,allowLowerThan,scriptTags);
-	 * if(JSON_ARRAY==null)JSON_ARRAY=getFLF(data,"_literalArray");
-	 * if(JSON_STRUCT==null)JSON_STRUCT=getFLF(data,"_literalStruct");
-	 * if(GET_STATIC_SCOPE==null)GET_STATIC_SCOPE=getFLF(data,"_getStaticScope");
-	 * if(GET_SUPER_STATIC_SCOPE==null)GET_SUPER_STATIC_SCOPE=getFLF(data,"_getSuperStaticScope");
-	 * return data; }
-	 */
-
 	/**
 	 * Startpunkt zum transfomieren einer Expression, ohne dass das Objekt neu initialisiert wird, dient
 	 * vererbten Objekten als Einstiegspunkt.

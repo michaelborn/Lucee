@@ -751,12 +751,6 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 	}
 
 	/**
-	 * sets the callpath
-	 * 
-	 * @param callPath / public void setCallPath(String callPath) { properties.callPath=callPath; }
-	 */
-
-	/**
 	 * rerturn the size
 	 * 
 	 * @param access
@@ -787,13 +781,6 @@ public final class ComponentImpl extends StructSupport implements Externalizable
 		}
 		return set;
 	}
-
-	/*
-	 * protected Set<Key> udfKeySet(int access) { Set<Key> set=new HashSet<Key>(); Member m;
-	 * Map.Entry<Key, UDF> entry; Iterator<Entry<Key, UDF>> it = _udfs.entrySet().iterator();
-	 * while(it.hasNext()) { entry= it.next(); m=entry.getValue();
-	 * if(m.getAccess()<=access)set.add(entry.getKey()); } return set; }
-	 */
 
 	protected java.util.List<Member> getMembers(int access) {
 		java.util.List<Member> members = new ArrayList<Member>();

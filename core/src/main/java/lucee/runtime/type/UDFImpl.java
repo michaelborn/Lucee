@@ -399,10 +399,6 @@ public class UDFImpl extends MemberSupport implements UDFPlus, Externalizable {
 		return properties.getHint();
 	}
 
-	/*
-	 * @Override public PageSource getPageSource() { return properties.pageSource; }
-	 */
-
 	@Override
 	public String getSource() {
 		return properties.getPageSource() != null ? properties.getPageSource().getDisplayPath() : "";

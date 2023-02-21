@@ -83,10 +83,4 @@ public final class OpContional extends ExpressionBase {
 		return new OpContional(cont, left, right);
 	}
 
-	/*
-	 * *
-	 * 
-	 * @see lucee.transformer.bytecode.expression.Expression#getType() / public int getType() { return
-	 * Types._BOOLEAN; }
-	 */
 }

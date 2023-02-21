@@ -137,17 +137,6 @@ public class DatabaseException extends PageExceptionImpl {
 	/**
 	 * Constructor of the class
 	 *
-	 * @param message
-	 * @param sqle
-	 * @param sql
-	 *
-	 *            public DatabaseException(String message, SQLException sqle, SQL
-	 *            sql,DatasourceConnection dc) { this(message,null,sqle,sql,dc); }
-	 */
-
-	/**
-	 * Constructor of the class
-	 *
 	 * @param sqle
 	 * @param sql
 	 */

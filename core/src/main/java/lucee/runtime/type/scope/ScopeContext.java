@@ -174,19 +174,6 @@ public final class ScopeContext {
 		return server;
 	}
 
-	/*
-	 * * Returns the current Cluster Scope, if there is no current Cluster Scope, this method returns
-	 * null.
-	 *
-	 * @param pc
-	 *
-	 * @param create
-	 *
-	 * @return
-	 *
-	 * @throws SecurityException / public static Cluster getClusterScope() { return cluster; }
-	 */
-
 	/**
 	 * Returns the current Cluster Scope, if there is no current Cluster Scope and create is true,
 	 * returns a new Cluster Scope. If create is false and the request has no valid Cluster Scope, this

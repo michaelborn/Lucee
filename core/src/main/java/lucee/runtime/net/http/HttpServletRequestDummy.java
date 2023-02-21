@@ -141,23 +141,6 @@ public final class HttpServletRequestDummy implements HttpServletRequest, Serial
 		this.inputData = inputData;
 	}
 
-	/**
-	 * constructor of the class
-	 * 
-	 * @throws PageException / public HttpServletRequestDummy(String serverName, String
-	 *             scriptName,Struct queryString) throws PageException { this.serverName=serverName;
-	 *             requestURI=scriptName;
-	 * 
-	 *             StringBuffer qs=new StringBuffer(); String[] keys=queryString.keys(); parameters=new
-	 *             Item[keys.length]; String key; Object value; for(int i=0;i<keys.length;i++) { if(i>0)
-	 *             qs.append('&'); key=keys[i]; value=queryString.get(key); parameters[i]=new
-	 *             Item(key,value);
-	 * 
-	 *             qs.append(key); qs.append('='); qs.append(Caster.toString(value)); }
-	 * 
-	 *             this.queryString=qs.toString(); }
-	 */
-
 	private Pair[] translateQS(String qs) {
 		if (qs == null) return new Pair[0];
 		Array arr = lucee.runtime.type.util.ListUtil.listToArrayRemoveEmpty(qs, "&");

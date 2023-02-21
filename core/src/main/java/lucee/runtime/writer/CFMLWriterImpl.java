@@ -78,13 +78,6 @@ public class CFMLWriterImpl extends CFMLWriter {
 		version = pc.getConfig().getFactory().getEngine().getInfo().getVersion().toString();
 	}
 
-	/*
-	 * * constructor of the class
-	 * 
-	 * @param response Response Object / public JspWriterImpl(HttpServletResponse response) {
-	 * this(response, BUFFER_SIZE, false); }
-	 */
-
 	private void _check() throws IOException {
 		if (autoFlush && buffer.length() > bufferSize) {
 			_flush(true);

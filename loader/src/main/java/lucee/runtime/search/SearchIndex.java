@@ -89,10 +89,6 @@ public interface SearchIndex {
 	public String getId();
 
 	/**
-	 * @param id The id to set. / public void setId(String id) { this.id = id; }
-	 */
-
-	/**
 	 * @return Returns the urlpath.
 	 */
 	public String getUrlpath();

@@ -168,13 +168,6 @@ public class WSClientReflector implements WSClient {
 		}
 	}
 
-	/*
-	 * @Override public Call getLastCall() throws PageException { try { if(getLastCall==null)
-	 * getLastCall=clazz.getMethod("getLastCall", WSHandlerReflector.EMPTY_CLASS); return (Call)
-	 * getLastCall.invoke(obj,WSHandlerReflector.EMPTY_OBJECT); } catch(Exception e) { throw
-	 * Caster.toPageException(e); } }
-	 */
-
 	@Override
 	public Object callWithNamedValues(Config config, Key methodName, Struct arguments) throws PageException {
 		try {

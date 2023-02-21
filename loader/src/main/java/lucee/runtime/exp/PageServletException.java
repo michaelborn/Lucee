@@ -175,13 +175,6 @@ public final class PageServletException extends ServletException implements IPag
 		return pe.getCustomTypeAsString();
 	}
 
-	/*
-	 * *
-	 * 
-	 * @see lucee.runtime.exp.IPageException#getLine() / public String getLine() { return pe.getLine();
-	 * }
-	 */
-
 	/**
 	 * @see lucee.runtime.exp.IPageException#getTracePointer()
 	 */

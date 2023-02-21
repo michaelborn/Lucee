@@ -220,27 +220,6 @@ public class ASMProxyFactory {
 
 		adapter.endMethod();
 
-		/*
-		 * 
-		 * GeneratorAdapter adapter = new GeneratorAdapter(Opcodes.ACC_PUBLIC,CONSTRUCTOR,null,null,cw);
-		 * 
-		 * Label begin = new Label(); adapter.visitLabel(begin); adapter.loadThis();
-		 * 
-		 * // clazz adapter.visitVarInsn(Opcodes.ALOAD, 2);
-		 * 
-		 * // parameterTypes Class<?>[] params = method.getParameterTypes(); Type[] paramTypes = new
-		 * Type[params.length]; ArrayVisitor av=new ArrayVisitor(); av.visitBegin(adapter, Types.CLASS,
-		 * params.length); for(int i=0;i<params.length;i++){ paramTypes[i]=Type.getType(params[i]);
-		 * av.visitBeginItem(adapter, i); loadClass(adapter,params[i]); av.visitEndItem(adapter); }
-		 * av.visitEnd();
-		 * 
-		 * adapter.invokeConstructor(ASM_METHOD, ASM_METHOD_CONSTRUCTOR); adapter.visitInsn(Opcodes.RETURN);
-		 * 
-		 * Label end = new Label(); adapter.visitLabel(end);
-		 * 
-		 * adapter.endMethod();
-		 */
-
 		// METHOD getName();
 		adapter = new GeneratorAdapter(Opcodes.ACC_PUBLIC, GET_NAME, null, null, cw);
 		adapter.push(method.getName());
