@@ -252,11 +252,6 @@ public class CFMLExpressionInterpreter {
 		fld = config == null ? null : config.getCombinedFLDs(dialect);
 	}
 
-	/*
-	 * private FunctionLibFunction getFLF(String name) { FunctionLibFunction flf=null; for (int i = 0; i
-	 * < flds.length; i++) { flf = flds[i].getFunction(name); if (flf != null) break; } return flf; }
-	 */
-
 	protected Object interpretPart(PageContext pc, ParserString cfml) throws PageException {
 		this.cfml = cfml;
 		init(pc);

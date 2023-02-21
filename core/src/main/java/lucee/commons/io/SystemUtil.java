@@ -849,18 +849,6 @@ public final class SystemUtil {
 		}
 
 	}
-	/*
-	 * private static MemoryUsage getPermGenSpaceSize() { MemoryUsage mu = getPermGenSpaceSize(null);
-	 * if(mu!=null) return mu;
-	 * 
-	 * // create error message including info about available memory blocks StringBuilder sb=new
-	 * StringBuilder(); java.util.List<MemoryPoolMXBean> manager =
-	 * ManagementFactory.getMemoryPoolMXBeans(); Iterator<MemoryPoolMXBean> it = manager.iterator();
-	 * MemoryPoolMXBean bean; while(it.hasNext()){ bean = it.next(); if(sb.length()>0)sb.append(", ");
-	 * sb.append(bean.getName()); } throw new
-	 * RuntimeException("PermGen Space information not available, available Memory blocks are ["+sb+"]")
-	 * ; }
-	 */
 
 	private static MemoryUsage getPermGenSpaceSize(MemoryUsage defaultValue) {
 		if (permGenSpaceBean != null) return permGenSpaceBean.getUsage();

@@ -464,21 +464,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		}
 	}
 
-	/*
-	 * private void doTagSearch() throws PageException { Search search=new Search(); try {
-	 * 
-	 * search.setPageContext(pageContext);
-	 * 
-	 * search.setName(getString("admin",action,"name"));
-	 * search.setCollection(getString("admin",action,"collection"));
-	 * search.setType(getString("type",null)); search.setMaxrows(getDouble("maxRows",-1));
-	 * search.setStartrow(getDouble("startRow",1)); search.setCategory(getString("category",null));
-	 * search.setCategorytree(getString("categoryTree",null));
-	 * search.setStatus(getString("status",null)); search.setSuggestions(getString("suggestions",null));
-	 * 
-	 * search.doStartTag(); } finally { search.release(); } }
-	 */
-
 	private void doTagIndex() throws PageException {
 		Index index = new Index();
 		try {
@@ -2128,42 +2113,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		pageContext.setVariable(getString("admin", action, "returnVariable"), sct);
 	}
 
-	/*
-	 * private void doGetExtensions() throws PageException { Extension[] extensions =
-	 * config.getExtensions(); lucee.runtime.type.Query qry = new QueryImpl(new String[] { "type",
-	 * "provider", "id", "config", "version", "category", "description", "image", "label", "name",
-	 * "author", "codename", "video", "support", "documentation", "forum", "mailinglist", "network",
-	 * "created" }, 0, "query");
-	 * 
-	 * String provider = getString("provider", null); String id = getString("id", null); Extension
-	 * extension; String extProvider, extId; int row = 0; for (int i = 0; i < extensions.length; i++) {
-	 * extension = extensions[i]; if(!extension.getType().equalsIgnoreCase("all") &&
-	 * toType(extension.getType(), false) != type) continue;
-	 * 
-	 * extProvider = extension.getProvider(); extId = extension.getId(); if(provider != null &&
-	 * !provider.equalsIgnoreCase(extProvider)) continue; if(id != null && !id.equalsIgnoreCase(extId))
-	 * continue;
-	 * 
-	 * qry.addRow(); row++; qry.setAt("provider", row, extProvider); qry.setAt(KeyConstants._id, row,
-	 * extId); qry.setAt(KeyConstants._config, row, extension.getConfig(pageContext));
-	 * qry.setAt(KeyConstants._version, row, extension.getVersion());
-	 * 
-	 * qry.setAt("category", row, extension.getCategory()); qry.setAt(KeyConstants._description, row,
-	 * extension.getDescription()); qry.setAt("image", row, extension.getImage());
-	 * qry.setAt(KeyConstants._label, row, extension.getLabel()); qry.setAt(KeyConstants._name, row,
-	 * extension.getName());
-	 * 
-	 * qry.setAt(KeyConstants._author, row, extension.getAuthor()); qry.setAt("codename", row,
-	 * extension.getCodename()); qry.setAt("video", row, extension.getVideo()); qry.setAt("support",
-	 * row, extension.getSupport()); qry.setAt("documentation", row, extension.getDocumentation());
-	 * qry.setAt("forum", row, extension.getForum()); qry.setAt("mailinglist", row,
-	 * extension.getMailinglist()); qry.setAt("network", row, extension.getNetwork());
-	 * qry.setAt(KeyConstants._created, row, extension.getCreated()); qry.setAt(KeyConstants._type, row,
-	 * extension.getType());
-	 * 
-	 * } pageContext.setVariable(getString("admin", action, "returnVariable"), qry); }
-	 */
-
 	private void doGetMappings() throws PageException {
 
 		Mapping[] mappings = config.getMappings();
@@ -3153,28 +3102,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		store();
 		adminSync.broadcast(attributes, config);
 	}
-
-	/*
-	 * private void doGetLogSetting() throws PageException { String name=getString("admin",
-	 * "GetLogSetting", "name"); name=name.trim().toLowerCase(); Query qry=_doGetLogSettings();
-	 * 
-	 * int records = qry.getRecordcount(); for(int row=1;row<=records;row++){ String n =
-	 * Caster.toString(qry.getAt("name", row, null),null); if(!StringUtil.isEmpty(n) &&
-	 * n.trim().equalsIgnoreCase(name)) { Struct sct=new StructImpl(); String
-	 * returnVariable=getString("admin",action,"returnVariable");
-	 * pageContext.setVariable(returnVariable,sct);
-	 * 
-	 * sct.setEL(KeyConstants._name, qry.getAt(KeyConstants._name, row, ""));
-	 * sct.setEL(KeyConstants._level, qry.getAt(KeyConstants._level, row, "")); sct.setEL("virtualpath",
-	 * qry.getAt("virtualpath", row, "")); sct.setEL(KeyConstants._class, qry.getAt(KeyConstants._class,
-	 * row, "")); sct.setEL("maxFile", qry.getAt("maxFile", row, "")); sct.setEL("maxFileSize",
-	 * qry.getAt("maxFileSize", row, "")); sct.setEL(KeyConstants._path, qry.getAt(KeyConstants._path,
-	 * row, ""));
-	 * 
-	 * return; } } throw new ApplicationException("invalid log name ["+name+"]");
-	 * 
-	 * }
-	 */
 
 	private void doGetCompilerSettings() throws PageException {
 		String returnVariable = getString("admin", action, "returnVariable");
@@ -4383,23 +4310,6 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		}
 		store();
 	}
-
-	/*
-	 * private void doUpdateExtension() throws PageException {
-	 * 
-	 * admin.updateExtension(pageContext, new ExtensionImpl(getStruct("config", null),
-	 * getString("admin", "UpdateExtensions", "id"), getString("admin", "UpdateExtensions", "provider"),
-	 * getString("admin", "UpdateExtensions", "version"),
-	 * 
-	 * getString("admin", "UpdateExtensions", "name"), getString("label", ""), getString("description",
-	 * ""), getString("category", ""), getString("image", ""), getString("author", ""),
-	 * getString("codename", ""), getString("video", ""), getString("support", ""),
-	 * getString("documentation", ""), getString("forum", ""), getString("mailinglist", ""),
-	 * getString("network", ""), getDateTime("created", null), getString("admin", "UpdateExtensions",
-	 * "_type")));
-	 * 
-	 * store(); // adminSync.broadcast(attributes, config); }
-	 */
 
 	private void doUpdateExtensionProvider() throws PageException, MalformedURLException {
 		admin.updateExtensionProvider(getString("admin", "UpdateExtensionProvider", "url"));

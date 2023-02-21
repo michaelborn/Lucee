@@ -441,11 +441,6 @@ public class SuperComponent extends MemberSupport implements Component, Member {
 		return comp.contains(getAccess(), key);
 	}
 
-	/*
-	 * private Member getMember(int access, Key key, boolean dataMember,boolean superAccess) { return
-	 * comp.getMember(access, key, dataMember, superAccess); }
-	 */
-
 	@Override
 	public void setProperty(Property property) throws PageException {
 		comp.setProperty(property);

@@ -104,17 +104,6 @@ public final class Associate extends TagImpl {
 		return SKIP_BODY;
 	}
 
-	/*
-	 * private static CFTag getParentCFTag(Tag srcTag,String trgTagName) { String pureName=trgTagName;
-	 * CFTag cfTag; if(StringUtil.startsWithIgnoreCase(pureName,"cf_")) {
-	 * pureName=pureName.substring(3); } if(StringUtil.startsWithIgnoreCase(pureName,"cf")) {
-	 * pureName=pureName.substring(2); } int count=0; while((srcTag=srcTag.getParent())!=null) {
-	 * if(srcTag instanceof CFTag) { if(count++==0)continue; cfTag=(CFTag)srcTag; if(cfTag instanceof
-	 * CFTagCore){ CFTagCore tc=(CFTagCore) cfTag; if(tc.getName().equalsIgnoreCase(pureName)) return
-	 * cfTag; continue; } if(cfTag.getAppendix().equalsIgnoreCase(pureName)) { return cfTag; } } }
-	 * return null; }
-	 */
-
 	private CFTag getCFTag() {
 		Tag tag = this;
 		while ((tag = tag.getParent()) != null) {

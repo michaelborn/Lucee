@@ -103,14 +103,6 @@ public final class DeserializeJSON implements Function {
 
 	}
 
-	/*
-	 * private static Object toQuery(Query qry) throws DatabaseException { int
-	 * rows=qry.getRecordcount(); String[] columns = qry.getColumns(); Object src,trg; for(int
-	 * row=1;row<=rows;row++) { for(int col=0;col<columns.length;col++) {
-	 * trg=toQuery(src=qry.getAt(columns[col], row, null)); if(src!=trg) qry.setAtEL(columns[col], row,
-	 * trg); } } return qry; }
-	 */
-
 	private static Collection toQuery(Collection coll, Key[] keys) throws PageException {
 		Object src, trg;
 		for (int i = 0; i < keys.length; i++) {
@@ -189,12 +181,6 @@ public final class DeserializeJSON implements Function {
 		if (StringUtil.isEmpty(list)) return null;
 		return toColumns(ListUtil.trimItems(ListUtil.listToArrayRemoveEmpty(list, ',')));
 	}
-
-	/*
-	 * private static boolean contains(Key[] haystack, Key[] needle) { Key h; outer:for(int
-	 * i=0;i<haystack.length;i++) { h=haystack[i]; for(int y=0;y<needle.length;y++) {
-	 * if(h.equalsIgnoreCase(needle[y])) continue outer; } return false; } return true; }
-	 */
 
 	private static boolean contains(Key[] haystack, Key needle) {
 		for (int i = 0; i < haystack.length; i++) {

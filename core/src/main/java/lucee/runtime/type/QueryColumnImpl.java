@@ -793,19 +793,11 @@ public class QueryColumnImpl implements QueryColumnPro, Objects {
 	public boolean removeAll(java.util.Collection<?> c) {
 		throwNotAllowedToAlter();
 		return false;
-		/*
-		 * boolean hasChanged=false; Iterator<? extends Object> it = c.iterator(); while(it.hasNext()){
-		 * if(remove(it.next())) { hasChanged=true; } } return hasChanged;
-		 */
 	}
 
 	public boolean retainAll(java.util.Collection<?> c) {
 		throwNotAllowedToAlter();
 		return false;
-		/*
-		 * boolean hasChanged=false; Iterator it = valueIterator(); while(it.hasNext()){
-		 * if(!c.contains(it.next())){ hasChanged=true; it.remove(); } } return hasChanged;
-		 */
 	}
 
 	public List<Object> subList(int fromIndex, int toIndex) {

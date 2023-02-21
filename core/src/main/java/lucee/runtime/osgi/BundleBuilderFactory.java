@@ -329,19 +329,6 @@ public class BundleBuilderFactory {
 		if (Util.isEmpty(str, true)) addList(attrs, "Bundle-ClassPath", classPath);
 	}
 
-	/*
-	 * private static List<String> createExportPackageFromResource(Resource jar) { // get all
-	 * directories List<Resource> dirs = ResourceUtil.listRecursive(jar,DirectoryResourceFilter.FILTER);
-	 * List<String> rtn=new ArrayList<String>(); // remove directories with no files (of any kind)
-	 * Iterator<Resource> it = dirs.iterator(); Resource[] children; int count; while(it.hasNext()) {
-	 * Resource r = it.next(); children = r.listResources(); count=0; if(children!=null)for(int
-	 * i=0;i<children.length;i++){ if(children[i].isFile())count++; } // has files if(count>0) {
-	 * 
-	 * } }
-	 * 
-	 * return null; }
-	 */
-
 	private boolean isAsterix(List<String> list) {
 		if (list == null) return false;
 		Iterator<String> it = list.iterator();

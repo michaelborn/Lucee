@@ -97,14 +97,6 @@ public final class Output extends EvaluatorSupport {
 
 	}
 
-	/*
-	 * private FunctionLibFunction getEncodeForFunction(FunctionLib[] flibs) throws EvaluatorException {
-	 * FunctionLibFunction f; if(flibs!=null)for(int i=0;i<flibs.length;i++) { f =
-	 * flibs[i].getFunction("ESAPIEncode"); if(f!=null) return f; } // should never happen throw new
-	 * EvaluatorException("could not find function ESAPIEncode ("+(flibs==null?"null":""+flibs.length)+
-	 * ")"); }
-	 */
-
 	public static TagOutput getParentTagOutput(TagOutput stat) {
 		Statement parent = stat;
 

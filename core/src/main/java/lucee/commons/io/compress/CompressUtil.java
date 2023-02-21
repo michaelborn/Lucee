@@ -280,20 +280,6 @@ public final class CompressUtil {
 		}
 	}
 
-	/*
-	 * private static void listZipp(Resource zipFile) throws IOException { if (!zipFile.exists()) throw
-	 * new IOException(zipFile + " is not an existing file");
-	 * 
-	 * if (zipFile.isDirectory()) { throw new IOException(zipFile + " is a directory"); }
-	 * 
-	 * ZipInputStream zis = null; try { zis = new
-	 * ZipInputStream(IOUtil.toBufferedInputStream(zipFile.getInputStream())); ZipEntry entry; while
-	 * ((entry = zis.getNextEntry()) != null) { if (!entry.isDirectory()) { ByteArrayOutputStream baos =
-	 * new ByteArrayOutputStream(); IOUtil.copy(zis, baos, false, false); byte[] barr =
-	 * baos.toByteArray(); ap rint.o(entry.getName() + ":" + barr.length); } } } finally {
-	 * IOUtil.closeEL(zis); } }
-	 */
-
 	private static void unzip2(File zipFile, Resource targetDir) throws IOException {
 		ZipFile zf = null;
 		try {

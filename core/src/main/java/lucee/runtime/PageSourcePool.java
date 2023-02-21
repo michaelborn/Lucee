@@ -101,24 +101,6 @@ public final class PageSourcePool implements Dumpable {
 		return set.toArray(new String[set.size()]);
 	}
 
-	/**
-	 * removes a page from the page pool
-	 * 
-	 * @param key key reference to page object
-	 * @return page object matching to key reference
-	 */
-	/*
-	 * private boolean remove(String key) {
-	 * 
-	 * if (pageSources.remove(key.toLowerCase()) != null) return true;
-	 * 
-	 * Set<String> set = pageSources.keySet(); String[] keys = set.toArray(new String[set.size()]); //
-	 * done this way to avoid ConcurrentModificationException SoftReference<PageSource> tmp; PageSource
-	 * ps; for (String k: keys) { tmp = pageSources.get(k); ps = tmp == null ? null : tmp.get(); if (ps
-	 * != null && key.equalsIgnoreCase(ps.getClassName())) { pageSources.remove(k); return true; } }
-	 * return false; }
-	 */
-
 	public boolean flushPage(String key) {
 		SoftReference<PageSource> tmp = pageSources.get(key.toLowerCase());
 		PageSource ps = tmp == null ? null : tmp.get();

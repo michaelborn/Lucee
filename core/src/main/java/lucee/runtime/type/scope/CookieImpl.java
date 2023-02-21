@@ -279,20 +279,6 @@ public final class CookieImpl extends ScopeSupport implements Cookie, ScriptProt
 
 	}
 
-	/*
-	 * private void _addCookieOld(Key key, String value, int expires, boolean secure, String path,
-	 * String domain, boolean httpOnly, boolean preserveCase, boolean encode) { String
-	 * name=preserveCase?key.getString():key.getUpperString(); if(encode) { name=enc(name);
-	 * value=enc(value); }
-	 * 
-	 * javax.servlet.http.Cookie cookie = new javax.servlet.http.Cookie(name,value);
-	 * cookie.setMaxAge(expires); cookie.setSecure(secure); cookie.setPath(path);
-	 * if(!StringUtil.isEmpty(domain,true))cookie.setDomain(domain); if(httpOnly) setHTTPOnly(cookie);
-	 * rsp.addCookie(cookie);
-	 * 
-	 * }
-	 */
-
 	private int toExpires(String expires) throws ExpressionException {
 		String str = StringUtil.toLowerCase(expires.toString());
 		if (str.equals("now")) return 0;

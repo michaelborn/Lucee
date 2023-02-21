@@ -243,11 +243,6 @@ public class ORMConnection implements Connection {
 		throw notSupported();
 	}
 
-	/*
-	 * private SQLException toSQLException(PageException pe) { SQLException e = new
-	 * SQLException(pe.getMessage()); e.initCause(pe); return e; }
-	 */
-
 	@Override
 	public <T> T unwrap(Class<T> iface) throws SQLException {
 		throw notSupported();

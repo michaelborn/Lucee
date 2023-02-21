@@ -217,11 +217,6 @@ public class BundleLoader {
 		return rtn;
 	}
 
-	/*
-	 * private static String unwrap(String str) { return str == null ? null :
-	 * CFMLEngineFactory.removeQuotes(str, true); }
-	 */
-
 	public static Properties loadDefaultProperties(final JarFile jf) throws IOException {
 		final ZipEntry ze = jf.getEntry("default.properties");
 		if (ze == null) throw new IOException("the Lucee core has no default.properties file!");

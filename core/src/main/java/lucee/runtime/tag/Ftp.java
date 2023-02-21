@@ -66,13 +66,6 @@ public final class Ftp extends TagImpl {
 	private static final Key RETURN_VALUE = KeyImpl.getInstance("returnValue");
 	private static final Key CFFTP = KeyImpl.getInstance("cfftp");
 
-	/*
-	 * private static final Key = KeyImpl.getInstance(); private static final Key =
-	 * KeyImpl.getInstance(); private static final Key = KeyImpl.getInstance(); private static final Key
-	 * = KeyImpl.getInstance(); private static final Key = KeyImpl.getInstance(); private static final
-	 * Key = KeyImpl.getInstance();
-	 */
-
 	private FTPPoolImpl pool;
 
 	private String action;

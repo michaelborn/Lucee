@@ -615,15 +615,6 @@ public abstract class AbstrCFMLScriptTransformer extends AbstrCFMLExprTransforme
 		return doWhile;
 	}
 
-	/*
-	 * private CFMLTransformer tag; private final Statement cfmlTagStatement(Data data,Body parent)
-	 * throws TemplateException {
-	 * 
-	 * if(tag==null)tag=new CFMLTransformer(); tag.body(data, parent, parseExpression, transformer);
-	 * 
-	 * return null; }
-	 */
-
 	/**
 	 * Liest ein for Statement ein. <br />
 	 * EBNF:<br />

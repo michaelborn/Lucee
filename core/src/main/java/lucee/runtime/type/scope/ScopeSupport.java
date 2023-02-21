@@ -272,12 +272,6 @@ public abstract class ScopeSupport extends StructImpl implements Scope {
 		return null;
 	}
 
-	/*
-	 * private String decode(Object value,String encoding) throws UnsupportedEncodingException { return
-	 * URLDecoder.decode(new
-	 * String(Caster.toString(value,"").getBytes("ISO-8859-1"),encoding),encoding); }
-	 */
-
 	@Override
 	public boolean isInitalized() {
 		return isInit;

@@ -1259,11 +1259,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 		}
 	}
 
-	/*
-	 * private String getContextList() { return
-	 * List.arrayToList((String[])contextes.keySet().toArray(new String[contextes.size()]),", "); }
-	 */
-
 	@Override
 	public String getVersion() {
 		return info.getVersion().toString();
@@ -1405,15 +1400,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 			controlerState.setActive(false);
 		}
 	}
-
-	/*
-	 * private void dump() { Iterator<Entry<Thread, StackTraceElement[]>> it =
-	 * Thread.getAllStackTraces().entrySet().iterator(); while (it.hasNext()) { Entry<Thread,
-	 * StackTraceElement[]> e = it.next(); print.e(e.getKey().getContextClassLoader());
-	 * print.e(e.getValue()); }
-	 * 
-	 * }
-	 */
 
 	private void shutdownFelix() {
 		CFMLEngineFactory f = getCFMLEngineFactory();

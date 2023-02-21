@@ -719,19 +719,6 @@ public final class ListUtil {
 		return listToArray(list, delimiter);
 	}
 
-	/*
-	 * * finds a value inside a list, ignore case
-	 * 
-	 * @param list list to search
-	 * 
-	 * @param value value to find
-	 * 
-	 * @return position in list (0-n) or -1
-	 *
-	 * private static int listFindNoCase(String list, String value) { return listFindNoCase(list, value,
-	 * ",", true); }
-	 */
-
 	/**
 	 * finds a value inside a list, do not ignore case
 	 * 
@@ -974,25 +961,6 @@ public final class ListUtil {
 		}
 		return -1;
 	}
-
-	/*
-	 * * returns if a value of the list contains given value, case sensitive, ignore empty positions
-	 * 
-	 * @param list list to search in
-	 * 
-	 * @param value value to serach
-	 * 
-	 * @param delimiter delimiter of the list
-	 * 
-	 * @return position in list or 0
-	 * 
-	 * private static int listContainsIgnoreEmpty(String list, String value, String delimiter, boolean
-	 * multiCharacterDelimiter) { if(StringUtil.isEmpty(value)) return -1; Array
-	 * arr=listToArrayRemoveEmpty(list,delimiter); int count=0; int len=arr.size();
-	 * 
-	 * String item; for(int i=1;i<=len;i++) { item=arr.get(i,"").toString(); if(item.indexOf(value)!=-1)
-	 * return count; count++; } return -1; }
-	 */
 
 	/**
 	 * convert a string array to string list, removes empty values at begin and end of the list

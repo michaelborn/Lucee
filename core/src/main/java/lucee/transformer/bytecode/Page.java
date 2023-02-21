@@ -115,11 +115,6 @@ public final class Page extends BodyBase implements Root {
 	public final static Method STATIC_CONSTRUCTOR = Method.getMethod("void <clinit> ()V");
 	private static final Method CONSTRUCTOR = new Method("<init>", Types.VOID, new Type[] {});
 
-	/*
-	 * private static final Method CONSTRUCTOR_STR = new Method( "<init>", Types.VOID, new
-	 * Type[]{Types.STRING}// );
-	 */
-
 	private static final Method CONSTRUCTOR_PS = new Method("<init>", Types.VOID, new Type[] { Types.PAGE_SOURCE });
 
 	public static final Method INIT_STRUCT_IMPL = new Method("<init>", Types.VOID, new Type[] {});
@@ -714,12 +709,6 @@ public final class Page extends BodyBase implements Root {
 		}
 		return null;
 	}
-
-	/*
-	 * private static Function[] extractFunctions(List<Data> udfProperties) { Function[] functions = new
-	 * Function[udfProperties.size()]; int index = 0; for (Data d: udfProperties) { functions[index++] =
-	 * d.function; } return functions; }
-	 */
 
 	public static String createSubClass(String name, String subName, int dialect) {
 		// TODO handle special characters

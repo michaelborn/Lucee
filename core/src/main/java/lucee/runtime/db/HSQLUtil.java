@@ -51,40 +51,6 @@ public final class HSQLUtil {
 		parser = new ZqlParser(new ByteArrayInputStream(this.sql.getBytes()));
 	}
 
-	/*
-	 * * transalte SQL syntax to a ZQL combatible form
-	 * 
-	 * @param sql sql to transalte
-	 * 
-	 * @param changePlaceHolder
-	 * 
-	 * @return translated sql / private static String sqlToZQL(String sql,boolean changePlaceHolder) {
-	 * sql=sql.trim(); char c=' ';//,last=' '; int len=sql.length(); boolean insideString=false;
-	 * StringBuilder sb=new StringBuilder(len);
-	 * 
-	 * 
-	 * 
-	 * for(int i=0;i<len;i++) { c=sql.charAt(i); if(insideString) { if(c=='\'') { if(i+1>=len ||
-	 * sql.charAt(i+1)!='\'')insideString=false; } } else { if(c=='\'')insideString=true; else
-	 * if(changePlaceHolder && c=='?') { sb.append("QUESTION_MARK_SIGN"); //last=c; continue; } else
-	 * if(c=='a'|| c=='A') { if( (i!=0 && isWhiteSpace(sql.charAt(i-1))) && (i+1<len &&
-	 * (sql.charAt(i+1)=='s' || sql.charAt(i+1)=='S')) && (i+2<len && isWhiteSpace(sql.charAt(i+2))) ) {
-	 * i++; //last=c; continue; } } else if(c=='*') {
-	 * 
-	 * } } //last=c; sb.append(c); }
-	 * 
-	 * if(c!=';')sb.append(';');
-	 * 
-	 * return sb.toString();
-	 * 
-	 * }
-	 */
-
-	/*
-	 * private static boolean isWhiteSpace(char c) { return (c==' ' || c=='\t' || c=='\b' || c=='\r' ||
-	 * c=='\n'); }
-	 */
-
 	/**
 	 * @return return the sql state inside
 	 */

@@ -77,11 +77,6 @@ public final class TagLoop extends TagGroup implements FlowControlBreak, FlowCon
 	// Object set(double value)
 	private static final Method SET_DOUBLE = new Method("set", Types.VOID, new Type[] { Types.DOUBLE_VALUE });
 
-	/*
-	 * private static final Method KEYS = new Method( "keyIterator", Types.COLLECTION_KEY_ARRAY, new
-	 * Type[]{});
-	 */
-
 	private static final Method GET = new Method("get", Types.OBJECT, new Type[] { Types.INT_VALUE, Types.OBJECT });
 
 	private static final Method NEXT = new Method("next", Types.OBJECT, new Type[] {});

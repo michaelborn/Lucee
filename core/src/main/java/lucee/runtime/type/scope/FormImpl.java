@@ -234,42 +234,6 @@ public final class FormImpl extends ScopeSupport implements Form, ScriptProtecte
 		return "tmp-" + setUUID + ".upload";
 	}
 
-	/*
-	 * private void initializeMultiPart(PageContext pc, boolean scriptProteced) {
-	 * 
-	 * File tempDir=FileWrapper.toFile(pc.getConfig().getTempDirectory());
-	 * 
-	 * // Create a factory for disk-based file items DiskFileItemFactory factory = new
-	 * DiskFileItemFactory(-1,tempDir);
-	 * 
-	 * // Create a new file upload handler ServletFileUpload upload = new ServletFileUpload(factory);
-	 * 
-	 * upload.setHeaderEncoding(getEncoding());
-	 * 
-	 * //FileUpload fileUpload=new FileUpload(new DiskFileItemFactory(0,tempDir)); java.util.List list;
-	 * try { list = upload.parseRequest(pc.getHttpServletRequest()); raw=new
-	 * ByteNameValuePair[list.size()];
-	 * 
-	 * for(int i=0;i<raw.length;i++) { DiskFileItem val=(DiskFileItem) list.get(i);
-	 * if(val.isFormField()) { raw[i]=new
-	 * ByteNameValuePair(getBytes(val.getFieldName()),val.get(),false); } else {
-	 * print.out("-------------------------------"); print.out("fieldname:"+val.getFieldName());
-	 * print.out("name:"+val.getName()); print.out("formfield:"+val.isFormField());
-	 * print.out("memory:"+val.isInMemory());
-	 * print.out("exist:"+val.getStoreLocation().getCanonicalFile().exists());
-	 * 
-	 * fileItems.put(val.getFieldName().toLowerCase(),val);
-	 * 
-	 * raw[i]=new
-	 * ByteNameValuePair(getBytes(val.getFieldName()),val.getStoreLocation().getCanonicalFile().toString
-	 * ().getBytes(),false);
-	 * //raw.put(val.getFieldName(),val.getStoreLocation().getCanonicalFile().toString()); } }
-	 * fillDecoded(raw,encoding,scriptProteced); } catch (Exception e) {
-	 * 
-	 * //throw new PageRuntimeException(Caster.toPageException(e)); fillDecodedEL(new
-	 * ByteNameValuePair[0],encoding,scriptProteced); initException=e; } }
-	 */
-
 	private void initializeUrlEncodedOrTextPlain(PageContext pc, char delimiter, boolean scriptProteced) {
 		BufferedReader reader = null;
 		try {

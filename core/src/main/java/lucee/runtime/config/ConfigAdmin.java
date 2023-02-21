@@ -331,12 +331,6 @@ public final class ConfigAdmin {
 		}
 	}
 
-	/*
-	 * private void createAbort() { try {
-	 * ConfigWebFactory.getChildByName(doc.getDocumentElement(),"cfabort",true); } catch(Throwable t)
-	 * {ExceptionUtil.rethrowIfNecessary(t);} }
-	 */
-
 	public void setTaskMaxThreads(Integer maxThreads) throws SecurityException {
 		checkWriteAccess();
 		boolean hasAccess = ConfigWebUtil.hasAccess(config, SecurityManager.TYPE_SETTING);
@@ -3581,14 +3575,6 @@ public final class ConfigAdmin {
 	private boolean isNewerThan(int left, int right) {
 		return left > right;
 	}
-
-	/*
-	 * private Resource getPatchDirectory(CFMLEngine engine) throws IOException { //File
-	 * f=engine.getCFMLEngineFactory().getResourceRoot(); Resource res =
-	 * ResourcesImpl.getFileResourceProvider().getResource(engine.getCFMLEngineFactory().getResourceRoot
-	 * ().getAbsolutePath()); Resource pd = res.getRealResource("patches"); if(!pd.exists())pd.mkdirs();
-	 * return pd; }
-	 */
 
 	/**
 	 * run update from cfml engine

@@ -172,13 +172,6 @@ public final class TagLibTag {
 			se = sit.next();
 			tlt.setters.put(se.getKey(), se.getValue());
 		}
-
-		/*
-		 * private Map attributes=new HashMap(); private TagLibTagAttr attrFirst; private TagLibTagAttr
-		 * attrLast;
-		 * 
-		 * private Map setters=new HashMap(); private TagLibTagAttr defaultAttribute;
-		 */
 		return tlt;
 	}
 

@@ -1089,15 +1089,6 @@ public final class Reflector {
 		}
 	}
 
-	/*
-	 * private static void checkAccesibilityx(Object obj, Key methodName) {
-	 * if(methodName.equals(SET_ACCESSIBLE) && obj instanceof Member) { if(true) return; Member
-	 * member=(Member) obj; Class<?> cls = member.getDeclaringClass();
-	 * if(cls.getPackage().getName().startsWith("lucee.")) { throw new PageRuntimeException(new
-	 * SecurityException("Changing the accesibility of an object's members in the Lucee.* package is not allowed"
-	 * )); } } }
-	 */
-
 	public static Object callMethod(Object obj, Collection.Key methodName, Object[] args, Object defaultValue) {
 		if (obj == null) {
 			return defaultValue;

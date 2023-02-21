@@ -972,17 +972,6 @@ public final class DebuggerImpl implements Debugger {
 		}
 	}
 
-	/*
-	 * private List<String> createAndFillList(Map<String, List<String>> cat) { Iterator<List<String>> it
-	 * = cat.values().iterator(); int size=0; while(it.hasNext()){ size=it.next().size(); break; }
-	 * ArrayList<String> list = new ArrayList<String>();
-	 * 
-	 * // fill with empty values to be on the same level as other columns for(int
-	 * i=0;i<size;i++)list.add("");
-	 * 
-	 * return list; }
-	 */
-
 	@Override
 	public Map<String, Map<String, List<String>>> getGenericData() {
 		return genericData;

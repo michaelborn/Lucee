@@ -2883,12 +2883,6 @@ public final class Caster {
 		return new ObjectStruct(o);
 	}
 
-	/*
-	 * private static Struct _toStruct(Map map) { Struct sct = new StructImpl(); Iterator
-	 * it=map.keySet().iterator(); while(it.hasNext()) { Object key=it.next();
-	 * sct.set(StringUtil.toLowerCase(Caster.toString(key)),map.get(key)); } return sct; }
-	 */
-
 	/**
 	 * cast an Object to a Binary
 	 * 

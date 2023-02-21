@@ -988,13 +988,6 @@ public abstract class AbstrCFMLExprTransformer {
 		throw new TemplateException(data.srcCode, "Syntax Error, Invalid Construct");
 	}
 
-	/*
-	 * private Expression variable(Data data) throws TemplateException { Expression expr=null;
-	 * 
-	 * // Dynamic if((expr=dynamic(data))!=null) { expr = subDynamic(data,expr); data.mode=DYNAMIC;
-	 * return expr; } return null; }
-	 */
-
 	/**
 	 * Transfomiert einen lierale Zeichenkette. <br />
 	 * EBNF:<br />

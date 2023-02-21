@@ -176,11 +176,6 @@ public final class Cache extends BodyTagImpl {
 		this.protocol = protocol.toLowerCase();
 	}
 
-	/*
-	 * private String getProtocol() { if(StringUtil.isEmpty(protocol)) { return pageContext.
-	 * getHttpServletRequest().getScheme(); } return protocol; }
-	 */
-
 	/**
 	 * set the value expireurl
 	 * 
@@ -362,11 +357,6 @@ public final class Cache extends BodyTagImpl {
 		pci.getRootOut().doCache(ci);
 
 	}
-
-	/*
-	 * private boolean isOK(Resource cacheResource) { return cacheResource.exists() &&
-	 * (cacheResource.lastModified()+timespan.getMillis()>=System.currentTimeMillis()); }
-	 */
 
 	private int doContentCache() throws IOException {
 

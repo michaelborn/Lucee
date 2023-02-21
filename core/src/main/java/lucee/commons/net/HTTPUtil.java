@@ -333,12 +333,6 @@ public final class HTTPUtil {
 		return new URI(rtn.toString());
 	}
 
-	/*
-	 * private static String getProtocol(URI uri) { String p=uri.getRawSchemeSpecificPart(); if(p==null)
-	 * return null; if(p.indexOf('/')==-1) return p; if(p.indexOf("https")!=-1) return "https";
-	 * if(p.indexOf("http")!=-1) return "http"; return p; }
-	 */
-
 	private static String getProtocol(URL url) {
 		String p = url.getProtocol().toLowerCase();
 		if (p.indexOf('/') == -1) return p;

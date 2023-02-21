@@ -101,11 +101,6 @@ public class SpoolerEngineImpl implements SpoolerEngine {
 		init = true;
 	}
 
-	/*
-	 * private void calculateSize() { closedCount=calculateSize(closedDirectory);
-	 * openCount=calculateSize(openDirectory); }
-	 */
-
 	public void setMaxThreads(int maxThreads) {
 		this.maxThreads = maxThreads;
 	}
@@ -581,11 +576,6 @@ public class SpoolerEngineImpl implements SpoolerEngine {
 		if (task == null) task = getTaskById(closedDirectory, id);
 		if (task != null) remove(task);
 	}
-
-	/*
-	 * private SpoolerTask getTaskById(SpoolerTask[] tasks, String id) { for(int i=0;i<tasks.length;i++)
-	 * { if(tasks[i].getId().equals(id)) { return tasks[i]; } } return null; }
-	 */
 
 	/**
 	 * execute task by id and return eror throwd by task

@@ -113,10 +113,6 @@ public class Component extends EvaluatorSupport {
 		}
 
 		boolean isComponent = tlt.getTagClassDefinition().isClassNameEqualTo("lucee.runtime.tag.Component");
-		/*
-		 * boolean isInterface="lucee.runtime.tag.Interface".equals(tlt.getTagClassName()); if(main) {
-		 * if(isComponent) page.setIsComponent(true); else if(isInterface) page.setIsInterface(true); }
-		 */
 		tc.setMain(main);
 
 		// Attributes

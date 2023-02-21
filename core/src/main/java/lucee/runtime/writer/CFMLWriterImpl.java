@@ -416,13 +416,6 @@ public class CFMLWriterImpl extends CFMLWriter {
 		return response.getOutputStream();
 	}
 
-	/*
-	 * private void writeCache(byte[] barr,boolean append) throws IOException { cacheItem.store(barr,
-	 * append); //IOUtil.copy(new ByteArrayInputStream(barr),
-	 * cacheItem.getResource().getOutputStream(append),true,true);
-	 * //MetaData.getInstance(cacheItem.getDirectory()).add(cacheItem.getName(), cacheItem.getRaw()); }
-	 */
-
 	/**
 	 * @see javax.servlet.jsp.JspWriter#getRemaining()
 	 */

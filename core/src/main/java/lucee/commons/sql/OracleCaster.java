@@ -40,9 +40,4 @@ public class OracleCaster {
 		return o;
 	}
 
-	/*
-	 * private static boolean equals(Class left, Class right) { if(left==right)return true; return
-	 * left.equals(right.getName()); }
-	 */
-
 }
