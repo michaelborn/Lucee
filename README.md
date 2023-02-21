@@ -61,6 +61,8 @@ See `tests/README.md` for instructions on running the test suite locally.
 ## Getting Help
 
 - [Lucee Documentation Project](https://docs.lucee.org/)
+- [Java API Documentation (loader)](https://apidocs.ortussolutions.com/#/lucee/lucee/loader/)
+- [Java API Documentation (core)](https://apidocs.ortussolutions.com/#/lucee/lucee/core/)
 - [Lucee Mailing List / Forum ](https://dev.lucee.org); General app developer support, hacking on Lucee itself
 - [Lucee Bug Tracker](https://luceeserver.atlassian.net/projects/LDEV/issues)
 
