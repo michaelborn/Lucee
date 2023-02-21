@@ -264,7 +264,6 @@ public abstract class AbstractCaptcha {
 	private void drawRandomOval(Graphics2D graphics, Dimension dimension, Color ovalColorType) {
 		Point point = getRandomPoint(dimension);
 		double height = dimension.getHeight();
-		// double width = dimension.getWidth() ;
 		double minOval = height * .10;
 		double maxOval = height * .75;
 

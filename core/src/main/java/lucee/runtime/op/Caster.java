@@ -493,8 +493,6 @@ public final class Caster {
 		if (str == null) return 0;// throw new CasterException("can't cast empty string to a number value");
 		str = str.trim();
 		double rtn = 0;
-		// double rtn_=0;
-		// double _rtn=0;
 		int eCount = 0;
 		double deep = 1;
 		int pos = 0;
@@ -634,7 +632,6 @@ public final class Caster {
 
 		double rtn = 0;
 		int eCount = 0;
-		// double deep=10;
 		double deep = 1;
 		int pos = 0;
 

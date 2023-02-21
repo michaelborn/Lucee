@@ -54,7 +54,6 @@ public class TagGroupUtil {
 	// int getRecordcount()
 	public static final Method GET_RECORDCOUNT = new Method("getRecordcount", Types.INT_VALUE, new Type[] {});
 
-	// double range(double number, double from)
 	public static final Method RANGE = new Method("range", Types.INT_VALUE, new Type[] { Types.INT_VALUE, Types.INT_VALUE });
 
 	public static final Type NUMBER_ITERATOR = Type.getType(NumberIterator.class);

@@ -72,7 +72,6 @@ public final class NtpClient {
 
 			// Process response
 			NtpMessage msg = new NtpMessage(packet.getData());
-			// double roundTripDelay = (destinationTimestamp-msg.originateTimestamp) -
 			// (msg.receiveTimestamp-msg.transmitTimestamp);
 			double localClockOffset = ((msg.receiveTimestamp - msg.originateTimestamp) + (msg.transmitTimestamp - destinationTimestamp)) / 2;
 
