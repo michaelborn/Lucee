@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import org.apache.felix.framework.Logger;
 import org.osgi.framework.BundleException;
@@ -51,23 +50,12 @@ public class BundleDownloader {
         final URL updateUrl = getDownloadURL(symbolicName, symbolicVersion, id, updateProvider);
         log(Logger.LOG_INFO, "Downloading bundle [" + symbolicName + ":" + symbolicVersion + "] from [" + updateUrl + "]");
 
-        int code;
-        HttpURLConnection conn;
-        try {
-            conn = (HttpURLConnection) updateUrl.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setConnectTimeout(10000);
-            conn.connect();
-            code = conn.getResponseCode();
-        }
-        catch (UnknownHostException e) {
-            throw new IOException("Downloading the bundle  [" + symbolicName + ":" + symbolicVersion + "] from [" + updateUrl + "] failed", e);
-        }
+        HttpURLConnection conn = establishConnection(updateUrl, symbolicName, symbolicVersion);
         // the update provider is not providing a download for this
-        if (code != 200) {
+        if (conn.getResponseCode() != 200) {
             int count = 1;
             // the update provider can also provide a different (final) location for this
-            while ((code == 301 || code == 302) && count++ <= MAX_REDIRECTS) {
+            while ((conn.getResponseCode() == 301 || conn.getResponseCode() == 302) && count++ <= MAX_REDIRECTS) {
                 String location = conn.getHeaderField("Location");
                 // just in case we check invalid names
                 if (location == null) location = conn.getHeaderField("location");
@@ -75,22 +63,11 @@ public class BundleDownloader {
                 LogUtil.log(Log.LEVEL_INFO, OSGiUtil.class.getName(), "Download redirected: " + location); // MUST remove
 
                 conn.disconnect();
-                URL url = new URL(location);
-                try {
-                    conn = (HttpURLConnection) url.openConnection();
-                    conn.setRequestMethod("GET");
-                    conn.setConnectTimeout(10000);
-                    conn.connect();
-                    code = conn.getResponseCode();
-                }
-                catch (final UnknownHostException e) {
-                    log(e);
-                    throw new IOException("Failed to download the bundle  [" + symbolicName + ":" + symbolicVersion + "] from [" + location + "]", e);
-                }
+                conn = establishConnection( new URL(location), symbolicName, symbolicVersion );
             }
 
             // no download available!
-            if (code != 200) {
+            if (conn.getResponseCode() != 200) {
                 final String msg = "Download bundle failed for [" + symbolicName + "] in version [" + symbolicVersion + "] from [" + updateUrl
                         + "], please download manually and copy to [" + jarDir + "]";
                 log(Logger.LOG_ERROR, msg);
@@ -170,6 +147,30 @@ public class BundleDownloader {
             }
         }
     }
+
+    /**
+     * Establish an HTTP connection to the download location. On error, log and rethrow with a useful error message.
+     * 
+     * @param downloadLocation URL to establish a connection to for downloading the bundle.
+     * @param symbolicName Bundle name for error messages
+     * @param symbolicVersion Bundle version for error messages
+     * @return An HTTP connection to use for downloading the bundle.
+     * @throws IOException
+     */
+    private static HttpURLConnection establishConnection(URL downloadLocation, String symbolicName, String symbolicVersion) throws IOException{
+        try {
+            HttpURLConnection conn = (HttpURLConnection) downloadLocation.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(10000);
+            conn.connect();
+            return conn;
+        }
+        catch (IOException e) {
+            log(e);
+            throw new IOException("Failed to download the bundle  [" + symbolicName + ":" + symbolicVersion + "] from [" + downloadLocation.toString() + "]", e);
+        }
+    }
+
 	private static void log(int level, String msg) {
 		try {
 			Log log = ThreadLocalPageContext.getLog("application");
