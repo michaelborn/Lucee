@@ -1147,7 +1147,7 @@ public class OSGiUtil {
 		log(Log.LEVEL_DEBUG, "Start bundle: [" + bundle.getSymbolicName() + ":" + bundle.getVersion().toString() + "]");
 
 		try {
-			BundleUtil.start(bundle);
+			BundleUtil.start(bundle, false);
 		}
 		catch (BundleException be) {
 			// check if required related bundles are missing and load them if necessary
@@ -1157,7 +1157,7 @@ public class OSGiUtil {
 
 			try {
 				// startIfNecessary(loadedBundles.toArray(new Bundle[loadedBundles.size()]));
-				BundleUtil.start(bundle);
+				BundleUtil.start(bundle, false);
 			}
 			catch (BundleException be2) {
 				List<PackageQuery> listPackages = getRequiredPackages(bundle);
@@ -1165,7 +1165,7 @@ public class OSGiUtil {
 				loadPackages(parents, loadedBundles, listPackages, bundle, failedPD);
 				try {
 					// startIfNecessary(loadedBundles.toArray(new Bundle[loadedBundles.size()]));
-					BundleUtil.start(bundle);
+					BundleUtil.start(bundle, false);
 				}
 				catch (BundleException be3) {
 					if (failedBD.size() > 0) {
