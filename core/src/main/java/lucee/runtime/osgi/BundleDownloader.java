@@ -2,6 +2,7 @@ package lucee.runtime.osgi;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
@@ -26,6 +27,16 @@ public class BundleDownloader {
      */
 	private static final int MAX_REDIRECTS = 5;
 
+    /**
+     * Download the bundle from the bundle provider
+     * @param factory
+     * @param symbolicName
+     * @param symbolicVersion
+     * @param id
+     * @return
+     * @throws IOException
+     * @throws BundleException
+     */
     public static Resource downloadBundle(
         CFMLEngineFactory factory,
         final String symbolicName,
@@ -37,10 +48,7 @@ public class BundleDownloader {
         final Resource jarDir = ResourceUtil.toResource(factory.getBundleDirectory());
         final URL updateProvider = factory.getUpdateLocation();
         if (symbolicVersion == null) symbolicVersion = "latest";
-        final URL updateUrl = new URL(updateProvider, "/rest/update/provider/download/" + symbolicName + "/" + symbolicVersion + "/" + (id != null ? id.toQueryString() : "")
-                + (id == null ? "?" : "&") + "allowRedirect=true"
-
-        );
+        final URL updateUrl = getDownloadURL(symbolicName, symbolicVersion, id, updateProvider);
         log(Logger.LOG_INFO, "Downloading bundle [" + symbolicName + ":" + symbolicVersion + "] from [" + updateUrl + "]");
 
         int code;
@@ -116,6 +124,27 @@ public class BundleDownloader {
             conn.disconnect();
             return jar;
         }
+    }
+
+    /**
+     * Build and return a URL pointing to the proper download location of the bundle we are looking for.
+     * 
+     * @param bundleName Name of the bundle to download
+     * @param bundleVersion Version of the bundle to download
+     * @param bundleID ID of the bundle to download. Optional.
+     * @param updateProvider URL to the bundle provider we'd like to download from.
+     * @return The fully-formed URL to the bundle on the bundle provider web host.
+     * @throws MalformedURLException
+     */
+    private static URL getDownloadURL(final String bundleName, String bundleVersion, Identification bundleID, final URL updateProvider) throws MalformedURLException {
+        String path = "/rest/update/provider/download/"
+            + bundleName
+            + "/"
+            + bundleVersion
+            + "/"
+            + (bundleID != null ? bundleID.toQueryString() : "")
+            + (bundleID == null ? "?" : "&") + "allowRedirect=true";
+        return new URL(updateProvider, path);
     }
 
     /**
