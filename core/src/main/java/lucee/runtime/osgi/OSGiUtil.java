@@ -195,6 +195,13 @@ public class OSGiUtil {
 		}
 	}
 
+	/**
+	 * Parse version into a Version type
+	 * 
+	 * @param version String to parse to a Version type
+	 * @param defaultValue Version to default to
+	 * @return parsed Version object or default
+	 */
 	public static Version toVersion(String version, Version defaultValue) {
 		if (StringUtil.isEmpty(version)) return defaultValue;
 		// String[] arr = ListUtil.listToStringArray(version, '.');
@@ -240,6 +247,12 @@ public class OSGiUtil {
 		return new Version(major, minor, micro, qualifier);
 	}
 
+	/**
+	 * Parse version into a Version type or throw a BundleException if the version is invalid.
+	 * 
+	 * @param version String to parse to a Version type
+	 * @return parsed Version object
+	 */
 	public static Version toVersion(String version) throws BundleException {
 		Version v = toVersion(version, null);
 		if (v != null) return v;
@@ -1247,31 +1260,73 @@ public class OSGiUtil {
 		return loadedBundles;
 	}
 
+	/**
+	 * Stringify the bundle, i.e. to name and version
+	 * 
+	 * @param b Bundle to stringify
+	 */
 	private static String toString(Bundle b) {
 		return b.getSymbolicName() + ":" + b.getVersion().toString();
 	}
 
+	/**
+	 * Stop the bundle if it's an active, full bundle (not a fragment)
+	 * @param bundle Bundle to stop
+	 * @throws BundleException
+	 */
 	public static void stopIfNecessary(Bundle bundle) throws BundleException {
 		if (isFragment(bundle) || bundle.getState() != Bundle.ACTIVE) return;
 		stop(bundle);
 	}
 
+	/**
+	 * Stop the bundle.
+	 * 
+	 * @url https://docs.osgi.org/specification/osgi.core/7.0.0/framework.lifecycle.html#d0e9666
+	 * @param b Bundle to stop
+	 * @throws BundleException
+	 */
 	public static void stop(Bundle b) throws BundleException {
 		b.stop();
 	}
 
+	/**
+	 * Uninstall the bundle - i.e. remove it from the framework.
+	 * 
+	 * @url https://docs.osgi.org/specification/osgi.core/7.0.0/framework.lifecycle.html#d0e9797
+	 * @param b Bundle to uninstall
+	 * @throws BundleException
+	 */
 	public static void uninstall(Bundle b) throws BundleException {
 		b.uninstall();
 	}
 
+	/**
+	 * See if the provided bundle is a bundle fragment, i.e. piggybacks on a "host bundle".
+	 * 
+	 * @url https://docs.osgi.org/specification/osgi.core/7.0.0/framework.module.html#framework.module.fragmentbundles
+	 * @param bundle Bundle to check
+	 */
 	public static boolean isFragment(Bundle bundle) {
 		return (bundle.adapt(BundleRevision.class).getTypes() & BundleRevision.TYPE_FRAGMENT) != 0;
 	}
 
+	/**
+	 * See if the provided bundle is a bundle fragment, i.e. piggybacks on a "host bundle".
+	 * 
+	 * @see #isFragment(Bundle)
+	 * @param bf BundleFile
+	 */
 	public static boolean isFragment(BundleFile bf) {
 		return !StringUtil.isEmpty(bf.getFragementHost(), true);
 	}
 
+	/**
+	 * Get a list of required bundles from the provided bundle.
+	 * 
+	 * @param bundle Bundle to introspect
+	 * @throws BundleException
+	 */
 	public static List<BundleDefinition> getRequiredBundles(Bundle bundle) throws BundleException {
 		List<BundleDefinition> rtn = new ArrayList<BundleDefinition>();
 		BundleRevision br = bundle.adapt(BundleRevision.class);
