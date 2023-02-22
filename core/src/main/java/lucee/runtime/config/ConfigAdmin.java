@@ -247,34 +247,6 @@ public final class ConfigAdmin {
 		}
 	}
 
-	private void addResourceProvider(String scheme, ClassDefinition cd, String arguments) throws PageException {
-		checkWriteAccess();
-
-		Array rpElements = ConfigWebUtil.getAsArray("resourceProviders", root);
-		// Element[] rpElements = ConfigWebFactory.getChildren(resources, "resource-provider");
-		String s;
-		// update
-		if (rpElements != null) {
-			Struct rpElement;
-			for (int i = 1; i <= rpElements.size(); i++) {
-				rpElement = Caster.toStruct(rpElements.getE(i));
-				s = Caster.toString(rpElement.get("scheme"));
-				if (!StringUtil.isEmpty(s) && s.equalsIgnoreCase(scheme)) {
-					setClass(rpElement, null, "", cd);
-					rpElement.setEL("scheme", scheme);
-					rpElement.setEL("arguments", arguments);
-					return;
-				}
-			}
-		}
-		// Insert
-		Struct el = new StructImpl(Struct.TYPE_LINKED);
-		setClass(el, null, "", cd);
-		el.setEL("scheme", scheme);
-		el.setEL("arguments", arguments);
-		rpElements.appendEL(el);
-	}
-
 	public static synchronized void _storeAndReload(ConfigPro config)
 			throws PageException, ClassException, IOException, TagLibException, FunctionLibException, BundleException, ConverterException {
 		ConfigAdmin admin = new ConfigAdmin(config, null);

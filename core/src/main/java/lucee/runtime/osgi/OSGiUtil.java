@@ -35,9 +35,6 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.jar.Manifest;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import org.apache.felix.framework.BundleWiringImpl.BundleClassLoader;
 import org.osgi.framework.Bundle;
@@ -248,28 +245,6 @@ public class OSGiUtil {
 		if (v != null) return v;
 		throw new BundleException(
 				"Given version [" + version + "] is invalid, a valid version is following this pattern <major-number>.<minor-number>.<micro-number>[.<qualifier>]");
-	}
-
-	private static Manifest getManifest(Resource bundle) throws IOException {
-		InputStream is = null;
-		Manifest mf = null;
-		try {
-			is = bundle.getInputStream();
-			ZipInputStream zis = new ZipInputStream(is);
-
-			ZipEntry entry;
-
-			while ((entry = zis.getNextEntry()) != null && mf == null) {
-				if ("META-INF/MANIFEST.MF".equals(entry.getName())) {
-					mf = new Manifest(zis);
-				}
-				zis.closeEntry();
-			}
-		}
-		finally {
-			IOUtil.close(is);
-		}
-		return mf;
 	}
 
 	/**

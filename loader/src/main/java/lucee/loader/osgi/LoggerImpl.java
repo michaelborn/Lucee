@@ -108,14 +108,4 @@ public class LoggerImpl extends Logger {
 		}
 	}
 
-	private int toLevel(String level) {
-		if (level != null) {
-			if ("DEBUG".equalsIgnoreCase(level)) return LOG_DEBUG;
-			if ("ERROR".equalsIgnoreCase(level)) return LOG_ERROR;
-			if ("INFO".equalsIgnoreCase(level)) return LOG_INFO;
-			if ("WARNING".equalsIgnoreCase(level)) return LOG_WARNING;
-		}
-		return LOG_ERROR;
-	}
-
 }
