@@ -32,19 +32,7 @@ public class BundleDownloader {
         String symbolicVersion,
         Identification id
     ) throws IOException, BundleException {
-        if (!Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.enable.bundle.download", null), true)) {
-            boolean printExceptions = Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.cli.printExceptions", null), false);
-            String bundleError = "Lucee is missing the Bundle jar [" + (symbolicVersion != null ? symbolicName + ":" + symbolicVersion : symbolicName)
-                    + "], and has been prevented from downloading it. If this jar is not a core jar,"
-                    + " it will need to be manually downloaded and placed in the {{lucee-server}}/context/bundles directory.";
-            try {
-                throw new RuntimeException(bundleError);
-            }
-            catch (RuntimeException re) {
-                if (printExceptions) re.printStackTrace();
-                throw re;
-            }
-        }
+        validateDownloadsEnabled(symbolicName, symbolicVersion);
 
         final Resource jarDir = ResourceUtil.toResource(factory.getBundleDirectory());
         final URL updateProvider = factory.getUpdateLocation();
@@ -127,6 +115,30 @@ public class BundleDownloader {
             IOUtil.copy((InputStream) conn.getContent(), jar, true);
             conn.disconnect();
             return jar;
+        }
+    }
+
+    /**
+     * Check the <code>lucee.enable.bundle.download</code> system property to ensure that bundle downloading is enabled.
+     * 
+     * @throws java.lang.RuntimeException if bundle downloading is disabled.
+     * 
+     * @param bundleName Name of the bundle, for debugging purposes
+     * @param bundleVersion Bundle version, for debugging purposes
+     */
+    private static void validateDownloadsEnabled(final String bundleName, String bundleVersion) {
+        if (!Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.enable.bundle.download", null), true)) {
+            boolean printExceptions = Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.cli.printExceptions", null), false);
+            String bundleError = "Lucee is missing the Bundle jar [" + (bundleVersion != null ? bundleName + ":" + bundleVersion : bundleName)
+                    + "], and has been prevented from downloading it. If this jar is not a core jar,"
+                    + " it will need to be manually downloaded and placed in the {{lucee-server}}/context/bundles directory.";
+            try {
+                throw new RuntimeException(bundleError);
+            }
+            catch (RuntimeException re) {
+                if (printExceptions) re.printStackTrace();
+                throw re;
+            }
         }
     }
 	private static void log(int level, String msg) {
