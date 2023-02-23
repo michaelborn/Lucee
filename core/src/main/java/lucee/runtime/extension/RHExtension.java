@@ -1189,20 +1189,6 @@ public class RHExtension implements Serializable {
 		return name.substring(index + 1);
 	}
 
-	private static BundleDefinition toBundleDefinition(InputStream is, String name, String extensionVersion, boolean closeStream)
-			throws IOException, BundleException, ApplicationException {
-		Resource tmp = SystemUtil.getTempDirectory().getRealResource(name);
-		try {
-			IOUtil.copy(is, tmp, closeStream);
-			BundleFile bf = BundleFile.getInstance(tmp);
-			if (bf.isBundle()) throw new ApplicationException("Jar [" + name + "] is not a valid OSGi Bundle");
-			return new BundleDefinition(bf.getSymbolicName(), bf.getVersion());
-		}
-		finally {
-			tmp.delete();
-		}
-	}
-
 	public String getName() {
 		return name;
 	}
