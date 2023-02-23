@@ -226,7 +226,7 @@ public class RHExtension implements Serializable {
 		}
 		Struct data = getMetaData(config, id, version);
 
-		if (data.containsKey("startBundles")) {
+		if (data.containsKey(new KeyImpl( "startBundles" ))) {
 			this.extensionFile = res;
 			boolean _softLoaded;
 			try {
@@ -841,28 +841,28 @@ public class RHExtension implements Serializable {
 		String id = getId();
 		String name = getName();
 		if (StringUtil.isEmpty(name)) name = id;
-		el.setEL("id", id);
-		el.setEL("name", name);
-		el.setEL("version", getVersion());
+		el.setEL(new KeyImpl( "id" ), id);
+		el.setEL(new KeyImpl( "name" ), name);
+		el.setEL(new KeyImpl( "version" ), getVersion());
 		if (!full) return;
 
 		// newly added
 		// start bundles (IMPORTANT:this key is used to reconize a newer entry, so do not change)
-		el.setEL("startBundles", Caster.toString(getStartBundles()));
+		el.setEL(new KeyImpl( "startBundles" ), Caster.toString(getStartBundles()));
 
 		// release type
-		el.setEL("releaseType", toReleaseType(getReleaseType(), "all"));
+		el.setEL(new KeyImpl( "releaseType" ), toReleaseType(getReleaseType(), "all"));
 
 		// Description
-		if (StringUtil.isEmpty(getDescription())) el.setEL("description", toStringForAttr(getDescription()));
-		else el.removeEL(KeyImpl.init("description"));
+		if (StringUtil.isEmpty(getDescription())) el.setEL(new KeyImpl( "description" ), toStringForAttr(getDescription()));
+		else el.removeEL(new KeyImpl( "description"));
 
 		// Trial
-		el.setEL("trial", Caster.toString(isTrial()));
+		el.setEL(new KeyImpl( "trial" ), Caster.toString(isTrial()));
 
 		// Image
-		if (StringUtil.isEmpty(getImage())) el.setEL("image", toStringForAttr(getImage()));
-		else el.removeEL(KeyImpl.init("image"));
+		if (StringUtil.isEmpty(getImage())) el.setEL(new KeyImpl( "image" ), toStringForAttr(getImage()));
+		else el.removeEL(new KeyImpl( "image"));
 
 		// Categories
 		String[] cats = getCategories();
@@ -872,64 +872,64 @@ public class RHExtension implements Serializable {
 				if (sb.length() > 0) sb.append(',');
 				sb.append(toStringForAttr(cat).replace(',', ' '));
 			}
-			el.setEL("categories", sb.toString());
+			el.setEL(new KeyImpl( "categories" ), sb.toString());
 		}
 		else el.removeEL(KeyImpl.init("categories"));
 
 		// core version
-		if (minCoreVersion != null) el.setEL("luceeCoreVersion", toStringForAttr(minCoreVersion.toString()));
+		if (minCoreVersion != null) el.setEL(new KeyImpl( "luceeCoreVersion" ), toStringForAttr(minCoreVersion.toString()));
 		else el.removeEL(KeyImpl.init("luceeCoreVersion"));
 
 		// loader version
-		if (minLoaderVersion > 0) el.setEL("loaderVersion", Caster.toString(minLoaderVersion));
+		if (minLoaderVersion > 0) el.setEL(new KeyImpl( "loaderVersion" ), Caster.toString(minLoaderVersion));
 		else el.removeEL(KeyImpl.init("loaderVersion"));
 
 		// amf
-		if (!StringUtil.isEmpty(amfsJson)) el.setEL("amf", toStringForAttr(amfsJson));
+		if (!StringUtil.isEmpty(amfsJson)) el.setEL(new KeyImpl( "amf" ), toStringForAttr(amfsJson));
 		else el.removeEL(KeyImpl.init("amf"));
 
 		// resource
-		if (!StringUtil.isEmpty(resourcesJson)) el.setEL("resource", toStringForAttr(resourcesJson));
+		if (!StringUtil.isEmpty(resourcesJson)) el.setEL(new KeyImpl( "resource" ), toStringForAttr(resourcesJson));
 		else el.removeEL(KeyImpl.init("resource"));
 
 		// search
-		if (!StringUtil.isEmpty(searchsJson)) el.setEL("search", toStringForAttr(searchsJson));
+		if (!StringUtil.isEmpty(searchsJson)) el.setEL(new KeyImpl( "search" ), toStringForAttr(searchsJson));
 		else el.removeEL(KeyImpl.init("search"));
 
 		// orm
-		if (!StringUtil.isEmpty(ormsJson)) el.setEL("orm", toStringForAttr(ormsJson));
+		if (!StringUtil.isEmpty(ormsJson)) el.setEL(new KeyImpl( "orm" ), toStringForAttr(ormsJson));
 		else el.removeEL(KeyImpl.init("orm"));
 
 		// webservice
-		if (!StringUtil.isEmpty(webservicesJson)) el.setEL("webservice", toStringForAttr(webservicesJson));
+		if (!StringUtil.isEmpty(webservicesJson)) el.setEL(new KeyImpl( "webservice" ), toStringForAttr(webservicesJson));
 		else el.removeEL(KeyImpl.init("webservice"));
 
 		// monitor
-		if (!StringUtil.isEmpty(monitorsJson)) el.setEL("monitor", toStringForAttr(monitorsJson));
+		if (!StringUtil.isEmpty(monitorsJson)) el.setEL(new KeyImpl( "monitor" ), toStringForAttr(monitorsJson));
 		else el.removeEL(KeyImpl.init("monitor"));
 
 		// cache
-		if (!StringUtil.isEmpty(cachesJson)) el.setEL("cache", toStringForAttr(cachesJson));
+		if (!StringUtil.isEmpty(cachesJson)) el.setEL(new KeyImpl( "cache" ), toStringForAttr(cachesJson));
 		else el.removeEL(KeyImpl.init("cache"));
 
 		// cache-handler
-		if (!StringUtil.isEmpty(cacheHandlersJson)) el.setEL("cacheHandler", toStringForAttr(cacheHandlersJson));
+		if (!StringUtil.isEmpty(cacheHandlersJson)) el.setEL(new KeyImpl( "cacheHandler" ), toStringForAttr(cacheHandlersJson));
 		else el.removeEL(KeyImpl.init("cacheHandler"));
 
 		// jdbc
-		if (!StringUtil.isEmpty(jdbcsJson)) el.setEL("jdbc", toStringForAttr(jdbcsJson));
+		if (!StringUtil.isEmpty(jdbcsJson)) el.setEL(new KeyImpl( "jdbc" ), toStringForAttr(jdbcsJson));
 		else el.removeEL(KeyImpl.init("jdbc"));
 
 		// startup-hook
-		if (!StringUtil.isEmpty(startupHooksJson)) el.setEL("startupHook", toStringForAttr(startupHooksJson));
+		if (!StringUtil.isEmpty(startupHooksJson)) el.setEL(new KeyImpl( "startupHook" ), toStringForAttr(startupHooksJson));
 		else el.removeEL(KeyImpl.init("startupHook"));
 
 		// mapping
-		if (!StringUtil.isEmpty(mappingsJson)) el.setEL("mapping", toStringForAttr(mappingsJson));
+		if (!StringUtil.isEmpty(mappingsJson)) el.setEL(new KeyImpl( "mapping" ), toStringForAttr(mappingsJson));
 		else el.removeEL(KeyImpl.init("mapping"));
 
 		// event-gateway-instances
-		if (!StringUtil.isEmpty(eventGatewayInstancesJson)) el.setEL("eventGatewayInstances", toStringForAttr(eventGatewayInstancesJson));
+		if (!StringUtil.isEmpty(eventGatewayInstancesJson)) el.setEL(new KeyImpl( "eventGatewayInstances" ), toStringForAttr(eventGatewayInstancesJson));
 		else el.removeEL(KeyImpl.init("eventGatewayInstances"));
 	}
 
