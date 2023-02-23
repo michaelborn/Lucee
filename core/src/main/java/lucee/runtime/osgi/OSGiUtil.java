@@ -64,7 +64,6 @@ import lucee.loader.util.Util;
 import lucee.runtime.config.Config;
 import lucee.runtime.config.ConfigWebUtil;
 import lucee.runtime.config.Identification;
-import lucee.runtime.engine.CFMLEngineImpl;
 import lucee.runtime.engine.ThreadLocalPageContext;
 import lucee.runtime.exp.PageException;
 import lucee.runtime.op.Caster;
@@ -1963,21 +1962,6 @@ public class OSGiUtil {
 		return rtn;
 	}
 
-	public static Bundle getFrameworkBundle(Config config, Bundle defaultValue) {
-		Bundle[] bundles = ConfigWebUtil.getEngine(config).getBundleContext().getBundles();
-		Bundle b = null;
-		for (int i = 0; i < bundles.length; i++) {
-			b = bundles[i];
-			if (b != null && isFrameworkBundle(b)) return b;
-		}
-		return defaultValue;
-	}
-
-	public static boolean isFrameworkBundle(Bundle b) {// FELIX specific
-
-		return "org.apache.felix.framework".equalsIgnoreCase(b.getSymbolicName()); // TODO move to cire util class tha does not exist yet
-	}
-
 	public static Bundle getBundleFromClass(Class clazz, Bundle defaultValue) {
 		ClassLoader cl = clazz.getClassLoader();
 		if (cl instanceof BundleClassLoader) {
@@ -2007,26 +1991,5 @@ public class OSGiUtil {
 			sb.append(b.getLocation()).append(File.pathSeparator);
 		}
 		return sb.toString();
-	}
-
-	public static void stop(Class clazz) throws BundleException {
-		if (clazz == null) return;
-		Bundle bundleCore = OSGiUtil.getBundleFromClass(CFMLEngineImpl.class, null);
-		Bundle bundleFromClass = OSGiUtil.getBundleFromClass(clazz, null);
-		if (bundleFromClass != null && !bundleFromClass.equals(bundleCore)) {
-			OSGiUtil.stopIfNecessary(bundleFromClass);
-		}
-		// TODO Auto-generated method stub
-
-	}
-
-	public static boolean isValid(Object obj) {
-		if (obj != null) {
-			ClassLoader cl = obj.getClass().getClassLoader();
-			if (cl instanceof BundleClassLoader) {
-				if (((Bundle) ((BundleClassLoader) cl).getBundle()).getState() != Bundle.ACTIVE) return false;
-			}
-		}
-		return true;
 	}
 }

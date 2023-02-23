@@ -78,8 +78,6 @@ import lucee.commons.lang.ExceptionUtil;
 import lucee.commons.lang.MemoryClassLoader;
 import lucee.commons.lang.PhysicalClassLoader;
 import lucee.commons.lang.StringUtil;
-import lucee.commons.lang.types.RefInteger;
-import lucee.commons.lang.types.RefIntegerImpl;
 import lucee.loader.TP;
 import lucee.loader.engine.CFMLEngineFactory;
 import lucee.runtime.PageContext;
@@ -101,7 +99,6 @@ import lucee.runtime.op.Castable;
 import lucee.runtime.op.Caster;
 import lucee.runtime.op.OpUtil;
 import lucee.runtime.op.date.DateCaster;
-import lucee.runtime.osgi.OSGiUtil;
 import lucee.runtime.type.Array;
 import lucee.runtime.type.Collection;
 import lucee.runtime.type.KeyImpl;
@@ -1399,59 +1396,6 @@ public final class SystemUtil {
 		return context;
 	}
 
-	/**
-	 * 
-	 * @return the class calling me and the first class not in bootdelegation if the the is in
-	 *         bootdelegation
-	 */
-	public static Caller getCallerClass() {
-		final Ref ref = new Ref();
-		new SecurityManager() {
-			{
-				ref.context = getClassContext();
-			}
-		};
-
-		Caller rtn = new Caller();
-
-		// element at position 2 is the caller
-		final Class<?> caller = ref.context[2];
-		RefInteger index = new RefIntegerImpl(3);
-		Class<?> clazz = _getCallerClass(ref.context, caller, index, true, true);
-
-		// analyze the first result
-		if (clazz == null) return rtn;
-
-		if (isFromBundle(clazz)) {
-			rtn.fromBundle = clazz;
-			return rtn;
-		}
-		if (!OSGiUtil.isClassInBootelegation(clazz.getName())) {
-			rtn.fromSystem = clazz;
-		}
-		else {
-			rtn.fromBootDelegation = clazz;
-		}
-
-		clazz = null;
-		if (rtn.fromBootDelegation != null) {
-			index = new RefIntegerImpl(3);
-			clazz = _getCallerClass(ref.context, caller, index, false, true);
-			if (clazz == null) return rtn;
-			if (isFromBundle(clazz)) {
-				rtn.fromBundle = clazz;
-				return rtn;
-			}
-			else rtn.fromSystem = clazz;
-		}
-
-		clazz = _getCallerClass(ref.context, caller, index, false, false);
-		if (clazz == null) return rtn;
-		rtn.fromBundle = clazz;
-
-		return rtn;
-	}
-
 	public static List<ClassLoader> getClassLoaderContext(boolean unique, StringBuilder id) {
 		final Ref ref = new Ref();
 		new SecurityManager() {
@@ -1509,39 +1453,6 @@ public final class SystemUtil {
 		return context;
 	}
 
-	public static int getClassType(Class<?> clazz) {
-		if (isFromBundle(clazz)) return TYPE_BUNDLE;
-		if (OSGiUtil.isClassInBootelegation(clazz.getName())) return TYPE_BOOT_DELEGATION;
-		return TYPE_SYSTEM;
-	}
-
-	public static String getClassTypeAsString(Class<?> clazz) {
-		int type = getClassType(clazz);
-		if (type == TYPE_BUNDLE) return "bundle";
-		else if (type == TYPE_BOOT_DELEGATION) return "boot-delegation";
-		return "system";
-	}
-
-	private static Class<?> _getCallerClass(Class<?>[] context, Class<?> caller, RefInteger index, boolean acceptBootDelegation, boolean acceptSystem) {
-		Class<?> callerCaller;
-		do {
-			callerCaller = context[index.toInt()];
-			index.plus(1);
-			if (callerCaller == caller || _isSystem(callerCaller)) {
-				callerCaller = null;
-			}
-
-			if (callerCaller != null && !acceptSystem && !isFromBundle(callerCaller)) {
-				callerCaller = null;
-			}
-			else if (callerCaller != null && !acceptBootDelegation && OSGiUtil.isClassInBootelegation(callerCaller.getName())) {
-				callerCaller = null;
-			}
-		}
-		while (callerCaller == null && index.toInt() < context.length);
-		return callerCaller;
-	}
-
 	public static class Caller {
 
 		public Class<?> fromBootDelegation;
@@ -1565,23 +1476,6 @@ public final class SystemUtil {
 			}
 			return fromBootDelegation;
 		}
-	}
-
-	private static boolean isFromBundle(Class<?> clazz) {
-		if (clazz == null) return false;
-		if (!(clazz.getClassLoader() instanceof BundleReference)) return false;
-
-		BundleReference br = (BundleReference) clazz.getClassLoader();
-		return !OSGiUtil.isFrameworkBundle(br.getBundle());
-	}
-
-	private static boolean _isSystem(Class<?> clazz) {
-		if (clazz.getName() == "java.lang.Class") return true; // Class.forName(className)
-		if (clazz.getName().startsWith("com.sun.beans.finder.")) return true;
-		if (clazz.getName().startsWith("java.beans.")) return true;
-		if (clazz.getName().startsWith("java.util.ServiceLoader")) return true;
-
-		return false;
 	}
 
 	private static Map<String, Integer> logs = new ConcurrentHashMap<String, Integer>();
