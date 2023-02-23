@@ -76,8 +76,9 @@ import lucee.runtime.op.Caster;
 import lucee.runtime.op.Decision;
 import lucee.runtime.osgi.BundleFile;
 import lucee.runtime.osgi.BundleInfo;
+import lucee.runtime.osgi.OSGiUtil;
 import lucee.runtime.osgi.OSGiUtil.BundleDefinition;
-import lucee.runtime.osgi.VersionRange;
+import org.osgi.framework.VersionRange;
 import lucee.runtime.type.Collection.Key;
 import lucee.runtime.type.KeyImpl;
 import lucee.runtime.type.Query;
@@ -620,8 +621,7 @@ public class RHExtension implements Serializable {
 	}
 
 	private void readCoreVersion(String label, String str, Info info) throws ApplicationException {
-
-		minCoreVersion = StringUtil.isEmpty(str, true) ? null : new VersionRange(str);
+		minCoreVersion = OSGiUtil.toVersionRange(str);
 	}
 
 	public void validate() throws ApplicationException {
@@ -630,7 +630,7 @@ public class RHExtension implements Serializable {
 
 	public void validate(Info info) throws ApplicationException {
 
-		if (minCoreVersion != null && !minCoreVersion.isWithin(info.getVersion())) {
+		if (minCoreVersion != null && !minCoreVersion.includes(info.getVersion())) {
 			throw new InvalidVersion("The Extension [" + getName() + "] cannot be loaded, " + Constants.NAME + " Version must be at least [" + minCoreVersion.toString()
 					+ "], version is [" + info.getVersion().toString() + "].");
 		}
@@ -641,7 +641,7 @@ public class RHExtension implements Serializable {
 	}
 
 	public boolean isValidFor(Info info) {
-		if (minCoreVersion != null && !minCoreVersion.isWithin(info.getVersion())) {
+		if (minCoreVersion != null && !minCoreVersion.includes(info.getVersion())) {
 			return false;
 		}
 		if (minLoaderVersion > SystemUtil.getLoaderVersion()) {

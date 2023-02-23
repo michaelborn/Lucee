@@ -41,6 +41,7 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.Version;
+import org.osgi.framework.VersionRange;
 import org.apache.felix.framework.VersionConverter;
 import org.osgi.framework.wiring.BundleRevision;
 import org.osgi.resource.Requirement;
@@ -218,6 +219,18 @@ public class OSGiUtil {
 		if (v != null) return v;
 		throw new BundleException(
 				"Given version [" + version + "] is invalid, a valid version is following this pattern <major-number>.<minor-number>.<micro-number>[.<qualifier>]");
+	}
+
+	/**
+	 * Convert the given string into an OSGI-compatible version range.
+	 * @param versionRange String version range, like 
+	 * @return An OSGI VersionRange object, which can be used to check matching (included) versions, etc.
+	 */
+	public static VersionRange toVersionRange(String versionRange) {
+		String[] range = versionRange.split(",");
+		Version left = new Version( range[0] );
+		Version right =  range.length > 1 ? new Version( range[1] ) : null;
+		return StringUtil.isEmpty(versionRange, true) ? null : new VersionRange(VersionRange.LEFT_OPEN, left, right,VersionRange.RIGHT_OPEN);
 	}
 
 	/**
