@@ -49,8 +49,8 @@ The test suites use a range of Test Services, like s3, database, ftp, etc. You c
 
 * `mvn -f core/pom.xml javadoc:javadoc` - Generate the Lucee core javadocs
 * `mvn -f loader/pom.xml javadoc:javadoc` - Generate the Lucee loader javadocs
-* `mvn -f core/pom.xml compiler:testCompile surefire:test` - run core Junit tests
-* `mvn -f loader/pom_new.xml compiler:testCompile surefire:test` - run loader Junit tests
+* `mvn -f core/pom.xml test` - run core Junit tests
+* `mvn -f loader/pom_new.xml test` - run loader Junit tests
 * `cd test && ./test.sh` - Run all tests
 * `cd test && ./test.sh -DtestFilter="orm"` - Run all tests with "orm" in the file path
 * `cd test && ./test.sh -DtestLabels="orm"` - Run all tests labelled as "orm"
