@@ -23,7 +23,7 @@ component extends="org.lucee.cfml.test.LuceeTestCase" labels="query" {
 				);
 				expect(result.filecontent.trim()).toBe('true');
 			});
-		}, skip="isNotSupported");
+		}, skip=isNotSupported());
 	}
 
 	// private Function//
