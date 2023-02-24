@@ -1,3 +1,5 @@
+package lucee.runtime.osgi;
+
 // Testing and mocking
 import static org.junit.jupiter.api.Assertions.*;
 

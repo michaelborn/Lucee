@@ -107,6 +107,14 @@
                   <failOnError>false</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-jar-maven-plugin</artifactId>
+                <version>7.0.2.Final</version>
+                <configuration>
+                  <feature-pack-location>wildfly@maven(org.jboss.universe:community-universe)#27.0.0.0.Final</feature-pack-location>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -434,12 +442,12 @@
 
   <repositories>
       <repository>
-         <id>repo</id>
-         <url>https://raw.githubusercontent.com/lucee/mvn/master/releases</url>
-      </repository>
-      <repository>
         <id>snapi</id>
         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </repository>
+      <repository>
+         <id>repo</id>
+         <url>https://raw.githubusercontent.com/lucee/mvn/master/releases</url>
       </repository>
       <repository>
         <id>res</id>
