@@ -41,7 +41,6 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.Version;
-import org.apache.felix.framework.VersionConverter;
 import org.osgi.framework.wiring.BundleRevision;
 import org.osgi.resource.Requirement;
 
@@ -66,6 +65,7 @@ import lucee.runtime.config.Config;
 import lucee.runtime.config.ConfigWebUtil;
 import lucee.runtime.config.Identification;
 import lucee.runtime.engine.ThreadLocalPageContext;
+import lucee.runtime.exp.PageException;
 import lucee.runtime.op.Caster;
 import lucee.runtime.type.util.ListUtil;
 
@@ -203,8 +203,47 @@ public class OSGiUtil {
 	 */
 	public static Version toVersion(String version, Version defaultValue) {
 		if (StringUtil.isEmpty(version)) return defaultValue;
-		Version result = VersionConverter.toOsgiVersion(version);
-		return result == Version.emptyVersion ? defaultValue : result;
+		// String[] arr = ListUtil.listToStringArray(version, '.');
+		String[] arr;
+		try {
+			arr = ListUtil.toStringArrayTrim(ListUtil.listToArray(version.trim(), '.'));
+		}
+		catch (PageException e) {
+			return defaultValue; // should not happen
+		}
+
+		Integer major, minor, micro;
+		String qualifier;
+
+		if (arr.length == 1) {
+			major = Caster.toInteger(arr[0], null);
+			minor = 0;
+			micro = 0;
+			qualifier = null;
+		}
+		else if (arr.length == 2) {
+			major = Caster.toInteger(arr[0], null);
+			minor = Caster.toInteger(arr[1], null);
+			micro = 0;
+			qualifier = null;
+		}
+		else if (arr.length == 3) {
+			major = Caster.toInteger(arr[0], null);
+			minor = Caster.toInteger(arr[1], null);
+			micro = Caster.toInteger(arr[2], null);
+			qualifier = null;
+		}
+		else {
+			major = Caster.toInteger(arr[0], null);
+			minor = Caster.toInteger(arr[1], null);
+			micro = Caster.toInteger(arr[2], null);
+			qualifier = arr[3];
+		}
+
+		if (major == null || minor == null || micro == null) return defaultValue;
+
+		if (qualifier == null) return new Version(major, minor, micro);
+		return new Version(major, minor, micro, qualifier);
 	}
 
 	/**
