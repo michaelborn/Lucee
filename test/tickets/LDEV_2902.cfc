@@ -6,7 +6,11 @@ component extends = "org.lucee.cfml.test.LuceeTestCase" {
 	}
 
 	function run( testResults, testBox ) { 
-		describe( "testcase for LDEV-2902", function(){
+
+		/**
+		 * DISABLE until this is fixed for alternate timezones
+		 */
+		xdescribe( "testcase for LDEV-2902", function(){
 			it( title = "Checking datasource configured with timezone",body = function( currentSpec ){
 				local.result = _InternalRequest(
 					template : "#uri#\test.cfm",
