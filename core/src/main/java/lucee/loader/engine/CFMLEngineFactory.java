@@ -340,13 +340,20 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 						}
 					}
 
+					/**
+					 * If no core.lco found, fall back to the currently executing .jar
+					 */
+					if ( is == null ){
+						String jarPath = getClassLoaderPath(mainClassLoader );
+						is = new FileInputStream( new File( jarPath ) );
+					}
+
+					/**
+					 * Copy to rc var
+					 */
 					if (is != null) {
 						os = new BufferedOutputStream(new FileOutputStream(isPack200 ? rcPack200 : rc));
 						copy(is, os);
-					}
-					else {
-						String jarPath = getClassLoaderPath(mainClassLoader );
-						is = new FileInputStream( new File( jarPath ) );
 					}
 				}
 				finally {

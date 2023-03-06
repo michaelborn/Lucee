@@ -69,7 +69,7 @@ jobs:
 
       - name: Generate Javadocs
         working-directory: ./loader
-        run: mvn --batch-mode -f pom.xml javadoc:javadoc
+        run: mvn -Dmaven.javadoc.skip=false --batch-mode -f pom.xml javadoc:javadoc
 
       - name: Get Project Version for Javadocs Versioning
         id: current_version

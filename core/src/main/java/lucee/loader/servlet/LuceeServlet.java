@@ -37,9 +37,13 @@ public class LuceeServlet extends AbsServlet {
 	 * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
 	 */
 	@Override
-	public void init(final ServletConfig sg) throws ServletException {
+	public void init(final ServletConfig sg) {
+		try{
 		super.init(sg);
 		engine = CFMLEngineFactory.getInstance(sg, this);
+		} catch( Exception e ){
+			throw new RuntimeException( e );
+		}
 	}
 
 	/**

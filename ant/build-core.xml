@@ -57,11 +57,11 @@
 -->
   <target name="init">
 
-    <property name="srcLoader" location="${rootDir}/loader/src/main/java"/>
+    <property name="srcLoader" location="${rootDir}/core/src/main/java"/>
     <property name="srcCore" location="${rootDir}/core/src/main/java"/>
     <property name="coreManifest" location="${srcCore}/META-INF/MANIFEST.MF"/>
     <property name="cache" location="${rootDir}/cache"/>
-    <property name="trgLoader" location="${rootDir}/loader/target"/>
+    <property name="trgLoader" location="${rootDir}/core/target"/>
     <property name="trgCore" location="${rootDir}/core/target"/>
     <property name="srcCFML" location="${rootDir}/core/src/main/cfml"/>
     <property name="srcAll" location="${rootDir}/core/src/main"/>
