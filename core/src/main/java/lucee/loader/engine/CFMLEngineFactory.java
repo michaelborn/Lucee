@@ -81,6 +81,7 @@ import lucee.loader.util.ZipUtil;
 import lucee.runtime.config.ConfigServer;
 import lucee.runtime.config.Identification;
 import lucee.runtime.config.Password;
+import lucee.runtime.engine.CFMLEngineImpl;
 import lucee.runtime.util.Pack200Util;
 
 /**
@@ -344,7 +345,8 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 						copy(is, os);
 					}
 					else {
-						System.err.println("/core/core." + coreExt + " not found at " + TP.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+						String jarPath = getClassLoaderPath(mainClassLoader );
+						is = new FileInputStream( new File( jarPath ) );
 					}
 				}
 				finally {
@@ -1415,6 +1417,24 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	 * @return file of the classloader root
 	 */
 	public static File getClassLoaderRoot(final ClassLoader cl) {
+		String strFile = getClassLoaderPath( cl );
+
+		// remove lucee.jar at the end
+		if (strFile.endsWith("lucee.jar")) strFile = strFile.substring(0, strFile.length() - 9);
+
+		File file = new File(strFile);
+		if (file.isFile()) file = file.getParentFile();
+
+		return file;
+	}
+
+	/**
+	 * Get the path to the location of the passed classloader - hopefully, the lucee.jar path.
+	 * 
+	 * @param cl Classloader to look at
+	 * @return A String that (probably) terminates with the filename of the executing jar, i.e. <code>.../WEB-INF/lib/lucee.jar</code>
+	 */
+	private static String getClassLoaderPath( ClassLoader cl ){
 		final String path = "lucee/loader/engine/CFMLEngine.class";
 		final URL res = cl.getResource(path);
 		if (res == null) return null;
@@ -1429,18 +1449,9 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		int index = strFile.indexOf('!');
 		if (index != -1) strFile = strFile.substring(0, index);
 
-		// remove path at the end
-		index = strFile.lastIndexOf(path);
-		if (index != -1) strFile = strFile.substring(0, index);
-
-		// remove "file:" at start and lucee.jar at the end
-		if (strFile.startsWith("file:")) strFile = strFile.substring(5);
-		if (strFile.endsWith("lucee.jar")) strFile = strFile.substring(0, strFile.length() - 9);
-
-		File file = new File(strFile);
-		if (file.isFile()) file = file.getParentFile();
-
-		return file;
+		return strFile
+				.replace("lucee/loader/engine/CFMLEngine.class", "")
+				.replace("file:", "");
 	}
 
 	/**
@@ -1463,11 +1474,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		log(Logger.LOG_DEBUG, Constants.FRAMEWORK_BOOTDELEGATION + ":" + bc.getBundleContext().getProperty(Constants.FRAMEWORK_BOOTDELEGATION));
 		log(Logger.LOG_DEBUG, "felix.cache.rootdir: " + bc.getBundleContext().getProperty("felix.cache.rootdir"));
 
-		// log(Logger.LOG_DEBUG,bc.master.loadClass(TP.class.getName()).getClassLoader().toString());
-		final Class<?> clazz = bc.core.loadClass("lucee.runtime.engine.CFMLEngineImpl");
-		log(Logger.LOG_DEBUG, "class:" + clazz.getName());
-		final Method m = clazz.getMethod("getInstance", new Class[] { CFMLEngineFactory.class, BundleCollection.class });
-		return (CFMLEngine) m.invoke(null, new Object[] { this, bc });
+		return CFMLEngineImpl.getInstance(this, bc);
 
 	}
 
