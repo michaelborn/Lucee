@@ -13,7 +13,7 @@ public class CFMLEngineFactoryTest {
     
     @Test
     public void canInitialize() {
-        ServletConfig mockServletConfig = Mockito.mock( ServletConfig.class );
+        ServletConfig mockServletConfig = Mockito.mock(ServletConfig.class);
         CFMLEngineFactory factory = new CFMLEngineFactory( mockServletConfig );
 
         assertNotNull(factory);
