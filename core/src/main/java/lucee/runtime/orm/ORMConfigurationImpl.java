@@ -441,7 +441,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return dbCreateAsInt(dbCreateDefault);
 	}
 
-	public int getDbCreate(String datasourceName) { // FUTURE add to interface
+	public int getDbCreate(String datasourceName) {
 		return dbCreateAsInt(_get(datasourceName, dbCreateDefault, dbCreateMap));
 	}
 
@@ -450,7 +450,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return dialectDefault;
 	}
 
-	public String getDialect(String datasourceName) { // FUTURE add to interface
+	public String getDialect(String datasourceName) {
 		return _get(datasourceName, dialectDefault, dialectMap);
 	}
 
@@ -459,7 +459,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return schemaDefault;
 	}
 
-	public String getSchema(String datasourceName) { // FUTURE add to interface
+	public String getSchema(String datasourceName) {
 		return _get(datasourceName, schemaDefault, schemaMap);
 	}
 
@@ -468,7 +468,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return catalogDefault;
 	}
 
-	public String getCatalog(String datasourceName) { // FUTURE add to interface
+	public String getCatalog(String datasourceName) {
 		return _get(datasourceName, catalogDefault, catalogMap);
 	}
 
@@ -478,7 +478,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return toResEL(config, sqlScriptDefault, true);
 	}
 
-	public Resource getSqlScript(String datasourceName) { // FUTURE add to interface
+	public Resource getSqlScript(String datasourceName) {
 		String res = _get(datasourceName, sqlScriptDefault, sqlScriptMap);
 		if (StringUtil.isEmpty(res)) return null;
 		return toResEL(config, res, true);

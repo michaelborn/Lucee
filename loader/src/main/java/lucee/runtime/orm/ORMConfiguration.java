@@ -24,7 +24,7 @@ public interface ORMConfiguration {
 	public static final int DBCREATE_NONE = 0;
 	public static final int DBCREATE_UPDATE = 1;
 	public static final int DBCREATE_DROP_CREATE = 2;
-	// FUTURE enable
+
 	public String hash();
 
 	/**
@@ -36,6 +36,8 @@ public interface ORMConfiguration {
 	 * @return the catalog
 	 */
 	public String getCatalog();
+
+	public String getCatalog(String datasourceName);
 
 	/**
 	 * @return the cfcLocation
@@ -50,9 +52,22 @@ public interface ORMConfiguration {
 	public int getDbCreate();
 
 	/**
+	 * Get the dbcreate setting for the given datasource
+	 * 
+	 * @param datasourceName
+	 */
+	public int getDbCreate(String datasourceName);
+
+	/**
 	 * @return the dialect
 	 */
 	public String getDialect();
+
+	/**
+	 * Dialect for the given datasource
+	 * @param datasourceName
+	 */
+	public String getDialect(String datasourceName);
 
 	/**
 	 * @return the eventHandling
@@ -84,6 +99,13 @@ public interface ORMConfiguration {
 	public String getSchema();
 
 	/**
+	 * Get schema for the given datasource
+	 * 
+	 * @param datasourceName
+	 */
+	public String getSchema(String datasourceName);
+
+	/**
 	 * @return the secondaryCacheEnabled
 	 */
 	public boolean secondaryCacheEnabled();
@@ -92,6 +114,13 @@ public interface ORMConfiguration {
 	 * @return the sqlScript
 	 */
 	public Resource getSqlScript();
+
+	/**
+	 * Get SQL script for the given datasource
+	 * 
+	 * @param datasourceName
+	 */
+	public Resource getSqlScript(String datasourceName);
 
 	/**
 	 * @return the useDBForMapping
