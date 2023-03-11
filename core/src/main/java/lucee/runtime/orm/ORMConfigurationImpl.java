@@ -140,7 +140,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		// catalog
 		obj = settings.get(CATALOG, null);
 		if (!StringUtil.isEmpty(obj)) {
-			Coll coll = _load(obj);
+			Coll coll = _loadSettingGroup(obj);
 			c.catalogDefault = StringUtil.emptyIfNull(coll.def);
 			c.catalogMap = coll.map;
 		}
@@ -152,7 +152,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		// dbcreate
 		obj = settings.get(DB_CREATE, null);
 		if (!StringUtil.isEmpty(obj)) {
-			Coll coll = _load(obj);
+			Coll coll = _loadSettingGroup(obj);
 			c.dbCreateDefault = StringUtil.emptyIfNull(coll.def);
 			c.dbCreateMap = coll.map;
 		}
@@ -164,7 +164,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		// dialect
 		obj = settings.get(DIALECT, null);
 		if (!StringUtil.isEmpty(obj)) {
-			Coll coll = _load(obj);
+			Coll coll = _loadSettingGroup(obj);
 			c.dialectDefault = StringUtil.emptyIfNull(coll.def);
 			c.dialectMap = coll.map;
 		}
@@ -176,7 +176,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		// sqlscript
 		obj = settings.get(SQL_SCRIPT, null);
 		if (!StringUtil.isEmpty(obj)) {
-			Coll coll = _load(obj);
+			Coll coll = _loadSettingGroup(obj);
 			c.sqlScriptDefault = StringUtil.emptyIfNull(coll.def);
 			c.sqlScriptMap = coll.map;
 		}
@@ -219,7 +219,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		// dc.getSchema());
 		obj = settings.get(SCHEMA, null);
 		if (obj != null) {
-			Coll coll = _load(obj);
+			Coll coll = _loadSettingGroup(obj);
 			c.schemaDefault = StringUtil.emptyIfNull(coll.def);
 			c.schemaMap = coll.map;
 		}
@@ -241,7 +241,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 				c.cacheConfig = toRes(config, obj, true);
 			}
 			catch (ExpressionException e) {
-				// print.printST(e);
+				throw new RuntimeException( e );
 			}
 		}
 
@@ -255,7 +255,7 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 				c.ormConfig = toRes(config, obj, true);
 			}
 			catch (ExpressionException e) {
-				// print.printST(e);
+				throw new RuntimeException( e );
 			}
 		}
 		c.ac = ac;
@@ -263,7 +263,12 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return c;
 	}
 
-	private static Coll _load(Object obj) {
+	/**
+	 * Load config group - could be a single string setting, could be a struct of settings
+	 * 
+	 * @param obj Config struct, for example the `this.ormSettings` configuration struct.
+	 */
+	private static Coll _loadSettingGroup(Object obj) {
 		final Coll coll = new Coll();
 		if (obj != null) {
 			// multi
@@ -290,6 +295,11 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 			}
 		}
 		return coll;
+	}
+
+	@Override
+	public String hash(){
+		return "";
 	}
 
 	private static Resource toRes(Config config, Object obj, boolean existing) throws ExpressionException {
@@ -578,43 +588,6 @@ class _GetStruct implements _Get {
 	@Override
 	public String toString() {
 		return "_GetStruct:" + sct.toString();
-	}
-}
-
-class _GetElement implements _Get {
-
-	private Element el;
-
-	public _GetElement(Element el) {
-		this.el = el;
-	}
-
-	@Override
-	public Object get(Collection.Key name, Object defaultValue) {
-		String value = _get(name.getString());
-		if (value == null) value = _get(StringUtil.camelToHypenNotation(name.getString()));
-		if (value == null) value = _get(name.getLowerString());
-		if (value == null) {
-			NamedNodeMap map = el.getAttributes();
-			int len = map.getLength();
-			Attr attr;
-			String n;
-			for (int i = 0; i < len; i++) {
-				attr = (Attr) map.item(i);
-				n = attr.getName();
-				n = StringUtil.replace(n, "-", "", false).toLowerCase();
-				if (n.equalsIgnoreCase(name.getLowerString())) return attr.getValue();
-			}
-
-		}
-
-		if (value == null) return defaultValue;
-		return value;
-	}
-
-	private String _get(String name) {
-		if (el.hasAttribute(name)) return el.getAttribute(name);
-		return null;
 	}
 }
 
