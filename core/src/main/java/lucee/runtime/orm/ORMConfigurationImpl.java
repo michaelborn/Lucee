@@ -18,20 +18,13 @@
  */
 package lucee.runtime.orm;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.w3c.dom.Attr;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-
 import lucee.commons.io.res.Resource;
 import lucee.commons.lang.StringUtil;
-import lucee.loader.engine.CFMLEngine;
-import lucee.loader.engine.CFMLEngineFactory;
 import lucee.runtime.PageContext;
 import lucee.runtime.config.Config;
 import lucee.runtime.engine.ThreadLocalPageContext;
@@ -115,10 +108,6 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		autogenmap = true;
 		flushAtRequestEnd = true;
 		useDBForMapping = true;
-	}
-
-	public static ORMConfiguration load(Config config, ApplicationContext ac, Element el, Resource defaultCFCLocation, ORMConfiguration defaultConfig) {
-		return _load(config, ac, new _GetElement(el), defaultCFCLocation, defaultConfig);
 	}
 
 	public static ORMConfiguration load(Config config, ApplicationContext ac, Struct settings, Resource defaultCFCLocation, ORMConfiguration defaultConfig) {
