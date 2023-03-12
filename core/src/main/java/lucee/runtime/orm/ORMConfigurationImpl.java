@@ -18,6 +18,7 @@
  */
 package lucee.runtime.orm;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -25,6 +26,8 @@ import java.util.Map.Entry;
 
 import lucee.commons.io.res.Resource;
 import lucee.commons.lang.StringUtil;
+import lucee.loader.engine.CFMLEngine;
+import lucee.loader.engine.CFMLEngineFactory;
 import lucee.runtime.PageContext;
 import lucee.runtime.config.Config;
 import lucee.runtime.engine.ThreadLocalPageContext;
@@ -297,11 +300,6 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		return coll;
 	}
 
-	@Override
-	public String hash(){
-		return "";
-	}
-
 	private static Resource toRes(Config config, Object obj, boolean existing) throws ExpressionException {
 		PageContext pc = ThreadLocalPageContext.get();
 		if (pc != null) return Caster.toResource(pc, obj, existing);
@@ -351,6 +349,67 @@ public class ORMConfigurationImpl implements ORMConfiguration {
 		other.sqlScriptDefault = sqlScriptDefault;
 		other.sqlScriptMap = sqlScriptMap;
 		return other;
+	}
+
+	@Override
+	public String hash() { // no longer used in Hibernate 3.5.5.72 and above
+		ApplicationContext _ac = ac;
+		if (_ac == null) _ac = ThreadLocalPageContext.get().getApplicationContext();
+		Object ds = _ac.getORMDataSource();
+		ORMConfiguration ormConf = _ac.getORMConfiguration();
+
+		StringBuilder data = new StringBuilder().append(ormConf.autogenmap()).append(':').append(ormConf.getCatalog()).append(':').append(ormConf.isDefaultCfcLocation())
+				.append(':').append(ormConf.eventHandling()).append(':').append(ormConf.namingStrategy()).append(':').append(ormConf.eventHandler()).append(':')
+				.append(ormConf.flushAtRequestEnd()).append(':').append(ormConf.logSQL()).append(':').append(ormConf.autoManageSession()).append(':')
+				.append(ormConf.skipCFCWithError()).append(':').append(ormConf.saveMapping()).append(':').append(ormConf.getSchema()).append(':')
+				.append(ormConf.secondaryCacheEnabled()).append(':').append(ormConf.useDBForMapping()).append(':').append(ormConf.getCacheProvider()).append(':').append(ds)
+				.append(':');
+
+		append(data, ormConf.getCfcLocations());
+		append(data, ormConf.getSqlScript());
+		append(data, ormConf.getCacheConfig());
+		append(data, ormConf.getOrmConfig());
+
+		append(data, dbCreateDefault, dbCreateMap);
+		append(data, catalogDefault, catalogMap);
+		append(data, dialectDefault, dialectMap);
+		append(data, schemaDefault, schemaMap);
+		append(data, sqlScriptDefault, sqlScriptMap);
+
+		return CFMLEngineFactory.getInstance().getSystemUtil().hash64b(data.toString());
+	}
+
+	private static void append(StringBuilder data, String def, Map<String, String> map) {
+		data.append(':').append(def);
+		if (map != null) {
+			Iterator<Entry<String, String>> it = map.entrySet().iterator();
+			Entry<String, String> e;
+			while (it.hasNext()) {
+				e = it.next();
+				data.append(':').append(e.getKey()).append(':').append(e.getValue());
+			}
+		}
+	}
+
+	private void append(StringBuilder data, Resource[] reses) {
+		if (reses == null) return;
+		for (int i = 0; i < reses.length; i++) {
+			append(data, reses[i]);
+		}
+	}
+
+	private void append(StringBuilder data, Resource res) {
+		if (res == null) return;
+		if (res.isFile()) {
+			CFMLEngine eng = CFMLEngineFactory.getInstance();
+			try {
+				data.append(eng.getSystemUtil().hash64b(eng.getIOUtil().toString(res, null)));
+				return;
+			}
+			catch (IOException e) {
+			}
+		}
+		data.append(res.getAbsolutePath()).append(':');
 	}
 
 	/**

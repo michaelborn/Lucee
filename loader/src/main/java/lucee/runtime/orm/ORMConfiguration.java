@@ -25,6 +25,8 @@ public interface ORMConfiguration {
 	public static final int DBCREATE_UPDATE = 1;
 	public static final int DBCREATE_DROP_CREATE = 2;
 
+	public String hash();
+
 	/**
 	 * @return the autogenmap
 	 */
