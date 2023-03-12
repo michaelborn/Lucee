@@ -258,6 +258,10 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		if (singelton == null) initEngine();
 	}
 
+	/**
+	 * !!! TODO: Move this to an EventListener for an `EngineShutdownEvent`
+	 * @throws BundleException
+	 */
 	public void shutdownFelix() throws BundleException {
 		log(Logger.LOG_DEBUG, "---- Shutdown Felix ----");
 
@@ -505,126 +509,22 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		return singelton;
 	}
 
-	public Felix getFelix(final File cacheRootDir, Map<String, Object> config) throws BundleException {
-
-		if (config == null) config = new HashMap<String, Object>();
-
-		// Log Level
-		int logLevel = 1; // 1 = error, 2 = warning, 3 = information, and 4 = debug
-		String strLogLevel = getSystemPropOrEnvVar("felix.log.level", null);
-		if (Util.isEmpty(strLogLevel)) strLogLevel = (String) config.get("felix.log.level");
-
-		if (!Util.isEmpty(strLogLevel)) {
-			if ("0".equalsIgnoreCase(strLogLevel)) logLevel = 0;
-			else if ("error".equalsIgnoreCase(strLogLevel) || "1".equalsIgnoreCase(strLogLevel)) logLevel = 1;
-			else if ("warning".equalsIgnoreCase(strLogLevel) || "2".equalsIgnoreCase(strLogLevel)) logLevel = 2;
-			else if ("info".equalsIgnoreCase(strLogLevel) || "information".equalsIgnoreCase(strLogLevel) || "3".equalsIgnoreCase(strLogLevel)) logLevel = 3;
-			else if ("debug".equalsIgnoreCase(strLogLevel) || "4".equalsIgnoreCase(strLogLevel)) logLevel = 4;
-		}
-		config.put("felix.log.level", "" + logLevel);
-
-		if (logger != null) {
-			if (logLevel == 2) logger.setLogLevel(Logger.LOG_WARNING);
-			else if (logLevel == 3) logger.setLogLevel(Logger.LOG_INFO);
-			else if (logLevel == 4) logger.setLogLevel(Logger.LOG_DEBUG);
-			else logger.setLogLevel(Logger.LOG_ERROR);
-		}
-
-		if (logger != null) {
-			if (logLevel == 2) logger.setLogLevel(Logger.LOG_WARNING);
-			else if (logLevel == 3) logger.setLogLevel(Logger.LOG_INFO);
-			else if (logLevel == 4) logger.setLogLevel(Logger.LOG_DEBUG);
-			else logger.setLogLevel(Logger.LOG_ERROR);
-		}
-
-		// Allow felix.cache.locking to be overridden by env var (true/false)
-		// Enables or disables bundle cache locking, which is used to prevent concurrent access to the
-		// bundle cache.
-
-		extend(config, "felix.cache.locking", null, false);
-		extend(config, "org.osgi.framework.executionenvironment", null, false);
-		extend(config, "org.osgi.framework.storage", null, false);
-		extend(config, "org.osgi.framework.storage.clean", Constants.FRAMEWORK_STORAGE_CLEAN_ONFIRSTINIT, false);
-		extend(config, Constants.FRAMEWORK_BUNDLE_PARENT, Constants.FRAMEWORK_BUNDLE_PARENT_FRAMEWORK, false);
-
-		boolean isNew = false;
-		// felix.cache.rootdir
-		if (Util.isEmpty((String) config.get("felix.cache.rootdir"))) {
-			if (!cacheRootDir.exists()) {
-				cacheRootDir.mkdirs();
-				isNew = true;
-			}
-			if (cacheRootDir.isDirectory()) config.put("felix.cache.rootdir", cacheRootDir.getAbsolutePath());
-		}
-
-		extend(config, Constants.FRAMEWORK_BOOTDELEGATION, null, true);
-		extend(config, Constants.FRAMEWORK_SYSTEMPACKAGES, null, true);
-		extend(config, Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA, null, true);
-		extend(config, "felix.cache.filelimit", null, false);
-		extend(config, "felix.cache.bufsize", null, false);
-		extend(config, "felix.bootdelegation.implicit", null, false);
-		extend(config, "felix.systembundle.activators", null, false);
-		extend(config, "org.osgi.framework.startlevel.beginning", null, false);
-		extend(config, "felix.startlevel.bundle", null, false);
-		extend(config, "felix.service.urlhandlers", null, false);
-		extend(config, "felix.auto.deploy.dir", null, false);
-		extend(config, "felix.auto.deploy.action", null, false);
-		extend(config, "felix.shutdown.hook", null, false);
-
-		if (logger != null) config.put("felix.log.logger", logger);
-		// TODO felix.log.logger
-
-		// remove any empty record, this can produce trouble
-		{
-			final Iterator<Entry<String, Object>> it = config.entrySet().iterator();
-			Entry<String, Object> e;
-			Object v;
-			while (it.hasNext()) {
-				e = it.next();
-				v = e.getValue();
-				if (v == null || v.toString().isEmpty()) it.remove();
-			}
-		}
-
-		final StringBuilder sb = new StringBuilder("Loading felix with config:");
-		final Iterator<Entry<String, Object>> it = config.entrySet().iterator();
-		Entry<String, Object> e;
-		while (it.hasNext()) {
-			e = it.next();
-			sb.append("\n- ").append(e.getKey()).append(':').append(e.getValue());
-		}
-		// log(Logger.LOG_INFO, sb.toString());
-
-		felix = new Felix(config);
-		try {
-			felix.start();
-		}
-		catch (BundleException be) {
-			// this could be cause by an invalid felix cache, so we simply delete it and try again
-			if (!isNew && "Error creating bundle cache.".equals(be.getMessage())) {
-				Util.deleteContent(cacheRootDir, null);
-
-			}
-
-		}
+	/**
+	 * Build or retrieve the Felix OSGI framework for bundle loading purposes.
+	 * 
+	 * @param felixCacheDirectory
+	 * @param config
+	 * @return Felix framework
+	 * @throws BundleException
+	 */
+	public Felix getFelix(File felixCacheDirectory, Map<String, Object> config) throws BundleException {
+		this.felix = new OSGIFrameworkBuilder()
+			.withConfig( config )
+			.withLogger( logger )
+			.withCacheDirectory(felixCacheDirectory)
+			.build();
 
 		return felix;
-	}
-
-	private static void extend(Map<String, Object> config, String name, String defaultValue, boolean add) {
-		String addional = getSystemPropOrEnvVar(name, null);
-		if (Util.isEmpty(addional, true)) {
-			if (Util.isEmpty(defaultValue, true)) return;
-			addional = defaultValue.trim();
-		}
-		if (add) {
-			String existing = (String) config.get(name);
-			if (!Util.isEmpty(existing, true)) config.put(name, existing.trim() + "," + addional.trim());
-			else config.put(name, addional.trim());
-		}
-		else {
-			config.put(name, addional.trim());
-		}
 	}
 
 	protected static String getSystemPropOrEnvVar(String name, String defaultValue) {
