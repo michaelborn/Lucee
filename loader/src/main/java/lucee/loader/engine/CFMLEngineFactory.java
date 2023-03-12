@@ -999,8 +999,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	}
 
 	public static File _extractCoreIfLoader(File file) throws IOException {
-		JarFile jf = new JarFile(file);
-		try {
+		try( JarFile jf = new JarFile(file) ) {
 			// is it a lucee loader ?
 			String value = jf.getManifest().getMainAttributes().getValue("Main-Class");
 			if (Util.isEmpty(value) || !value.equals("lucee.runtime.script.Main")) return null;
@@ -1009,24 +1008,24 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 			JarEntry je = jf.getJarEntry("core/core.lco");
 			if (je == null) return null;
 
-			InputStream is = jf.getInputStream(je);
 			File trg = File.createTempFile("lucee", ".lco");
-			OutputStream os = new FileOutputStream(trg);
-			try {
+			
+			try(
+				InputStream is = jf.getInputStream(je);
+				OutputStream os = new FileOutputStream(trg);
+			) {
 				Util.copy(is, os);
-			}
-			finally {
-				Util.closeEL(is);
-				Util.closeEL(os);
 			}
 
 			return trg;
 		}
-		finally {
-			jf.close();
-		}
 	}
 
+	/**
+	 * Get the update provider
+	 * 
+	 * @throws MalformedURLException
+	 */
 	public URL getUpdateLocation() throws MalformedURLException {
 		URL location = singelton == null ? null : singelton.getUpdateLocation();
 
