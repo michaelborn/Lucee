@@ -29,6 +29,7 @@ import lucee.commons.lang.StringUtil;
 import lucee.runtime.PageContext;
 import lucee.runtime.engine.ThreadLocalPageContext;
 import lucee.runtime.exp.PageException;
+import lucee.runtime.exp.ExpressionException;
 import lucee.runtime.op.Caster;
 import lucee.runtime.op.Decision;
 import lucee.runtime.osgi.BundleFile;
@@ -38,7 +39,6 @@ import lucee.runtime.type.KeyImpl;
 import lucee.runtime.type.Struct;
 import lucee.runtime.type.util.ArrayUtil;
 import lucee.runtime.type.util.ListUtil;
-
 public class JavaSettingsImpl implements JavaSettings {
 
 	private final Resource[] resources;
@@ -234,6 +234,9 @@ public class JavaSettingsImpl implements JavaSettings {
 					res = AppListenerUtil.toResourceExisting(pc.getConfig(), pc.getApplicationContext(), path, false);
 					if (res == null || !res.exists()) res = ResourceUtil.toResourceExisting(pc, path, true, null);
 					if (res != null) list.add(res);
+					if ( res == null ){
+						throw new ExpressionException("file or directory [" + path + "] does not exist");
+					}
 				}
 				catch (Exception e) {
 					LogUtil.log(pc, ModernApplicationContext.class.getName(), e);
