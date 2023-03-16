@@ -295,17 +295,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 			throw new ServletException(e);
 		}
 
-		final File[] patches = PATCH_ENABLED ? patcheDir.listFiles(new ExtensionFilter(new String[] { ".lco" })) : null;
-		File lucee = null;
-		if (patches != null) {
-			for (final File patch: patches) {
-				if (patch.getName().startsWith("tmp.lco")) patch.delete();
-				else if (patch.lastModified() < coreCreated) patch.delete();
-				else if (patch.length() < 1000000L) patch.delete();
-				else if (lucee == null || Util.isNewerThan(toVersion(patch.getName(), VERSION_ZERO), toVersion(lucee.getName(), VERSION_ZERO))) lucee = patch;
-			}
-		}
-		if (lucee != null && Util.isNewerThan(coreVersion, toVersion(lucee.getName(), VERSION_ZERO))) lucee = null;
+		File lucee = loadLuceeFromPatchDirectory(coreVersion, coreCreated, patcheDir);
 
 		// Load Lucee
 		// URL url=null;
@@ -334,14 +324,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 
 					if (is == null) {
 						// check for custom path of Lucee core
-						String s = System.getProperty("lucee.core.path");
-						if (s != null) {
-							File dir = new File(s);
-							File[] files = dir.listFiles(new ExtensionFilter(new String[]{ coreExt }));
-							if (files.length > 0) {
-								is = new FileInputStream(files[0]);
-							}
-						}
+						is = findCoreInPath(System.getProperty("lucee.core.path"), coreExt);
 					}
 
 					/**
@@ -366,27 +349,10 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 				}
 
 				// unpack if necessary
-				if (isPack200) {
-					Pack200Util.pack2Jar(rcPack200, rc);
-					log(Logger.LOG_DEBUG, "unpack " + rcPack200 + " to " + rc);
-					rcPack200.delete();
-				}
+				if (isPack200) uncompressPackedCore(rc, rcPack200);
 
 				CFMLEngine engine = null;
 				if (rc.exists()) {
-					lucee = new File(patcheDir, getVersion(rc) + "." + coreExt);
-
-					try {
-						is = new FileInputStream(rc);
-						os = new BufferedOutputStream(new FileOutputStream(lucee));
-						copy(is, os);
-					}
-					finally {
-						closeEL(is);
-						closeEL(os);
-						rc.delete();
-					}
-
 					engine = _getCore(lucee);
 				}
 				else {
@@ -396,14 +362,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 
 				setEngine(engine);
 			}
-			else {
-
-				bundleCollection = BundleLoader.loadBundles(this, getFelixCacheDirectory(), getBundleDirectory(), lucee, bundleCollection);
-				// bundle=loadBundle(lucee);
-				log(Logger.LOG_DEBUG, "Loaded bundle: [" + bundleCollection.core.getSymbolicName() + "]");
-				setEngine(getEngine(bundleCollection));
-				log(Logger.LOG_DEBUG, "Loaded engine: [" + singelton + "]");
-			}
+			else loadBundlesFromCore(lucee);
 			version = singelton.getInfo().getVersion();
 
 			log(Logger.LOG_DEBUG, "Loaded Lucee Version [" + singelton.getInfo().getVersion() + "]");
@@ -424,16 +383,122 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		if (updateType.equalsIgnoreCase("auto")) new UpdateChecker(this, null).start();
 
 	}
+	/**
+	 * Look for a lucee core .lco file in the patch (deploy?) directory.
+	 * <p>
+	 * The core file must be newer than the current loader.
+	 * 
+	 * @param coreVersion
+	 * @param coreCreated
+	 * @param patcheDir
+	 * @return
+	 */
+	private File loadLuceeFromPatchDirectory(final Version coreVersion, final long coreCreated, File patcheDir) {
+		final File[] patches = PATCH_ENABLED ? patcheDir.listFiles(new ExtensionFilter(new String[] { ".lco" })) : null;
+		File lucee = null;
+		if (patches != null) {
+			for (final File patch: patches) {
+				if (patch.getName().startsWith("tmp.lco")) patch.delete();
+				else if (patch.lastModified() < coreCreated) patch.delete();
+				else if (patch.length() < 1000000L) patch.delete();
+				else if (lucee == null || Util.isNewerThan(toVersion(patch.getName(), VERSION_ZERO), toVersion(lucee.getName(), VERSION_ZERO))) lucee = patch;
+			}
+		}
+		if (lucee != null && Util.isNewerThan(coreVersion, toVersion(lucee.getName(), VERSION_ZERO))) lucee = null;
+		return lucee;
+	}
 
-	private static String getVersion(File file) throws IOException, BundleException {
-		JarFile jar = new JarFile(file);
-		try {
+	/**
+	 * Given a loaded Lucee core jar, load the bundles into the current bundle context.
+	 * 
+	 * @param lucee
+	 * @throws IOException
+	 * @throws BundleException
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
+	private void loadBundlesFromCore(File lucee) throws IOException, BundleException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+		bundleCollection = BundleLoader.loadBundles(this, getFelixCacheDirectory(), getBundleDirectory(), lucee, bundleCollection);
+		// bundle=loadBundle(lucee);
+		log(Logger.LOG_DEBUG, "Loaded bundle: [" + bundleCollection.core.getSymbolicName() + "]");
+		setEngine(getEngine(bundleCollection));
+		log(Logger.LOG_DEBUG, "Loaded engine: [" + singelton + "]");
+	}
+
+	/**
+	 * Given an uncompressed lucee core.jar file, copy it to an output stream
+	 * @param patcheDir
+	 * @param coreExt
+	 * @param rc
+	 * @return
+	 * @throws IOException
+	 * @throws BundleException
+	 * @throws FileNotFoundException
+	 * @throws ClassNotFoundException
+	 * @throws NoSuchMethodException
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
+	private void copyCoreToPatchDirectory(File patcheDir, final String coreExt, final File rc)
+			throws IOException, BundleException, FileNotFoundException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+		File lucee;
+		lucee = new File(patcheDir, getJarManifestVersion(rc) + "." + coreExt);
+		try(
+			InputStream is = new FileInputStream(rc);
+			OutputStream os = new BufferedOutputStream(new FileOutputStream(lucee));
+		) {
+			copy(is, os);
+		}
+		finally {
+			rc.delete();
+		}
+	}
+
+	/**
+	 * Given a pack200-compressed Lucee core file, unpack it to a normal .jar file
+	 * @param rc
+	 * @param rcPack200
+	 * @throws IOException
+	 */
+	private void uncompressPackedCore(final File rc, File rcPack200) throws IOException {
+		Pack200Util.pack2Jar(rcPack200, rc);
+		log(Logger.LOG_DEBUG, "unpack " + rcPack200 + " to " + rc);
+		rcPack200.delete();
+	}
+
+	/**
+	 * Look for the lucee core .lco (or other file extension) at the provided location.
+	 * @param path
+	 * @param coreExt
+	 * @return
+	 * @throws FileNotFoundException
+	 */
+	private InputStream findCoreInPath(String path,final String coreExt ) throws FileNotFoundException {
+		if (path != null) {
+			File dir = new File(path);
+			File[] files = dir.listFiles(new ExtensionFilter(new String[]{ coreExt }));
+			if (files.length > 0) {
+				return new FileInputStream(files[0]);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Read the manifest Bundle-Version from the provided Jar file
+	 * 
+	 * @param file
+	 * 
+	 * @throws IOException
+	 * @throws BundleException
+	 */
+	private static String getJarManifestVersion(File file) throws IOException, BundleException {
+		try( JarFile jar = new JarFile(file) ) {
 			Manifest manifest = jar.getManifest();
 			Attributes attrs = manifest.getMainAttributes();
 			return attrs.getValue("Bundle-Version");
-		}
-		finally {
-			jar.close();
 		}
 	}
 
