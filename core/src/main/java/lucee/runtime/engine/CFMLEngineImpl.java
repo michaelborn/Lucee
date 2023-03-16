@@ -258,7 +258,7 @@ public final class CFMLEngineImpl implements CFMLEngine {
 				throw Caster.toPageRuntimeException(e);
 			}
 		}
-		this.info = new InfoImpl(bundleCollection == null ? null : bundleCollection.core);
+		this.info = new InfoImpl(bundleCollection == null ? null : bundleCollection.getCoreBundle());
 		Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader()); // MUST better location for this
 
 		UpdateInfo updateInfo;

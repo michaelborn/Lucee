@@ -266,7 +266,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 		log(Logger.LOG_DEBUG, "---- Shutdown Felix ----");
 
 		BundleCollection bc = singelton.getBundleCollection();
-		if (bc == null || bc.felix == null) return;
+		if (bc == null || bc.getOSGIFramework() == null) return;
 
 		// stop
 		BundleLoader.removeBundles(bc);
@@ -422,7 +422,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	private void loadBundlesFromCore(File lucee) throws IOException, BundleException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		bundleCollection = BundleLoader.loadBundles(this, getFelixCacheDirectory(), getBundleDirectory(), lucee, bundleCollection);
 		// bundle=loadBundle(lucee);
-		log(Logger.LOG_DEBUG, "Loaded bundle: [" + bundleCollection.core.getSymbolicName() + "]");
+		log(Logger.LOG_DEBUG, "Loaded bundle: [" + bundleCollection.getCoreBundle().getSymbolicName() + "]");
 		setEngine(getEngine(bundleCollection));
 		log(Logger.LOG_DEBUG, "Loaded engine: [" + singelton + "]");
 	}
@@ -1440,7 +1440,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	private CFMLEngine getEngine(final BundleCollection bc)
 			throws ClassNotFoundException, SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
 
-		log(Logger.LOG_DEBUG, "state: " + BundleUtil.bundleState(bc.core.getState(), ""));
+		log(Logger.LOG_DEBUG, "state: " + BundleUtil.bundleState(bc.getCoreBundle().getState(), ""));
 		// bundle.getBundleContext().getServiceReference(CFMLEngine.class.getName());
 		log(Logger.LOG_DEBUG, Constants.FRAMEWORK_BOOTDELEGATION + ":" + bc.getBundleContext().getProperty(Constants.FRAMEWORK_BOOTDELEGATION));
 		log(Logger.LOG_DEBUG, "felix.cache.rootdir: " + bc.getBundleContext().getProperty("felix.cache.rootdir"));

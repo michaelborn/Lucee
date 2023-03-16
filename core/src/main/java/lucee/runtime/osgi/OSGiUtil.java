@@ -283,8 +283,8 @@ public class OSGiUtil {
 		// first we try to load the class from the Lucee core
 		try {
 			// load from core
-			if (bc.core.getEntry(classPath) != null) {
-				return bc.core.loadClass(className);
+			if (bc.getCoreBundle().getEntry(classPath) != null) {
+				return bc.getCoreBundle().loadClass(className);
 			}
 		}
 		catch (Exception e) {
@@ -293,7 +293,7 @@ public class OSGiUtil {
 		// now we check all started bundled (not only bundles used by core)
 		Bundle[] bundles = bc.getBundleContext().getBundles();
 		for (Bundle b: bundles) {
-			if (b != bc.core && b.getEntry(classPath) != null) {
+			if (b != bc.getCoreBundle() && b.getEntry(classPath) != null) {
 				try {
 					return b.loadClass(className);
 				}

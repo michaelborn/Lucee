@@ -25,13 +25,18 @@ import org.apache.felix.framework.Felix;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
-public class BundleCollection {
-	public final Bundle core;
-	private final List<Bundle> slaves;
-	public final Felix felix;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
-	public BundleCollection(final Felix felix, final Bundle master, final List<Bundle> slaves) {
-		this.felix = felix;
+@Singleton
+public class BundleCollection {
+	private final Bundle core;
+	private final List<Bundle> slaves;
+	private final Felix framework;
+
+
+	public BundleCollection(final Felix framework, final Bundle master, final List<Bundle> slaves) {
+		this.framework = framework;
 		this.core = master;
 		this.slaves = new ArrayList<Bundle>();
 		if (slaves != null) for (final Bundle slave: slaves)
@@ -47,6 +52,14 @@ public class BundleCollection {
 	}
 
 	public BundleContext getBundleContext() {
-		return felix.getBundleContext();
+		return framework.getBundleContext();
+	}
+
+	public Felix getOSGIFramework(){
+		return framework;
+	}
+
+	public Bundle getCoreBundle(){
+		return core;
 	}
 }

@@ -5921,7 +5921,7 @@ public final class ConfigAdmin {
 		BundleCollection coreBundles = ConfigWebUtil.getEngine(config).getBundleCollection();
 
 		// core master
-		_cleanBundles(candiatesToRemove, coreBundles.core.getSymbolicName(), coreBundles.core.getVersion());
+		_cleanBundles(candiatesToRemove, coreBundles.getCoreBundle().getSymbolicName(), coreBundles.getCoreBundle().getVersion());
 
 		// core slaves
 		Iterator<Bundle> it = coreBundles.getSlaves();

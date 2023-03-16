@@ -49,40 +49,20 @@ public class BundleLoader {
 		// if (rc.getName().toLowerCase().toLowerCase().indexOf("ehcache") != -1)
 		// System. err.println(rc.getName());
 
-		final JarFile jf = new JarFile(rc);// TODO this should work in any case, but we should still improve this code
-		try {
+		try( JarFile jf = new JarFile(rc) ) {
 			// Manifest
 			final Manifest mani = jf.getManifest();
 			if (mani == null) throw new IOException("lucee core [" + rc + "] is invalid, there is no META-INF/MANIFEST.MF File");
 			final Attributes attrs = mani.getMainAttributes();
 
 			// default properties
-			final Properties defProp = loadDefaultProperties(jf);
-
-			// Get data from Manifest and default.properties
-
-			// Lucee Core Version
-			// if(Util.isEmpty(rcv)) throw new IOException("lucee core ["+rc+"] is invalid, no core version is
-			// defined in the {Lucee-Core}/default.properties File");
-			// read the config from default.properties
-			final Map<String, Object> config = new HashMap<String, Object>();
-			{
-				final Iterator<Entry<Object, Object>> it = defProp.entrySet().iterator();
-				Entry<Object, Object> e;
-				String k;
-				while (it.hasNext()) {
-					e = it.next();
-					k = (String) e.getKey();
-					if (!k.startsWith("org.") && !k.startsWith("felix.")) continue;
-					config.put(k, CFMLEngineFactorySupport.removeQuotes((String) e.getValue(), true));
-				}
-			}
+			Map<String, Object> config = loadDefaultProperties(jf);
 
 			// close all bundles
 			Felix felix;
 			if (old != null) {
 				removeBundlesEL(old);
-				felix = old.felix;
+				felix = old.getOSGIFramework();
 				// stops felix (wait for it)
 				BundleUtil.stop(felix, false);
 				felix = engFac.getFelix(cacheRootDir, config);
@@ -92,7 +72,7 @@ public class BundleLoader {
 
 			// get bundle needed for that core
 			final String rb = attrs.getValue("Require-Bundle");
-			if (Util.isEmpty(rb)) throw new IOException("lucee core [" + rc + "] is invalid, no Require-Bundle definition found in the META-INF/MANIFEST.MF File");
+			// if (Util.isEmpty(rb)) throw new IOException("lucee core [" + rc + "] is invalid, no Require-Bundle definition found in the META-INF/MANIFEST.MF File");
 
 			// get fragments needed for that core (Lucee specific Key)
 			final String rbf = attrs.getValue("Require-Bundle-Fragment");
@@ -145,12 +125,7 @@ public class BundleLoader {
 
 			return new BundleCollection(felix, bundle, bundles);
 		}
-		finally {
-			if (jf != null) try {
-				jf.close();
-			}
-			catch (final IOException ioe) {}
-		}
+		
 	}
 
 	private static Map<String, File> loadAvailableBundles(final File jarDirectory) {
@@ -212,20 +187,38 @@ public class BundleLoader {
 		return rtn;
 	}
 
-	public static Properties loadDefaultProperties(final JarFile jf) throws IOException {
+	/**
+	 * Load config from jar's <code>/default.properties</code> file
+	 * 
+	 * @param jf Jar file to load properties from
+	 * @throws IOException
+	 */
+	private static Map<String, Object> loadDefaultProperties(final JarFile jf) throws IOException {
+		Map<String, Object> config = new HashMap<String, Object>();
 		final ZipEntry ze = jf.getEntry("default.properties");
 		if (ze == null) throw new IOException("the Lucee core has no default.properties file!");
 
 		final Properties prop = new Properties();
-		InputStream is = null;
-		try {
-			is = jf.getInputStream(ze);
+		try( InputStream is = jf.getInputStream(ze) ) {
 			prop.load(is);
+			// Get data from Manifest and default.properties
+
+			// Lucee Core Version
+			// if(Util.isEmpty(rcv)) throw new IOException("lucee core ["+rc+"] is invalid, no core version is
+			// defined in the {Lucee-Core}/default.properties File");
+			// read the config from default.properties
+			prop.entrySet().stream()
+				.filter( entry -> {
+					String key = entry.getKey().toString();
+					return key.startsWith( "org.") || key.startsWith( "felix." );
+				} )
+				.map( entry -> {
+					entry.setValue( CFMLEngineFactorySupport.removeQuotes((String) entry.getValue(), true) );
+					return entry;
+				})
+				.forEach( entry -> config.put( entry.getKey().toString(), entry.getValue() ) );
 		}
-		finally {
-			CFMLEngineFactorySupport.closeEL(is);
-		}
-		return prop;
+		return config;
 	}
 
 	public static void removeBundles(final BundleContext bc) throws BundleException {

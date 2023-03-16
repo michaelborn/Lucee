@@ -3429,7 +3429,7 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 		Set<String> extensions = new HashSet<String>();
 
 		// core
-		if (_eq(name, version, coreBundles.core.getSymbolicName(), coreBundles.core.getVersion())) {
+		if (_eq(name, version, coreBundles.getCoreBundle().getSymbolicName(), coreBundles.getCoreBundle().getVersion())) {
 			extensions.add("Lucee");
 			// return "Lucee";
 		}
