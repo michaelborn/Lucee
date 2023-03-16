@@ -194,7 +194,6 @@ public class BundleLoader {
 	 * @throws IOException
 	 */
 	private static Map<String, Object> loadDefaultProperties(final JarFile jf) throws IOException {
-		Map<String, Object> config = new HashMap<String, Object>();
 		final ZipEntry ze = jf.getEntry("default.properties");
 		if (ze == null) throw new IOException("the Lucee core has no default.properties file!");
 
@@ -206,19 +205,9 @@ public class BundleLoader {
 			// Lucee Core Version
 			// if(Util.isEmpty(rcv)) throw new IOException("lucee core ["+rc+"] is invalid, no core version is
 			// defined in the {Lucee-Core}/default.properties File");
-			// read the config from default.properties
-			prop.entrySet().stream()
-				.filter( entry -> {
-					String key = entry.getKey().toString();
-					return key.startsWith( "org.") || key.startsWith( "felix." );
-				} )
-				.map( entry -> {
-					entry.setValue( CFMLEngineFactorySupport.removeQuotes((String) entry.getValue(), true) );
-					return entry;
-				})
-				.forEach( entry -> config.put( entry.getKey().toString(), entry.getValue() ) );
+			
 		}
-		return config;
+		return BundleUtil.readPropertiesIntoConfig( prop );
 	}
 
 	public static void removeBundles(final BundleContext bc) throws BundleException {

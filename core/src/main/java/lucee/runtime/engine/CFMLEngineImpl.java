@@ -236,16 +236,7 @@ public final class CFMLEngineImpl implements CFMLEngine {
 				Properties prop = InfoImpl.getDefaultProperties(null);
 
 				// read the config from default.properties
-				Map<String, Object> config = new HashMap<String, Object>();
-				Iterator<Entry<Object, Object>> it = prop.entrySet().iterator();
-				Entry<Object, Object> e;
-				String k;
-				while (it.hasNext()) {
-					e = it.next();
-					k = (String) e.getKey();
-					if (!k.startsWith("org.") && !k.startsWith("felix.")) continue;
-					config.put(k, CFMLEngineFactorySupport.removeQuotes((String) e.getValue(), true));
-				}
+				Map<String, Object> config = BundleUtil.readPropertiesIntoConfig( prop );
 
 				config.put(Constants.FRAMEWORK_BOOTDELEGATION, "lucee.*");
 

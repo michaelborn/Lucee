@@ -169,4 +169,26 @@ public class BundleUtil {
 		// TODO make a better implementation for this, independent of felix
 		return bundle.getSymbolicName().equals("org.apache.felix.framework");
 	}
+
+	/**
+	 * Parse the given Properties file or map into a HashMap
+	 * 
+	 * @param props
+	 * @return
+	 */
+	public static HashMap<String, Object> readPropertiesIntoConfig( Properties props ){
+		// read the config from default.properties
+		HashMap<String, Object> config = new HashMap<String, Object>();
+		props.entrySet().stream()
+			.filter( entry -> {
+				String key = entry.getKey().toString();
+				return key.startsWith( "org.") || key.startsWith( "felix." );
+			} )
+			.map( entry -> {
+				entry.setValue( CFMLEngineFactorySupport.removeQuotes((String) entry.getValue(), true) );
+				return entry;
+			})
+			.forEach( entry -> config.put( entry.getKey().toString(), entry.getValue() ) );
+		return config;
+	}
 }
