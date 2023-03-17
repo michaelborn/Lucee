@@ -56,6 +56,38 @@
     </developer>
   </developers>
 
+  <profiles>
+    <profile>
+      <id>fatJar</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                  <id>fatJar</id>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>single</goal>
+                  </goals>
+                  <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                      <manifest>
+                        <mainClass>Main</mainClass>
+                      </manifest>
+                    </archive>
+                  </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
     <build>
         <resources>
             <resource>
@@ -296,13 +328,19 @@
       <version>7.0.5</version>
       <scope>compile</scope>
     </dependency>
-<!-- https://mvnrepository.com/artifact/org.osgi/osgi.core -->
-<dependency>
-    <groupId>org.osgi</groupId>
-    <artifactId>osgi.core</artifactId>
-    <version>8.0.0</version>
-    <scope>compile</scope>
-</dependency>
+    <!-- https://mvnrepository.com/artifact/org.osgi/osgi.core -->
+    <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.core</artifactId>
+        <version>8.0.0</version>
+        <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+    <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>5.1.0</version>
+    </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
