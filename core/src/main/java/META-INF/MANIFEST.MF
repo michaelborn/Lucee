@@ -6,6 +6,7 @@ Minor-Name-Explanation: https://en.wikipedia.org/wiki/Gelert
 State: beta
 Bundle-Name: Lucee Core
 Multi-Release: true
+Main-Class: Main
 Require-Bundle-Fragment: slf4j.nop;bundle-version=1.7.36
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: lucee.core
@@ -316,7 +317,7 @@ Export-Package: coldfusion,
  lucee.transformer.library.tag,
  lucee.transformer.util,
  lucee.transformer.cfml.script.java.function
-Require-Bundle: org.apache.commons.commons-codec;bundle-version=1.15.0,
+Require-Bundle: com.google.inject,org.apache.commons.commons-codec;bundle-version=1.15.0,
  org.apache.commons.commons-collections4;bundle-version=4.4.0,
  org.apache.commons.commons-pool2;bundle-version=2.9.0,
  org.lucee.commons.compress;bundle-version=1.9.0,
