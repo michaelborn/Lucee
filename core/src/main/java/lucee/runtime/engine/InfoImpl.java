@@ -17,6 +17,7 @@
  */
 package lucee.runtime.engine;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,9 +25,11 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 import java.util.jar.Attributes;
+import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleException;
 import org.osgi.framework.Version;
 
 import lucee.Info;
@@ -35,6 +38,7 @@ import lucee.commons.lang.ExceptionUtil;
 import lucee.commons.lang.StringUtil;
 import lucee.runtime.PageSourceImpl;
 import lucee.runtime.config.Constants;
+import lucee.runtime.exp.PageException;
 import lucee.runtime.exp.PageRuntimeException;
 import lucee.runtime.extension.ExtensionDefintion;
 import lucee.runtime.extension.RHExtension;
@@ -59,45 +63,51 @@ public final class InfoImpl implements Info {
 	private DateTime releaseDate;
 	private String versionName;
 	private String versionNameExplanation;
-	private final long releaseTime;
+	private long releaseTime;
 	private Version version;
 	private String level;
 	private List<ExtensionDefintion> requiredExtensions;
 
-	public InfoImpl() {
-		this(null);
+	public InfoImpl(JarFile jar) {
+		parseOrThrow((Bundle) jar);
+	}
+	public InfoImpl(Bundle bundle) {
+		parseOrThrow(bundle);
+	}
+	private void parseOrThrow(Bundle bundle) {
+		try {
+			Manifest manifest = getManifest(bundle);
+			if (manifest == null) throw new IllegalArgumentException("Failed to get manifest from bundle");
+			parseManifest(manifest);
+		}
+		catch (Throwable t) {
+			ExceptionUtil.rethrowIfNecessary(t);
+			throw new PageRuntimeException(Caster.toPageException(t));
+		}
 	}
 
 	/**
 	 * Build an Info object using info from the Lucee core bundle.
 	 * @param bundle
 	 */
-	public InfoImpl(Bundle bundle) {
+	private void parseManifest(Manifest manifest) throws PageException,BundleException {
 
-		try {
-			Manifest manifest = getManifest(bundle);
-			if (manifest == null) throw new IllegalArgumentException("Failed to get manifest from bundle");
-			Attributes mf = manifest.getMainAttributes();
+		Attributes mf = manifest.getMainAttributes();
 
-			versionName = mf.getValue("Minor-Name");
-			if (versionName == null) throw new RuntimeException("missing Minor-Name");
+		versionName = mf.getValue("Minor-Name");
+		if (versionName == null) throw new RuntimeException("missing Minor-Name");
 
-			versionNameExplanation = mf.getValue("Minor-Name-Explanation");
-			releaseDate = DateCaster.toDateAdvanced(mf.getValue("Built-Date"), null);
-			// state=toIntState(mf.getValue("State"));
-			level = "os";
-			version = OSGiUtil.toVersion(mf.getValue("Bundle-Version"));
+		versionNameExplanation = mf.getValue("Minor-Name-Explanation");
+		releaseDate = DateCaster.toDateAdvanced(mf.getValue("Built-Date"), null);
+		// state=toIntState(mf.getValue("State"));
+		level = "os";
+		version = OSGiUtil.toVersion(mf.getValue("Bundle-Version"));
 
-			String str = mf.getValue("Require-Extension");
-			if (StringUtil.isEmpty(str, true)) requiredExtensions = new ArrayList<ExtensionDefintion>();
-			else requiredExtensions = RHExtension.toExtensionDefinitions(str);
+		String str = mf.getValue("Require-Extension");
+		if (StringUtil.isEmpty(str, true)) requiredExtensions = new ArrayList<ExtensionDefintion>();
+		else requiredExtensions = RHExtension.toExtensionDefinitions(str);
 
-			// ListUtil.trimItems(ListUtil.listToStringArray(str, ','));
-		}
-		catch (Throwable t) {
-			ExceptionUtil.rethrowIfNecessary(t);
-			throw new PageRuntimeException(Caster.toPageException(t));
-		}
+		// ListUtil.trimItems(ListUtil.listToStringArray(str, ','));
 
 		releaseTime = releaseDate.getTime();
 		// strState=toStringState(state);
@@ -195,7 +205,11 @@ public final class InfoImpl implements Info {
 
 	}
 
-	public static Manifest getManifest(Bundle bundle) {
+	private Manifest getManifest(JarFile jar) throws IOException {
+		return jar.getManifest();
+	}
+
+	private static Manifest getManifest(Bundle bundle) {
 		InputStream is = null;
 		Manifest manifest;
 		try {

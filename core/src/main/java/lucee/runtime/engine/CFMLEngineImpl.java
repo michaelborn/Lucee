@@ -42,6 +42,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.jar.JarFile;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
@@ -243,14 +244,14 @@ public final class CFMLEngineImpl implements CFMLEngine {
 
 				Felix felix = factory.getFelix(factory.getResourceRoot(), config);
 
-				bundleCollection = new BundleCollection(felix, felix, null);
+				bundleCollection = new BundleCollection(felix, (Bundle) getLuceeCoreJar(), null);
 				// bundleContext=bundleCollection.getBundleContext();
 			}
 			catch (Exception e) {
 				throw Caster.toPageRuntimeException(e);
 			}
 		}
-		this.info = new InfoImpl( null );
+		this.info = new InfoImpl( bundleCollection.getCoreBundle() );
 		Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader()); // MUST better location for this
 
 		UpdateInfo updateInfo;
@@ -424,6 +425,11 @@ public final class CFMLEngineImpl implements CFMLEngine {
 			LogUtil.log(cs, "startup", e);
 		}
 	}
+
+    private JarFile getLuceeCoreJar() throws IOException{
+      String jarPath = factory.getClassLoaderPath( this.getClass().getClassLoader() );
+      return new JarFile( new File( jarPath ) );
+    }
 
 	private static void checkInvalidExtensions(CFMLEngineImpl eng, ConfigPro config, Set<ExtensionDefintion> extensionsToInstall, Set<String> extensionsToRemove) {
 		RHExtension[] extensions = config.getRHExtensions();

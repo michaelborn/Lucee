@@ -535,10 +535,6 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 
 	}
 
-	public boolean update(final Password password, final Identification id) throws IOException, ServletException {
-		if (!singelton.can(CFMLEngine.CAN_UPDATE, password)) throw new IOException("Access denied to update CFMLEngine");
-		// new RunUpdate(this).start();
-		return _update(id);
 	}
 
 	public boolean restart(final Password password) throws IOException, ServletException {
@@ -573,55 +569,6 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 			log.info("loader", "Lucee restarted");
 		}
 		System.gc();
-		return true;
-	}
-
-	/**
-	 * updates the engine when an update is available
-	 *
-	 * @return has updated
-	 * @throws IOException
-	 * @throws ServletException
-	 */
-	private boolean _update(final Identification id) throws IOException, ServletException {
-
-		final File newLucee = downloadCore(id);
-		if (newLucee == null) return false;
-
-		if (singelton != null) singelton.reset();
-
-		final Version v = null;
-		try {
-
-			bundleCollection = BundleLoader.loadBundles(this, getFelixCacheDirectory(), getBundleDirectory(), newLucee, bundleCollection);
-			final CFMLEngine e = getEngine(bundleCollection);
-			if (e == null) throw new IOException("Failed to load engine");
-			version = e.getInfo().getVersion();
-			// engine = e;
-			setEngine(e);
-			// e.reset();
-			callListeners(e);
-
-			ConfigServer cs = getConfigServer(e);
-			if (cs != null) {
-				Log log = cs.getLog("deploy");
-				log.info("loader", "Lucee Version [" + v + "] installed");
-			}
-
-		}
-		catch (final Exception e) {
-			System.gc();
-			try {
-				newLucee.delete();
-			}
-			catch (final Exception ee) {
-			}
-			log(e);
-			e.printStackTrace();
-			return false;
-		}
-
-		log(Logger.LOG_DEBUG, "Version (" + v + ")installed");
 		return true;
 	}
 
@@ -1119,7 +1066,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	 * @return file of the classloader root
 	 */
 	public static File getClassLoaderRoot(final ClassLoader cl) {
-		String strFile = getClassLoaderPath( cl );
+		String strFile = factory.getClassLoaderPath( cl );
 
 		// remove lucee.jar at the end
 		if (strFile.endsWith("lucee.jar")) strFile = strFile.substring(0, strFile.length() - 9);
@@ -1136,7 +1083,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	 * @param cl Classloader to look at
 	 * @return A String that (probably) terminates with the filename of the executing jar, i.e. <code>.../WEB-INF/lib/lucee.jar</code>
 	 */
-	private static String getClassLoaderPath( ClassLoader cl ){
+	public String getClassLoaderPath( ClassLoader cl ){
 		final String path = "lucee/loader/engine/CFMLEngine.class";
 		final URL res = cl.getResource(path);
 		if (res == null) return null;
