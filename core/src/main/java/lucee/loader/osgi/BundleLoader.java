@@ -55,8 +55,7 @@ public class BundleLoader {
 			if (mani == null) throw new IOException("lucee core [" + rc + "] is invalid, there is no META-INF/MANIFEST.MF File");
 			final Attributes attrs = mani.getMainAttributes();
 
-			// default properties
-			Map<String, Object> config = loadDefaultProperties(jf);
+			Map<String, Object> felixConfig = BundleUtil.loadJarPropertiesFile(jf);
 
 			// close all bundles
 			Felix felix;
@@ -65,9 +64,9 @@ public class BundleLoader {
 				felix = old.getOSGIFramework();
 				// stops felix (wait for it)
 				BundleUtil.stop(felix, false);
-				felix = engFac.getFelix(cacheRootDir, config);
+				felix = engFac.getFelix(cacheRootDir, felixConfig);
 			}
-			else felix = engFac.getFelix(cacheRootDir, config);
+			else felix = engFac.getFelix(cacheRootDir, felixConfig);
 			final BundleContext bc = felix.getBundleContext();
 
 			// get bundle needed for that core
@@ -185,29 +184,6 @@ public class BundleLoader {
 			rtn.put(jarName, jarVersion);
 		}
 		return rtn;
-	}
-
-	/**
-	 * Load config from jar's <code>/default.properties</code> file
-	 * 
-	 * @param jf Jar file to load properties from
-	 * @throws IOException
-	 */
-	private static Map<String, Object> loadDefaultProperties(final JarFile jf) throws IOException {
-		final ZipEntry ze = jf.getEntry("default.properties");
-		if (ze == null) throw new IOException("the Lucee core has no default.properties file!");
-
-		final Properties prop = new Properties();
-		try( InputStream is = jf.getInputStream(ze) ) {
-			prop.load(is);
-			// Get data from Manifest and default.properties
-
-			// Lucee Core Version
-			// if(Util.isEmpty(rcv)) throw new IOException("lucee core ["+rc+"] is invalid, no core version is
-			// defined in the {Lucee-Core}/default.properties File");
-			
-		}
-		return BundleUtil.readPropertiesIntoConfig( prop );
 	}
 
 	public static void removeBundles(final BundleContext bc) throws BundleException {

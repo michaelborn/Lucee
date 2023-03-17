@@ -68,6 +68,10 @@ public final class InfoImpl implements Info {
 		this(null);
 	}
 
+	/**
+	 * Build an Info object using info from the Lucee core bundle.
+	 * @param bundle
+	 */
 	public InfoImpl(Bundle bundle) {
 
 		try {
@@ -99,6 +103,12 @@ public final class InfoImpl implements Info {
 		// strState=toStringState(state);
 	}
 
+	/**
+	 * Get the default.properties file from the bundle
+	 * 
+	 * @param bundle Jar file to load from
+	 * @return
+	 */
 	public static Properties getDefaultProperties(Bundle bundle) {
 		InputStream is = null;
 		Properties prop = new Properties();
