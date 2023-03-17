@@ -23,6 +23,7 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -114,7 +115,7 @@ public class CFMLEngineFactory extends CFMLEngineFactorySupport {
 	// do not remove/ranme, grapped by core directly
 	protected ServletConfig config;
 
-	protected CFMLEngineFactory(final ServletConfig config) {
+	public CFMLEngineFactory(final ServletConfig config) {
 		System.setProperty("org.apache.commons.logging.LogFactory.HashtableImpl", ConcurrentHashMapAsHashtable.class.getName());
 		File logFile = null;
 		this.config = config;
