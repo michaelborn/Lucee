@@ -93,6 +93,7 @@ import lucee.loader.engine.CFMLEngineFactory;
 import lucee.loader.engine.CFMLEngineFactorySupport;
 import lucee.loader.engine.CFMLEngineWrapper;
 import lucee.loader.osgi.BundleCollection;
+import lucee.loader.osgi.BundleUtil;
 import lucee.loader.util.Util;
 import lucee.runtime.CFMLFactory;
 import lucee.runtime.CFMLFactoryImpl;
@@ -261,7 +262,7 @@ public final class CFMLEngineImpl implements CFMLEngine {
 		catch (Exception e) {
 			throw Caster.toPageRuntimeException(e);
 		}
-		CFMLEngineFactory.registerInstance((this));// patch, not really good but it works
+		// factory.registerInstance((this));// patch, not really good but it works
 		ConfigServerImpl cs = getConfigServerImpl(null, quick = true);
 
 		boolean isRe = configDir == null ? false : ConfigFactory.isRequiredExtension(this, configDir, null);
@@ -1286,7 +1287,7 @@ public final class CFMLEngineImpl implements CFMLEngine {
 			}
 
 			// release felix itself
-			shutdownFelix();
+			factory.shutdownFelix();
 
 		}
 		catch (Exception ee) {
@@ -1295,19 +1296,6 @@ public final class CFMLEngineImpl implements CFMLEngine {
 		finally {
 			// Controller
 			controlerState.setActive(false);
-		}
-	}
-
-	private void shutdownFelix() {
-		CFMLEngineFactory f = getCFMLEngineFactory();
-		try {
-			Method m = f.getClass().getMethod("shutdownFelix", new Class[0]);
-			m.invoke(f, new Object[0]);
-		}
-		// FUTURE do not use reflection
-		// this will for sure fail if CFMLEngineFactory does not have this method
-		catch (Exception e) {
-			LogUtil.log(configServer, "controller", e);
 		}
 	}
 
