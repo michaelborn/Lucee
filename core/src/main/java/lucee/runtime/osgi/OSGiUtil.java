@@ -59,6 +59,7 @@ import lucee.commons.lang.StringUtil;
 import lucee.loader.engine.CFMLEngine;
 import lucee.loader.engine.CFMLEngineFactory;
 import lucee.loader.osgi.BundleCollection;
+import lucee.loader.osgi.BundleLoader;
 import lucee.loader.osgi.BundleUtil;
 import lucee.loader.util.Util;
 import lucee.runtime.config.Config;
@@ -513,6 +514,7 @@ public class OSGiUtil {
 		name = name.trim();
 		CFMLEngine engine = CFMLEngineFactory.getInstance();
 		CFMLEngineFactory factory = engine.getCFMLEngineFactory();
+		BundleLoader bundleLoader = factory.getBundleLoader();
 		boolean[] arrVersionMatters = versionOnlyMattersForDownload && version != null ? new boolean[] { true, false } : new boolean[] { true };
 
 		// check in loaded bundles
@@ -565,6 +567,12 @@ public class OSGiUtil {
 
 		// if not found try to download
 		if (downloadIfNecessary) {
+			BundleDownloader downloader;
+			try{
+				downloader = new BundleDownloader(ThreadLocalPageContext.getLog("application"), factory.getBundleDirectory());
+			} catch( IOException e ){
+				throw new RuntimeException(e);
+			}
 			try {
 				Bundle b;
 				String versionToDownload = null;
@@ -572,7 +580,7 @@ public class OSGiUtil {
 					versionToDownload = version.toString();
 				}
 				// MUST find out why this breaks at startup with commandbox if version exists
-				Resource r = BundleDownloader.downloadBundle(factory, name, versionToDownload, id);
+				Resource r = downloader.downloadBundle(name, versionToDownload, id);
 				b = _loadBundle(bc, r);
 
 				if (startIfNecessary) {
@@ -597,11 +605,7 @@ public class OSGiUtil {
 		catch (IOException e) {
 		}
 		String upLoc = "";
-		try {
-			upLoc = " (" + factory.getUpdateLocation() + ")";
-		}
-		catch (IOException e) {
-		}
+		upLoc = " (" + bundleLoader.getUpdateLocation() + ")";
 
 		String bundleError = "";
 		String parentBundle = parents == null ? " " : String.join(",", parents);
@@ -703,7 +707,8 @@ public class OSGiUtil {
 		// if not found try to download
 		if (downloadIfNecessary && version != null) {
 			try {
-				bf = BundleFile.getInstance(BundleDownloader.downloadBundle(factory, name, version.toString(), id));
+				BundleDownloader downloader = new BundleDownloader(ThreadLocalPageContext.getLog("application"), factory.getBundleDirectory());
+				bf = BundleFile.getInstance(downloader.downloadBundle(name, version.toString(), id));
 				if (bf.isBundle()) return bf;
 			}
 			catch (Throwable t) {
@@ -791,7 +796,8 @@ public class OSGiUtil {
 		// if not found try to download
 		if (downloadIfNecessary && version != null) {
 			try {
-				bf = BundleFile.getInstance(BundleDownloader.downloadBundle(factory, name, version.toString(), id));
+				BundleDownloader downloader = new BundleDownloader(ThreadLocalPageContext.getLog("application"), factory.getBundleDirectory());
+				bf = BundleFile.getInstance(downloader.downloadBundle(name, version.toString(), id));
 				if (bf.isBundle()) return bf;
 			}
 			catch (Throwable t) {

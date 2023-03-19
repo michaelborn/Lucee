@@ -58,9 +58,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 
 import org.apache.felix.framework.Felix;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleException;
 import org.osgi.framework.Constants;
 import org.osgi.framework.Version;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import lucee.Info;
 import lucee.cli.servlet.HTTPServletImpl;
@@ -133,6 +138,8 @@ import lucee.runtime.extension.RHExtension;
 import lucee.runtime.functions.other.CreateUniqueId;
 import lucee.runtime.gateway.GatewayEngineImpl;
 import lucee.runtime.instrumentation.InstrumentationFactory;
+import lucee.runtime.ioc.CFMLEngineModule;
+import lucee.runtime.ioc.OSGIModule;
 import lucee.runtime.jsr223.ScriptEngineFactoryImpl;
 import lucee.runtime.net.http.HTTPServletRequestWrap;
 import lucee.runtime.net.http.HttpServletRequestDummy;
@@ -219,6 +226,13 @@ public final class CFMLEngineImpl implements CFMLEngine {
 	private CFMLEngineImpl(CFMLEngineFactory factory, BundleCollection bc) {
 		this.factory = factory;
 		this.bundleCollection = bc;
+
+		Injector injector = Guice.createInjector(
+            new CFMLEngineModule(),
+			new OSGIModule()
+		);
+		// CFMLEngineFactory factory = injector.getInstance( CFMLEngineFactory.class );
+		// CFMLEngineFactory.getInstance();
 
 		this.allowRequestTimeout = Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.requesttimeout", null), true);
 		// log the startup process
@@ -427,7 +441,7 @@ public final class CFMLEngineImpl implements CFMLEngine {
 	}
 
     private JarFile getLuceeCoreJar() throws IOException{
-      String jarPath = factory.getClassLoaderPath( this.getClass().getClassLoader() );
+      String jarPath = CFMLEngineFactory.getClassLoaderPath( this.getClass().getClassLoader() );
       return new JarFile( new File( jarPath ) );
     }
 
@@ -1623,7 +1637,11 @@ public final class CFMLEngineImpl implements CFMLEngine {
 			String msg = "Lucee warmup completed. Shutting down.";
 			CONSOLE_ERR.println(msg);
 			LogUtil.log(config, Log.LEVEL_ERROR, "application", msg);
-			shutdownFelix();
+			try{
+				factory.shutdownFelix();
+			} catch( BundleException e ){
+				throw new RuntimeException(e);
+			}
 			System.exit(0);
 		}
 

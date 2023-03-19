@@ -1,4 +1,5 @@
 package lucee.runtime.osgi;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -22,9 +23,34 @@ import lucee.runtime.op.Caster;
 public class BundleDownloader {
 
     /**
+     * The update provider to download bundles from.
+     */
+	private final String UPDATE_LOCATION = "https://update.lucee.org";  // MUST from server.xml
+
+    /**
      * Max number of redirects to follow when downloading a bundle and the URL returns 301 Found
      */
 	private static final int MAX_REDIRECTS = 5;
+
+    /**
+     * Lucee logger to use, probably "application" log
+     * 
+     * @see lucee.commons.io.log.Log;
+     */
+    private Log logger;
+    private File bundleDirectory;
+    private URL updateLocation;
+
+	public BundleDownloader( Log logger, File bundleDirectory ){
+		try{
+			this.logger = logger;
+			// default update location... should get from server configuration.
+			this.updateLocation = new URL(UPDATE_LOCATION);
+			this.bundleDirectory = bundleDirectory;
+		} catch( Exception e ){
+			throw new RuntimeException(e);
+		}
+	}
 
     /**
      * Download the bundle from the bundle provider
@@ -36,19 +62,18 @@ public class BundleDownloader {
      * @throws IOException
      * @throws BundleException
      */
-    public static Resource downloadBundle(
-        CFMLEngineFactory factory,
+    public Resource downloadBundle(
         final String symbolicName,
         String symbolicVersion,
         Identification id
     ) throws IOException, BundleException {
         validateDownloadsEnabled(symbolicName, symbolicVersion);
 
-        final Resource jarDir = ResourceUtil.toResource(factory.getBundleDirectory());
-        final URL updateProvider = factory.getUpdateLocation();
+        final Resource jarDir = ResourceUtil.toResource(bundleDirectory);
+        final URL updateProvider = updateLocation;
         if (symbolicVersion == null) symbolicVersion = "latest";
         final URL updateUrl = getDownloadURL(symbolicName, symbolicVersion, id, updateProvider);
-        log(Logger.LOG_INFO, "Downloading bundle [" + symbolicName + ":" + symbolicVersion + "] from [" + updateUrl + "]");
+        logger.log(Logger.LOG_INFO, "OSGI", "Downloading bundle [" + symbolicName + ":" + symbolicVersion + "] from [" + updateUrl + "]");
 
         HttpURLConnection conn = establishConnection(updateUrl, symbolicName, symbolicVersion);
         // the update provider is not providing a download for this
@@ -70,7 +95,7 @@ public class BundleDownloader {
             if (conn.getResponseCode() != 200) {
                 final String msg = "Download bundle failed for [" + symbolicName + "] in version [" + symbolicVersion + "] from [" + updateUrl
                         + "], please download manually and copy to [" + jarDir + "]";
-                log(Logger.LOG_ERROR, msg);
+                logger.log(Logger.LOG_ERROR, "OSGI", msg);
                 conn.disconnect();
                 throw new IOException(msg);
             }
@@ -132,7 +157,7 @@ public class BundleDownloader {
      * @param bundleName Name of the bundle, for debugging purposes
      * @param bundleVersion Bundle version, for debugging purposes
      */
-    private static void validateDownloadsEnabled(final String bundleName, String bundleVersion) {
+    private void validateDownloadsEnabled(final String bundleName, String bundleVersion) {
         if (!Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.enable.bundle.download", null), true)) {
             boolean printExceptions = Caster.toBooleanValue(SystemUtil.getSystemPropOrEnvVar("lucee.cli.printExceptions", null), false);
             String bundleError = "Lucee is missing the Bundle jar [" + (bundleVersion != null ? bundleName + ":" + bundleVersion : bundleName)
@@ -157,7 +182,7 @@ public class BundleDownloader {
      * @return An HTTP connection to use for downloading the bundle.
      * @throws IOException
      */
-    private static HttpURLConnection establishConnection(URL downloadLocation, String symbolicName, String symbolicVersion) throws IOException{
+    private HttpURLConnection establishConnection(URL downloadLocation, String symbolicName, String symbolicVersion) throws IOException{
         try {
             HttpURLConnection conn = (HttpURLConnection) downloadLocation.openConnection();
             conn.setRequestMethod("GET");
@@ -166,29 +191,8 @@ public class BundleDownloader {
             return conn;
         }
         catch (IOException e) {
-            log(e);
+            logger.log(Logger.LOG_ERROR, "OSGI", "Unable to connect to bundle provider: " + downloadLocation.toString(), e);
             throw new IOException("Failed to download the bundle  [" + symbolicName + ":" + symbolicVersion + "] from [" + downloadLocation.toString() + "]", e);
         }
     }
-
-	private static void log(int level, String msg) {
-		try {
-			Log log = ThreadLocalPageContext.getLog("application");
-			if (log != null) log.log(level, "OSGi", msg);
-		}
-		catch (Exception t) {
-			LogUtil.log(level, BundleBuilderFactory.class.getName(), msg);
-		}
-	}
-
-	private static void log(Throwable t) {
-		try {
-			Log log = ThreadLocalPageContext.getLog("application");
-			if (log != null) log.log(Log.LEVEL_ERROR, "OSGi", t);
-		}
-		catch (Exception _t) {
-			/* this can fail when called from an old loader */
-			LogUtil.log(OSGiUtil.class.getName(), _t);
-		}
-	}
 }

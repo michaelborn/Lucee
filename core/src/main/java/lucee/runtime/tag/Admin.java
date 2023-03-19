@@ -875,27 +875,15 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 	}
 
 	private void doRunUpdate() throws PageException {
-		admin.runUpdate(password);
-		adminSync.broadcast(attributes, config);
+		throw new RuntimeException( "Lucee core updates are unsupported." );
 	}
 
 	private void doRemoveUpdate() throws PageException {
-		boolean onlyLatest = getBoolV("onlyLatest", false);
-
-		if (onlyLatest) admin.removeLatestUpdate(password);
-		else admin.removeUpdate(password);
-		adminSync.broadcast(attributes, config);
+		throw new RuntimeException( "Lucee core updates are unsupported." );
 	}
 
 	private void doChangeVersionTo() throws PageException {
-		try {
-			Version version = OSGiUtil.toVersion(getString("admin", "changeVersionTo", "version"));
-			admin.changeVersionTo(version, password, pageContext.getConfig().getIdentification());
-			adminSync.broadcast(attributes, config);
-		}
-		catch (BundleException e) {
-			throw Caster.toPageException(e);
-		}
+		throw new RuntimeException( "Lucee core updates are unsupported." );
 	}
 
 	private void doRestart() throws PageException {
@@ -2225,13 +2213,7 @@ public final class Admin extends TagImpl implements DynamicAttributes {
 	}
 
 	private void listPatches() throws PageException {
-		try {
-
-			pageContext.setVariable(getString("admin", action, "returnVariable"), Caster.toArray(((ConfigServerImpl) config).getInstalledPatches()));
-		}
-		catch (Exception e) {
-			throw Caster.toPageException(e);
-		}
+		throw new RuntimeException( "Lucee core updates are unsupported." );
 	}
 
 	private void getMinVersion() throws PageException {
