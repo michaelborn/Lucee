@@ -22,6 +22,13 @@
             <excludes>
                 <exclude>org.apache.felix:org.apache.felix.framework</exclude>
                 <exclude>org.osgi:osgi.core</exclude>
+                <exclude>org.apache.ant:ant</exclude>
+
+                <!-- ugh. Lots of Guice dependencies are non-OSGI, even though Guice is an OSGI bundle. Do these need to be added to the classpath?-->
+                <exclude>aopalliance:aopalliance</exclude>
+                <exclude>javax.inject:javax.inject</exclude>
+                <exclude>com.google.j2objc:j2objc-annotations</exclude>
+                <exclude>com.google.guava:listenablefuture</exclude>
             </excludes>
             <outputFileNameMapping>${artifact.groupId}.${artifact.artifactId}.${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
             <outputDirectory>/bundles</outputDirectory>

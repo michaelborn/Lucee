@@ -28,8 +28,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.CodeSource;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -38,6 +44,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.jar.Attributes;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.zip.ZipEntry;
@@ -97,7 +104,29 @@ public class BundleLoader {
 		}
 	}
 
-	public BundleCollection loadBundles(final CFMLEngineFactory engFac, final File cacheRootDir, final File jarDirectory, final File rc, final BundleCollection old)
+	/**
+	 * https://stackoverflow.com/a/71913093
+	 * @param jar
+	 */
+	public List<String> loadBundlesFromJar( JarFile jar, File toDirectory ){
+		List<String> bundles = new ArrayList<String>();
+		List<JarEntry> jarEntries = Collections.list(jar.entries());
+		for (JarEntry entry : jarEntries) {
+			if (entry.getName().startsWith("bundles/") && entry.getName().endsWith(".jar")) {
+				try (InputStream is = jar.getInputStream(entry)) {
+					Path destinationPath = Paths.get(toDirectory.getAbsolutePath(), entry.getName().replace("bundles/", ""));
+					Files.createDirectories(destinationPath.getParent());
+					Files.copy(is, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+					bundles.add(destinationPath.toString());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return bundles;
+	}
+
+	public BundleCollection loadBundles(final CFMLEngineFactory engFac, final File cacheRootDir, final File bundleDirectory, final File rc, final BundleCollection old)
 			throws IOException, BundleException {
 		// if (rc.getName().toLowerCase().toLowerCase().indexOf("ehcache") != -1)
 		// System. err.println(rc.getName());
@@ -122,71 +151,88 @@ public class BundleLoader {
 			else felix = engFac.getFelix(cacheRootDir, felixConfig);
 			final BundleContext bc = felix.getBundleContext();
 
-			// get bundle needed for that core
-			final String rb = attrs.getValue("Require-Bundle");
-			// if (Util.isEmpty(rb)) throw new IOException("lucee core [" + rc + "] is invalid, no Require-Bundle definition found in the META-INF/MANIFEST.MF File");
-
-			// get fragments needed for that core (Lucee specific Key)
-			final String rbf = attrs.getValue("Require-Bundle-Fragment");
-
-			// load Required/Available Bundles
-			final Map<String, String> requiredBundles = readRequireBundle(rb); // Require-Bundle
-			final Map<String, String> requiredBundleFragments = readRequireBundle(rbf); // Require-Bundle-Fragment
-			System.out.println("required bundles are [" + rb + "]" );
-			System.out.println("required bundle fragments are [" + rbf + "]" );
-			System.out.println("Looking for bundles in jar dir:" + jarDirectory.toString() );
-			final Map<String, File> availableBundles = loadAvailableBundles(jarDirectory);
-
 			// deploys bundled bundles to bundle directory
-			availableBundles.entrySet().stream()
-				.forEach( arg0-> {
-					String[] jarName = arg0.getKey().split("|");
-					System.out.println("Deploying bundle " + arg0.getKey() + " to bundle directory");
-					deployBundledBundle(jarDirectory, jarName[ 0 ], jarName[1]);
-				});
+			List<String> bundlePaths = loadBundlesFromJar(jf, bundleDirectory);
+			List<Bundle> bundles = new ArrayList<Bundle>();
+			bundlePaths.stream().forEach( filename -> {
+				try{
+					bundles.add( bc.installBundle( "file:" + filename ) );
+				}catch( BundleException e ){
+					throw new RuntimeException("Unable to install bundle " + filename,e);
+				}
+			});
+			bundles.stream().forEach( bundle -> {
+				try{
+					bundle.start();
+				}catch( BundleException e ){
+					throw new RuntimeException("Unable to start bundle " + bundle.getSymbolicName(),e);
+				}
+			});
+
+			// // get bundle needed for that core
+			// final String rb = attrs.getValue("Require-Bundle");
+			// // if (Util.isEmpty(rb)) throw new IOException("lucee core [" + rc + "] is invalid, no Require-Bundle definition found in the META-INF/MANIFEST.MF File");
+
+			// // get fragments needed for that core (Lucee specific Key)
+			// final String rbf = attrs.getValue("Require-Bundle-Fragment");
+
+			// // load Required/Available Bundles
+			// final Map<String, String> requiredBundles = readRequireBundle(rb); // Require-Bundle
+			// final Map<String, String> requiredBundleFragments = readRequireBundle(rbf); // Require-Bundle-Fragment
+			// System.out.println("required bundles are [" + rb + "]" );
+			// System.out.println("required bundle fragments are [" + rbf + "]" );
+			// requiredBundles.entrySet().stream()
+			// 	.forEach( requirement -> {
+			// 		String name = requirement.getKey();
+			// 		String version = requirement.getValue();
+			// 		System.out.println("Deploying bundle " + name + "." + version + " from lucee.jar to bundle directory");
+			// 		deployBundledBundle(bundleDirectory, name, version);
+			// 	});
+
+			// System.out.println("Looking for bundles in bundle directory:" + bundleDirectory.toString() );
+			// final Map<String, File> bundledJars = findJarsAtPath(bundleDirectory);
+			// System.out.println("Bundles already available in the bundle/ directory: " + bundledJars.keySet().toString());
 				
-			// deployBundledBundles(jarDirectory, availableBundles);
+			// // deployBundledBundles(jarDirectory, availableBundles);
 
-			// Add Required Bundles
-			Entry<String, String> e;
-			File f;
-			String id;
-			final List<Bundle> bundles = new ArrayList<Bundle>();
-			Iterator<Entry<String, String>> it = requiredBundles.entrySet().iterator();
-			while (it.hasNext()) {
-				e = it.next();
-				f = availableBundles.get(e.getKey() + "|" + e.getValue());
-				// StringBuilder sb=new StringBuilder();
-				if (f == null) {
-					System.out.println( "Unable to locate bundle " + e.getKey() + "." + e.getValue() + ".jar" );
-					// throw new BundleException( "Unable to locate bundle" + id );
-				}
-				// if (f == null) f = engFac.downloadBundle(e.getKey(), e.getValue(), null);
-				if ( f != null ){
-					bundles.add(BundleUtil.addBundle(engFac, bc, f, null));
-				}
-			}
+			// // Add Required Bundles
+			// Entry<String, String> e;
+			// File f;
+			// String id;
+			// final List<Bundle> bundles = new ArrayList<Bundle>();
+			// Iterator<Entry<String, String>> it = requiredBundles.entrySet().iterator();
+			// while (it.hasNext()) {
+			// 	e = it.next();
+			// 	f = bundledJars.get(e.getKey() + "|" + e.getValue());
+			// 	// StringBuilder sb=new StringBuilder();
+			// 	if (f == null) {
+			// 		System.out.println( "Unable to locate bundle " + e.getKey() + "." + e.getValue() + ".jar" );
+			// 		// throw new BundleException( "Unable to locate bundle" + id );
+			// 	}
+			// 	// if (f == null) f = engFac.downloadBundle(e.getKey(), e.getValue(), null);
+			// 	if ( f != null ){
+			// 		bundles.add(BundleUtil.addBundle(engFac, bc, f, null));
+			// 	}
+			// }
 
-			// Add Required Bundle Fragments
-			final List<Bundle> fragments = new ArrayList<Bundle>();
-			it = requiredBundleFragments.entrySet().iterator();
-			while (it.hasNext()) {
-				e = it.next();
-				id = e.getKey() + "|" + e.getValue();
-				f = availableBundles.get(id);
+			// // Add Required Bundle Fragments
+			// final List<Bundle> fragments = new ArrayList<Bundle>();
+			// it = requiredBundleFragments.entrySet().iterator();
+			// while (it.hasNext()) {
+			// 	e = it.next();
+			// 	id = e.getKey() + "|" + e.getValue();
+			// 	f = bundledJars.get(id);
 
-				// TODO: Consider getting this working...
-				// if (f == null) f = bundleDownloader.downloadBundle(e.getKey(), e.getValue(), null); // if identification is not defined, it is loaded from the CFMLEngine
-				fragments.add(BundleUtil.addBundle(engFac, bc, f, null));
-			}
+			// 	// TODO: Consider getting this working...
+			// 	// if (f == null) f = bundleDownloader.downloadBundle(e.getKey(), e.getValue(), null); // if identification is not defined, it is loaded from the CFMLEngine
+			// 	fragments.add(BundleUtil.addBundle(engFac, bc, f, null));
+			// }
 
 			// Add Lucee core Bundle
-			Bundle bundle;
-			// bundles.add(bundle = BundleUtil.addBundle(engFac, bc, rc,null));
-			bundle = BundleUtil.addBundle(engFac, bc, rc, null);
+			Bundle bundle = BundleUtil.addBundle(engFac, bc, rc, null);
 
 			// Start the bundles
-			BundleUtil.start(engFac, bundles);
+			// BundleUtil.start(engFac, bundles);
 			BundleUtil.start(engFac, bundle);
 
 			return new BundleCollection(felix, bundle, bundles);
@@ -194,31 +240,45 @@ public class BundleLoader {
 		
 	}
 
-	private Map<String, File> loadAvailableBundles(final File jarDirectory) {
-		final Map<String, File> rtn = new HashMap<String, File>();
-		final File[] jars = jarDirectory.listFiles();
-		if (jars != null) for (int i = 0; i < jars.length; i++) {
-			if (!jars[i].isFile() || !jars[i].getName().endsWith(".jar")) continue;
-			try {
-				rtn.put(loadBundleInfo(jars[i]), jars[i]);
-			}
-			catch (final IOException ioe) {
-				new Exception("Error loading bundle info for [" + jars[i].toString() + "]", ioe).printStackTrace();
-			}
-		}
+	/**
+	 * Find .jar files in the given directory - probably a bundles/ path in the lucee.jar core bundle.
+	 * 
+	 * @param bundleDirectory
+	 */
+	private Map<String, File> findJarsAtPath(File bundleDirectory) {
+		Map<String, File> rtn = new HashMap<String, File>();
+		Arrays.stream( bundleDirectory.listFiles() )
+			.filter( jar -> {
+				return jar.isFile() && jar.getName().endsWith(".jar");
+			})
+			.forEach( jar -> rtn.put(getKeyNameForJar(jar), jar));
 		return rtn;
 	}
 
-	public String loadBundleInfo(final File jar) throws IOException {
-		try( JarFile jf = new JarFile(jar) ) {
-			Attributes attrs = jf.getManifest().getMainAttributes();
-			String symbolicName = attrs.getValue("Bundle-SymbolicName");
-			String version = attrs.getValue("Bundle-Version");
-			if (Util.isEmpty(symbolicName))
-				throw new IOException("OSGi bundle [" + jar + "] is invalid, {Lucee-Core}META-INF/MANIFEST.MF does not contain a \"Bundle-SymbolicName\"");
-			if (Util.isEmpty(version)) throw new IOException("OSGi bundle [" + jar + "] is invalid, {Lucee-Core}META-INF/MANIFEST.MF does not contain a \"Bundle-Version\"");
+	/**
+	 * Read the manifest from the given jar and return a cacheable key name.
+	 * 
+	 * @param jar
+	 * @return A jar key name of <NAME>|<VERSION>. For example, <code>org.apache.commons.net|3.3.0</code>
+	 */
+	private String getKeyNameForJar(File jar) {
+		try{
+			try( JarFile jf = new JarFile(jar) ) {
+				Manifest manifest = jf.getManifest();
+				if ( manifest == null ) {
+					logger.log(Logger.LOG_WARNING,"Unable to load manifest for jar file " + jar.toPath() );
+				}
+				Attributes attrs = manifest.getMainAttributes();
+				String symbolicName = attrs.getValue("Bundle-SymbolicName");
+				String version = attrs.getValue("Bundle-Version");
+				if (Util.isEmpty(symbolicName))
+					logger.log(Logger.LOG_WARNING,"OSGi bundle [" + jar + "] is invalid, META-INF/MANIFEST.MF does not contain a \"Bundle-SymbolicName\"");
+				if (Util.isEmpty(version)) logger.log(Logger.LOG_WARNING,"OSGi bundle [" + jar + "] is invalid, META-INF/MANIFEST.MF does not contain a \"Bundle-Version\"");
 
-			return symbolicName + "|" + version;
+				return symbolicName + "|" + version;
+			}
+		} catch( IOException e){
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -227,6 +287,7 @@ public class BundleLoader {
 	 * 
 	 * @param rb
 	 * @throws IOException
+	 * @returns map of Name,Version values.
 	 */
 	private Map<String, String> readRequireBundle(final String rb) throws IOException {
 		final HashMap<String, String> rtn = new HashMap<String, String>();
@@ -268,21 +329,21 @@ public class BundleLoader {
 		InputStream is = getClass().getResourceAsStream("bundles/" + osgiFileName);
 		if (is == null) is = getClass().getResourceAsStream("/bundles/" + osgiFileName);
 
-		if (is != null) logger.log(Logger.LOG_DEBUG, "Found ]/bundles/" + osgiFileName + "] in lucee.jar");
-		else logger.log( Logger.LOG_INFO, "Could not find [/bundles/" + osgiFileName + "] in lucee.jar");
+		if (is != null) System.out.println( "Found [/bundles/" + osgiFileName + "] in lucee.jar");
+		else System.out.println("Could not find [/bundles/" + osgiFileName + "] in lucee.jar");
 
 		if (is == null) {
 			is = findPack200CompressedBundle(osgiFileName);
 
-			if (is != null) logger.log(Logger.LOG_DEBUG, "Found [/bundles/" + osgiFileName + pack20Ext + "] in lucee.jar");
-			else logger.log( Logger.LOG_INFO,  "Could not find [/bundles/" + osgiFileName + pack20Ext + "] in lucee.jar");
+			if (is != null) System.out.println( "Found [/bundles/" + osgiFileName + pack20Ext + "] in lucee.jar");
+			else System.out.println( "Could not find [/bundles/" + osgiFileName + pack20Ext + "] in lucee.jar");
 		}
 		if (is != null) {
 			File temp = null;
 			try {
 				// copy to temp file
 				temp = File.createTempFile("bundle", ".tmp");
-				logger.log(Logger.LOG_DEBUG, "Copying [lucee.jar!/bundles/" + osgiFileName + pack20Ext + "] to [" + temp + "]");
+				System.out.println( "Copying [lucee.jar!/bundles/" + osgiFileName + pack20Ext + "] to [" + temp + "]");
 				Util.copy(new BufferedInputStream(is), new FileOutputStream(temp), true, true);
 
 				if (isPack200) temp = unpackCompressedJar(temp);
@@ -290,7 +351,7 @@ public class BundleLoader {
 				// adding bundle
 				File trg = new File(bundleDirectory, osgiFileName);
 				fileMove(temp, trg);
-				logger.log(Logger.LOG_DEBUG, "Adding bundle [" + symbolicName + "] in version [" + symbolicVersion + "] to [" + trg + "]");
+				System.out.println( "Adding bundle [" + symbolicName + "] in version [" + symbolicVersion + "] to [" + trg + "]");
 				return trg;
 			}
 			catch (IOException ioe) {
@@ -331,7 +392,7 @@ public class BundleLoader {
 							temp = File.createTempFile("bundle", ".tmp");
 							Util.copy(zis, new FileOutputStream(temp), false, true);
 
-							bundleInfo = loadBundleInfo(temp);
+							bundleInfo = getKeyNameForJar(temp);
 							if (bundleInfo != null && nameAndVersion.equals(bundleInfo)) {
 								File trg = new File(bundleDirectory, name);
 								temp.renameTo(trg);
